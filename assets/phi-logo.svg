@@ -1,0 +1,18 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+	<title>phi-logo</title>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 60px;fill: #9c2edd;font-weight: 400;font-family: "DejaVuSans", "DejaVu Sans" } 
+		.s1 { fill: none;stroke: #9c2edd;stroke-miterlimit:100;stroke-width: 3 } 
+	</style>
+	<text id="Φ" style="transform: matrix(1,0,0,1,16,77)" >
+		<tspan x="0" y="0" class="t0">Φ
+</tspan>
+	</text>
+	<path id="Shape 2" class="s1" d="m16 0h49v30h-49z"/>
+	<path id="Shape 3" class="s1" d="m46 0h18v30h-18z"/>
+	<path id="Shape 1" class="s1" d="m15 0h49v80h-49z"/>
+	<path id="Shape 4" class="s1" d="m46 19h18v11h-18z"/>
+	<path id="Shape 5" class="s1" d="m46 19h7v11h-7z"/>
+	<path id="Shape 6" class="s1" d="m46 19h7v4h-7z"/>
+</svg>

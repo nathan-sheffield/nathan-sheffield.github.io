@@ -390,3 +390,11 @@
   margin-left:auto; 
   margin-right:auto
 }
+
+.site-title::before {
+	content: url("/phi-logo.svg");
+	display: inline-block;
+	position: relative;
+	width: 37px;
+	top: 5px;
+}
