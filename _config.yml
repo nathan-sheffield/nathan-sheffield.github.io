@@ -27,6 +27,7 @@ markdown: kramdown
 theme: minima
 minima:
   skin: dark
+show_excerpts: true
 plugins:
   - jekyll-feed
 
