@@ -207,6 +207,10 @@
 
 .page-heading {
   @include relative-font-size(2);
+  color: $brand-color;
+}
+.page-subtitle {
+  @include relative-font-size(0.8);
 }
 
 .post-list-heading {
