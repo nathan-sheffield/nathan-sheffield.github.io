@@ -4,16 +4,21 @@
 
 layout: home
 ---
+
 Hi, welcome to my website! Current contents are:
-___
+<hr class = "header-line">
+
 ## [About](/about)
 A quick description of who I am
-___
+<hr class = "header-line">
+
 ## [Blog](/blog)
 A potpourri of content about math and life
-___
+<hr class = "header-line">
+
 ## [Music](/music)
 A couple things I've written or recorded
-___
+<hr class = "header-line">
+
 ## [Papers/Presentations](/things)
 A bunch of vaguely academic things in pdf form
