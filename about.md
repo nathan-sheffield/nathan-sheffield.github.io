@@ -5,6 +5,7 @@ tagline: "I'm Nobody! Who are you"
 subtitle: About me
 permalink: /about/
 ---
+![image](assets/shadow.jpg){: style="float: left"}
 
 I'm Nathan, currently an undergrad studying math and CS at MIT. A non-exhaustive list of interests:
 - Computational complexity and algorithms
