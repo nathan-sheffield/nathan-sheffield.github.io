@@ -4,4 +4,16 @@
 
 layout: home
 ---
-Welcome to my website! This page is currently unnecessary because the only thing on it is a blog with a single post.
+Hi, welcome to my website! Current contents are:
+
+## [About](/about)
+A quick description of who I am
+
+## [Blog](/blog)
+A potpourri of content about math and life
+
+## [Music](/music)
+A couple things I've written or recorded
+
+## [Papers/Presentations](/things)
+A bunch of vaguely academic things in pdf form
