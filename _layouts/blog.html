@@ -3,6 +3,7 @@ layout: base
 ---
 
 <div class="blog">
+  <header class = "post-header">
   {%- if page.tagline -%}
     <h1 class="page-heading"> "{{ page.tagline }}" </h1>
   {%- endif -%}
@@ -10,7 +11,7 @@ layout: base
     <p class="page-subtitle"> {{ page.subtitle }}</p>
   {%- endif -%}
   <hr class = "header-line">
-
+  </header>
   {{ content }}
 
 
