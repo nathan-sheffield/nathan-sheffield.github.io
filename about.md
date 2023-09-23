@@ -6,7 +6,7 @@ subtitle: About me
 permalink: /about/
 ---
 
-<div class="image-left-text-right">
+<div class="image-left-text-right-responsive">
   <img src="/assets/shadow.jpg" alt="A picture of me">
   <div class="text">
     I'm Nathan, currently an undergrad studying math and CS at MIT. A non-exhaustive list of interests:
