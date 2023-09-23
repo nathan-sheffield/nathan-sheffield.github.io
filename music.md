@@ -13,7 +13,7 @@ I recorded this as an assignment for my jazz class last semester. I wanted to ma
 </audio>
 
 ## Vexations
-This was also an assignment for jazz class (I could put some more of these, but I feel like these are the two that turned out the best). I'm not playing here; we were lucky enough to have a proper jazz combo there to play our final arrangements (including my amazing professor Lihi Haruvi on alto saz!). This is a jazz arrangement of [Erik Satie's Vexations](https://en.wikipedia.org/wiki/Vexations), which is a project I've wanted to do for a while. Trying to fit vaguely tonal-sounding chords to this was a bit of a nightmare (as I'd expected), but I think the result ended up sounding decent.
+This was also an assignment for jazz class (I could put some more of these, but I feel like these are the two that turned out the best). I'm not playing here; we were lucky enough to have a proper jazz combo there to play our final arrangements (including my amazing professor Lihi Haruvi on alto sax!). This is a jazz arrangement of [Erik Satie's Vexations](https://en.wikipedia.org/wiki/Vexations), which is a project I've wanted to do for a while. Trying to fit vaguely tonal-sounding chords to this was a bit of a nightmare (as I'd expected), but I think the result ended up sounding decent.
 <audio controls class="audio-embed">
   <source src="/assets/vexations.mp3" type="audio/mpeg">
   Your browser does not support the audio element. How vexing!
