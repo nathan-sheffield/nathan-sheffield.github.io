@@ -289,6 +289,10 @@
   }
 }
 
+hr {
+  margin: 0.5 * $spacing-unit;
+  border-top: 1px solid $border-color-01;
+}
 
 .social-media-list {
   display: table;
