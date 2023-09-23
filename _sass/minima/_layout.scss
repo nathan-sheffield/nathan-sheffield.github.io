@@ -352,6 +352,7 @@
   }
 }
 
+/*
 .image-left {
   display: block;
   margin-left: auto;
@@ -361,4 +362,19 @@
     float: left;
     margin-left: 0;
   }
+}
+*/
+.image-left {
+  display: flex;
+  align-items: center; /* Vertically align items in the container */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.image-left img {
+  flex: 0 0 auto; /* Prevent the image from growing or shrinking */
+  margin-right: 10px; /* Adjust spacing between image and text */
+}
+
+.image-left p {
+  flex: 1 1 auto; /* Allow the text to grow and shrink to fit the available space */
 }
