@@ -5,15 +5,15 @@
 layout: home
 ---
 Hi, welcome to my website! Current contents are:
----
+___
 ## [About](/about)
 A quick description of who I am
----
+___
 ## [Blog](/blog)
 A potpourri of content about math and life
----
+___
 ## [Music](/music)
 A couple things I've written or recorded
----
+___
 ## [Papers/Presentations](/things)
 A bunch of vaguely academic things in pdf form
