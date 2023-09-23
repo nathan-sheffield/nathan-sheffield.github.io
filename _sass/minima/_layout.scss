@@ -243,7 +243,8 @@
  */
 .post-header {
   margin-bottom: $spacing-unit * 0.5;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .post-title,
