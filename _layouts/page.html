@@ -4,7 +4,12 @@ layout: base
 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- if page.tagline -%}
+    <h1 class="page-heading"> {{ page.tagline }} </h1>
+  {%- endif -%}
+  {%- if page.subtitle -%}
+    <h4 class="page-heading"> {{ page.subtitle }}</h4>
+  {%- endif -%}
   </header>
 
   <div class="post-content">

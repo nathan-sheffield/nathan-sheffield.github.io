@@ -3,8 +3,11 @@ layout: base
 ---
 
 <div class="blog">
-  {%- if page.title -%}
-    <h1 class="page-heading">Words, words, words</h1>
+  {%- if page.tagline -%}
+    <h1 class="page-heading"> {{ page.tagline }} </h1>
+  {%- endif -%}
+  {%- if page.subtitle -%}
+    <h4 class="page-heading"> {{ page.subtitle }}</h4>
   {%- endif -%}
 
   {{ content }}

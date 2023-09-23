@@ -1,6 +1,8 @@
 ---
 layout: page
 title: About
+tagline: "I'm Nobody! Who are you?"
+subtitle: About me
 permalink: /about/
 ---
 
