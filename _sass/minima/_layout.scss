@@ -351,3 +351,19 @@
     width: calc(85% - (#{$spacing-unit} / 2));
   }
 }
+
+.image-left-text-right {
+  display: flex;
+  flex-direction: row; /* Horizontal alignment */
+  align-items: flex-start; /* Vertical alignment for the image */
+}
+
+.image-left-text-right img {
+  max-width: 30%; /* Adjust the max-width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Space between image and text */
+}
+
+.image-left-text-right .text {
+  flex-grow: 1; /* Allow text to fill remaining width */
+}
