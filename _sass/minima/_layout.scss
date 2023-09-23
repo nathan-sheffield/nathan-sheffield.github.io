@@ -243,8 +243,7 @@
  */
 .post-header {
   margin-bottom: $spacing-unit * 0.5;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .post-title,
@@ -292,7 +291,9 @@
 }
 
 .header-line {
-  margin: 0.5 * $spacing-unit;
+  margin-top: 0.5 * $spacing-unit;
+  margin-bottom: 0.5 * $spacing-unit;
+  margin: auto;
   width: 80%;
   border-top: 1px solid $border-color-02;
 }
