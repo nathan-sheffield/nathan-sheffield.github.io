@@ -34,7 +34,7 @@ This is another class project that I was lucky enough to have sight-read by some
 </audio>
 
 ## Wollaston
-I took a class called "Electronic Music Composition" -- here's an example of the sort of thing we did. The degree to which this sort of thing counts as music is perhaps open to debate, but I definitely learned some useful DAW tricks as the class progressed.
+I took a class called "Electronic Music Composition" -- here's an example of the sort of thing we did. The degree to which this counts as music is perhaps open to debate, but I definitely learned some useful DAW tricks as the class progressed.
 <audio controls class="audio-embed">
   <source src="/assets/wollaston.wav" type="audio/mpeg">
   Your browser does not support the audio element. This content is only supported in Wollaston.
