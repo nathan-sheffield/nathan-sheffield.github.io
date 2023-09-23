@@ -43,5 +43,6 @@ I took a class called "Electronic Music Composition" -- here's an example of the
 ## Gåte for Døden
 This is probably my favourite on the list at the moment. I made this in high school as part of an elaborate prank on a friend of mine. It's a bit of a long story, but we were learning some Norwegian together, so I made a website for a fake Norwegian indie band and then hid a string of puzzles in the song that eventually led to a rickroll. The puzzle chain isn't followable anymore, but I still think the song is fun (if you can excuse my terrible Norwegian pronunciation). 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2bM_pE0vGnM?si=xabL4OibKMH30Hcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="audio-embed"></iframe>
-
+<center>
+<iframe width="60%" height="30%" src="https://www.youtube.com/embed/2bM_pE0vGnM?si=xabL4OibKMH30Hcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="audio-embed"></iframe>
+</center>
