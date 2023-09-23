@@ -6,7 +6,7 @@ subtitle: About me
 permalink: /about/
 ---
 <div class="image-left">
-    <img src="assets/nathan-sketch.jpg" alt="picture of me">
+    <img src="/assets/nathan-sketch.jpg" alt="picture of me">
     <p> I'm Nathan, currently an undergrad studying math and CS at MIT. A non-exhaustive list of interests:
 - Computational complexity and algorithms
 - Logic and formal methods

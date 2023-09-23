@@ -378,3 +378,9 @@
 .image-left p {
   flex: 1 1 auto; /* Allow the text to grow and shrink to fit the available space */
 }
+
+.audio-embed {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
