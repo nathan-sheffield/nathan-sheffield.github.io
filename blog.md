@@ -1,5 +1,7 @@
 ---
 layout: blog
-title: Words, words, words
+title: Blog
 permalink: /blog/
 ---
+Polonius: What do you read, my lord?
+Hamlet: Words, words, words.
