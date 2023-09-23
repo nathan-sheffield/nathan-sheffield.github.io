@@ -336,6 +336,6 @@
  */
 @media screen and (min-width: $on-large) {
   .one-half {
-    width: calc(60% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
   }
 }
