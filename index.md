@@ -4,3 +4,5 @@
 
 layout: home
 ---
+Welcome to my website :0 
+I'm Nathan. Here's some stuff.
