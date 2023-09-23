@@ -4,5 +4,4 @@
 
 layout: home
 ---
-Welcome to my website :0 
-I'm Nathan. Here's some stuff.
+Welcome to my website! This page is currently unnecessary because the only thing on it is a blog with a single post.
