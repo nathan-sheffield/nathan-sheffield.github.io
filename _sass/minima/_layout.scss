@@ -351,36 +351,3 @@
     width: calc(85% - (#{$spacing-unit} / 2));
   }
 }
-
-.image-left-text-right-responsive {
-  display: flex;
-  flex-wrap: wrap; /* Allow text to wrap below image */
-  align-items: flex-start; /* Vertical alignment for the image */
-  max-width: 100%; /* Ensure it doesn't exceed the container width */
-}
-
-.image-left-text-right-responsive img {
-  width: 30%; /* Initial image width (adjust as needed) */
-  max-width: 100%; /* Ensure it doesn't exceed container width */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 20px; /* Space between image and text */
-}
-
-.image-left-text-right-responsive .text {
-  flex-grow: 1; /* Allow text to fill remaining width */
-}
-
-/* Responsive image width based on viewport width */
-@media screen and (max-width: 768px) {
-  .image-left-text-right-responsive img {
-    width: 100%; /* Full-width image for small screens */
-    margin-right: 0; /* No margin on small screens */
-  }
-}
-
-/* Minimum and maximum image width */
-@media screen and (min-width: 320px) and (max-width: 1200px) {
-  .image-left-text-right-responsive img {
-    width: auto; /* Reset to automatic width within the specified range */
-  }
-}
