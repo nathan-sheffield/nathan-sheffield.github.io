@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The best algorithm ever"
-date:   2023-09-25 22:08:00 -0400
+date:   2023-09-25 22:08:00 -0000
 categories: jekyll update
 excerpt: "An asymptotically optimal algorithm for (pretty much) every computational problem."
 ---
@@ -30,7 +30,7 @@ I'll walk through this idea carefully in case you haven't seen this kind of thin
 
 If we start iterating through all strings in alphabetical order and trying to run a python interpreter on them, some of them will return an output -- we can then check the output, and if it's a solution to the factoring problem we're done! The issue with this approach is that some short program might run for a really long time -- perhaps even just loop forever -- and so if we just tried simulating programs in order we might never simulate the "right" algorithm. The workaround is: run all possible programs in _parallel_, allocating exponentially less time to alphabetically later programs. That is:
 
-> Levin's Universal Search: On the $i$th "stage", simulate up to $2^i$ steps of the first (alphabetically) program, $2^{i^1}$ steps of the second program, on to $2^0 = 1$ step of the $i$th program. Whenever one of these programs finishes, check it's output to see if it's the prime factorization of $x$; stop when you've found it.
+> Levin's Universal Search: On the $i$th "stage", simulate up to $2^i$ steps of the first (alphabetically) program, $2^{i - 1}$ steps of the second program, on to $2^0 = 1$ step of the $i$th program. Whenever one of these programs finishes, check it's output to see if it's the prime factorization of $x$; stop when you've found it.
 
 <center>
 <figure>
@@ -45,7 +45,8 @@ This algorithm might seem ridiculous (and I suppose it is), but it's also kinda 
 <center>
 <figure>
     <img src="/assets/levin-2.png"
-         alt="Graph of how much total work we do">
+         alt="Graph of how much total work we do"
+         width ="60%">
     <figcaption>By the time we've simulated the optimal algorithm, the amount of wasted space will correspond to a multiplicative factor of roughly $2^{a}$. </figcaption>
 </figure>
 </center>
@@ -70,14 +71,15 @@ If you step back a bit and think about what we've actually done, it's maybe not 
 
 > For every $\epsilon > 0$, there exists an algorithm for matrix multiplication running in time $\mathcal{O}(n^{2 + \epsilon})$.
 
-Looking at this statement, you might be unsure what exactly it entails. Is this the same as saying that there exists an algorithm running in time $\mathcal{O}^(n^{2 + o(1)})$? Or is it possible that there could exist a sequence of algorithms getting progressively closer to that bound, but that every individual matrix multiplication algorithm has runtime $\Omega(n^{2 + c})$? It turns out that, as long as we only care about algorithms for which there exist _proofs of correctness and time-constructible runtime bounds_ (which seems reasonable -- breaking this condition is very bizarre), the latter possibility can't happen, since we know Hutter search asymptotically matches any provably good algorithm[^5]. Even though we'd never run Hutter search on an actual computer, knowing that it exists can let us rule out this kind of thing.
+Looking at this statement, you might be unsure what exactly it entails. Is this the same as saying that there exists a single algorithm running in time $\mathcal{O}(n^{2 + o(1)})$? Or is it possible that there could exist a sequence of algorithms getting progressively closer to that bound, but that every individual matrix multiplication algorithm has runtime $\Omega(n^{2 + c})$? It turns out that, as long as we only care about algorithms for which there exist _proofs of correctness and time-constructible runtime bounds_ (which seems reasonable -- breaking this condition is very bizarre), the latter possibility can't happen, since we know Hutter search asymptotically matches any provably good algorithm[^5]. Even though we'd never run Hutter search on an actual computer, knowing that it exists can let us rule out this kind of thing.
 
 That's all for this post -- thanks for reading the first installment of this blog! In the next post, I plan to address this lingering condition about time-constructibility and provable correctness -- is it possible that the above statement is no longer true without those qualifiers? Tune in next time to find out!
 
+<hr class = "header-line">
 
 [^1]: I haven't been able to find this paper except in Russian, but it's really short so if you want you can be like me and google translate it one paragraph at a time :/
 
-[^2]: More formally, when the problem consists of finding an inverse of an efficiently computable function $f$ given $f(x), since then we can use our algorithm for $f$ to know when we've got the right answer. You might hear "fast way of checking solutions" and think NP, but it's not immediately clear how this kind of algorithm could figure out that, for instance, a SAT formula was *un*satisfiable.
+[^2]: More formally, when the problem consists of finding an inverse of an efficiently computable function $f$ given $f(x)$, since then we can use our algorithm for $f$ to know when we've got the right answer. You might hear "fast way of checking solutions" and think NP, but it's not immediately clear how this kind of algorithm could figure out that, for instance, a SAT formula was *un*satisfiable.
 
 [^3]: Which is not only well-written, but also available in English!
 
