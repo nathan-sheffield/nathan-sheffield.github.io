@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The best algorithm ever"
-date:   2023-09-21 23:00:00 -0400
+date:   2023-09-25 22:08:00 -0400
 categories: jekyll update
 excerpt: "An asymptotically optimal algorithm for (pretty much) every computational problem."
 ---
