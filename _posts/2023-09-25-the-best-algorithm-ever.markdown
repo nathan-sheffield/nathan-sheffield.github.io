@@ -63,7 +63,7 @@ This is the algorithm that Levin described. At this point you will probably prot
 >   * and a formal proof that the algorithm always solves the desired problem within the specified time bound.
 >   If so, add the string to a list $L$.
 > 2. Iterate through all the elements of $L$ and compute the time-bound functions to get numbers for which one we expect to finish first. This step does the same exponential weighting trick as Levin's algorithm, spending exponentially more work on computing the finishing time for the earlier elements of $L$ than the later ones
-> 3. Among all the elements of $L$ whose time bounds we have computed numerically, run whichever one we expect to be able tessentially, o finish first.
+> 3. Among all the elements of $L$ whose time bounds we have computed numerically, run whichever one we expect to be able to finish first.
 
 Assuming that the best time-bound is time-constructible[^4], this procedure achieves an asymptotic runtime as good as every _provably_ fast and correct algorithm for the problem. In fact, Hutter showed that if you assume some stronger conditions than time-constructibility, and you spend almost all of your computation power on the 3rd of these 3 processes, his algorithm runs in time roughly $4t(n) + c$, where $t(n)$ is the infimum over the time bounds of all provably good algorithms, and $c$ is some constant. Whereas before we had a massive _multiplicative_ constant, now we just have a massive _additive_ constant -- once we've done the constant work of finding the best algorithm and its proof of correctness, we can just run it.
 
