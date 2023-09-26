@@ -5,7 +5,7 @@ date:   2023-09-21 14:08:17 -0400
 categories: jekyll update
 excerpt: "Initial commit."
 ---
-Hello! This is the first post in a blog that will hopefully eventually have more posts. I expect to put things here pretty sporadically; there should be some mixture of 
+Hello! This is the zeroeth post in a blog that will hopefully eventually have more posts. I expect to put things here pretty sporadically; there should be some mixture of 
 - math things I've been thinking about / working on
 - stories of events in my life
 - general "philosophy" type stuff
