@@ -24,10 +24,10 @@ This is rather unnerving -- we can't talk about the complexity of such a problem
 
 Once again, consider looking through programs in alphabetical order. The idea is to make it so that alphabetically later programs can always solve the problem asymptotically faster than alphabetically earlier ones. We'll construct a problem where the $i$th program either gets it wrong, or needs time $2^{2^{n-i}}$ on inputs of length $n$. This problem will be a unary decision problem, meaning that the correct output is either 0 or 1 as a function of the input length. The definition of the problem on an input of length $n$ is given by the following algorithm[^2]:
 
-        thwarted programs $\leftarrow$ empty list
-        for stage $s$, ranging from $1$ through $n$:
-            for $i$ ranging from $1$ to $s$:
-                simulate the $i$th alphabetical program for $2^{2^{s-i}}$ steps on a length $s$ input
+        thwarted programs <- empty list
+        for stage s, ranging from 1 through n:
+            for i ranging from 1 to s:
+                simulate the ith alphabetical program for 2^2^(s-i)$ steps on a length s input
             if at least one of these programs halted in the given time, and isn't already in the thwarted list:
                 add the first (alphabetically) such program to the thwarted list
                 if s = n, output the opposite of what that program said
