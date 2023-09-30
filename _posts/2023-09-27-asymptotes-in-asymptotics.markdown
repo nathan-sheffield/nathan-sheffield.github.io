@@ -27,7 +27,7 @@ Once again, consider looking through programs in alphabetical order. The idea is
         thwarted programs <- empty list
         for stage s, ranging from 1 through n:
             for i ranging from 1 to s:
-                simulate the ith alphabetical program for 2^2^(s-i)$ steps on a length s input
+                simulate the ith alphabetical program for 2^2^(s-i) steps on a length s input
             if at least one of these programs halted in the given time, and isn't already in the thwarted list:
                 add the first (alphabetically) such program to the thwarted list
                 if s = n, output the opposite of what that program said
