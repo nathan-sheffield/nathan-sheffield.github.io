@@ -38,7 +38,7 @@ Let's break down what this is doing. Our goal is for this algorithm to "thwart" 
 <figure>
     <img src="/assets/blum.png"
          alt="Graph of which things we thwart"
-         width ="60%">
+         width ="30%">
     <figcaption> On a given length, we look at all the programs that finished in their allotted time, and thwart the first one we have yet to thwart. </figcaption>
 </figure>
 </center>
@@ -52,7 +52,7 @@ If we know those values, we never actually need to run the simulations for the f
 <figure>
     <img src="/assets/blum-2.png"
          alt="We don't need to worry about the first ones"
-         width ="60%">
+         width ="30%">
     <figcaption> We can use a constant-size lookup table to determine on what input lengths we thwart the first $k$ programs, and so don't need to run the simulations. </figcaption>
 </figure>
 </center>
@@ -67,7 +67,7 @@ Circling back to the question of matrix multiplication, my question is: could th
 
 The reason I know this is because, given two matrices and their supposed product, we can verify this fact in $n^2$ time using Frievald's Trick, a classic randomized algorithm:
 
-> Frievald's Trick: Given three matrices, $A$ $B$ and $C$, we can verify whether $A \cdot B = C$ with bounded error probability by choosing a constant number of random bitvectors and comparing their product with $C$ versus their product with $A \cdot B$. Both of these products can be computed in $n^2$ time (to compute $A \cdot B v$, compute $A(Bv)$)[^3].
+> Frievald's Trick: Given three matrices, $A$ $B$ and $C$, we can verify whether $A \cdot B = C$ with bounded error probability by choosing a constant number of random bitvectors and comparing their product with $C$ versus their product with $A \cdot B$. Both of these products can be computed in $n^2$ time (to compute $A \cdot B v$, compute $A(Bv)$)[^4].
 
 In order to multiply two matrices, we can now use [Levin's algorithm](https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html "link to my last post"), using Frievald's trick as our verification procedure. We can repeat the simulations twice as many times for successive programs, so as to ensure that the error probability of the whole algorithm stays bounded. You can verify that, as long as we make no errors, Levin's algorithm will still run in the asymptotically optimal runtime. 
 
