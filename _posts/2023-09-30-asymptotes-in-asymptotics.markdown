@@ -46,6 +46,7 @@ Let's break down what this is doing. Our goal is for this algorithm to "thwart" 
 But now, I claim that for any $k$, there exists an algorithm for this problem running in time $2^{2^{n-k}}$. If we just wanted _some_ algorithm solving the problem, we could use the one we used to define the problem -- looking at the simulations this algorithm does, we find it runs in time $\mathcal{O}(2^{2^n})$. This time bound is dominated by the cost of simulating the shortest program -- so, if we wanted a faster algorithm, the idea is to **hard-code the simulation results for the shortest programs**. That is, we run that algorithm from before, but it has a table containing, for all of the first $k$ programs,
 - Whether we ever choose that program as the one to thwart
 - If so, on what input we do so and what value we choose
+
 If we know those values, we never actually need to run the simulations for the first $k$ programs, since the simulation result is only relevant on the one length when we choose that program as the one to thwart. So, hardcording this constant table of values gives an algorithm running in time $\mathcal{O}(2^{2^{n - k}})$. 
 
 <center>
