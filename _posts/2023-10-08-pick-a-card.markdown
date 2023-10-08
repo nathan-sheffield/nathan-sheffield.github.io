@@ -57,7 +57,7 @@ Consider the probability that all of the following events happen:
 
 * The number on the first card is smaller than $\sqrt{n}$
 * The second through $\sqrt{n}$th card all have values at least $3\sqrt{n}$
-* Among the $\sqrt{n}$th through $2\sqrt{n}th cards, all have value at most $\sqrt{n}$
+* Among the $\sqrt{n}$th through $2\sqrt{n}$th cards, all have value at most $\sqrt{n}$
 
 This sequence of events means that, no matter what player 1 does, player 2 will then be in a position to do a strategy stealing. By a similar argument to above, these events occur with probability roughly $\left( \frac{1}{\sqrt{n}} \right)\left( e^{-1} \right) \left( e^{-1/3} \right) = \Omega\left( \sqrt{\frac{1}{n}} \right)$.
 
