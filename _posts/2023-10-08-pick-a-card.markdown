@@ -27,7 +27,8 @@ Let me show you a situation I claim is really really good for player 1:
 <center>
 <figure>
     <img src="/assets/pick-a-card-1.png"
-         alt="Example game">
+         alt="Example game"
+         width="70%">
     <figcaption> Grey cards indicate ones player 1 can take on her first turn. </figcaption>
 </figure>
 </center>
@@ -37,7 +38,8 @@ In this picture, she can choose to remove up to any of the grey cards. Suppose s
 <center>
 <figure>
     <img src="/assets/pick-a-card-2.png"
-         alt="Example game">
+         alt="Example game"
+         width="70%">
     <figcaption> Either of the two things player 2 could do in this configuration, player 1 could also have done on her first move. </figcaption>
 </figure>
 </center>
@@ -72,7 +74,8 @@ This was a quick example of a case where a strategy stealing argument one step a
 <center>
 <figure>
     <img src="/assets/pick-a-card-3.png"
-         alt="Example game">
+         alt="Example game"
+         witdh ="90%">
     <figcaption> Grey cards indicate ones that are available to move to on this turn; solid (think: face-down) cards indicate the already-visited ones. </figcaption>
 </figure>
 </center>
