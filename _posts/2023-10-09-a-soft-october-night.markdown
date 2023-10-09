@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A Soft October Night"
-date:   2023-10-09 13:40:17 -0000
+date:   2023-10-09 00:30:17 -0000
 categories: jekyll update
 excerpt: "A couple of my favourite poems about quiet beauty"
 ---
