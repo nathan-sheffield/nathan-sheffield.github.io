@@ -11,7 +11,7 @@ Hello! This is the zeroeth post in a blog that will hopefully eventually have mo
 - general "philosophy" type stuff
 - miscellaneous content (e.g. poetry, tierlists, shaggy dog stories, etc).
 
-The exact ratios of these topics remains to be determined. Also fair warning, posts will probably vary a good deal in terms of quality of writing / comprehensibility / degree of technical content. 
+The exact ratios of these topics remains to be determined. Also fair warning, posts will probably vary a good deal in terms of quality of writing / comprehensibility. 
 
 That's all I want to say for now. See you next time, world[^1]!
 

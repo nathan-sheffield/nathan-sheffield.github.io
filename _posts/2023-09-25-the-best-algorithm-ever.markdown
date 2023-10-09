@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The best algorithm ever"
+title:  "The Best Algorithm Ever"
 date:   2023-09-25 22:08:00 -0000
 categories: jekyll update
 excerpt: "An asymptotically optimal algorithm for (pretty much) every computational problem."

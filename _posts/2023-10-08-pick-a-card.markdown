@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Pick a card, any card"
+title:  "Pick A Card, Any Card"
 date:   2023-10-08 13:40:17 -0000
 categories: jekyll update
 excerpt: "A simple strategy stealing argument for a nim-like card game"
