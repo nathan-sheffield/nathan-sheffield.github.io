@@ -8,14 +8,14 @@ excerpt: "A couple of my favourite poems about quiet beauty"
 
 When I go walk in the evening this time of year, I often find myself thinking about this stanza from "[The Love Song of J. Alfred Prufrock](https://www.poetryfoundation.org/poetrymagazine/poems/44212/the-love-song-of-j-alfred-prufrock "link to the poem")":
 
-> The yellow fog that rubs its back upon the window-panes,
-> The yellow smoke that rubs its muzzle on the window-panes,
-> Licked its tongue into the corners of the evening,
-> Lingered upon the pools that stand in drains,
-> Let fall upon its back the soot that falls from chimneys,
-> Slipped by the terrace, made a sudden leap,
-> And seeing that it was a soft October night,
-> Curled once about the house, and fell asleep.
+> The yellow fog that rubs its back upon the window-panes, <br /> 
+> The yellow smoke that rubs its muzzle on the window-panes, <br /> 
+> Licked its tongue into the corners of the evening, <br /> 
+> Lingered upon the pools that stand in drains, <br /> 
+> Let fall upon its back the soot that falls from chimneys, <br /> 
+> Slipped by the terrace, made a sudden leap, <br /> 
+> And seeing that it was a soft October night, <br /> 
+> Curled once about the house, and fell asleep. <br /> 
 
 Prufrock has long been one of my favourite poems. I used to have it memorized, although I don't remember it all anymore. There's something quietly beautiful about it, a mixture of muted, self-conscious regret and wistfulness. It feels very much like getting lost in someone else's train of thought -- something about the way it repeats and interrupts itself makes it read very convincingly like an internal monologue. There's a certain tenderness about getting to see into somebody's mind like this -- I would describe a first-order approximation of the emotion as "a reminder of the meaningfulness of inconsequential things". I thought I'd use this post to share a couple of other poems that I think capture this kind of feeling in a similar way.
 
@@ -27,8 +27,8 @@ There's a number of Elizabeth Bishop poems I could have put in this category, bu
 
 This poem is printed out on my wall. It's a sequence of musings about karst topography, which I have spent a while sitting here trying to sumarize but really I think you should just read and think your own thoughts about. I really love the poem as a whole -- I couldn't articulate exactly the point it's making, but I know it makes it well. Separately, these lines (of the "oceanic whisper") are pretty punchy in their own right:
 
-> I am the solitude that asks and promises nothing;
-> That is how I shall set you free. There is no love;
+> I am the solitude that asks and promises nothing; <br /> 
+> That is how I shall set you free. There is no love; <br /> 
 > There are only the various envies, all of them sad.
 
 Also, how can you not love a poem based around extended geology metaphor?
@@ -45,10 +45,10 @@ The mix of cynicism and sincerity here makes this poem feel very honest. It can'
 
 Ok, this one maybe doesn't typecheck to exactly the same sort of object as the previous ones, but it definitely has the same vibes. I'm a fan of a lot of Jonathan Coulton's music, but this song in particular is unreasonably effective against me[^1]. Its lyrics are about aging, routine, and nostalgia, and at this point it's been one of my favourite songs for long enough that it's intrinsically tied to my past self enough to evoke all these things in its own right.
 
->So much to say, I forget to start
->There goes a day, fading as it passes
->Forget the grey, let it fall apart
->It's okay
+>So much to say, I forget to start <br /> 
+>There goes a day, fading as it passes <br /> 
+>Forget the grey, let it fall apart <br /> 
+>It's okay <br /> 
 >I like you in glasses
 
 <hr class = "header-line">
