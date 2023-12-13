@@ -82,6 +82,6 @@ This was a quick example of a case where a strategy stealing argument one step a
 
 <hr class = "header-line">
 
-[^1]: This $\sqrt{\log n}$ factor is a bit annoying -- I suspect you could make it go away if you were a little more careful with things, but I'm just leaving this a rought sketch.
+[^1]: This $\sqrt{\log n}$ factor is a bit annoying -- I suspect you could make it go away if you were a little more careful with things, but I'm just leaving this a rough sketch.
 
 [^2]: Or iid from some other distribution, say. The reason this approach was so strong here was because the card values were allowed to be really large, so it was likely to be able to pull these shenannigans -- when cards have smaller numbers I expect it'll be a much trickier problem.

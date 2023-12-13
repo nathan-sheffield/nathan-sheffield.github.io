@@ -3,7 +3,7 @@ layout: post
 title:  "The Best Algorithm Ever"
 date:   2023-09-25 22:08:00 -0000
 categories: jekyll update
-excerpt: "An asymptotically optimal algorithm for (pretty much) every computational problem."
+excerpt: "An asymptotically optimal algorithm for (pretty much) every computational problem"
 ---
 
 Theoretical computer scientists spend a lot of time thinking about the _asymptotically optimal_ algorithms for various problems. For instance, as of writing this post the asymptotically [best known algorithm](https://arxiv.org/abs/2307.07970 "The paper achieving this runtime") for multiplying two $n \times n$ matrices over a field runs in time $\mathcal{O}(n^{2.371552})$. What this means is that, for some constant $c$, the algorithm always takes fewer than $cn^{2.371552}$ steps to compute the answer on $n \times n$ matrices. The reason we're not worried about the specific value of $c$ is because, as $n$ gets really big, it stops being the important thing -- if we have one algorithm running in time $5 n^2$ and another algorithm running in time $5000000 n$, then as soon as input size gets bigger than $1000000$ the second algorithm becomes better. Of course, when it comes to solving actual problems with actual computers, it may be that you never need to deal with inputs of size more than $1000000$, and so the first algorithm is always better in practice. 
@@ -47,7 +47,7 @@ This algorithm might seem ridiculous (and I suppose it is), but it's also kinda 
     <img src="/assets/levin-2.png"
          alt="Graph of how much total work we do"
          width ="60%">
-    <figcaption>By the time we've simulated the optimal algorithm, the amount of wasted space will correspond to a multiplicative factor of roughly $2^{a}$. </figcaption>
+    <figcaption>By the time we've simulated the optimal algorithm, the amount of wasted time will correspond to a multiplicative factor of roughly $2^{a}$. </figcaption>
 </figure>
 </center>
 

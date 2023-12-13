@@ -13,6 +13,7 @@ I'm Nathan, currently an undergrad studying math and CS at MIT. A non-exhaustive
 - Extremal graph theory
 - Absurdist literature (and I suppose plenty of other genres too -- I did say this list was non-exhaustive)
 - Puzzles and puzzlehunts
+- Quizbowl / trivia
 - Bad puns
 - Rock climbing
 
