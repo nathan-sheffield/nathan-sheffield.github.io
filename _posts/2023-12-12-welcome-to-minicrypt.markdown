@@ -89,7 +89,7 @@ It turns out this definition is equivalently strong to full indistinguishibility
     <img src="/assets/prgsfromowfs/nextbit.png"
          alt="Next-bit unpredictability hybirds"
          width ="60%">
-    <figcaption> Some pair of adjacent hybrids must be close -- this lets you predict the corresponding bit. </figcaption>
+    <figcaption> Some pair of adjacent hybrids must be far -- this lets you predict the corresponding bit. </figcaption>
 </figure>
 </center>
 
@@ -113,7 +113,7 @@ In our construction of a PRG, we'll first construct a distribution with many sur
 
 The definition of a OWF tells us that, given $f(x)$, it's hard for any algorithm to find something in the preimage. Is it hard to find, say, just the first bit of $x$? Well no, not necessarily -- for example, imagine $f(x)$ really just keeps the first bit of $x$ as is, and just applies some crazy function to all the other bits. This might well be one-way because the rest of the bits are hard to figure out, but it's pretty easy to figure out the first bit of the input.
 
-Well, is there _any_ 1-bit function $g(x)$ that's hard to compute given $f(x)$? Of course, if $f$ is losing information, it might be kinda trivially hard to compute $g(x)$ -- supposing, say, that $f$ doesn't even look at the first bit of the input, there's definitely no way to compute the first bit of $x$ from $f(x)$. But if we can find a $g$ that's hard to predict for _computational_ reasons, we'd be in business -- seems like we're generating some new unpredictablity that wasn't there before. Such a function is called a "**hardcore predicate**, and the Goldreich-Levin theorem says that we can modify any one-way function to get one with hardcore predicates.
+Well, is there _any_ 1-bit function $g(x)$ that's hard to compute given $f(x)$? Of course, if $f$ is losing information, it might be kinda trivially hard to compute $g(x)$ -- supposing, say, that $f$ doesn't even look at the first bit of the input, there's definitely no way to compute the first bit of $x$ from $f(x)$. But if we can find a $g$ that's hard to predict for _computational_ reasons, we'd be in business -- seems like we're generating some new unpredictablity that wasn't there before. Such a function is called a "**hardcore predicate**", and the Goldreich-Levin theorem says that we can modify any one-way function to get one with hardcore predicates.
 
 <center>
 <figure>
