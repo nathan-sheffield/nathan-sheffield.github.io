@@ -9,7 +9,7 @@ permalink: /music/
 My dad wrote this song a long time ago, and has for a while wanted me to record a version of it for him, so for Christmas this year I finally put something together with some instrumental backing / a little video / a second verse. Production quality isn't super high (especially with regards to the video) but I think it's a cute song.
 <center>
 <video width="60%" height="60%" controls>
-<source src = "/assets/banach-tarski-video.mp4">
+<source src = "/assets/banach-tarski.mp4">
 Your browser does not support the video element. Makes you just wanna tear something in half huh.
 </video>
 </center>
