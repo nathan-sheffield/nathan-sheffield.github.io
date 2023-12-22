@@ -40,17 +40,18 @@ Of course, the actual reason to care about PRGs is not because of rock-paper-sci
 
 # What is a OWF?
 
-Pretty much everything in cryptography is conditional on $\text{P} \neq \text{NP}$. You need to be able to come up with a question it's easy to tell that you've got the right answer, but hard for anybody else to figure it out. But in order to get interesting things, you usually need even stronger assumptions. Some types of assumptions that tend to get made:
+Pretty much everything in cryptography is conditional on $\text{P} \neq \text{NP}$. You need to be able to come up with a question where it's easy to tell that you've got the right answer, but hard for anybody else to figure it out. But in order to get interesting things, you usually need even stronger assumptions. Some types of assumptions that tend to get made:
 - Factoring is hard
 - There are public-key encryption schemes
 - There are collision-resistant hash families
+
 One assumption -- stronger than $\text{P} \neq \text{NP}$, but weaker than any of those 3 above assumptions[^4] -- is the existence of one-way functions:
 
 > **One-Way Function (OWF)**: A function $F:\lbrace 0,1\rbrace^n \rightarrow \lbrace 0,1\rbrace^m$ is a OWF if
 >   - It's computable in polynomial time.
 >   - No adversary, given an evaluation $y = F(U_n)$ of $F$ on a random input, can produce an element of the preimage (i.e. an $x$ such that $F(x) = y$) with inverse polynomial probability.
 
-Essentially, this is a function that's easy to compute in one direction, but hard to compute in the other direction. The reason we specify that it's hard to compute a preimage, as opposed to saying that it's hard to compute $x$ given $F(x)$, is that if $F$ wasn't injective there might be so many preimages that it's super unlikely to get the right one. The reason we say that it's hard to invert $F$ of a random input, as opposed to a random element of the image, is that maybe some elements of the image can't be inverted at all. Modular exponentiation is a good example of something that could plausibly be a one-way function: for a given $p$ and $g$, it's very easy to compute $g^x \mod p$ given $x$, but we don't know how to compute $x$ given $g^x \mod p$ (this is known as the discrete log problem over $\mathbb{F}_p^\times$).
+Essentially, this is a function that's easy to compute in one direction, but hard to compute in the other direction. The reason we specify that it's hard to compute a preimage, as opposed to saying that it's hard to compute $x$ given $F(x)$, is that if $F$ wasn't injective there might be so many preimages that it's super unlikely to get the right one. The reason we say that it's hard to invert $F$ of a random input, as opposed to a random element of the image, is that maybe some elements of the image can't be inverted at all. Modular exponentiation is a good example of something that could plausibly be a one-way function: for a given $p$ and $g$, it's very easy to compute $g^x \text{ mod } p$ given $x$, but we don't know how to compute $x$ given $g^x \text{ mod } p$ (this is known as the discrete log problem over $\mathbb{F}_p^\times$).
 
 <center>
 <figure>

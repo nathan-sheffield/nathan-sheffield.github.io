@@ -5,8 +5,17 @@ tagline: "You can tune a piano, but you can't tuna fish"
 subtitle: Some attempts at writing and playing music
 permalink: /music/
 ---
+## Banach-Tarski
+My dad wrote this song a long time ago, and has for a while wanted me to record a version of it for him, so for Christmas this year I finally put something together with some instrumental backing / a little video / a second verse. Production quality isn't super high (especially with regards to the video) but I think it's a cute song.
+<center>
+<video width="60%" height="30%" controls>
+<source src = "/assets/banach-tarski-video.mp4">
+Your browser does not support the video element. Makes you just wanna tear something in half huh.
+</video>
+</center>
+
 ## The Scream
-I recorded this as an assignment for my jazz class last semester. I wanted to make something based around augmented 7ths, and it sounded so angsty that I decided to put a spoken-word [excerpt from Edvard Munch's diary](https://en.wikipedia.org/wiki/The_Scream#Sources_of_inspiration) over the solo section.
+I recorded this as an assignment for my jazz class last spring. I wanted to make something based around augmented 7ths, and it sounded so angsty that I decided to put a spoken-word [excerpt from Edvard Munch's diary](https://en.wikipedia.org/wiki/The_Scream#Sources_of_inspiration) over the solo section.
 <audio controls class="audio-embed">
   <source src="/assets/scream.wav" type="audio/mpeg">
   Your browser does not support the audio element. Makes you just wanna scream.
