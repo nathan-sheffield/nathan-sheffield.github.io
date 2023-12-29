@@ -104,7 +104,7 @@ Claim 2: $A$ and $B$ are inseperable. Suppose some algorithm separated them -- l
 
 Ok, so a pair of c.e. sets can be inseperable. You're getting a little impatient -- is this robot guy just trying to waste your time? As if in response to that thought, it turns to you and begins printing out ticker tape again.
 
-> "`TENNENBAUM'S THEOREM[^6]: No countable non-standard model of Peano Arithmetic can be computable. That is, for any way of labeling elements of the model with finite strings, there's no algorithm in general to compute the label of $n + m$ given $n$ and $m$.`"
+> "`TENNENBAUM'S THEOREM: No countable non-standard model of Peano Arithmetic can be computable. That is, for any way of labeling elements of the model with finite strings, there's no algorithm in general to compute the label of $n + m$ given $n$ and $m$.`"[^6]
 
 "No!", you cry, "It can't be!". You'd just discovered the general structure of these models, and had been excited to learn about all these different worlds hiding behind your own -- only to be told that these worlds are, in some real sense, fundamentally uncomprehendable. You hear servos whir as the ghost turns its head to look you in the eyes. Out rolls a small strip of tape that reads simply "`PROOF:`".
 
@@ -172,7 +172,7 @@ I got this content from a couple different places -- [these lecture notes](https
 
 [^5]: In general, the argument I gave just says that we must have copies of the natural numbers where the ordering between them is dense, and has a left endpoint but no right endpoint. When the set is countable, though, [any dense ordering with a left endpoint but no right endpoint is isomorphic to $\mathbb{Q}$](https://en.wikipedia.org/wiki/Cantor%27s_isomorphism_theorem). I suppose you might not yet be convinced that these non-standard models can be countable at all, but they can. You can get this by something called [Downward Löwenheim–Skolem](https://en.wikipedia.org/wiki/L%C3%B6wenheim%E2%80%93Skolem_theorem) -- basically, as long as your language only has countably many symbols in it, you can build a model by only including one element for every existential statement in first-order logic, thus guaranteeing that everything you need to exist exists, but only adding a countable number of them.
 
-[^6]: Yes, this name is the entire reason this post exists.
+[^6]: Yes, the name of this theorem is the entire reason this post exists.
 
 [^7]: How would you write that predicate? Well, if you're using Turing machines, you can represent internal states as (number $< 100$ representing the finite control) $+ 100 \cdot $ (number representing a 4-ary encoding of the tape state). I say 3-ary so that you can have a special symbol for the tape head. Then, you can index into the tape by doing division and remainders, which you can express in PA. So, you just express that, for every entry of the tape, either the tape head wasn't there and it is unchanged, or the tape head was there, and the local transition looks valid given the old state and the entry on the tape (and also the state transition was valid). If you're feeling uneasy about how this sort of thing would work precisely, it could be a good exersize to try and actually explicitly write out such a formula.
 
