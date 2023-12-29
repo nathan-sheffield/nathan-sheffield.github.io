@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "O Tennenbaum"
-date:   2023-12-25 23:18:17 -0400
+date:   2023-12-25 12:18:17 -0000
 categories: jekyll update
 excerpt: "Nonstandard models of Peano Arithmetic and the true meaning of Christmas"
 ---
