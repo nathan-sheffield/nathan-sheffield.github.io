@@ -16,7 +16,7 @@ Suddenly, the room around you fades, and a strange ghastly figure appears before
 <figure>
     <img src="/assets/tennenbaum/ghost_of_logical_foundations.png"
          alt="The Ghost of Christmas's Logical Foundations"
-         width ="70%">
+         width ="50%">
 </figure>
 </center>
 
@@ -64,7 +64,7 @@ You find yourself back among that nonstandard model, numbers swirling around lik
 <figure>
     <img src="/assets/tennenbaum/ghost_of_order_type.png"
          alt="The Ghost of Christmas's Order Type"
-         width ="60%">
+         width ="30%">
 </figure>
 </center>
 
@@ -88,25 +88,25 @@ As soon as you close your eyes, you see a new figure. It's been waiting for you.
 <figure>
     <img src="/assets/tennenbaum/ghost_of_recursive_structure.png"
          alt="The Ghost of Christmas's Recursive Structure"
-         width ="60%">
+         width ="30%">
 </figure>
 </center>
 
-> "\texttt{I am the ghost of Christmas's Recursive Structure. I come to teach you the limits of your abilities.}"
+> "`I am the ghost of Christmas's Recursive Structure. I come to teach you the limits of your abilities.`"
 
-Now you're back in your room, looking at your computability theory textbook. The ghost scrolls up to Exercise 1.6.26: prove the existence of inseperable computationally enumerable sets. You remind yourself what this means. A set is _computationally enumerable_ (c.e.) if there's some algorithm that, in the course of its runtime, eventually prints out exactly every element of the set. Two sets $A$ and $B$ are _seperable_ if there's an algorithm (guaranteed to halt on every input) that, given an element of $A$ always outputs \texttt{0}, and given an element of $B$ always outputs \texttt{1} (but could output whatever it wants on inputs that are neither in $A$ nor $B$). $A$ and $B$ are _inseperable_ otherwise. 
+Now you're back in your room, looking at your computability theory textbook. The ghost scrolls up to Exercise 1.6.26: prove the existence of inseperable computationally enumerable sets. You remind yourself what this means. A set is _computationally enumerable_ (c.e.) if there's some algorithm that, in the course of its runtime, eventually prints out exactly every element of the set. Two sets $A$ and $B$ are _seperable_ if there's an algorithm (guaranteed to halt on every input) that, given an element of $A$ always outputs `0`, and given an element of $B$ always outputs `1` (but could output whatever it wants on inputs that are neither in $A$ nor $B$). $A$ and $B$ are _inseperable_ otherwise. 
 
-The solution to the problem is to let $A$ be the set of strings that, when treated as python programs and run on their own code, halt and output \texttt{1}, and $B$ be the set of strings that, when treated as python programs and run on their own code, halt and output something else. Note that not every string belongs to either of these sets -- some of them don't even halt at all, or aren't valid python programs -- but that these sets are disjoint.
+The solution to the problem is to let $A$ be the set of strings that, when treated as python programs and run on their own code, halt and output `1`, and $B$ be the set of strings that, when treated as python programs and run on their own code, halt and output something else. Note that not every string belongs to either of these sets -- some of them don't even halt at all, or aren't valid python programs -- but that these sets are disjoint.
 
-Claim 1: $A$ and $B$ are both computationally enumerable. To enumerate $A$, we can simulate all programs on themselves in parallel (like described in [this post]()), and then print a program whenever it halts and outputs \texttt{0}. Same deal for $B$.
+Claim 1: $A$ and $B$ are both computationally enumerable. To enumerate $A$, we can simulate all programs on themselves in parallel (like described in [this post]()), and then print a program whenever it halts and outputs `0`. Same deal for $B$.
 
-Claim 2: $A$ and $B$ are inseperable. Suppose some algorithm separated them -- let $e$ be a string encoding a python implementation of that algorithm. But now, consider running $e$ on itself. If it outputs \texttt{1}, then by definition of $A$ we have $e \in A$, and so it should have ouputted \texttt{0}. But if it outputs anything other than \texttt{1}, we have $e \in B$, so it should have outputted \texttt{0}. Since the algorithm is supposed to halt on every input (including its own code), this is a contradiction.
+Claim 2: $A$ and $B$ are inseperable. Suppose some algorithm separated them -- let $e$ be a string encoding a python implementation of that algorithm. But now, consider running $e$ on itself. If it outputs `1`, then by definition of $A$ we have $e \in A$, and so it should have ouputted `0`. But if it outputs anything other than `1`, we have $e \in B$, so it should have outputted `0`. Since the algorithm is supposed to halt on every input (including its own code), this is a contradiction.
 
 Ok, so a pair of c.e. sets can be inseperable. You're getting a little impatient -- is this robot guy just trying to waste your time? As if in response to that thought, it turns to you and begins printing out ticker tape again.
 
-> "\texttt{TENNENBAUM'S THEOREM[^6]: No countable non-standard model of Peano Arithmetic can be computable. That is, for any way of labeling elements of the model with finite strings, there's no algorithm in general to compute the label of $n + m$ given $n$ and $m$.}"
+> "`TENNENBAUM'S THEOREM[^6]: No countable non-standard model of Peano Arithmetic can be computable. That is, for any way of labeling elements of the model with finite strings, there's no algorithm in general to compute the label of $n + m$ given $n$ and $m$.`"
 
-"No!", you cry, "It can't be!". You'd just discovered the general structure of these models, and had been excited to learn about all these different worlds hiding behind your own -- only to be told that these worlds are, in some real sense, fundamentally uncomprehendable. You hear servos whir as the ghost turns its head to look you in the eyes. Out rolls a small strip of tape that reads simply "\texttt{PROOF:}".
+"No!", you cry, "It can't be!". You'd just discovered the general structure of these models, and had been excited to learn about all these different worlds hiding behind your own -- only to be told that these worlds are, in some real sense, fundamentally uncomprehendable. You hear servos whir as the ghost turns its head to look you in the eyes. Out rolls a small strip of tape that reads simply "`PROOF:`".
 
 ### Arithmetic and Computability
 
@@ -143,9 +143,9 @@ The final step will be to use this $e$ -- which we now know must exist -- as a "
 
 Ok, now to put it all together. Suppose someone comes to us with an $n$, and wants us to decide whether $n \in A$ or $n \in B$ (they don't care what we say if neither of those cases holds). Fortunately, we have access to a countable nonstandard model of Peano Arithmetic in which we can compute addition. The labels of elements are finite strings, so we can hardcode the names of $1$ and $e$ (the element described in the previous section) into the algorithm. Now, we can algorithmically find the $n$th prime $p_n$. At this point, we can iterate over all labels $L$, and for each one check for each $i<p_n$ whether (in the nonstandard model):
 
-$L + \dots$ ($p_n$ times) $\dots L + 1 + \dots$ ($i$ times) $\dots 1 = e$.
+$L + \dots$ ($p_n$ times) $\dots L + 1 + \dots$ ($i$ times) $\dots + 1 = e$.
 
-If we're searching over all labels $L$, we must eventually find one where one of these holds. Then, we know that $p_n$ divides $e$ if and only if the $i$ we found was $0$. Since we know $A \subseteq S_e$ and $B \subseteq \overline{S_e}$, this is an always-halting algorithm that lets us decide between $n \in A$ and $n \in B$, which is a contradiction[^11]. $\ensuremath{\square}$
+If we're searching over all labels $L$, we must eventually find one where one of these holds. Then, we know that $p_n$ divides $e$ if and only if the $i$ we found was $0$. Since we know $A \subseteq S_e$ and $B \subseteq \overline{S_e}$, this is an always-halting algorithm that lets us decide between $n \in A$ and $n \in B$, which is a contradiction[^11]. $\square$
 
 This proof makes you a little bit sad. There was so much you were hoping to do with these nonstandard models -- it would have been a lot of fun to play around with them, and maybe even try to construct ones where your favourite conjectures hold/fail in order to prove independence results -- but now you realize that a nonstandard model of Peano arithmetic isn't just something you can build and play with. It's something much more exotic and nebulous, something you know must exist, but will never truly understand. 
 
@@ -167,14 +167,12 @@ I got this content from a couple different places -- [these lecture notes](https
 
 [^6]: Yes, this name is the entire reason this post exists.
 
-[^7]: 
-<center>
+[^7]: Artist's rendition of a First Order predicate:
 <figure>
     <img src="/assets/tennenbaum/kylogic.png"
          alt="First-Order Predicate"
          width ="30%">
 </figure>
-</center>
 
 [^8]: How would you write that predicate? Well, if you're using Turing machines, you can represent internal states as (number $< 100$ representing the finite control) $+ 100 \cdot $ (number representing a 4-ary encoding of the tape state). I say 3-ary so that you can have a special symbol for the tape head. Then, you can index into the tape by doing division and remainders, which you can express in PA. So, you just express that, for every entry of the tape, either the tape head wasn't there and it is unchanged, or the tape head was there, and the local transition looks valid given the old state and the entry on the tape (and also the state transition was valid). If you're feeling uneasy about how this sort of thing would work precisely, it could be a good exersize to try and actually explicitly write out such a formula.
 
@@ -182,4 +180,4 @@ I got this content from a couple different places -- [these lecture notes](https
 
 [^10]: It's worth unpacking what's happening here. Why are we doing all this stuff with computationally inseperable sets, as opposed to just saying we can find an element that codes for _exactly_ $A$? Well, we know that $A$ consists of all the values you get by running $P_A$ for some ordinary natural number of steps. But when we encode the property "$P$ prints out $n$ after $m$ steps" in Peano arithmetic, we allow for nonstandard elements to be plugged in as $m$ -- it's maybe not clear what that means in terms of the program, but it does get assigned some truth value by our formula. So, since $e$ is larger than all natural numbers, we know that $S_e$ contains $A$, but it might also contain some other weird stuff that somehow corresponds to "running the program for more than a finite number of steps". Hence why we talk about inseperable sets -- $S_e$ might contain other weird stuff, but we can make sure it definitely never gets anything from $B$.
 
-[^11]: You might notice that this argument only really shows that there can't be a labeling that's a bijection with $\mathbb{N}$. That is, you could imagine that you had some computable functions $+_M$ and $\cdot_M$ acting on $\mathbb{N}$, such there's some substructure isomorphic to a nonstandard model of PA, but that the subset of $\mathbb{N}$ corresponding to that substructure isn't computably enumerable. Then, the argument I presented doesn't work -- you might find a label $L$ such that $L \cdot_M p_n = e$, but where that label doesnt't actually correspond to an element of the model. I'm not sure whether there's a way to rule such a structure out, or whether there's an obvious reason it _should_ exist -- I would be very interested if somebody sees the answer here.
+[^11]: You might notice that this argument only really shows that there can't be a labeling that's a bijection with $\mathbb{N}$. That is, you could imagine that you had some computable functions $+'$ and $\cdot'$ acting on $\mathbb{N}$, such there's some substructure isomorphic to a nonstandard model of PA, but that the subset of $\mathbb{N}$ corresponding to that substructure isn't computably enumerable. Then, the argument I presented doesn't work -- you might find a label $L$ such that $L \cdot' p_n = e$, but where that label doesnt't actually correspond to an element of the model. I'm not sure whether there's a way to rule such a structure out, or whether there's an obvious reason it _should_ exist -- I would be very interested if somebody sees the answer here.
