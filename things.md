@@ -6,6 +6,9 @@ subtitle: A collection of papers, slides, and other adjacent forms of media
 permalink: /things/
 ---
 
+##  [Intro to Information Theory](/assets/GuessWhoEntropy.pdf) slides
+Some slides explaining the basics of information theory (entropy, KL divergence, shannon/huffman coding) in terms of a game of _Guess Who?_
+
 ##  [Low-Degree ECC Decoding](/assets/random_restrictions.pdf) and [Relative Rank](/assets/relative_rank.pdf) slides
 These are some slides for a reading group I met with this semester. The first of these is primarily explaining the result from [this paper](https://arxiv.org/abs/2302.02870) that $\text{NC}^0[\oplus]$ circuits can't decode error-correcting codes with constant success probability. The second is disccusing the preliminaries on relative rank and Nisan-Wigderson design polynomials for [this paper](https://arxiv.org/abs/2205.00611). I don't know if I would actually recommend looking at these slides, since they're sort of designed to be presented in the context of other things, but I put them up here because a friend asked me to.
 
