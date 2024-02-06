@@ -36,7 +36,7 @@ Given a truly random "seed" consisting of $x, y \in \lbrace 0,1 \rbrace^\ell$ (f
 <figure>
     <img src="/assets/lostinspace/smallbias.png"
          alt="Small bias source"
-         width ="50%">
+         width ="35%">
     <figcaption> Note that exponentiation happens over $\mathbb{F}_{2^\ell}$, whereas inner product is over $\mathbb{F}_2^\ell$. </figcaption>
 </figure>
 </center>
