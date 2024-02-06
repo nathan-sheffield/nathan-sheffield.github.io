@@ -99,3 +99,11 @@ So, if $t$ is polynomial in $n$, using our small-bias distribution above we can 
 <hr class = "header-line">
 
 [^1]: Also note that we're talking about general branching programs here. In the future, we'll really care mostly about **read-once** branching programs -- i.e. branching programs that never revisit the same index of your string twice (and in fact we'll often just assume the program reads the bits of the string in order). But these arguments work either way, so figured might as well state in generality. 
+
+$\Big\lvert \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$
+
+$ \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \leq t\epsilon$
+
+$\Big\lvert \Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$
+
+$\Big\lvert \Big[ a_S \prod_{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$
