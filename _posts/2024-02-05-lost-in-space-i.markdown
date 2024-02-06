@@ -5,6 +5,7 @@ date:   2024-02-05 17:17:17 -0400
 categories: jekyll update
 excerpt: "Looking to get a good grade on parity tests? Try small-bias distributions!"
 ---
+$\def\sb{_}$
 I'd intended to write a long post talking about a bunch of cool stuff I've been reading the past month, but Alek told me he thought it might be nicer to have lots of small posts. So here's the first installment in a series about derandomizing space-bounded algorithms. What started me down this rabbithole was when Ted said offhand something like "**for all the work complexity theorists have done, the fanciest explicit PRG we know can only fool algorithms with at most $\log_2(3)$ bits of memory -- if you could get this up to $2$ bits, it would be massive result instant FOCS paper**". I thought this was a really funny claim, but then when I went looking to figure out what he meant I realized that it's actually kinda deep. If you come along for the ride, I'll tell you the story.
 
 Today, I'll just talk about how to trick algorithms with only 1 bit of memory. 
