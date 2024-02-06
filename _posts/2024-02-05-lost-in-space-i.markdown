@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lost in Space I"
-date:   2024-01-05 17:17:17 -0400
+date:   2024-0-05 17:17:17 -0400
 categories: jekyll update
 excerpt: "Looking to get a good grade on parity tests? Try small-bias distributions!"
 ---
@@ -70,7 +70,7 @@ Note that this is maybe a little stronger than "algorithm with 1 bit of memory" 
 
 It turns out that small-bias sources do the job. An argument is given in [this paper](https://www.cs.princeton.edu/~zdvir/papers/BDVY08.pdf), which I'll explain below. It's easiest to talk about in Fourier basis (which means that it's also easier to think of bits as being $\lbrace -1, 1\rbrace$ instead of $\lbrace 0, 1\rbrace$ -- will do this from now on). Recall that we can express any function $\lbrace -1,1 \rbrace^n \to \lbrace -1, 1 \rbrace$ as $\sum_{S \subseteq [n]} a_S \prod_{i \in S} x_i$, where we call the values of $a_S$ the "Fourier coefficients". 
 
-> **Lemma:** Let $f: \lbrace -1, 1\rbrace^n \to \lbrace -1, 1 \rbrace$ be computed by a width-$2$, length-$t$ branching program. That is, $f(x) = -1$ if the program ends up in the first state after reading $x$, and $1$ if it ends up in the other state. Then, $f$'s Fourier coefficients have $L_1$ norm at most $t$ -- that is, $\sum_{S \subseteq [n]} |a_S| \leq t$.
+> **Lemma:** Let $f: \lbrace -1, 1\rbrace^n \to \lbrace -1, 1 \rbrace$ be computed by a width-$2$, length-$t$ branching program. That is, $f(x) = -1$ if the program ends up in the first state after reading $x$, and $1$ if it ends up in the other state. Then, $f$'s Fourier coefficients have $L_1$ norm at most $t$ -- that is, $\sum_{S \subseteq [n]} \vert a_S\vert  \leq t$.
 
 _Proof:_ By induction, the state after $(t - 1)$ steps is described by a function $g$ whose Fourier transform has $L_1$ norm at most $(t-1)$. Now, there's 16 different possibilities for what the last step of the branching program could look like; we just need to show that none of them increase the $L_1$ norm by more than 1. Let $x_*$ be the bit that gets read on the $t$th day; here's a runthrough of 5 of the cases (the rest are symmetric -- you can check if you really want):
 
@@ -83,16 +83,16 @@ _Proof:_ By induction, the state after $(t - 1)$ steps is described by a functio
 </figure>
 </center>
 
-Except for the last one, none of these can increase the $L_1$ norm of the Fourier transform. In the last one, there are 2 terms of norm $||g(x)||/2$, and 2 terms of norm $1/2$, so their sum has norm at most $||g(x)|| + 1 \leq t$. $\hspace{20 px}\square$
+Except for the last one, none of these can increase the $L_1$ norm of the Fourier transform. In the last one, there are 2 terms of norm $\vert \vert g(x)\vert \vert /2$, and 2 terms of norm $1/2$, so their sum has norm at most $\vert \vert g(x)\vert \vert  + 1 \leq t$. $\hspace{20 px}\square$
 
-> **Lemma:** For any $f$ with $\sum_{S \subseteq [n]} |a_S| \leq t$, and any $\epsilon$-biased distribution $\mathcal{X}$, $\Big|\Pr\Big[f(\mathcal{X}) = 1\Big] - \Pr\Big[f(\mathcal{U_n}) = 1\Big]\Big| \leq t \epsilon$. That is, the behaviour of $f$ on $\mathcal{X}$ is at most $t\epsilon$ different from its behaviour on true randomness.
+> **Lemma:** For any $f$ with $\sum_{S \subseteq [n]} \vert a_S\vert  \leq t$, and any $\epsilon$-biased distribution $\mathcal{X}$, $\Big\vert \Pr\Big[f(\mathcal{X}) = 1\Big] - \Pr\Big[f(\mathcal{U_n}) = 1\Big]\Big\vert  \leq t \epsilon$. That is, the behaviour of $f$ on $\mathcal{X}$ is at most $t\epsilon$ different from its behaviour on true randomness.
 
-_Proof:_ The expected value of $f$ on uniform random input is given by $a_{\emptyset}$, so it suffices to show that $\Big|\mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big|\leq t\epsilon$. By linearity of expectation, we can write 
+_Proof:_ The expected value of $f$ on uniform random input is given by $a_{\emptyset}$, so it suffices to show that $\Big\vert \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\vert \leq t\epsilon$. By linearity of expectation, we can write 
 
 $$\mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] = \sum_{S \subseteq [n], S \neq \emptyset} a_S \Big(\mathbb{E}_{x\gets\mathcal{X}}\Big[\prod_{i \in S} x^i \Big]\Big).$$
 
 Since $\mathcal{X}$ is $\epsilon$-biased, each of these expectations will be at most $\epsilon$ in magnitude. So, we have
-$$\Big|\sum_{S \subseteq [n], S \neq \emptyset} a_S \Big(\mathbb{E}_{x\gets\mathcal{X}}\Big[\prod_{i \in S} x^i \Big]\Big)\Big| \leq \epsilon \cdot \sum_{S \subseteq [n], S \neq \emptyset} |a_S| \leq t \epsilon. \hspace{20 px}\square$$
+$$\Big\vert \sum_{S \subseteq [n], S \neq \emptyset} a_S \Big(\mathbb{E}_{x\gets\mathcal{X}}\Big[\prod_{i \in S} x^i \Big]\Big)\Big\vert  \leq \epsilon \cdot \sum_{S \subseteq [n], S \neq \emptyset} \vert a_S\vert  \leq t \epsilon. \hspace{20 px}\square$$
 
 So, if $t$ is polynomial in $n$, using our small-bias distribution above we can choose $\leq 1/(1000t)$ to trick the program very well with seed length only $\ell = \log(n/\epsilon) = \mathcal{O}(\log n)$. Good for us! Unfortunately, it turns out that figuring out how to do this kind of thing for width 3 branching programs is much much trickier -- and for width 4 branching programs we really just don't know. Tune in next time!
 
