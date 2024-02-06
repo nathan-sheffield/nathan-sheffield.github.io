@@ -90,10 +90,10 @@ Except for the last one, none of these can increase the $L_1$ norm of the Fourie
 
 _Proof:_ The expected value of $f$ on uniform random input is given by $a_{\emptyset}$, so it suffices to show that $\Big\lvert \mathbb{E}\sb{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a\sb{S} \prod\sb{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$. By linearity of expectation, we can write 
 
-```math
-\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \prod\sb{i \in S} x^i\Big] = \sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \Big(\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\prod\sb{i \in S} x^i \Big]\Big).```
+$$\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \prod\sb{i \in S} x^i\Big] = \sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \Big(\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\prod\sb{i \in S} x^i \Big]\Big).$$
 
 Since $\mathcal{X}$ is $\epsilon$-biased, each of these expectations will be at most $\epsilon$ in magnitude. So, we have
+
 $$\Big\lvert \sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \Big(\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\prod\sb{i \in S} x^i \Big]\Big)\Big\rvert  \leq \epsilon \cdot \sum\sb{S \subseteq [n], S \neq \emptyset} \vert a\sb{S}\vert  \leq t \epsilon. \hspace{20 px}\square$$
 
 So, if $t$ is polynomial in $n$, using our small-bias distribution above we can choose $\leq 1/(1000t)$ to trick the program very well with seed length only $\ell = \log(n/\epsilon) = \mathcal{O}(\log n)$. Good for us! Unfortunately, it turns out that figuring out how to do this kind of thing for width 3 branching programs is much much trickier -- and for width 4 branching programs we really just don't know. Tune in next time!
