@@ -31,7 +31,7 @@ An interesting question to ask is: how strong a notion of randomness is being $\
 
 The answer to that question turns out to be $\mathcal{O}(\log(n/\epsilon))$ -- for polynomially-small $\epsilon$, this is much much smaller than $n$. I'll give a simple construction described by Alon, Goldreich, Håstad and Peralta, which I read about in [Tal's lecture notes](https://drive.google.com/file/d/1S_AvJTF7X_XcfgdguQ7Zb1oyridoL03R/view).
 
-Given a truly random "seed" consisting of $x, y \in \lbrace 0,1 \rbrace^\ell$ (for $\ell$ to be specified later but spoiler that it's gonna be $\log(n/\epsilon)$), our distribution will output $n$ bits. The $i$th bit is $\langle x, y^i \rangle$ (treating $y$ as an element of $\mathbb{F}{2^\ell}$ for the purposes of exponentiation). That's it, that's the construction. 
+Given a truly random "seed" consisting of $x, y \in \lbrace 0,1 \rbrace^\ell$ (for $\ell$ to be specified later but spoiler that it's gonna be $\log(n/\epsilon)$), our distribution will output $n$ bits. The $i$th bit is $\langle x, y^i \rangle$ (treating $y$ as an element of $\mathbb{F}_{2^\ell}$ for the purposes of exponentiation). That's it, that's the construction. 
 
 <center>
 <figure>
