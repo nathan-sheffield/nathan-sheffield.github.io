@@ -102,6 +102,8 @@ So, if $t$ is polynomial in $n$, using our small-bias distribution above we can 
 
 $\Big\lvert \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$
 
+$\mathbb{E}_{x\gets\mathcal{X}}$
+
 $ \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \leq t\epsilon$
 
 $\Big\lvert \Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$
