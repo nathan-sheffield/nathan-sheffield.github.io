@@ -85,14 +85,14 @@ _Proof:_ By induction, the state after $(t - 1)$ steps is described by a functio
 
 Except for the last one, none of these can increase the $L_1$ norm of the Fourier transform. In the last one, there are 2 terms of norm $\vert \vert g(x)\vert \vert /2$, and 2 terms of norm $1/2$, so their sum has norm at most $\vert \vert g(x)\vert \vert  + 1 \leq t$. $\hspace{20 px}\square$
 
-> **Lemma:** For any $f$ with $\sum_{S \subseteq [n]} \vert a_S\vert  \leq t$, and any $\epsilon$-biased distribution $\mathcal{X}$, $\Big\vert \Pr\Big[f(\mathcal{X}) = 1\Big] - \Pr\Big[f(\mathcal{U_n}) = 1\Big]\Big\vert  \leq t \epsilon$. That is, the behaviour of $f$ on $\mathcal{X}$ is at most $t\epsilon$ different from its behaviour on true randomness.
+> **Lemma:** For any $f$ with $\sum_{S \subseteq [n]} \vert a_S\vert  \leq t$, and any $\epsilon$-biased distribution $\mathcal{X}$, $\Big\lvert \Pr\Big[f(\mathcal{X}) = 1\Big] - \Pr\Big[f(\mathcal{U_n}) = 1\Big]\Big\rvert  \leq t \epsilon$. That is, the behaviour of $f$ on $\mathcal{X}$ is at most $t\epsilon$ different from its behaviour on true randomness.
 
-_Proof:_ The expected value of $f$ on uniform random input is given by $a_{\emptyset}$, so it suffices to show that $\Big\vert \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\vert \leq t\epsilon$. By linearity of expectation, we can write 
+_Proof:_ The expected value of $f$ on uniform random input is given by $a_{\emptyset}$, so it suffices to show that $\Big\lvert \mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$. By linearity of expectation, we can write 
 
 $$\mathbb{E}_{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a_S \prod_{i \in S} x^i\Big] = \sum_{S \subseteq [n], S \neq \emptyset} a_S \Big(\mathbb{E}_{x\gets\mathcal{X}}\Big[\prod_{i \in S} x^i \Big]\Big).$$
 
 Since $\mathcal{X}$ is $\epsilon$-biased, each of these expectations will be at most $\epsilon$ in magnitude. So, we have
-$$\Big\vert \sum_{S \subseteq [n], S \neq \emptyset} a_S \Big(\mathbb{E}_{x\gets\mathcal{X}}\Big[\prod_{i \in S} x^i \Big]\Big)\Big\vert  \leq \epsilon \cdot \sum_{S \subseteq [n], S \neq \emptyset} \vert a_S\vert  \leq t \epsilon. \hspace{20 px}\square$$
+$$\Big\lvert \sum_{S \subseteq [n], S \neq \emptyset} a_S \Big(\mathbb{E}_{x\gets\mathcal{X}}\Big[\prod_{i \in S} x^i \Big]\Big)\Big\rvert  \leq \epsilon \cdot \sum_{S \subseteq [n], S \neq \emptyset} \vert a_S\vert  \leq t \epsilon. \hspace{20 px}\square$$
 
 So, if $t$ is polynomial in $n$, using our small-bias distribution above we can choose $\leq 1/(1000t)$ to trick the program very well with seed length only $\ell = \log(n/\epsilon) = \mathcal{O}(\log n)$. Good for us! Unfortunately, it turns out that figuring out how to do this kind of thing for width 3 branching programs is much much trickier -- and for width 4 branching programs we really just don't know. Tune in next time!
 
