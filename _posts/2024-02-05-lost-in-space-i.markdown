@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lost in Space I"
-date:   2023-12-12 23:18:17 -0400
+date:   2024-01-05 17:17:17 -0400
 categories: jekyll update
 excerpt: "Looking to get a good grade on parity tests? Try small-bias distributions!"
 ---
