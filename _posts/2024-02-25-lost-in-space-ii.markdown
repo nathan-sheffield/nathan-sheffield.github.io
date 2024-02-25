@@ -1,18 +1,16 @@
 ---
 layout: post
 title:  "Lost in Space II"
-header-includes:
-   - \usepackage{complexity}
 date:   2024-02-25 10:00:00 -0400
 categories: jekyll update
-excerpt: "$\BPL \subseteq \SPACE(\log^2)$ (Saks-Zhou)"
+excerpt: "First steps towards destroying $\mathsf{BPL}$ (the complexity class, not Boston Public Library, which is lovely and can take as much space as it wants)"
 ---
 
 Alright, last time was a good derandomization warm-up. We saw that, for the purposes of tricking width-2 ROBPs (a kind of "non-uniform" version of algorithms with only 1 bit of memory), we could make $\mathcal{O}(\log n)$ bits of true randomness look like $n$ bits. But, if our real goal is to understand **to what extent we can simulate random algorithms deterministically**, this is pretty disappointing -- most of the algorithms I care about definitely use more than $1$ bit of memory. So let's go beyond 1 bit, and ask "if a problem can be solved by a randomized algorithm with $s$ bits of space, how many bits of space do we need to solve the same problem deterministically?"[^1]. 
 
 ## Savich's Theorem
 
-It turns out that $\BPSPACE(s) \subseteq \SPACE(s^2)$. The idea is pretty simple and also shows that $\NSPACE(s) \subseteq \SPACE(s^2)$ -- if you're in my target audience, you've maybe seen this before. The first thing to note is that, when limited to $s$ space, the algorithm can only run for at most $\mathcal{O}(2^s)$ steps[^2]. So, if for every $t$ I could answer the question "what's the probability that the algorithm goes from some memory configuration $C$ to a different configuration $C'$ after $t$ steps", I would be cooking -- set $t = 1000 \cdot 2^s$, $C$ to be the initial configuration, and enumerate over all accepting configurations $C'$ to calculate the overall acceptance probability. 
+It turns out that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$. The idea is pretty simple and also shows that $\mathsf{NSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$ -- if you're in my target audience, you've maybe seen this before. The first thing to note is that, when limited to $s$ space, the algorithm can only run for at most $\mathcal{O}(2^s)$ steps[^2]. So, if for every $t$ I could answer the question "what's the probability that the algorithm goes from some memory configuration $C$ to a different configuration $C'$ after $t$ steps", I would be cooking -- set $t = 1000 \cdot 2^s$, $C$ to be the initial configuration, and enumerate over all accepting configurations $C'$ to calculate the overall acceptance probability. 
 
 Answering this question for $t = 1$ is pretty easy -- just look at the transition probabilities for one step of the algorithm. Now, suppose I have a good algorithm to solve it for $t/2$ steps, and wanna figure out $t$. Well, we can enumerate over all possibilities for a memory configuration $C_{mid}$, and for each one multiply the probabilities of going from $C \to C_{mid}$ in $t/2$ steps and going from $C_{mid} \to C'$ in $t/2$ steps -- summing over all $C_{mid}$ gives the probability of going $C \to C'$ in $t$ steps. 
 <center>
@@ -43,7 +41,7 @@ There's another way of thinking about this algorithm in terms of matrix exponent
 
 ## Nisan's PRG
 
-Savich's theorem is the reason you never hear anyone talk about "$\BPPSPACE$" -- since a polynomial squared is a polynomial, $\BPPSPACE = \PSPACE$. However, if you're interested in logspace, this isn't good enough -- all we've got is $\BPSPACE(\log n) \subseteq \SPACE(\log^2 n)$. If you're hoping the fact that I started this section this way means I'm about to give you a better inclusion, tough luck -- you'll have to wait until the next section for that. But I will show you another proof of the same thing.
+Savich's theorem is the reason you never hear anyone talk about "$\mathsf{BPPSPACE}$" -- since a polynomial squared is a polynomial, $\mathsf{BPPSPACE} = \mathsf{PSPACE}$. However, if you're interested in logspace, this isn't good enough -- all we've got is $\mathsf{BPSPACE}(\log n) \subseteq \mathsf{SPACE}(\log^2 n)$. If you're hoping the fact that I started this section this way means I'm about to give you a better inclusion, tough luck -- you'll have to wait until the next section for that. But I will show you another proof of the same thing.
 
 Actually that's not really fair, because this is in many ways much stronger -- a construction due to Nisan of a PRG with seed length $\mathcal{O}(s \log n)$ fooling any width-$2^s$ ROBP. The basic idea makes a lot of sense: suppose I fed you $n/2$ random bits, and then you asked me for $n/2$ more. Do I need to cook up a whole $n/2$ new bits for you? Nah, since you only remember $s$ bits about the previous stuff I gave you, as long as I mix it up a little there's no way you'll remember enough to know the difference when I serve it to you again.
 
@@ -69,11 +67,11 @@ If you don't want to worry too much about extractors, you can use Nisan's origin
 
 $$x, h_1(x), h_2(x), h_2(h_1(x)), h_3(x) \dots.$$
 
-In any case, we've got a PRG that needs seed length only $\mathcal{O}(s \log n)$. By enumerating over all possible seeds, this shows that $\BPSPACE(s) \subseteq \SPACE(s \log n)$. This is nice, but when $s = \log n$, we're still just getting $\BPSPACE(\log n) \subseteq \SPACE(\log^2 n)$, which is no better than what Savich gave us. As we'll see in the next section, by combining this approach with ideas from Savich's theorem, we can get something even stronger.
+In any case, we've got a PRG that needs seed length only $\mathcal{O}(s \log n)$. By enumerating over all possible seeds, this shows that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s \log n)$. This is nice, but when $s = \log n$, we're still just getting $\mathsf{BPSPACE}(\log n) \subseteq \mathsf{SPACE}(\log^2 n)$, which is no better than what Savich gave us. As we'll see in the next section, by combining this approach with ideas from Savich's theorem, we can get something even stronger.
 
 ## Saks-Zhou
 
-Remember how, when we talked about Savich's Theorem, we mentioned that you can think about the problem as powering the transition matrix $M$ of a $2^s$-state DFA? Well, you might notice that we don't actually need the _exact_ $t$th power of the matrix -- since $\BPSPACE$ is defined as having error probability bounded away from $1/2$, we can get away with just a pretty reasonable approximation. The key insight of [Saks and Zhou](https://www.sciencedirect.com/science/article/pii/S0022000098916166?via%3Dihub) was an algorithm to do this approximate powering in only $\mathcal{O}(s^{3/2})$ space, as opposed to the $\mathcal{O}(s^2)$ you'd get from repeated squaring. This shows that $\BPSPACE(\log n) \subseteq \SPACE(\log^{3/2} n)$, which is (up to a recent [shaving of lower-order factors](https://drops.dagstuhl.de/storage/00lipics/lipics-vol207-approx-random2021/LIPIcs.APPROX-RANDOM.2021.28/LIPIcs.APPROX-RANDOM.2021.28.pdf)) currently the best known explicit derandomization of $\BPL$. 
+Remember how, when we talked about Savich's Theorem, we mentioned that you can think about the problem as powering the transition matrix $M$ of a $2^s$-state DFA? Well, you might notice that we don't actually need the _exact_ $t$th power of the matrix -- since $\mathsf{BPSPACE}$ is defined as having error probability bounded away from $1/2$, we can get away with just a pretty reasonable approximation. The key insight of [Saks and Zhou](https://www.sciencedirect.com/science/article/pii/S0022000098916166?via%3Dihub) was an algorithm to do this approximate powering in only $\mathcal{O}(s^{3/2})$ space, as opposed to the $\mathcal{O}(s^2)$ you'd get from repeated squaring. This shows that $\mathsf{BPSPACE}(\log n) \subseteq \mathsf{SPACE}(\log^{3/2} n)$, which is (up to a recent [shaving of lower-order factors](https://drops.dagstuhl.de/storage/00lipics/lipics-vol207-approx-random2021/LIPIcs.APPROX-RANDOM.2021.28/LIPIcs.APPROX-RANDOM.2021.28.pdf)) currently the best known explicit derandomization of $\BPL$. 
 
 The scheme looks something like this:
    - Given a $2^s \times 2^s$ stochastic matrix $M$, we can come up with a $2^s$-state finite automaton $Q$ whose transition probabilities are a good approximation for $M$. I mean, $Q$ will read binary input, so all the entries in its transition matrix $M_Q$ are multiples of $1/2$, but given error parameter $\epsilon$ we make sure that the entries in $M_Q^{1/\epsilon}$ are very close to the entries of $M$.
@@ -106,7 +104,7 @@ That's the post for today! Lots of cool ideas. Whenever I get around to the next
 
 [^1]: This post is basically just a more hand-wavey transcription of [Tal's lovely lecture notes](https://www.avishaytal.org/pseudorandomness), so you should check those out if you wanna see this in more detail. Lots of cool stuff there -- will probably write at least one more post about it. tbh I don't know that I've really added value to Tal's explanation, so maybe this post isn't achieving the goal of this blog too much -- but at least writing it forced me to understand.
 
-[^2]: Otherwise it'll repeat a configuration, and so have the potential to loop forever. Note that while you could define $\BPSPACE$ so that it just has to halt eventually with probability 1, but might run forever on measure-0 events, typically you mandate that there's no way for it to run forever. In particular, if you let have a possibility of looping forever, then it contains $\NSPACE$, since it can keep retrying its guesses until it gets a super unlikely coin flip sequence. But also if you're slightly more careful with things you can analyze Savich to make it work for this definition.
+[^2]: Otherwise it'll repeat a configuration, and so have the potential to loop forever. Note that while you could define $\mathsf{BPSPACE}$ so that it just has to halt eventually with probability 1, but might run forever on measure-0 events, typically you mandate that there's no way for it to run forever. In particular, if you let have a possibility of looping forever, then it contains $\mathsf{NSPACE}$, since it can keep retrying its guesses until it gets a super unlikely coin flip sequence. But also if you're slightly more careful with things you can analyze Savich to make it work for this definition.
 
 [^3]: If you wanna be careful, I guess you need to think about with what precision you're keeping track of probabilities. But you should have enough space to be pretty fine.
 
