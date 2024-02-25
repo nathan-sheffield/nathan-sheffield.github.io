@@ -158,7 +158,7 @@ This proof makes you a little bit sad. There was so much you were hoping to do w
 
 As you awake to Christmas morning, you find yourself filled with a strange sense of peace. Maybe you'll never know the true meaning of Christmas. Maybe it's a little silly to even say that it has one. But something can be real and beautiful even if you know you'll never be able to pin down exactly why or how. Filled with newfound holiday cheer, you cry out to the world at large: "Gödel bless us, every one!"
 
-----
+<hr class = "header-line">
 
 I got this content from a couple different places -- [these lecture notes](https://webspace.science.uu.nl/~ooste110/syllabi/peanomoeder.pdf), [these](https://web.mat.bham.ac.uk/R.W.Kaye/papers/tennenbaum/tennenbaum.pdf) [papers](https://www.logicmatters.net/resources/pdfs/TennenbaumTheorem.pdf), and the [sketch on wikipedia](https://en.wikipedia.org/wiki/Tennenbaum%27s_theorem). I first heard about Tennenbaum's theorem from my amazing set theory professor Henry Cohn last semester.
 
