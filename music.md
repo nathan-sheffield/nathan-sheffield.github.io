@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Music
-tagline: "You can tune a piano, but you can't tuna fish"
+tagline: "Q: How is a bad violist like a good cryptographer? A: They mix up their strings so thoroughly that you can't tell what key they're using!"
 subtitle: Some attempts at writing and playing music
 permalink: /music/
 ---

@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Lost in Space II"
-date:   2024-02-25 10:00:00 -0400
+date:   2024-02-24 10:00:00 -0400
 categories: jekyll update
-excerpt: "First steps towards destroying $\mathsf{BPL}$ (the complexity class, not Boston Public Library, which is lovely and can take as much space as it wants)"
+excerpt: "First steps towards destroying BPL (the complexity class, not Boston Public Library, which is lovely and can take as much space as it wants)"
 ---
 
 Alright, last time was a good derandomization warm-up. We saw that, for the purposes of tricking width-2 ROBPs (a kind of "non-uniform" version of algorithms with only 1 bit of memory), we could make $\mathcal{O}(\log n)$ bits of true randomness look like $n$ bits. But, if our real goal is to understand **to what extent we can simulate random algorithms deterministically**, this is pretty disappointing -- most of the algorithms I care about definitely use more than $1$ bit of memory. So let's go beyond 1 bit, and ask "if a problem can be solved by a randomized algorithm with $s$ bits of space, how many bits of space do we need to solve the same problem deterministically?"[^1]. 
