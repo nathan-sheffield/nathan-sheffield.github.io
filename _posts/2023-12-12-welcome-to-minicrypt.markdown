@@ -27,7 +27,7 @@ After hearing this rock-paper-scissors story, you propose the following definiti
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/whatisprg.png"
+    <img src="/assets/figures/prgsfromowfs/whatisprg.png"
          alt="Illustration of a PRG distinguisher"
          width ="60%">
     <figcaption> If an algorithm has different output distributions on $G(U_n)$ vs. real randomness, we say it's a "distinguisher", and $G$ is not a PRG. </figcaption>
@@ -55,7 +55,7 @@ Essentially, this is a function that's easy to compute in one direction, but har
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/whatisowf.png"
+    <img src="/assets/figures/prgsfromowfs/whatisowf.png"
          alt="Illustration of a OWF"
          width ="60%">
     <figcaption> Given an output of the OWF, you shouldn't be able to find any input mapping to the same value. </figcaption>
@@ -87,7 +87,7 @@ It turns out this definition is equivalently strong to full indistinguishibility
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/nextbit.png"
+    <img src="/assets/figures/prgsfromowfs/nextbit.png"
          alt="Next-bit unpredictability hybirds"
          width ="60%">
     <figcaption> Some pair of adjacent hybrids must be far -- this lets you predict the corresponding bit. </figcaption>
@@ -118,7 +118,7 @@ Well, is there _any_ 1-bit function $g(x)$ that's hard to compute given $f(x)$? 
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/glband.png"
+    <img src="/assets/figures/prgsfromowfs/glband.png"
          alt="Illustration of a band called the Hardcore Predicates"
          width ="60%">
     <figcaption> I'm not gonna let the MAN figure out the dot product of $x$ with a random bitvector!  </figcaption>
@@ -158,7 +158,7 @@ If we feed $G$ a random input, I claim that the output is going to have more tha
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/hash1.png"
+    <img src="/assets/figures/prgsfromowfs/hash1.png"
          alt="Illustration of the surprising indices"
          width ="60%">
     <figcaption> Between Goldreich-Levin and the Leftover Hash Lemma, we get a lot of surprising indices. </figcaption>
@@ -175,7 +175,7 @@ Let's apply our $G$ from above to $n$ different $n$-bit inputs $x_i$. Note that 
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/truncate.png"
+    <img src="/assets/figures/prgsfromowfs/truncate.png"
          alt="Chop chop!"
          width ="60%">
     <figcaption> No matter how the surprisingness distribution looked within each block, now it's all spread out. </figcaption>
@@ -195,7 +195,7 @@ The construction will be: compute $G'$ $n^3$ times on different random inputs[^1
 
 <center>
 <figure>
-    <img src="/assets/prgsfromowfs/hashcolumns.png"
+    <img src="/assets/figures/prgsfromowfs/hashcolumns.png"
          alt="Hashing columns"
          width ="60%">
     <figcaption> We output the hashes of each column in order. </figcaption>

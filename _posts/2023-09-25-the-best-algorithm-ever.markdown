@@ -34,7 +34,7 @@ If we start iterating through all strings in alphabetical order and trying to ru
 
 <center>
 <figure>
-    <img src="/assets/levin-1.png"
+    <img src="/assets/figures/universalsearch/levin-1.png"
          alt="Graph of the amount of time put into each task">
     <figcaption>Every subsequent stage, we double the amount of time we've put into running each program that hasn't finished yet, and add an additional task to our list. (Note that many programs will terminate immediately, simply because they're not valid code). </figcaption>
 </figure>
@@ -44,7 +44,7 @@ This algorithm might seem ridiculous (and I suppose it is), but it's also kinda 
 
 <center>
 <figure>
-    <img src="/assets/levin-2.png"
+    <img src="/assets/figures/universalsearch/levin-2.png"
          alt="Graph of how much total work we do"
          width ="60%">
     <figcaption>By the time we've simulated the optimal algorithm, the amount of wasted time will correspond to a multiplicative factor of roughly $2^{a}$. </figcaption>

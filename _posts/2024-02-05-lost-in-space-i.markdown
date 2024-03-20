@@ -18,7 +18,7 @@ Given some distribution $\mathcal{X}$ on $\lbrace 0,1\rbrace^n$, what's an easy 
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/paritytestg.png"
+    <img src="/assets/figures/lostinspace/paritytestg.png"
          alt="Example of a parity test"
          width ="50%">
     <figcaption> The chance that the sum over these indices is even should be about the same as the chance that it's odd. </figcaption>
@@ -35,7 +35,7 @@ Given a truly random "seed" consisting of $x, y \in \lbrace 0,1 \rbrace^\ell$ (f
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/smallbiasg.png"
+    <img src="/assets/figures/lostinspace/smallbiasg.png"
          alt="Small bias source"
          width ="35%">
     <figcaption> Note that exponentiation happens over $\mathbb{F}_{2^\ell}$, whereas inner product is over $\mathbb{F}_2^\ell$. </figcaption>
@@ -60,7 +60,7 @@ The model we want to trick consists of **width-2 Branching Programs**. Each of t
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/examplebranchingg.png"
+    <img src="/assets/figures/lostinspace/examplebranchingg.png"
          alt="Example of a branching program"
          width ="70%">
     <figcaption> A width 2 branching program reading an input. </figcaption>
@@ -77,7 +77,7 @@ _Proof:_ By induction, the state after $(t - 1)$ steps is described by a functio
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/width2caseworkg.png"
+    <img src="/assets/figures/lostinspace/width2caseworkg.png"
          alt="Working through cases for what the last level can look like."
          width ="70%">
     <figcaption> $f$ in terms of $g$ and the structure of the last step of the branching program. </figcaption>

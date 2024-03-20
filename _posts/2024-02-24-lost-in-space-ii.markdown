@@ -15,7 +15,7 @@ It turns out that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$. The idea 
 Answering this question for $t = 1$ is pretty easy -- just look at the transition probabilities for one step of the algorithm. Now, suppose I have a good algorithm to solve it for $t/2$ steps, and wanna figure out $t$. Well, we can enumerate over all possibilities for a memory configuration $C_{mid}$, and for each one multiply the probabilities of going from $C \to C_{mid}$ in $t/2$ steps and going from $C_{mid} \to C'$ in $t/2$ steps -- summing over all $C_{mid}$ gives the probability of going $C \to C'$ in $t$ steps. 
 <center>
 <figure>
-    <img src="/assets/lostinspace/savich-idea-new.png"
+    <img src="/assets/figures/lostinspace/savich-idea-new.png"
          alt="Savich's Theorem"
          width ="60%">
     <figcaption> For every possible middle state, we compute the probability of first going from the start state to there, then from there to an accept state. </figcaption>
@@ -26,7 +26,7 @@ In addition to the space required to run the $t/2$ version of the algorithm, we 
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/savich-recursion-new.png"
+    <img src="/assets/figures/lostinspace/savich-recursion-new.png"
          alt="Savich's Theorem Analysis"
          width ="60%">
     <figcaption> In order to remember where we are in the process of doing $s$ levels of this recursion, we'll need to remember $s$ different values. </figcaption>
@@ -54,7 +54,7 @@ This is really nice! This means that, if you only had $n/2 + s + \log(1/\epsilon
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/nisan-prg-new.png"
+    <img src="/assets/figures/lostinspace/nisan-prg-new.png"
          alt="Illustration of Nisan's PRG"
          width ="60%">
     <figcaption> With probability $1- \epsilon$, only $s + \log(1/\epsilon)$ bits of information can cross between the first and second half of the program -- so, with an extractor we can reuse our old randomness.  </figcaption>
@@ -91,7 +91,7 @@ so we're feeling pretty happy! The reason this is ok is that, fixing $M$, $M^2$,
 
 <center>
 <figure>
-    <img src="/assets/lostinspace/saks-zhou-new.png"
+    <img src="/assets/figures/lostinspace/saks-zhou-new.png"
          alt="Saks-Zhou Algorithm Sketch"
          width ="60%">
     <figcaption> As long as we've written down good hash functions, we can use Nisan's PRG to approximately raise a stochastic matrix to the $2^{\sqrt{s}}$th power with only $s$ extra workspace. Repeating this $\sqrt{s}$ times wins. </figcaption>

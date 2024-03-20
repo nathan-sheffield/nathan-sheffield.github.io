@@ -36,7 +36,7 @@ Let's break down what this is doing. Our goal is for this algorithm to "thwart" 
 
 <center>
 <figure>
-    <img src="/assets/blum.png"
+    <img src="/assets/figures/universalsearch/blum.png"
          alt="Graph of which things we thwart"
          width ="40%">
     <figcaption> On a given length, we look at all the programs that finished in their allotted time, and thwart the first one we have yet to thwart. </figcaption>
@@ -51,7 +51,7 @@ If we know those values, we never actually need to run the simulations for the f
 
 <center>
 <figure>
-    <img src="/assets/blum-2.png"
+    <img src="/assets/figures/universalsearch/blum-2.png"
          alt="We don't need to worry about the first ones"
          width ="40%">
     <figcaption> We can use a constant-size lookup table to determine on what input lengths we thwart the first $k$ programs, and so don't need to run the simulations. </figcaption>

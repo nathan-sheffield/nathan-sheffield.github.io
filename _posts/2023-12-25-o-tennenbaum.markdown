@@ -14,7 +14,7 @@ Suddenly, the room around you fades, and a strange ghastly figure appears before
 
 <center>
 <figure>
-    <img src="/assets/tennenbaum/ghost_of_logical_foundations.png"
+    <img src="/assets/figures/tennenbaum/ghost_of_logical_foundations.png"
          alt="The Ghost of Christmas's Logical Foundations"
          width ="50%">
 </figure>
@@ -62,7 +62,7 @@ You find yourself back among that nonstandard model, numbers swirling around lik
 
 <center>
 <figure>
-    <img src="/assets/tennenbaum/ghost_of_order_type.png"
+    <img src="/assets/figures/tennenbaum/ghost_of_order_type.png"
          alt="The Ghost of Christmas's Order Type"
          width ="30%">
 </figure>
@@ -86,7 +86,7 @@ As soon as you close your eyes, you see a new figure. It's been waiting for you.
 
 <center>
 <figure>
-    <img src="/assets/tennenbaum/ghost_of_recursive_structure.png"
+    <img src="/assets/figures/tennenbaum/ghost_of_recursive_structure.png"
          alt="The Ghost of Christmas's Recursive Structure"
          width ="30%">
 </figure>
@@ -113,7 +113,7 @@ Ok, so a pair of c.e. sets can be inseperable. You're getting a little impatient
 Suppose we have some algorithm -- call it $P$. As it runs, it steps through a (possibly infinite) sequence of internal states, and on each step may print an output. I claim that we can express the statement "$P$ prints out $n$ after $m$ steps" as a first-order predicate on $n$ and $m$ in Peano arithmetic.
 <center>
 <figure>
-    <img src="/assets/tennenbaum/kylogic.png"
+    <img src="/assets/figures/tennenbaum/kylogic.png"
          alt="First-Order Predicate"
          width ="30%">
     <figcaption> First Order Predicate </figcaption>
