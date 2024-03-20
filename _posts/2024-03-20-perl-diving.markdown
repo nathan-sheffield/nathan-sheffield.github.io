@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Perl Diving"
-date:   2024-02-24 10:00:00 -0400
+date:   2024-03-12 10:00:00 -0400
 categories: jekyll update
 excerpt: "A short story about Kolmogorov complexity"
 ---
