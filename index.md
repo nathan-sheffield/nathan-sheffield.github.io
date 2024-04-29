@@ -13,7 +13,7 @@ A quick description of who I am
 <hr class = "header-line">
 
 ## [Blog](/blog)
-A potpourri of content about math and life
+Mostly exposition of math ideas I think are cool; some other assorted content as well
 <hr class = "header-line">
 
 ## [Music](/music)

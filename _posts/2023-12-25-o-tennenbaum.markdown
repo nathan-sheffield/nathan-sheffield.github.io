@@ -98,7 +98,7 @@ Now you're back in your room, looking at your computability theory textbook. The
 
 The solution to the problem is to let $A$ be the set of strings that, when treated as python programs and run on their own code, halt and output `1`, and $B$ be the set of strings that, when treated as python programs and run on their own code, halt and output something else. Note that not every string belongs to either of these sets -- some of them don't even halt at all, or aren't valid python programs -- but that these sets are disjoint.
 
-Claim 1: $A$ and $B$ are both computationally enumerable. To enumerate $A$, we can simulate all programs on themselves in parallel (like described in [this post]()), and then print a program whenever it halts and outputs `0`. Same deal for $B$.
+Claim 1: $A$ and $B$ are both computationally enumerable. To enumerate $A$, we can simulate all programs on themselves in parallel (like described in [this post](https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html)), and then print a program whenever it halts and outputs `0`. Same deal for $B$.
 
 Claim 2: $A$ and $B$ are inseperable. Suppose some algorithm separated them -- let $e$ be a string encoding a python implementation of that algorithm. But now, consider running $e$ on itself. If it outputs `1`, then by definition of $A$ we have $e \in A$, and so it should have ouputted `0`. But if it outputs anything other than `1`, we have $e \in B$, so it should have outputted `0`. Since the algorithm is supposed to halt on every input (including its own code), this is a contradiction.
 
