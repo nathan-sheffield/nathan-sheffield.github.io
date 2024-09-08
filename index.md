@@ -16,7 +16,7 @@ A quick description of who I am
 Mostly exposition of math ideas I think are cool; some other content as well
 <hr class = "header-line">
 
-## [Research](/research)
+## [Research](/papers)
 Research papers I've written
 <hr class = "header-line">
 
