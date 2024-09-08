@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Pick A Card, Any Card | Nathan Sheffield</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Pick A Card, Any Card" />
+<meta name="author" content="Nathan Sheffield" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A simple strategy stealing argument for a nim-like card game" />
+<meta property="og:description" content="A simple strategy stealing argument for a nim-like card game" />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html" />
+<meta property="og:site_name" content="Nathan Sheffield" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-08T09:40:17-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Pick A Card, Any Card" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2023-10-08T09:40:17-04:00","datePublished":"2023-10-08T09:40:17-04:00","description":"A simple strategy stealing argument for a nim-like card game","headline":"Pick A Card, Any Card","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html"},"url":"http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<link rel="icon" type="image/x-icon" href="/assets/logos/phi-logo.svg"></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Nathan Sheffield</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/" > About  </a><a class="page-link" href="/blog/" > Blog  </a><a class="page-link" href="/papers/" > Research  </a><a class="page-link" href="/things/" > Misc  </a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Pick A Card, Any Card</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-10-08T09:40:17-04:00" itemprop="datePublished">
+        Oct 8, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A little while ago my friend William proposed a game that I thought was cute, and there turned out to be a pretty satisfying answer to the question of which player has a winning strategy. I figured that now that this blog exists, this could be a fun place to write up the story.</p>
+
+<p>I remember the first time someone told me about game theory, they used as a starting example something like the following:</p>
+
+<blockquote>
+  <p>Two players take turns removing stones from a pile of $n$. On your turn you can remove between $1$ and $4$ stones, and you win if you remove the last one. Who wins?</p>
+</blockquote>
+
+<p>The answer is that the first player can win if and only if the starting value of $n$ is not a multiple of 5. When you start your turn and $n$ is a multiple of 5, no matter what number $x$ of stones you pick, your opponent can respond by taking $5-x$ stones, leaving you once again with a multiple of 5 on your next turn. When the pile finally gets down to only 5 stones, you have no way of preventing your opponent from winning.</p>
+
+<p>This game is essentially a variant of <a href="https://en.wikipedia.org/wiki/Nim" title="wiki link">Nim</a> (as I suppose are all impartial games – odds are pretty good that I type up an explanation of <a href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem" title="wiki link">the Sprague-Grundy theorem</a> as a blog post at some point), and is a nice introduction to combinatorial games because it has such a straightforward winning strategy. But William proposed a different version of the game: what if, instead of choosing a number between $1$ and $4$ of stones to remove, the number of allowed stones changed over time? Specifically,</p>
+
+<blockquote>
+  <p>An instance of the game is generated by randomly shuffling a set of cards labeled $1$ through $n$. Both players know the full outcome of the shuffle. On your turn, if the current top card of the deck is $k$, you can choose to remove between $1$ and $k$ cards from the top, and you win if you remove the last one. What’s the probability that this shuffling produces a winning game state for the first player?</p>
+</blockquote>
+
+<p>Here, coming up with the right strategy feels less much less obvious – it seems like depending on what exactly the shuffling looks like, the right decisions to make could be very different. And indeed, I don’t know that there’s a simple characterization of what the optimal strategy is. However, it’s not too hard to characterize what the winning probabilities look like, at least asymptotically in $n$.</p>
+
+<h2 id="player-1-has-a-winning-strategy-with-probability-1---mathcaloleftsqrtfraclog-nnright">Player 1 has a winning strategy with probability $1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$</h2>
+
+<p>Let me show you a situation I claim is really really good for player 1:</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/cards/pick-a-card-1.png" alt="Example game" width="40%" />
+    <figcaption> Grey cards indicate ones player 1 can take on her first turn. </figcaption>
+</figure>
+</center>
+
+<p>In this picture, she can choose to remove up to any of the grey cards. Suppose she chose to remove only the first two.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/cards/pick-a-card-2.png" alt="Example game" width="40%" />
+    <figcaption> Either of the two things player 2 could do in this configuration, player 1 could also have done on her first move. </figcaption>
+</figure>
+</center>
+
+<p>Now, player 2 has very few options on his turn. In particular, the options available to player 2 are a <em>strict subset</em> of those that were available to player 1 on her turn. That means that, if player 2 has some strategy to let him win the game from this position, then actually player 1 could have used that strategy instead. (For example, in this case, if player 2 thought that taking the top 1 card in this position would put him into a winning state, then player 1 could have actually started by taking the top 3 cards instead of 2, and now she’d be winning.) This is called a “strategy stealing argument” – note that it doesn’t actually tell us <em>what</em> the right strategy is, it just shows that there must <em>exist</em> one that makes player 1 win.</p>
+
+<p>By looking for configurations like this, we can give a lower bound on the probability that player 1 has a winning strategy in this game. Consider the probability that both of the following events happen:</p>
+
+<ul>
+  <li>The number on the top card is larger than $2\sqrt{n\log n}$</li>
+  <li>Among the first $\sqrt{n\log n}$ cards, there exists one whose number is less than $\sqrt{n \log n}$</li>
+</ul>
+
+<p>The first of these events occurs with probability $1 - \frac{2\sqrt{n\log n}}{n} = 1 - 2\sqrt{\frac{\log n}{n}}$. For the second event, note that, although the numbers on the first $\sqrt{n \log n}$ cards aren’t <em>actually</em> independent, they’re <em>basically</em> independent – $\sqrt{n \log n}$ is such a small fraction of the deck that we aren’t changing the distribution of cards very much, so we can pretend we were drawing with replacement. Now, the probability of all of the first $\sqrt{n \log n}$ cards having value more than $\sqrt{n \log n}$ is $\left( 1 - \frac{\sqrt{n \log n}}{n} \right)^{\sqrt{n \log n}}$. As $n$ gets large, we can approximate this as $e^{- \log n} = \frac{1}{n}$. So, the probability that both events occur is $\left(1 - 2\sqrt{\frac{\log n}{n}}\right)\left(1 - \frac{1}{n}\right) = 1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$. Whenever both of these events occur, we’ll have the same strategy-stealing setup as in the example: player 1 can force player 2 into a position where his options are a strict subset of what hers were initially. This argument tells us that the chances of player 2 winning the game go to zero as $n$ gets big – and in particular, go to zero almost as fast as $\frac{1}{\sqrt{n}}$. Using the same sort of argument again, we can also show that player 2’s winning probabilities don’t decay much faster than that – $\frac{1}{\sqrt{n}}$ is pretty much the right answer<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h2 id="player-2-has-a-winning-strategy-with-probability-omegaleft-sqrtfrac1n-right">Player 2 has a winning strategy with probability $\Omega\left( \sqrt{\frac{1}{n}} \right)$</h2>
+
+<p>Consider the probability that all of the following events happen:</p>
+
+<ul>
+  <li>The number on the first card is smaller than $\sqrt{n}$</li>
+  <li>The second through $\sqrt{n}$th card all have values at least $3\sqrt{n}$</li>
+  <li>Among the $\sqrt{n}$th through $2\sqrt{n}$th cards, all have value at most $\sqrt{n}$</li>
+</ul>
+
+<p>This sequence of events means that, no matter what player 1 does, player 2 will then be in a position to do a strategy stealing. By a similar argument to above, these events occur with probability roughly $\left( \frac{1}{\sqrt{n}} \right)\left( e^{-1} \right) \left( e^{-1/3} \right) = \Omega\left( \sqrt{\frac{1}{n}} \right)$.</p>
+
+<h2 id="other-questions">Other questions</h2>
+
+<p>This was a quick example of a case where a strategy stealing argument one step away let me characterize the winning probability of a game pretty tightly. If you thought this game sounded interesting, here’s a couple other questions that could be fun to think about:</p>
+
+<ol>
+  <li>How do winning probabilities for this game work if, instead of shuffing cards $1$ through $n$, the card values are dice rolls (i.e. independent uniform values from 1 to 6)<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>? Strategy stealing tells us both players have a constant winning probability, but how do we figure out what that constant is?</li>
+  <li>What about if the players don’t know the whole shuffling – i.e. they can only see the first card, so they’re playing with partial information and trying to maximize winning probability? Intuitively, you’d expect that when you shuffle $1$ through $n$, the right strategy might be to only take one card at a time at the beginning, because the fewer cards that are left the more chance your opponent instawins on the next turn. When the values are from dice rolls, you can write down some recurrences and you’ll start to see patterns.</li>
+  <li>You could also define a variant of this game where, instead of removing cards from a stack, you lay out all the cards in a line. Now, on your turn, you can jump to a card up to as many steps away as the current value, where it then becomes the next player’s turn. You can never revisit an already visited card, and your goal is to never get stuck with no moves available to you. Who wins? None of the strategy stealing stuff works anymore, because now there’s some dependence on history. It seems likely that in the $1$ through $n$ shuffle case you almost never get stuck until the end, but maybe this game is fun for smaller cards? I haven’t thought much about it – let me know if you do!</li>
+</ol>
+
+<center>
+<figure>
+    <img src="/assets/figures/cards/pick-a-card-3.png" alt="Example game" witdh="80%" />
+    <figcaption> Grey cards indicate ones that are available to move to on this turn; solid (think: face-down) cards indicate the already-visited ones. </figcaption>
+</figure>
+</center>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>This $\sqrt{\log n}$ factor is a bit annoying – I suspect you could make it go away if you were a little more careful with things, but I’m just leaving this a rough sketch. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Or iid from some other distribution, say. The reason this approach was so strong here was because the card values were allowed to be really large, so it was likely to be able to pull these shenannigans – when cards have smaller numbers I expect it’ll be a much trickier problem. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="/jekyll/update/2023/10/08/pick-a-card.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+
+        <ul class="contact-list">
+            <li class="p-name">Nathan Sheffield</li>
+            <li><a class="u-email" href="mailto:shefna@mit.edu">shefna@mit.edu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Whereof one cannot speak, thereof must one blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

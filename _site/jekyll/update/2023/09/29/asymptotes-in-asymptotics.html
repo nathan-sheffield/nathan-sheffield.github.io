@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Asymptotes in Asymptotics | Nathan Sheffield</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Asymptotes in Asymptotics" />
+<meta name="author" content="Nathan Sheffield" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Does every problem have an optimal algorithm? (Follow-up to previous post.)" />
+<meta property="og:description" content="Does every problem have an optimal algorithm? (Follow-up to previous post.)" />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html" />
+<meta property="og:site_name" content="Nathan Sheffield" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-29T21:48:17-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Asymptotes in Asymptotics" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2023-09-29T21:48:17-04:00","datePublished":"2023-09-29T21:48:17-04:00","description":"Does every problem have an optimal algorithm? (Follow-up to previous post.)","headline":"Asymptotes in Asymptotics","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html"},"url":"http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<link rel="icon" type="image/x-icon" href="/assets/logos/phi-logo.svg"></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Nathan Sheffield</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/" > About  </a><a class="page-link" href="/blog/" > Blog  </a><a class="page-link" href="/papers/" > Research  </a><a class="page-link" href="/things/" > Misc  </a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Asymptotes in Asymptotics</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-09-29T21:48:17-04:00" itemprop="datePublished">
+        Sep 29, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This post is a follow-up to <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html" title="link to my last post">my last post</a>, where I discussed variants of Universal Search and what they say about the existence of optimal algorithms. You may recall that the conclusion at the end of last time was:</p>
+
+<blockquote>
+  <p>If, for every $\epsilon$, there is a provably-correct matrix multiplication algorithm that provably runs in time $\mathcal{O}(n^{2+\epsilon})$, then there is an algorithm running in time $\mathcal{O}(n^{2 + o(1)})$.</p>
+</blockquote>
+
+<p>More generally, for any problem, if there exists a sequence of algorithms provably achieving time bounds approaching $f(n)$, there exists one achieving $f(n)$. I think this is a somewhat satisfying thing to know, but you might still be a little unhappy. Specifically, this stipulation that the bounds be <em>provable</em> in our formal system seems a little slippery. All I wanted was a guarantee that there exists some asymptotically optimal algorithm, but Hutter’s algorithm only gives this restricted to programs we can reason about in ZFC or whatever.</p>
+
+<p>As it turns out, this annoyance isn’t just some technical quirk about our universal search argument, but actually an unavoidable fact. That’s right, if I remove the provability clause this is <strong>no longer true</strong>!</p>
+
+<h2 id="blums-speedup-theorem">Blum’s Speedup Theorem</h2>
+
+<p>Blum’s speedup theorem is a classic argument from the early days of complexity theory. Blum was interested in how to characterize the difficulty of problems – he defined a bunch of axioms for what makes sense as a complexity measure (like time or space usage). However, <a href="https://dl.acm.org/doi/10.1145/321386.321395" title="the paper showing this">he also showed</a> that no matter what complexity measure you use, there exist problems with no well-defined complexity, because <strong>any given algorithm for the problem can be “sped up” to get one performing better</strong>. As a concrete statement, we could say</p>
+
+<blockquote>
+  <p>Blum’s Speedup Theorem: There exists a computational problem such that, for any algorithm solving it, we can find another whose asymptotic runtime is only a square root as large<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+</blockquote>
+
+<p>This is rather unnerving – we can’t talk about the complexity of such a problem as the runtime of the best algorithm for it, because there <strong>is no best algorithm</strong>! The proof of this theorem is a neat diagonalization argument, producing an entirely unnatural (but well-defined) problem.</p>
+
+<p>Once again, consider looking through programs in alphabetical order. The idea is to make it so that alphabetically later programs can always solve the problem asymptotically faster than alphabetically earlier ones. We’ll construct a problem where the $i$th program either gets it wrong, or needs time $2^{2^{n-i}}$ on inputs of length $n$. This problem will be a unary decision problem, meaning that the correct output is either 0 or 1 as a function of the input length. The definition of the problem on an input of length $n$ is given by the following algorithm<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    thwarted programs &lt;- empty list
+    for stage s, ranging from 1 through n:
+        for i ranging from 1 to s:
+            simulate the ith alphabetical program for 2^2^(s-i) steps on a length s input
+        if at least one of these programs halted in the given time, and isn't already in the thwarted list:
+            add the first (alphabetically) such program to the thwarted list
+            if s = n, output the opposite of what that program said
+</code></pre></div></div>
+
+<p>Let’s break down what this is doing. Our goal is for this algorithm to “thwart” (i.e. output something different on some input) any program that runs in asymptotically less than $2^{2^{n-i}}$ time. When this algorithm is deciding what to output on a given length $n$, it simulates the first $n$ programs to see if any of them are finishing too quickly – if so, it finds the first one it hasn’t thwarted yet and chooses a different answer. If, for some $i$, the $i$th program runs asymptotically faster than $2^{2^{n-i}}$, this means that eventually it will always finish too early – after $i$ times finishing too early, it will definitely be thwarted. The upshot is: we’ve described something that the $i$th alphabetically program can’t do in time $2^{2^{n-i}}$.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/universalsearch/blum.png" alt="Graph of which things we thwart" width="40%" />
+    <figcaption> On a given length, we look at all the programs that finished in their allotted time, and thwart the first one we have yet to thwart. </figcaption>
+</figure>
+</center>
+
+<p>But now, I claim that for any $k$, there exists an algorithm for this problem running in time $2^{2^{n-k}}$. If we just wanted <em>some</em> algorithm solving the problem, we could use the one we used to define the problem – looking at the simulations this algorithm does, we find it runs in time $\mathcal{O}(2^{2^n})$. This time bound is dominated by the cost of simulating the shortest program – so, if we wanted a faster algorithm, the idea is to <strong>hard-code the simulation results for the shortest programs</strong>. That is, we run that algorithm from before, but it has a table containing, for all of the first $k$ programs,</p>
+<ul>
+  <li>Whether we ever choose that program as the one to thwart</li>
+  <li>If so, on what input we do so and what value we choose</li>
+</ul>
+
+<p>If we know those values, we never actually need to run the simulations for the first $k$ programs, since the simulation result is only relevant on the one length when we choose that program as the one to thwart. So, hardcording this constant table of values gives an algorithm running in time $\mathcal{O}(2^{2^{n - k}})$.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/universalsearch/blum-2.png" alt="We don't need to worry about the first ones" width="40%" />
+    <figcaption> We can use a constant-size lookup table to determine on what input lengths we thwart the first $k$ programs, and so don't need to run the simulations. </figcaption>
+</figure>
+</center>
+
+<p>This completes the proof – if we choose any given algorithm for this problem, it will be the $i$th alphabetically for some $i$, and so will need $\Omega(2^{2^{n-i}})$ time. But we can use this lookup table approach to get an algorithm running in time $\mathcal{O}(2^{2^{n-i-1}}) = \mathcal{O}(\sqrt{2^{2^{n-i}}})$. So, this is a problem with no asymptotically optimal algorithm – there’s asymptotes in the asymptotics!</p>
+
+<h2 id="levin-search-with-frievalds-trick">Levin Search with Frievald’s Trick</h2>
+
+<p>This feels at first very contradictory – why doesn’t Hutter search work for that problem? The answer is that, although these faster and faster algorithms exist, we cannot <em>prove</em> that they’re correct when we’ve found them. Determining whether the hardcoded lookup table actually encodes whether or not each of the first $k$ programs is ever thwarted is undecidable – we know that there <strong>exists</strong> a hardcoding that correctly solves the problem, but have no way of ensuring that a <strong>given</strong> hardcoding is correct. Asymptotes in asymptotics can exist, but only when they involve programs whose properties we can’t prove.</p>
+
+<p>Circling back to the question of matrix multiplication, my question is: could that happen here? Does there necessarily exist an optimal matrix multiplication algorithm, or could there be a similar situation where there’s a sequence of better and better algorithms without provable guarantees? I’m not sure if there are general results ruling out this kind of thing<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>, but I know that, at least if you allow randomized algorithms, there <em>does</em> exist an asymptotically optimal matrix multiplication algorithm.</p>
+
+<p>The reason I know this is because, given two matrices and their supposed product, we can verify this fact in $n^2$ time using Frievald’s Trick, a classic randomized algorithm:</p>
+
+<blockquote>
+  <p>Frievald’s Trick: Given three matrices, $A$ $B$ and $C$, we can verify whether $A \cdot B = C$ with bounded error probability by choosing a constant number of random bitvectors and comparing their product with $C$ versus their product with $A \cdot B$. Both of these products can be computed in $n^2$ time (to compute $A \cdot B v$, compute $A(Bv)$)<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>.</p>
+</blockquote>
+
+<p>In order to multiply two matrices, we can now use <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html" title="link to my last post">Levin’s algorithm</a>, using Frievald’s trick as our verification procedure. We can repeat the simulations twice as many times for successive programs, so as to ensure that the error probability of the whole algorithm stays bounded. You can verify that, as long as we make no errors, Levin’s algorithm will still run in the asymptotically optimal runtime.</p>
+
+<p>So, although we know that not every problem has a an optimal algorithm, at least matrix multiplication does. Hopefully you will sleep better at night knowing that, when people say “<em>the</em> matrix multiplication exponent”, they are indeed talking about something well-defined.</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>We could substitute “space” for “time” here, or talk about general complexity measures. We could also use any unbounded increasing function instead of square root. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>This proof is adapted from the one given in Dexter Kozen’s <em>Theory of Computation</em>. I would definitely recommend checking out that textbook – it has nice presentation, and covers a lot of stuff I haven’t seen in other complexity books. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>If you do know of such results, please let me know! <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>There’s also an (in my opinion) even more slick version of this, where if we’re trying to verify a matrix multiplication over some field, we choose an extension field $\mathbb{F}$, and then instead of taking a random vector over that field we choose a random element $r$ and take $[r, r^2, \dots, r^n]$. In that case, the analysis follows from thinking of the matrix product as a polynomial over $\mathbb{F}$ and noting that it can have at most $n$ roots. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+
+        <ul class="contact-list">
+            <li class="p-name">Nathan Sheffield</li>
+            <li><a class="u-email" href="mailto:shefna@mit.edu">shefna@mit.edu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Whereof one cannot speak, thereof must one blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -13,12 +13,12 @@ A quick description of who I am
 <hr class = "header-line">
 
 ## [Blog](/blog)
-Mostly exposition of math ideas I think are cool; some other assorted content as well
+Mostly exposition of math ideas I think are cool; some other content as well
 <hr class = "header-line">
 
-## [Music](/music)
-A couple things I've written or recorded
+## [Research](/research)
+Research papers I've written
 <hr class = "header-line">
 
-## [Papers/Presentations](/things)
-A bunch of vaguely academic things in pdf form
+## [Misc](/things)
+Other assorted things I've written or recorded

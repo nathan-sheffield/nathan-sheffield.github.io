@@ -1,7 +1,0 @@
----
-layout: post
-title:  "Minicrypt II: Making Hardness Useful"
-date:   2023-12-12 23:18:17 -0400
-categories: jekyll update
-excerpt: "Stateless encryption, statistically/computationally binding/hiding commitment schemes, zero-knowledge proof."
----

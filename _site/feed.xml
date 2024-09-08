@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-09-07T22:47:23-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Nathan Sheffield</title><subtitle>Whereof one cannot speak, thereof must one blog.</subtitle><author><name>Nathan Sheffield</name></author><entry><title type="html">Faust Reconstructed</title><link href="http://localhost:4000/jekyll/update/2024/04/23/faust-reconstructed.html" rel="alternate" type="text/html" title="Faust Reconstructed" /><published>2024-04-23T10:00:00-04:00</published><updated>2024-04-23T10:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2024/04/23/faust-reconstructed</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/04/23/faust-reconstructed.html"><![CDATA[<p>Ok, another short story! (Sorry for 2 in a row fiction posts – will return to your regularly scheduled derandomization programming at some point.)</p>
+
+<p><a href="https://nathan-sheffield.github.io/assets/things/faust.pdf" title="a link to the story">Story PDF here</a>.</p>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A math-themed retelling of Faust centered around the reconstruction conjecture]]></summary></entry><entry><title type="html">Perl Diving</title><link href="http://localhost:4000/jekyll/update/2024/03/12/perl-diving.html" rel="alternate" type="text/html" title="Perl Diving" /><published>2024-03-12T10:00:00-04:00</published><updated>2024-03-12T10:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2024/03/12/perl-diving</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/03/12/perl-diving.html"><![CDATA[<p>This was written for my creative writing class. The story definitely has some structural problems I wasn’t able to fix, so to make it less likely anyone ever reads it I will leave it in compressed form.</p>
+
+<p>use Compress::Zlib;use MIME::Base64; print(uncompress(decode_base64(“eJxtWt3OHMdxve
+dTdIBcSMB+n+mIdhBKCUPJMvjZpiNYVgwhCIKemd6d5vZMj/pnl8MrvUOuAsQvpyfJOVU9s8tYN9Jyv5nu6qpTp05V77OffvzfN/H6049/NT6bNdZkjj7lYn6oLhcf54M5xhDi1Q3GFmPN4HOxczHZ9XEeTLcarHAdV6zwyI9/GSMXy85N2QR/dsaXn378Hzzp8PaSXCmrSc7mONsuONOP0ffOlBgPpquFJuDx5Mwciymjw6fVlUfzOoT2t4szJ/zNyp/NFCcHc2A8/yW2WGz415fYy88FZpeo5youTX62gTZbk/20YPslxVOyE9+3MLcUfBcvLplfm7dfmnjEW+/LwfRxwnLZzyfD9Y1dFmdT5tpyLv49uOIOJvdudg/d+iAfzOByn/xCT3I1MST4Ix48pjjpvzufysjzvHj52a/N67fGz1jyq+AuLlj4eIx58cWGA7ezXYSX/um5wVlqcTD7FGGTm7mWudJfJ/iYlsLLw8p3grNw2jWm86N59ux7PNfHGoYDLcKnlGEOIuLDiuDDz9hfXOuznPhus1WeDkfjj7qfbS5+NH8e3doC7YCaupg6Fx9kpWCBqNHiPTvjODVhP/wxOewY04CopPXRfC/Osd1kuZUcpXepWD/jsTrnmhgDJ6DjqlzwYUQcaIJ739fsxKiaNeruYgcC5OKBJn8aC+Dx38BVF+GW0Q50UMDS7v3ieq7Bl1tECU18zJ4oS7GeRvNdKEAKDvCPQGPWneYQ+7O+yTgC7RJWWneyyZ6wEgKYXYGrj2aIV/XsNcaB5+ALWBReWqz6Gkl1cbOHd2DY1ZcRsVDHIQbEZsOQXXBsIv8gC+Y6w+wTjIPRQ+3P+BeSVt0Uk//AREZoKzNAwHH1eVlNH2IdsgIux2MxSIaBu3Ojxc9nsT8mO5/co3k6akbuYcY7k4uAuQvwvWYrjaaNh5auwC/Rd3QBi3bBn2xLSvLIoP4pNgGCfsZJaZv1yNbR4xSymBywb0YxOU+Jjsx1mpCoxwDzDuaEc2Uz2LmXFfoU88ZnttcwIBERLDxFT4uzgV7fB4Btj1pX8+jy4Q67+Sx81Y9kQCzmGZqH3Zf49pQc0AsWRcKmwy0PbYBrDrJ1c43NgJ+ZHV46xoQT9KNZImjHCTO6OTvBaEmOmU3XAPc0GQ4yAWcPhD5sz/dsCfdmRsPNAtQoYZoY1Z1vBNdI8V4QD4aQs/nBWck7gSKZZnJ8DVTg5p62p+QvdFUOTCASBFLZMTzAWs3VBlLK07wlZLhapHQtGUv/DVLpmWOsjLpZkM3AswPcQ1wcPQ4YTItTSPDYNjhw1IanZGYL62ZnaQa2H64JfI1j0+AJW4Pn8G+wclRzjsEuj+ZbnEk4u9gzHradBa4+mZh0IP1clyU2vgCRbrku9IdQk7/PQGae4WZUmfLqUz0GTJ7xFukhgjRnBjQwp1vOHmnwAgLIDMcQKwjlIS+AIo70y394WKKnR/7sJzzxR3c1f4qgFmFRKTmClesYcVQs7nq/AEFkJea7mEicvKuZNTk7VGvEi1ux8CJgeA9JOwDVr7/96ukJZRZ01NM7Gu+8sDrIOYfYV8YnM25a/MTd6lPUB1A8YJ3qPBMJ8je3wuzOTaRacvhFIAHMWSXGhSuRVJYoWQuTICcSqSJHlAaiH7Q/u6RHnmJS7l7wYdjXM0hGoP/QKn17Zic6nBU+ZsznLP5o5cLkdepiaPoDmuDvKUkIK3z+502eaNBj3+M8ArI6C6BBBurP9cDjDH5A5oH/EgtFcuDpON+W/tf6u7vFv/hCdBA9DKYIugWUjEicsR2+i15oTk55I5qudp1837meSL/4GEh6LatJ7MwPxbYbTq4lOlywwI/Pnr2xkqqpcl/GkvHjA4oejYxUfuGQM95XMIO35lKFGXbfLsGuN/olUTDny43d8E3QQoJnUIUvlA+xO9bcCyv2KHGSmuSUJrOITFT4+VSRGfBuaFi+lXmqPqJEVr2iBoy3HY8WJdBbQOatXVGkv3EpvBJft2xUtrNLiYsEBFoCtS/WTNZEOlCKdU5Rf0sIqDuw67Hy+GD5/kwj4YEJfAF+UNBJIevj4tvre8q591glrDvNz2QDcSWp1gkqEJ5gppXEuf4X/fK4BOLk2bPXeGmO14NRoYujSCUMMYoVonFhP9YWHtkJBdFFij2a3yKPWHVWYGO9VQOpzQjPxe0FO6v67j3F3iRJ8xCPDyiO5f+L1HYkVbq0iSkgxchesWXwyyIuuuPKhQLvCBqb4lzGrDZJoZKz5D12WrYiPceV89kvN+F9rInmGlJ0qxZevUq5mDwLtRenCjwGB9CEBmugFo7EyjD8Yk+VlTIhyacOC0pNHTcVyOeBBjqE0hr6aA1WDg8RBjfi1L+iDJe1AATKRP/hBoN8pfxXu75FqV4KwA82U6sy0ZdjqOrOKvyXg3MLDIaAvchWn8vbBfSvlJYiO6UZu42CExZq4Bf+ZbVdAGwRLI62qJhhHmtVskc8c7VpoHtOBCx3RU8mokRcgzrVOU1gAAoq40WjVkXVQnKbJWPJGcIrnrIQPD2Jva9A03j5Lq472CifERuEFEXQl6zHkL226v6qtR17OIlWNi0HOvszdHhspiJbks3JAmFJ2qN/r5rfIhK9tAunjfq+RGbB8d+MPiCfAT7fC3PxkW+R68HXrBWmMZBkgmYP6mxo6Bnhpo82rvPeATByB2kXejIZNTyEitfmTw4ktDNFge7Vll7cA3C5JO6TwqysjR3dxWdpq7Wzu+0L3MRhe/CzxC8AmU3DeSwLdg4VWRIj+XWx79CNgL3OMFB2hJopbN/wAZome54gRwYaDceOFqE1HvoUJdG04xn2DvuWNZ4lXsRf7aC0T9Q7swYWzbPugGTzGVjMUq7w5wkBH9ZD4+IKpSo5u1eKfAXscPDZra327fz+EddaJOb63lv21FsiAsKov33VWcTeWO6HbbOA1h72CG+UeBMR4Hc0NB8+WFQntqtfX6gcj3dNyqAKQ5StNZ89EJQPwKQscYm97WpAn9oEvpRR6WwEMJRqotV66N1OGzWl1U658j5PhI8Ed9h0oP+QVtJeDKSJyZ58DxEhSQFmovr6uMOHVZss2PuIrS3YixVL2SYEoDnimeCCYkOKwByQ3q3rCb5LcjRnqXN0ZJDmVun6RKLo3KjZK6MWW8ELNZ2Epxa0PqjKf9nqhWp8KlgYYRfmEImX9Ya6/SW6OWh7KbwD/cFPYOFBk7QprKai2DaOVYoHUP9yL0pyRpUPKpaF38FVF7crjI0loLpCa76Uu+4DDf8TjcSRTUEGRewTD6KrlbzbqGhTmpIBImvcpfE8nGfekcIZ0ZMntrJ0QpR4MB87wcMep9rmL4D+XIVhUG4pj+9nQ+/qJCk92mW0H8Ds0va1csuaYdmpoxNinJbmKqGe1nMNkI7aMsu0RrT+V1CPYMQgeP4S2RpPq8CHLvpV0ZUPe7ZqC4QIz3mfOsB/TpAkqXxkNYD3jMC8Yx8tqthSBZypsUXEUGEjiCVVKoPRD4P2bNLcqPBA4rdw3wpEcXfKr0kqyyq3Cb1vxt8ogr96+535hIOLqlWcszx2z+zt/QQtA8Qz1McjBwus02gcG2N6BQ++pOc/PbR5jbtNuoZESDGLEKu6gPthGTu272M6tzlGKjJd21jpjU3MUBxIajb7J3H0W0SlJ4ng/ZpipzHYp0kyZUBl1mpoT7GxKNHA/Dt5UeZs3qU3Iy/sqrN9oyVAnVmS6mlODYdJW9X9WHd5JKMFFZywch8smDMFFXUxgsA1v97bhDtx5suurpoERQlAlXEyFxDnWjTtV5gweAnPNo9FouOgOPEJwF4+Z4hQHvui2sdxROMoBkW7e/aeTSZjgXeRIyvCCL4lg/olyBQRJdZOwN/gBMQz/IzFep/6CmmCzmFt820a2+acaBMO5ok5efSD6Dq45mknl/kuVjejebAfKic3sMFPfpCx2ufiADKBLnNoZGBFHCOVkAV9kQZSpzvHo+9l3oZ+wi86JrF6YDdIHqFOas+mrZHIWhy2bwmSWl2RDl5jZ0OmaAWZDrVvD73Dfzj7Zin3rYVtaM1sNn9AXH0BFn/jZNKzTVmpAidp1uAQglp6FJlB/z6GKZ5iipc2/n6PBXYw3DpG2YMUipPigchZJvzQBnAs6pOzrP37YBdt76mMO3ujNBTh5zarl1Vlus/81QmP8roUHiGBppJP6AuTtKPCFI3J2SHDV0JWWv5y2XZTdPzy+eH58+fcZOKTd9Vemi0djfysA1iqOai1+6ptrTaOmSu1VTaTtCKy5BzbGdP9EZti5PwNh2EXyRN/Yv5DJ+fNhf9pPr3dvHBfifZSO0GIhHmybOuR4qeWWNs4QeRUQ0kT2A1w7DCJNNQlRD/sCYitCIQucggIsY5dp1Wpj7O0CP1yiWgWWTQF6dKMpHbfc4PDEvEldPK03LuWPbebOK3mpRE93eEI099hV62aZCnWgPXu8kTb/cOdYqcelooHgx9h7RBV+HbBarelDYF0OyNF84LNCGiO+3yWSXzkZFdujFRYQJwndQsHylRxQx7Ruu6DqpkzOxL3ngDF9SMi27PXTWUjTCljQQgSlcWe2p2DTri6eJXma+KY9cKer7SRkdAqbzNYRvCqyEFl1yxiha/fRuOjF9LmHPlMKqrLxnWoSJFqQhHMq5gs85bfVYY7prkNP1RMtKsF3rpoSdl8yXsfbY23IQO2c+e8GUZiE0krgQLvxWn2VlJS2v5iVzVLhARlB6eDKjzqPNaUPK1sFya2/MyNCeejJAcr20jJ3MTMsQrwpDZSaN4GZbnoOfYeR0ZkMUqF+6glvxtci5s7iF1UbmBz2I8hYzpBLd27WHSfB94yLEtoCTW/966sN+re8RJ4PcHeO6E9TqQNMnfjv8UGbSKOTssYHtROrM7ZHvVkcruwdxKQ2IuMXImdwPS6NVdaPraZP2+sstQQHUZzrScU1rC0GzBWKboFwp8IXOWYyWYW9D80nSCN48bt6A/YyW/vUmvqXAfif5Bku02gKJVUTUpc5esxitidZKhXbr26ZKeOJaQ38oIpalpmo9bJCn/KLQvdp1wOLU/6AKVeN10lo/wF/9Epn+XMFwkOdtimAK0T32avsctoQ7ZB017PeF8KYh2xH1/QyduVnYvEYEHdP7Rv89TYmDd/TIXD3dBZhmpOZ0EXDSJKISt+JrvrNB6nDBwnMoNmXv2oZniD2ECXn/ViE8Vp8j2SHgTahnQuXdjOv9lPxIkuChR9rAoSgkfhyD6myOWeUgFsXEBtm/yHRhIxYJyX4YbVMRbA1a49t+lEirBxdxWn2EOW5IV1lV1TY5VdfaqCmNGGIfRuGfEA+/z3a4m9b8ORzhX7AGtiWkZ2TjzRXSPMoeRGqGhQIW/urt6Y0hbc0PythaMI0XBpjnvbpQ8E3cIfMjTiAvLPe4zalu5O9z7R7a2rBhq2PuCwc8LM8HNSSlawJ2CutXxgD7b+LWn0fsi73t2N4LxEe94yRJXNSBPwyqpFUq58Bqc/ZoDC2G/0mtA5CBUFAv7r+QQNMh5krvDRhHcf8kHN6vFkSiYestLh0okTt+qctrpnin28A4HlUljb7wtY1cm6bcHWDLxog2peWorkUga8KY82axR5OcnwIhbK9NHGvN3YOQ7Cb92i2koVPcIEcr5mOnblPcCh2bwJic5t24nYk003rc3y56capMRLTUQSJpa4N05rKSek+t7mg/ZTAdFpckbeBKGv78LaSjfSPS2ypjIzDNt+iCHn3KVdlP7TtRy43dAi9Xp/1Hgqnu5juBlSrBAwSucUb6pVbhYp3h+2G5i/2ffmfbCm/KACgdQ7+I8OLAkvP2oh4Xrt3S1vQTuZKlv9Z6sqXbuXAwmWUZWvaFcZREvpquWg8347DxtWmMbrK6OjkBDz1sms7db7muzSijAVGNrp2uaswh6ySpv2PZp/A2U1xpo049qlsb3dWi/aTwkpK02UdYHbAhTXqgPr9aPfCEHZpunn7mx0TMFOCCHYb99yoxXSkBrCHxgwUcTh4+2ie+/2AaWmnLY/bYNzoqkUMOo2doFQvLLOyclPUS6991vbu178IwfdmhmRNKRqEUkIUi6iKv7dyq82oO5QCp89Y7u+6Ttp/ffpKJJbWI3j99bC6nnr/FG9Vrozr0VRtJt186QLKC/KukwffjtxO7ePzB/Nl5V9tzyjzXP2BM5T+4kDdP4iP1LIZatQnKPJD0PmIBWEPCS/N8P/pV/afqg0RHYoiOqL5y/MH0FGvxVIffHdn/7wcixlefmLX9gF53jv9b6Ds0q684Gp+SCC4/EEUNXu0cd/kcu7/wO45X9t”)));</p>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A short story about Kolmogorov complexity]]></summary></entry><entry><title type="html">Lost in Space II</title><link href="http://localhost:4000/jekyll/update/2024/02/24/lost-in-space-ii.html" rel="alternate" type="text/html" title="Lost in Space II" /><published>2024-02-24T09:00:00-05:00</published><updated>2024-02-24T09:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2024/02/24/lost-in-space-ii</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/02/24/lost-in-space-ii.html"><![CDATA[<p>Alright, last time was a good derandomization warm-up. We saw that, for the purposes of tricking width-2 ROBPs (a kind of “non-uniform” version of algorithms with only 1 bit of memory), we could make $\mathcal{O}(\log n)$ bits of true randomness look like $n$ bits. But, if our real goal is to understand <strong>to what extent we can simulate random algorithms deterministically</strong>, this is pretty disappointing – most of the algorithms I care about definitely use more than $1$ bit of memory. So let’s go beyond 1 bit, and ask “if a problem can be solved by a randomized algorithm with $s$ bits of space, how many bits of space do we need to solve the same problem deterministically?”<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h2 id="savichs-theorem">Savich’s Theorem</h2>
+
+<p>It turns out that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$. The idea is pretty simple and also shows that $\mathsf{NSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$ – if you’re in my target audience, you’ve maybe seen this before. The first thing to note is that, when limited to $s$ space, the algorithm can only run for at most $\mathcal{O}(2^s)$ steps<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. So, if for every $t$ I could answer the question “what’s the probability that the algorithm goes from some memory configuration $C$ to a different configuration $C’$ after $t$ steps”, I would be cooking – set $t = 1000 \cdot 2^s$, $C$ to be the initial configuration, and enumerate over all accepting configurations $C’$ to calculate the overall acceptance probability.</p>
+
+<p>Answering this question for $t = 1$ is pretty easy – just look at the transition probabilities for one step of the algorithm. Now, suppose I have a good algorithm to solve it for $t/2$ steps, and wanna figure out $t$. Well, we can enumerate over all possibilities for a memory configuration $C_{mid}$, and for each one multiply the probabilities of going from $C \to C_{mid}$ in $t/2$ steps and going from $C_{mid} \to C’$ in $t/2$ steps – summing over all $C_{mid}$ gives the probability of going $C \to C’$ in $t$ steps.</p>
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/savich-idea-new.png" alt="Savich's Theorem" width="60%" />
+    <figcaption> For every possible middle state, we compute the probability of first going from the start state to there, then from there to an accept state. </figcaption>
+</figure>
+</center>
+
+<p>In addition to the space required to run the $t/2$ version of the algorithm, we only need $s$ bits to remember $C_{mid}$. So, by induction, we can solve the whole problem in $\log(2^s) \cdot s = s^2$ space<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/savich-recursion-new.png" alt="Savich's Theorem Analysis" width="60%" />
+    <figcaption> In order to remember where we are in the process of doing $s$ levels of this recursion, we'll need to remember $s$ different values. </figcaption>
+</figure>
+</center>
+
+<p>There’s another way of thinking about this algorithm in terms of matrix exponentiation. Thinking of your algorithm as a $2^s$-state finite automaton, you can imagine writing down a $2^s \times 2^s$ matrix $M$ representing its transition probabilities in a single step. Now, if you could compute any desired entry of $M^t$, you could find the probability that the automaton is in an accepting state after $t$ steps.</p>
+
+<ul>
+  <li>You can find any entry of the original matrix $M$ with like no space overhead, just by looking at the algorithm.</li>
+  <li>If you can compute any entry of $M^{k}$, you can compute any entry of $M^{2k}$ with only $\mathcal{O}(s)$ more bits of overhead – in addition to the space required to compute an entry of $M^{k}$, you’ll need enough space to store the values of two entries and their product, a counter for what index in the matrix row you’re looking at, and a total. Or something like that.</li>
+  <li>So, you can compute any entry of $M^{2^s}$ with only $\mathcal{O}(s\log(2^s)) = \mathcal{O}(s^2)$ bits of memory.</li>
+</ul>
+
+<h2 id="nisans-prg">Nisan’s PRG</h2>
+
+<p>Savich’s theorem is the reason you never hear anyone talk about “$\mathsf{BPPSPACE}$” – since a polynomial squared is a polynomial, $\mathsf{BPPSPACE} = \mathsf{PSPACE}$. However, if you’re interested in logspace, this isn’t good enough – all we’ve got is $\mathsf{BPSPACE}(\log n) \subseteq \mathsf{SPACE}(\log^2 n)$. If you’re hoping the fact that I started this section this way means I’m about to give you a better inclusion, tough luck – you’ll have to wait until the next section for that. But I will show you another proof of the same thing.</p>
+
+<p>Actually that’s not really fair, because this is in many ways much stronger – a construction due to Nisan of a PRG with seed length $\mathcal{O}(s \log n)$ fooling any width-$2^s$ ROBP. The basic idea makes a lot of sense: suppose I fed you $n/2$ random bits, and then you asked me for $n/2$ more. Do I need to cook up a whole $n/2$ new bits for you? Nah, since you only remember $s$ bits about the previous stuff I gave you, as long as I mix it up a little there’s no way you’ll remember enough to know the difference when I serve it to you again.</p>
+
+<p>Slightly more formally, there’s the idea of a “seeded extractor”, which I think I touched on a bit in <a href="https://nathan-sheffield.github.io/jekyll/update/2023/12/13/welcome-to-minicrypt.html">this post</a>. The upshot is, given a distribution with min-entropy $k$ (meaning that no specific output occurs with probability more than $2^{-k}$), as long as you also have access to a small amount of true randomness – say, $d &gt; \log(n/\epsilon)$ bits<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> – you can turn it into something $\epsilon$-close to the uniform distribution on about $k + d$ bits. Now, look at the state your branching program is in after you’ve fed it $n/2$ random bits. We can split into two cases:</p>
+
+<ul>
+  <li><strong>Rare states</strong>: some states might occur with probability less than $\epsilon / 2^{s}$. Since there’s only $2^s$ possible states, the chance of ending up in a rare state is at most $\epsilon$.</li>
+  <li><strong>Common states</strong>: suppose you end up in state $x$ after reading $n/2$ uniform random bits with probability at least $\epsilon / 2^{s}$. This means that there are at least $2^{n/2} \cdot \epsilon / 2^{s} = 2^{n/2 - s - \log(1/\epsilon)}$ different length-$n/2$ inputs leading to state $x$. So, if we take $U_{n/2}$ and condition on reaching state $x$, this distribution still has min entropy at least $n/2 - s - \log(1/\epsilon)$.</li>
+</ul>
+
+<p>This is really nice! This means that, if you only had $n/2 + s + \log(1/\epsilon)$ bits of randomness, you could start by feeding the branching program $n/2$ bits of true uniform randomness, and then use the remaining $s + \log(1/\epsilon)$ bits as the seed of an extractor which you feed those same $n/2$ bits into again. With probability $1 - \epsilon$, you end up in a common state after the first $n/2$ bits, in which case the extractor will work and the final output distribution of the ROBP will be $\epsilon$-close to what it’s supposed to be. Overall, this means the final output distribution is $2 \epsilon$-close to what it’s supposed to be.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/nisan-prg-new.png" alt="Illustration of Nisan's PRG" width="60%" />
+    <figcaption> With probability $1- \epsilon$, only $s + \log(1/\epsilon)$ bits of information can cross between the first and second half of the program -- so, with an extractor we can reuse our old randomness.  </figcaption>
+</figure>
+</center>
+
+<p>Nisan’s PRG comes from applying this approach recursively: in order to turn some number of random bits into twice as many pseudorandom bits, we only need to put in like $s + \log(1 / \epsilon)$ real random bits, so to generate all $n$ we should only need like $\big(s + \log(1 / \epsilon)\big) \log n$ seed bits<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>. This is what I promised!</p>
+
+<p>If you don’t want to worry too much about extractors, you can use Nisan’s original even simpler construction: choose $x \gets U_{s}$, and then choose about $\log n$ many hash functions $h_1, \dots, h_{\log n}$ from a pairwise independent hash family $\mathcal{H}: \lbrace 0,1\rbrace^s \to \lbrace 0,1\rbrace^s$. Output $x$ with all the $2^{\log n}$ different subsets of the hash functions applied to it – i.e.</p>
+
+\[x, h_1(x), h_2(x), h_2(h_1(x)), h_3(x) \dots.\]
+
+<p>In any case, we’ve got a PRG that needs seed length only $\mathcal{O}(s \log n)$. By enumerating over all possible seeds, this shows that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s \log n)$. This is nice, but when $s = \log n$, we’re still just getting $\mathsf{BPSPACE}(\log n) \subseteq \mathsf{SPACE}(\log^2 n)$, which is no better than what Savich gave us. As we’ll see in the next section, by combining this approach with ideas from Savich’s theorem, we can get something even stronger.</p>
+
+<h2 id="saks-zhou">Saks-Zhou</h2>
+
+<p>Remember how, when we talked about Savich’s Theorem, we mentioned that you can think about the problem as powering the transition matrix $M$ of a $2^s$-state DFA? Well, you might notice that we don’t actually need the <em>exact</em> $t$th power of the matrix – since $\mathsf{BPSPACE}$ is defined as having error probability bounded away from $1/2$, we can get away with just a pretty reasonable approximation. The key insight of <a href="https://www.sciencedirect.com/science/article/pii/S0022000098916166?via%3Dihub">Saks and Zhou</a> was an algorithm to do this approximate powering in only $\mathcal{O}(s^{3/2})$ space, as opposed to the $\mathcal{O}(s^2)$ you’d get from repeated squaring. This shows that $\mathsf{BPSPACE}(\log n) \subseteq \mathsf{SPACE}(\log^{3/2} n)$, which is (up to a recent <a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol207-approx-random2021/LIPIcs.APPROX-RANDOM.2021.28/LIPIcs.APPROX-RANDOM.2021.28.pdf">shaving of lower-order factors</a>) currently the best known explicit derandomization of $\mathsf{BPL}$.</p>
+
+<p>The scheme looks something like this:</p>
+<ul>
+  <li>Given a $2^s \times 2^s$ stochastic matrix $M$, we can come up with a $2^s$-state finite automaton $Q$ whose transition probabilities are a good approximation for $M$. I mean, $Q$ will read binary input, so all the entries in its transition matrix $M_Q$ are multiples of $1/2$, but given error parameter $\epsilon$ we make sure that the entries in $M_Q^{1/\epsilon}$ are very close to the entries of $M$.</li>
+  <li>Now, note that using Nisan’s PRG with seed length $s\sqrt{s}$ will give $2^{\sqrt{s}}$ pseudorandom bits, on which $Q$ behaves approximately the same as it would on $2^{\sqrt{s}}$ real random bits. So, enumerating over all seeds to Nisan’s PRG, we can approximately compute $M^{2^{\sqrt{s}}}$.</li>
+  <li>We really wanted $M^{2^{s}}$, so let’s take the output matrix we got from that approximate powering, and approximate power it again $\sqrt{s}$ many times to get the final output.</li>
+</ul>
+
+<p>Alright, what did we win? For each of $\sqrt{s}$ nested calls, we had to enumerate over seeds of length $s \sqrt{s}$, bringing us to a grand total of $\sqrt{s} \cdot s \sqrt{s} = \dots s^2$? Well that’s no good.</p>
+
+<p>The next observation needed (which I’m not going to explicitly prove) is that Nisan’s PRG – at least the version we talked about with pairwise independent hashes – is super friendly. Friendly in the sense that, if you fix any automaton $Q$, then for <strong>most</strong> choices of hash functions $h_1, \dots, h_{\sqrt{s}}$, you can $\epsilon$-fool $Q$ just by choosing the additional randomness of $x$. Of course, this isn’t true of <em>all</em> hash functions, so we can’t dispense of that randomness – but this is a nontrivial property, since you might expect the distribution only looks “spread out” appropriately when you look over all the randomness, whereas actually for most settings of almost all the randomness, it’s spread out enough just over the remaining bits.</p>
+
+<p>Why is that fact useful? Well, now let’s just pick one setting of $h_1, \dots, h_{\sqrt{s}}$ and reuse it for every level of the approximate powering. We still have to do the enumeration over $x$ at each level, and of course we have to enumerate over $h_1, \dots, h_{\sqrt{s}}$ at the bottom level. But this is saving immensely on space: now, the cost is</p>
+
+<ul>
+  <li>$\mathcal{O}(\sqrt{s} \cdot s)$ for the enumeration over $h_1, \dots, h_{\sqrt{s}}$, since each hash function takes $\mathcal{O}(s)$ bits</li>
+  <li>$\mathcal{O}(\sqrt{s} \cdot s)$ for the enumeration over $x$ on each of $\sqrt{s}$ nested calls</li>
+</ul>
+
+<p>so we’re feeling pretty happy! The reason this is ok is that, fixing $M$, $M^2$, $M^4$, $\dots$, the friendliness of Nisan’s PRG means that a random choice of $h_1, \dots, h_{\sqrt{s}}$ is likely to be “good” for all of them simultaneously<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, by which I mean that it’ll give a good approximation when we use it to square.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/saks-zhou-new.png" alt="Saks-Zhou Algorithm Sketch" width="60%" />
+    <figcaption> As long as we've written down good hash functions, we can use Nisan's PRG to approximately raise a stochastic matrix to the $2^{\sqrt{s}}$th power with only $s$ extra workspace. Repeating this $\sqrt{s}$ times wins. </figcaption>
+</figure>
+</center>
+
+<p>That’s the post for today! Lots of cool ideas. Whenever I get around to the next chapter of this story, I’ll finally start talking about some fancy more recent stuff.</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>This post is basically just a more hand-wavey transcription of <a href="https://www.avishaytal.org/pseudorandomness">Tal’s lovely lecture notes</a>, so you should check those out if you wanna see this in more detail. Lots of cool stuff there – will probably write at least one more post about it. tbh I don’t know that I’ve really added value to Tal’s explanation, so maybe this post isn’t achieving the goal of this blog too much – but at least writing it forced me to understand. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Otherwise it’ll repeat a configuration, and so have the potential to loop forever. Note that while you could define $\mathsf{BPSPACE}$ so that it just has to halt eventually with probability 1, but might run forever on measure-0 events, typically you mandate that there’s no way for it to run forever. In particular, if you let have a possibility of looping forever, then it contains $\mathsf{NSPACE}$, since it can keep retrying its guesses until it gets a super unlikely coin flip sequence. But also if you’re slightly more careful with things you can analyze Savich to make it work for this definition. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>If you wanna be careful, I guess you need to think about with what precision you’re keeping track of probabilities. But you should have enough space to be pretty fine. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>I’m being imprecise with parameters here, as I am for a lot of this post. There’s lots of different interesting constructions of extractors; you can look at some of Tal’s notes linked above for a few examples. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>To make this argument precise, you need to do some kind of hybrid argument, first replacing the pseudorandom bits with actual random bits, and then applying the argument above to say you can extract to something twice as long. Also, maybe be a little careful about the $\epsilon$ there since your errors are probably adding – plugging in $\epsilon/n$ is a better idea. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Slightly thorny issue: we’re not actually going to be calling our squaring procedure on $M^2$, we’re going to be calling it on the <em>approximate</em> version of $M^2$ produced by our first squaring. So, these matrices aren’t just fixed in advance things, they actually do depend to some extent on $h_1, \dots, h_{\sqrt{s}}$. To fix this issue, in the powering procedure Saks and Zhou also enumerate over all slight perturbations of matrix, which drowns out this annoying conditioning effect. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[First steps towards destroying BPL (the complexity class, not Boston Public Library, which is lovely and can take as much space as it wants)]]></summary></entry><entry><title type="html">Lost in Space I</title><link href="http://localhost:4000/jekyll/update/2024/02/05/lost-in-space-i.html" rel="alternate" type="text/html" title="Lost in Space I" /><published>2024-02-05T16:17:17-05:00</published><updated>2024-02-05T16:17:17-05:00</updated><id>http://localhost:4000/jekyll/update/2024/02/05/lost-in-space-i</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/02/05/lost-in-space-i.html"><![CDATA[<p>$\def\sb{_}$
+I’d intended to write a long post talking about a bunch of cool stuff I’ve been reading the past month, but Alek told me he thought it might be nicer to have lots of small posts. So here’s the first installment in a series about derandomizing space-bounded algorithms. What started me down this rabbithole was when Ted said offhand something like “<strong>for all the work complexity theorists have done, the fanciest explicit PRG we know can only fool algorithms with at most $\log_2(3)$ bits of memory – if you could get this up to $2$ bits, it would be massive result instant FOCS paper</strong>”. I thought this was a really funny claim, but then when I went looking to figure out what he meant I realized that it’s actually kinda deep. If you come along for the ride, I’ll tell you the story.</p>
+
+<p>Today, I’ll just talk about how to trick algorithms with only 1 bit of memory.</p>
+
+<h2 id="small-bias-distributions">Small-bias distributions</h2>
+
+<p>Given some distribution $\mathcal{X}$ on $\lbrace 0,1\rbrace^n$, what’s an easy way to check that output looks close to uniformly random? Well, for every index $i$ you could ask “what’s the probability that the $i$th bit is 1?”, and make sure that’s close to $1/2$. But of course, that’s not enough – what if the string is $000\dots$ half the time and $111\dots$ the other half? To rule this out, you might want to ask “what’s the probability that the $i$th bit is the same as the $j$th bit?”, and make sure that’s close to $1/2$ too. Generalizing this idea, we can define a <strong>parity test</strong> as follows:</p>
+
+<blockquote>
+  <p>Fix a non-empty subset $S \subseteq [n]$. If I take a sample from $\mathcal{X}$ and look at the parity of the sum of the bits in the $S$th indices, what’s the probability it’ll be odd?</p>
+</blockquote>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/paritytestg.png" alt="Example of a parity test" width="50%" />
+    <figcaption> The chance that the sum over these indices is even should be about the same as the chance that it's odd. </figcaption>
+</figure>
+</center>
+
+<p>If that probability is at most $\epsilon$ away from $1/2$, we say the test has <strong>bias</strong> at most $\epsilon$. If, for <em>every</em> $S \subseteq n$, the corresponding parity test has bias at most $\epsilon$, we call $\mathcal{X}$ an <strong>$\epsilon$-biased distribution</strong>.</p>
+
+<p>An interesting question to ask is: how strong a notion of randomness is being $\epsilon$-biased? A more precise way to ask this would be “how many bits of true randomness are needed to produce $n$ bits of $\epsilon$-biased output”? If we were trying to satisfy <em>every</em> possible test of randomness, we would need $n$ bits – but maybe it’s easier to satisfy this restricted class of tests.</p>
+
+<p>The answer to that question turns out to be $\mathcal{O}(\log(n/\epsilon))$ – for polynomially-small $\epsilon$, this is much much smaller than $n$. I’ll give a simple construction described by Alon, Goldreich, Håstad and Peralta, which I read about in <a href="https://drive.google.com/file/d/1S_AvJTF7X_XcfgdguQ7Zb1oyridoL03R/view">Tal’s lecture notes</a>.</p>
+
+<p>Given a truly random “seed” consisting of $x, y \in \lbrace 0,1 \rbrace^\ell$ (for $\ell$ to be specified later but spoiler that it’s gonna be $\log(n/\epsilon)$), our distribution will output $n$ bits. The $i$th bit is $\langle x, y^i \rangle$ (treating $y$ as an element of $\mathbb{F}_{2^\ell}$ for the purposes of exponentiation). That’s it, that’s the construction.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/smallbiasg.png" alt="Small bias source" width="35%" />
+    <figcaption> Note that exponentiation happens over $\mathbb{F}_{2^\ell}$, whereas inner product is over $\mathbb{F}_2^\ell$. </figcaption>
+</figure>
+</center>
+
+<p>To see that this works, fix any non-empty subset $S \subseteq [n]$. By linearity, $\sum_{i \in S} \langle x, y^i\rangle = \langle x, \sum_{i \in S} y^i\rangle$. So, we want to show that</p>
+
+\[1/2 - \epsilon \leq \Pr_{x, y}  \Big[\langle x, \sum_{i \in S} y^i\rangle \equiv 1 \text{ mod 2}\Big] \leq 1/2 + \epsilon .\]
+
+<p>Imagine first choosing $y$. If $\sum_{i \in S} y^i \neq 0$, then the sum in question will be odd with probability exactly $1/2$ (to see this, choose an index where $y$ is nonzero, and then condition on the value of $x$ on every other index – now the overall parity is entirely determined by that one remaining bit of $x$). So, it suffices to show that</p>
+
+\[\Pr_y\Big[ \sum_{i \in S} y^i = 0\Big] \leq \epsilon.\]
+
+<p>Well, $\sum_{i \in S} y^i$ is a non-zero polynomial of degree at most $n$, so it has at most $n$ roots. So, as long as we choose $\ell$ such that $n / 2^\ell \leq \epsilon$, this will be satisfied. We can choose $\ell = \log(n/\epsilon)$ as promised.</p>
+
+<h2 id="fooling-width-2-branching-programs">Fooling Width-2 Branching Programs</h2>
+
+<p>Ok, that was super neat! But it’s maybe not clear what this has to do with “tricking algorithms with only 1 bit of memory”. Let me try to convince you we can also do that.</p>
+
+<p>The model we want to trick consists of <strong>width-2 Branching Programs</strong>. Each of these guys has a list of $n$ indices, and two memory states. When he wakes up on the $i$th day, he finds the $i$th index in his list, looks at that index of your string, and then comes up with a new memory state based on his old memory state and that bit.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/examplebranchingg.png" alt="Example of a branching program" width="70%" />
+    <figcaption> A width 2 branching program reading an input. </figcaption>
+</figure>
+</center>
+
+<p>Note that this is maybe a little stronger than “algorithm with 1 bit of memory” sounds, since he’s allowed to know what day it is, and have different rules for how to update memory depending on the day<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. By “tricking” these guys, I mean that I want a distribution $\mathcal{X}$ with the property that, for any width-2 branching program, the probability that he finally ends up in the first state when given an output of $\mathcal{X}$ is within $\epsilon$ of the probability when given a truly random $n$-bit string.</p>
+
+<p>It turns out that small-bias sources do the job. An argument is given in <a href="https://www.cs.princeton.edu/~zdvir/papers/BDVY08.pdf">this paper</a>, which I’ll explain below. It’s easiest to talk about in Fourier basis (which means that it’s also easier to think of bits as being $\lbrace -1, 1\rbrace$ instead of $\lbrace 0, 1\rbrace$ – will do this from now on). Recall that we can express any function $\lbrace -1,1 \rbrace^n \to \lbrace -1, 1 \rbrace$ as $\sum_{S \subseteq [n]} a_S \prod_{i \in S} x_i$, where we call the values of $a_S$ the “Fourier coefficients”.</p>
+
+<blockquote>
+  <p><strong>Lemma:</strong> Let $f: \lbrace -1, 1\rbrace^n \to \lbrace -1, 1 \rbrace$ be computed by a width-$2$, length-$t$ branching program. That is, $f(x) = -1$ if the program ends up in the first state after reading $x$, and $1$ if it ends up in the other state. Then, $f$’s Fourier coefficients have $L_1$ norm at most $t$ – that is, $\sum_{S \subseteq [n]} \vert a_S\vert  \leq t$.</p>
+</blockquote>
+
+<p><em>Proof:</em> By induction, the state after $(t - 1)$ steps is described by a function $g$ whose Fourier transform has $L_1$ norm at most $(t-1)$. Now, there’s 16 different possibilities for what the last step of the branching program could look like; we just need to show that none of them increase the $L_1$ norm by more than 1. Let $x_*$ be the bit that gets read on the $t$th day; here’s a runthrough of 5 of the cases (the rest are symmetric – you can check if you really want):</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/lostinspace/width2caseworkg.png" alt="Working through cases for what the last level can look like." width="70%" />
+    <figcaption> $f$ in terms of $g$ and the structure of the last step of the branching program. </figcaption>
+</figure>
+</center>
+
+<p>Except for the last one, none of these can increase the $L_1$ norm of the Fourier transform. In the last one, there are 2 terms of norm $\vert \vert g(x)\vert \vert /2$, and 2 terms of norm $1/2$, so their sum has norm at most $\vert \vert g(x)\vert \vert  + 1 \leq t$. $\hspace{20 px}\square$</p>
+
+<blockquote>
+  <p><strong>Lemma:</strong> For any $f$ with $\sum_{S \subseteq [n]} \vert a_S\vert  \leq t$, and any $\epsilon$-biased distribution $\mathcal{X}$, $\Big\lvert \Pr\Big[f(\mathcal{X}) = 1\Big] - \Pr\Big[f(\mathcal{U_n}) = 1\Big]\Big\rvert  \leq t \epsilon$. That is, the behaviour of $f$ on $\mathcal{X}$ is at most $t\epsilon$ different from its behaviour on true randomness.</p>
+</blockquote>
+
+<p><em>Proof:</em> The expected value of $f$ on uniform random input is given by $a_{\emptyset}$, so it suffices to show that $\Big\lvert \mathbb{E}\sb{x\gets\mathcal{X}}\Big[\sum_{S \subseteq [n], S \neq \emptyset} a\sb{S} \prod\sb{i \in S} x^i\Big] \Big\rvert \leq t\epsilon$. By linearity of expectation, we can write</p>
+
+\[\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \prod\sb{i \in S} x^i\Big] = \sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \Big(\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\prod\sb{i \in S} x^i \Big]\Big).\]
+
+<p>Since $\mathcal{X}$ is $\epsilon$-biased, each of these expectations will be at most $\epsilon$ in magnitude. So, we have</p>
+
+\[\Big\lvert \sum\sb{S \subseteq [n], S \neq \emptyset} a\sb{S} \Big(\mathbb{E}\sb{x\gets\mathcal{X}}\Big[\prod\sb{i \in S} x^i \Big]\Big)\Big\rvert  \leq \epsilon \cdot \sum\sb{S \subseteq [n], S \neq \emptyset} \vert a\sb{S}\vert  \leq t \epsilon. \hspace{20 px}\square\]
+
+<p>So, if $t$ is polynomial in $n$, using our small-bias distribution above we can choose $\leq 1/(1000t)$ to trick the program very well with seed length only $\ell = \log(n/\epsilon) = \mathcal{O}(\log n)$. Good for us! Unfortunately, it turns out that figuring out how to do this kind of thing for width 3 branching programs is much much trickier – and for width 4 branching programs we really just don’t know. Tune in next time!</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Also note that we’re talking about general branching programs here. In the future, we’ll really care mostly about <strong>read-once</strong> branching programs – i.e. branching programs that never revisit the same index of your string twice (and in fact we’ll often just assume the program reads the bits of the string in order). But these arguments work either way, so figured might as well state in generality. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Looking to get a good grade on parity tests? Try small-bias distributions!]]></summary></entry><entry><title type="html">O Tennenbaum</title><link href="http://localhost:4000/jekyll/update/2023/12/25/o-tennenbaum.html" rel="alternate" type="text/html" title="O Tennenbaum" /><published>2023-12-25T07:18:17-05:00</published><updated>2023-12-25T07:18:17-05:00</updated><id>http://localhost:4000/jekyll/update/2023/12/25/o-tennenbaum</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/12/25/o-tennenbaum.html"><![CDATA[<p>It’s Christmas Eve. As usual, you’re up late reading a computability theory textbook on your laptop. As the clock ticks forward to midnight, you find your mind wandering from <a href="https://link.springer.com/book/10.1007/978-3-642-31933-4" title="Soare's computability textbook">Soare’s rather dense prose</a> to the holiday that’s just arrived. As <a href="https://xkcd.com/1932/" title="xkcd comic joking about the true meaning of Christmas">Randall Munroe points out</a>, there’s an element of self-reference inherent in the quest to discover the true meaning of Christmas. You laugh to yourself in smug superiority – what trope could be more trite, vacuous, and overused than the idea of the “true meaning of Christmas”? Satisfied that you’re above such kitsch, you continue chuckling to yourself as you begin to nod off in your chair. You throw in a couple “bah humbug”s for good measure.</p>
+
+<h2 id="the-ghost-of-christmass-logical-foundations">The Ghost of Christmas’s Logical Foundations</h2>
+
+<p>Suddenly, the room around you fades, and a strange ghastly figure appears before your eyes. He has a long beard that seems to twist around and loop back on itself, so that you can’t tell where it begins. There are chains draped around his shoulders, and as he rattles them you can tell that each chain has an upper bound. Despite his intimidating appearance, and the suddenness of his arrival, he speaks to you softly, with almost a hint of remorse.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/tennenbaum/ghost_of_logical_foundations.png" alt="The Ghost of Christmas's Logical Foundations" width="50%" />
+</figure>
+</center>
+
+<blockquote>
+  <p>“I am the Ghost of Christmas’s Logical Foundations. I come to show you the error of your ways, so you can live your life less naively.”</p>
+</blockquote>
+
+<p>Before you have a chance to respond, he disappears again, and you find yourself sitting back in the lecture for logic class last semester. The professor is explaining <strong>first-order logic</strong> – the basic language, consisting of AND, OR, NOT, EXISTS, and FOR ALL, that can describe the foundations of pretty much all math<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. First-order logic has the wonderful property of <strong>completeness</strong>:</p>
+
+<blockquote>
+  <p><strong>Completeness Theorem for First-Order Logic</strong>: Given any (possibly infinite) set of axioms, any statement semantically entailed by the axioms can be proved from them.</p>
+</blockquote>
+
+<p>That is, suppose some statement $\varphi$ is true in any mathematical structure satisfying the axioms. (We call such a structure a “model” for the axioms – for instance, if the axioms are associativity and existence of an identity and inverses, any specific group is a model for the axioms.) Then, there is a finite list of deductions we can make that represents a formal proof of $\varphi$ assuming the axioms. For example, if something is true for every group, there exists a proof of it from the group axioms.</p>
+
+<p>The fact that there’s this equivalence between something being <em>semantically</em> implied by the axioms (in that the axioms ensure that it’s necessarily true) and being <em>syntactically</em> implied by the axioms (in that there exists a proof from the axioms using some formal proof system) is not too hard to show, but it’s a non-trivial observation. In particular, it’s not true from some more powerful forms of logic – see the footnotes for some discussion. One interesting consequence is the property of <strong>compactness</strong>:</p>
+
+<blockquote>
+  <p><strong>Compactness Theorem for First-Order Logic</strong>: If every finite subset of an infinite set of axioms is consistent (i.e. not self-contradictory), then all of them together are consistent.</p>
+</blockquote>
+
+<p>Why does this follow from completeness? Well, suppose the whole set of axioms is inconsistent. No model can satisfy them, so (vacuously) the statement FALSE is true in every model satisfying them – thus by completeness there must exist a finite-length proof of the statement FALSE from the axioms. But a finite-length proof only has room to mention a finite number of the axioms – if your proof is 1000 characters long, there’s no way it can be making reference to 9000 different axioms<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. So, just taking those finitely many axioms on their own must already have been inconsistent.</p>
+
+<p>You wonder to yourself why the ghost is showing you this. But now the scene has changed, and the professor is talking about <a href="https://en.wikipedia.org/wiki/Peano_axioms" title="wikipedia page"><strong>Peano arithmetic</strong></a>: the basic axioms defining the natural numbers. Here’s a standard axiomatization of Peano arithmetic (where our language has symbols $0$, $S$, $+$ and $\cdot$):</p>
+
+<ul>
+  <li>$\forall x, 0 \neq S x$</li>
+  <li>$\forall x \forall y, (S x = S y) \iff (x = y)$</li>
+  <li>$\forall x, x + 0 = x$</li>
+  <li>$\forall x \forall y, x + S y = S(x + y)$</li>
+  <li>$\forall x, x \cdot 0 = 0$</li>
+  <li>$\forall x \forall y, x \cdot  S y = x \cdot y + y$</li>
+  <li>$(\varphi(0) \text{ and } (\forall n \varphi(n) \to \varphi(S n))) \to (\forall n \varphi(n))$</li>
+</ul>
+
+<p>The first of 6 of these are defining $S$ (a “successor” function; i.e. adding 1), then defining $+$ in terms of $S$, and then defining $\cdot$ in terms of $+$, in the ways you would expect. The last of these is the <strong>induction axiom</strong> – really, it represents a countable infinite number of axioms, one for each formula $\varphi$. It says that, if 0 has a property $\varphi$, and the property is preserved by taking successors, then all numbers have that property. This short list of axioms are used to characterize the structure of the natural numbers – if you want to start formally proving all your favourite number theory results from the ground up, this is the place to start.</p>
+
+<p>You shiver involuntarily as you realize what’s about to happen. And indeed, as soon as the professor has finished writing down the Peano axioms, the vision has disappeared, and you’re left staring face-to-face with something you’d known existed but never seen in the flesh: a non-standard model.</p>
+
+<p>Let me explain. See, these Peano axioms are satisfied by what we usually think of as the natural numbers, $\mathbb{N}$. And they’re kinda <em>supposed</em> to be “nailing down” the structure of the natural numbers, in that we hope there’s not other different-looking structures that also satisfy them. But, in fact, there are such other structures. We can get this from the compactness theorem. Imagine we take all the Peano axioms, but then we also add on top of them a new symbol $c$, and for every natural number $n$, the axiom $c &gt; n$. So we have all our usual axioms, and also axioms saying $c&gt;0$, $c&gt;1$, $c&gt;2$, $\dots$ <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. If you give me any finite subset of these new axioms, they’re satisfied by the usual natural numbers: the regular Peano axioms are satisfied, and we just let $c$ correspond to a natural number larger than all the ones mentioned in our set of chosen axioms (e.g. if the largest condition in the set is saying $c&gt;100000$, we take $c=100001$). So, by compactness, all of them at once must be satisfiable. But when you take all of them at once, it’s clear that they’re no longer satisfied by $\mathbb{N}$ – there has to be some value $c$ that’s larger than every usual natural number (i.e. finite successor of 0)!</p>
+
+<p>So you were aware that, logically speaking, there <em>had</em> to exist models of Peano Arithmetic looking totally different from $\mathbb{N}$. It’s not just some shortcoming of the way we chose the axioms – the same exact argument would work for <em>any</em> first-order axiomatization of the naturals, even if your axioms consisted of <strong>every first-order sentence true for the usual natural numbers</strong><sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>. But it’s still shocking to see, with your own eyes, a Platonic realization of one of these non-standard models. You look in awe as by your head, alongside old friends like 7 and 1,618,033, float a myriad of different flavours of “$\infty$” larger than all of them, with their own arithmetic structure. Can it really be true that all the theorems number theorists thought they were proving about $\mathbb{N}$ still hold in this alien world?</p>
+
+<p>You awake back in your chair again, mind racing. You wonder if you were wrong to be so dismissive of Christmas. Sometimes the things that seem most simple and inane, like the rules of arithmetic you learned in elementary school, can reveal unexpected depth and beauty when you’re willing to push beyond the surface. You think back to Christmases of your past – moments when, in celebrating the chaos and complexity of your most close and basic relationships, you found greater value than you’d imagined could exist. That’s what Christmas is all about.</p>
+
+<p>Satisfied with your newfound understanding, you change into pajamas, climb into bed, and drift off to sleep.</p>
+
+<h2 id="the-ghost-of-christmass-order-type">The Ghost of Christmas’s Order Type</h2>
+
+<p>You find yourself back among that nonstandard model, numbers swirling around like flurries of snow. But now, a new figure stands before you. He’s a small, bespectacled man, impeccably dressed, and carrying a measuring tape. His expression is stern – his eyes seem to pierce within you and judge the magnitude of your soul.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/tennenbaum/ghost_of_order_type.png" alt="The Ghost of Christmas's Order Type" width="30%" />
+</figure>
+</center>
+
+<blockquote>
+  <p>“I am the ghost of Christmas’s Order Type. I come to show you the flaws in your presumptions, so that you might become a greater person than you are now.”</p>
+</blockquote>
+
+<p>As he speaks, the numbers around you begin to fall to the ground, organizing themselves in order. You see 0, 1, 2, 3, $\dots$, falling into place one-after-the-other. But then, above all of them, you see another line of numbers also stretching out to infinity. And another above that, and another between those two, $\dots$</p>
+
+<p>“What is this?”, you ask, overwhelmed, “why are there so many?”.</p>
+
+<p>The ghost explains to you in measured tones the consequences of having a natural number bigger than all the usual ones. Repeatedly taking successors (which the axioms guarantee exist – since every ordinary natural number has a successor, every non-standard one must too) of this number $c$, we find another copy of the natural numbers, bigger than all of the usual ones. But then $2c$ must be bigger even than all of those, since $c + c$ is greater than $c + n$ for any usual natural number $n$, so we get a third copy of the natural numbers on top, and another on top of that, etc. By similar logic, we have $n &lt; \lfloor c/2 \rfloor$ and $\lfloor c/2 \rfloor + n &lt; c$ for any $n$, so between any two copies of the naturals we can find another copy. So on and so forth, we find that this nonstandard model (assuming it’s countable) must, in terms of its ordering, look like one copy of the natural numbers for every non-negative rational number<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>. That is, if all you cared about was the ordering of numbers, you could biject them with tuples $(q \in \mathbb{Q}^{\geq 0}, n \in \mathbb{N})$ such that $x &lt; y$ if and only if $q_x &lt; q_y$ or $q_x = q_y$ and $n_x &lt; n_y$.</p>
+
+<p>You’re a little surprised – before you’d really thought through the implications, you kinda imagined it’d be possible to have just one element larger than all the others, but now you see that there must necessarily be infinitely many layers on top of and between each other.</p>
+
+<p>As the dream disolves to wakefulness, you once again find yourself thinking about the meaning of Christmas. You’d thought you had the answer, but now you’re not so sure. After all, Christmas can mean so many different things to people – from a commercially-driven festival of retail, to an excuse to spend time in light-hearted fun with family, to a serious day of Christian worship. Who are you to say that the “true meaning” is a single sentiment you can isolate as greater than all the others? Sheepishly, you realize that to actually understand the true meaning of Christmas will require making sense of the relationships between all of these different layers of values and beliefs – the task that lies ahead will not be an easy one. You decide it that, in that case, it will probably have to wait until morning.</p>
+
+<h2 id="the-ghost-of-christmass-recursive-structure">The Ghost of Christmas’s Recursive Structure</h2>
+
+<p>As soon as you close your eyes, you see a new figure. It’s been waiting for you. Although it’s shaped like a human form, you can tell this is no creature of flesh and blood – its skin is made of metal, and in place of eyes it has two glowing LEDs. With a mechanical whir, it dispenses a stream of ticker tape from it’s mouth, which after a moment of hesitation you walk over and read.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/tennenbaum/ghost_of_recursive_structure.png" alt="The Ghost of Christmas's Recursive Structure" width="30%" />
+</figure>
+</center>
+
+<blockquote>
+  <p>“<code class="language-plaintext highlighter-rouge">I am the ghost of Christmas's Recursive Structure. I come to teach you the limits of your abilities.</code>”</p>
+</blockquote>
+
+<p>Now you’re back in your room, looking at your computability theory textbook. The ghost scrolls up to Exercise 1.6.26: prove the existence of inseperable computationally enumerable sets. You remind yourself what this means. A set is <em>computationally enumerable</em> (c.e.) if there’s some algorithm that, in the course of its runtime, eventually prints out exactly every element of the set. Two sets $A$ and $B$ are <em>seperable</em> if there’s an algorithm (guaranteed to halt on every input) that, given an element of $A$ always outputs <code class="language-plaintext highlighter-rouge">0</code>, and given an element of $B$ always outputs <code class="language-plaintext highlighter-rouge">1</code> (but could output whatever it wants on inputs that are neither in $A$ nor $B$). $A$ and $B$ are <em>inseperable</em> otherwise.</p>
+
+<p>The solution to the problem is to let $A$ be the set of strings that, when treated as python programs and run on their own code, halt and output <code class="language-plaintext highlighter-rouge">1</code>, and $B$ be the set of strings that, when treated as python programs and run on their own code, halt and output something else. Note that not every string belongs to either of these sets – some of them don’t even halt at all, or aren’t valid python programs – but that these sets are disjoint.</p>
+
+<p>Claim 1: $A$ and $B$ are both computationally enumerable. To enumerate $A$, we can simulate all programs on themselves in parallel (like described in <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html">this post</a>), and then print a program whenever it halts and outputs <code class="language-plaintext highlighter-rouge">0</code>. Same deal for $B$.</p>
+
+<p>Claim 2: $A$ and $B$ are inseperable. Suppose some algorithm separated them – let $e$ be a string encoding a python implementation of that algorithm. But now, consider running $e$ on itself. If it outputs <code class="language-plaintext highlighter-rouge">1</code>, then by definition of $A$ we have $e \in A$, and so it should have ouputted <code class="language-plaintext highlighter-rouge">0</code>. But if it outputs anything other than <code class="language-plaintext highlighter-rouge">1</code>, we have $e \in B$, so it should have outputted <code class="language-plaintext highlighter-rouge">0</code>. Since the algorithm is supposed to halt on every input (including its own code), this is a contradiction.</p>
+
+<p>Ok, so a pair of c.e. sets can be inseperable. You’re getting a little impatient – is this robot guy just trying to waste your time? As if in response to that thought, it turns to you and begins printing out ticker tape again.</p>
+
+<blockquote>
+  <p>“<code class="language-plaintext highlighter-rouge">TENNENBAUM'S THEOREM: No countable non-standard model of Peano Arithmetic can be computable. That is, for any way of labeling elements of the model with finite strings, there's no algorithm in general to compute the label of $n + m$ given $n$ and $m$.</code>”<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup></p>
+</blockquote>
+
+<p>“No!”, you cry, “It can’t be!”. You’d just discovered the general structure of these models, and had been excited to learn about all these different worlds hiding behind your own – only to be told that these worlds are, in some real sense, fundamentally uncomprehendable. You hear servos whir as the ghost turns its head to look you in the eyes. Out rolls a small strip of tape that reads simply “<code class="language-plaintext highlighter-rouge">PROOF:</code>”.</p>
+
+<h3 id="arithmetic-and-computability">Arithmetic and Computability</h3>
+
+<p>Suppose we have some algorithm – call it $P$. As it runs, it steps through a (possibly infinite) sequence of internal states, and on each step may print an output. I claim that we can express the statement “$P$ prints out $n$ after $m$ steps” as a first-order predicate on $n$ and $m$ in Peano arithmetic.</p>
+<center>
+<figure>
+    <img src="/assets/figures/tennenbaum/kylogic.png" alt="First-Order Predicate" width="30%" />
+    <figcaption> First Order Predicate </figcaption>
+</figure>
+</center>
+<p>The first part of this argument is replacing the hazy notion of “algorithm” (or less hazy, but annoying to formally reason about, notion of “python program”) with a model of computation with more nicely-representable internal states. I kinda like thinking about <a href="https://en.wikipedia.org/wiki/Counter_machine" title="wikipedia page on counter machines">counter machines</a> since they feel like they’re doing arithmetic, but you can also think about <a href="https://en.wikipedia.org/wiki/Turing_machine" title="wikipedia page on Turing machines">Turing machines</a> – in both cases, you can build Python interpreters (i.e. they’re Turing complete), so we can imagine $P$ being encoded as a program for one of these simple models. The details are really not important – what is important is that we can nicely represent the internal state of the machine at any given step in time with a natural number. “Nicely” meaning that, given two natural numbers $n$ and $m$, there’s a simple arithmetic predicate to determine whether $P$ in state $n$ will transition to state $m$ on the next step<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>.</p>
+
+<p>Now, the crucial part of this argument is to say that we can encode a finite <em>sequence</em> of natural numbers as a single number. This isn’t hard to do – one way of converting a single number into a sequence would be “look at the binary representation of $x$, strip the leading 1 (so that it can start with a zero if you want), then chop that resulting $n$-bit binary number into $\sqrt{n}$ many $\sqrt{n}$-bit binary numbers<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup>”. Note that this manipulation of binary strings can be done using division-with-remainder, which is something we can express using Peano arithmetic (to say $x \equiv y \text{ mod } z$, you can write $\exists k, x = y + z \cdot k$).</p>
+
+<p>To express “$P$ prints out $n$ after $m$ steps”, we can now say “there exists an $x$ such that, treating $x$ as an encoding a sequence of states, we have</p>
+<ul>
+  <li>for all indices $i &lt; m$ the $i+1$st state is a valid transition from the $i$th state,</li>
+  <li>the 1st state is an empty tape, and</li>
+  <li>the $m$th state represents printing $n$”.</li>
+</ul>
+
+<h3 id="coding-sets-with-natural-numbers">Coding Sets with Natural Numbers</h3>
+
+<p>The next point is that we can treat any natural number $n$ as “coding” a set $S_n$ of natural numbers, by setting $S_n = \lbrace i \in \mathbb{N} \colon \text{ the } i\text{th prime divides }n\rbrace$. It’s clear that, for any finite set $S$, there exists a natural number coding that set, just by multiplying together the relevant primes. But, if we’re in a non-standard model, we might have some infinite sets that are <em>also</em> coded in this way – there can be numbers with infinitely many prime factors. This idea is going to be the key tool in our proof of Tennenbaum’s theorem.</p>
+
+<p>Because every finite set is coded by some natural number, and because we saw above that we could represent “$P$ prints out $n$ after $m$ steps” as a first-order predicate, the following is a true first-order statement in the standard model of Peano Arithmetic (i.e. the ordinary natural numbers):</p>
+
+<blockquote>
+  <p>For every $n$ there exists an $x$ such that, for all $i$, $i \in S_x$ if and only if $P$ prints out $i$ within $n$ steps.</p>
+</blockquote>
+
+<p>That is, for any finite prefix of $P$’s computation time, there exists a natural number $x$ coding the set of all its outputs so far. Now, here’s where we’ll reference the existence of inseperable c.e. sets. Let $A$ and $B$ be a disjoint pair of c.e. sets, enumerated by programs $P_A$ and $P_B$ respectively, that are inseperable. Since the sets are disjoint, we can modify the above statement to be:</p>
+
+<blockquote>
+  <p>For every $n$ there exists an $x$ such that, for all $i$, $i \in S_x$ if $P_A$ prints out $i$ within $n$ steps, and $i \not\in S_x$ if $P_B$ prints out $i$ within $n$ steps.</p>
+</blockquote>
+
+<p>Again, this is true whenever $n$ is an ordinary natural number, because all the sets we’re dealing with are finite, and we can code any finite set. But if we’re thinking of the ordinary natural numbers as an initial segment of a larger model of PA, is this also true for any of the larger elements of the model? If not, we have a problem: the ordinary natural numbers (thought of as a subset of this larger model) are closed under taking successor. So, we’ve found a property that holds for 0, and is preserved by taking successors (since for the ordinary natural numbers it always holds, and for everything else it never does), but doesn’t hold for every number. This contradicts our induction axiom! So, we can find some element of our model – let’s call it $e$ for “evil” because it’s gonna help us get a contradiction – that’s larger than any ordinary natural number, but that satisfies the above statement. Since $A$ is precisely the set of values printed by $P_A$ in a finite number of steps, and $B$ is precisely the set of values printed by $P_B$ in a finite number of steps, this means that in particular that</p>
+
+<blockquote>
+  <p>$A \subseteq S_e$, $B \subseteq \overline{S_e}$.</p>
+</blockquote>
+
+<p>The final step will be to use this $e$ – which we now know must exist – as a “cheat code” to let us algorithmically separate $A$ and $B$<sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup>.</p>
+
+<h3 id="finishing-the-proof">Finishing the Proof</h3>
+
+<p>Ok, now to put it all together. Suppose someone comes to us with an $n$, and wants us to decide whether $n \in A$ or $n \in B$ (they don’t care what we say if neither of those cases holds). Fortunately, we have access to a countable nonstandard model of Peano Arithmetic in which we can compute addition. The labels of elements are finite strings, so we can hardcode the names of $1$ and $e$ (the element described in the previous section) into the algorithm. Now, we can algorithmically find the $n$th prime $p_n$. At this point, we can iterate over all labels $L$, and for each one check for each $i&lt;p_n$ whether (in the nonstandard model):</p>
+
+<p>$L + \dots$ ($p_n$ times) $\dots L + 1 + \dots$ ($i$ times) $\dots + 1 = e$.</p>
+
+<p>If we’re searching over all labels $L$, we must eventually find one where one of these holds. Then, we know that $p_n$ divides $e$ if and only if the $i$ we found was $0$. Since we know $A \subseteq S_e$ and $B \subseteq \overline{S_e}$, this is an always-halting algorithm that lets us decide between $n \in A$ and $n \in B$, which is a contradiction<sup id="fnref:10" role="doc-noteref"><a href="#fn:10" class="footnote" rel="footnote">10</a></sup>. $\square$</p>
+
+<p>This proof makes you a little bit sad. There was so much you were hoping to do with these nonstandard models – it would have been a lot of fun to play around with them, and maybe even try to construct ones where your favourite conjectures hold/fail in order to prove independence results – but now you realize that a nonstandard model of Peano arithmetic isn’t just something you can build and play with. It’s something much more exotic and nebulous, something you know must exist, but will never truly understand.</p>
+
+<p>As you awake to Christmas morning, you find yourself filled with a strange sense of peace. Maybe you’ll never know the true meaning of Christmas. Maybe it’s a little silly to even say that it has one. But something can be real and beautiful even if you know you’ll never be able to pin down exactly why or how. Filled with newfound holiday cheer, you cry out to the world at large: “Gödel bless us, every one!”</p>
+
+<hr class="header-line" />
+
+<p>I got this content from a couple different places – <a href="https://webspace.science.uu.nl/~ooste110/syllabi/peanomoeder.pdf">these lecture notes</a>, <a href="https://web.mat.bham.ac.uk/R.W.Kaye/papers/tennenbaum/tennenbaum.pdf">these</a> <a href="https://www.logicmatters.net/resources/pdfs/TennenbaumTheorem.pdf">papers</a>, and the <a href="https://en.wikipedia.org/wiki/Tennenbaum%27s_theorem">sketch on wikipedia</a>. I first heard about Tennenbaum’s theorem from my amazing set theory professor Henry Cohn last semester.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Called “first-order” because we think about the “exists” and “for all” quantifiers as running only over <em>things</em>, and not over <em>properties of things</em>. That is, if you’re describing numbers, you could say “there exists a natural number such that all larger numbers can be written as a sum of 3 binary pallindromes”, but you couldn’t say things like “for <em>any</em> property of numbers, there exists a number with that property”. Of course, while the former of these is <a href="https://link.springer.com/article/10.1007/s00224-019-09929-9" title="paper proving this statement">true</a>, the second is obviously false. But what I’m trying to illustrate here is that the first statement is one we would consider “first-order”, because the quantifier only looks at the objects (numbers) themselves, as opposed to running over all properties of those objects, which we would call “second-order”. Second-order logic is in some senses nice (in particular, it avoids the things mentioned in this post), but in some senses really not nice (the completeness and compactness theorems are no longer true). A take I would probably endorse is that second-order logic is basically cheating – Quine famously called second-order logic “set theory in sheeps clothing”, because quantifying over properties is basically the same as quantifying over all sets, which brings back a lot of the technical ickiness (incompleteness, etc) you get from building set theory. If you want to avoid such things being baked into your basic mathematical language (which most people would probably agree is better – keep them out in the open where you can keep an eye on them), you instead define everything in terms of first-order logic. If you want to make a statement about all properties, you instead make a countably infinite number of statements, one for every property definable using first-order logic, which seems like a pretty similar thing to do (it still captures all “normal” properties like being prime or being a sum of pallindromes or whatever, just doesn’t capture properties that would arise from arbitrary, undefinable sets). <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>The type of formal proof system I have in mind is something like “each line is either an axiom, or something that one of our basic rules of inference tells us follows from some of the previous lines”. So you can’t make use of more axioms than you have lines in your proof. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>You can think of $n$ here as being a shorthand for $S S S \dots$ ($n$ times) $ \dots S 0$, so that we don’t have to add a bunch of extra symbols to the language. When I talk about the “language”, I mean “what are the symbols used in our axioms, that a model would have to assign meanings to?”. So, for the Peano axioms, we would ask the model to assign a specific number to $0$, and specific operations to $S$, $+$, and $\cdot$. If we were instead axiomatizing e.g. set theory, we might not need the model to assign some operation to correspond to $+$, but we would need it to fix a notion of set membership (which we could then use ourselves to define other things like addition). <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Wait, why can’t I just add the sentence that every natural number is a finite successor of 0? Well, how would I say that? When I say “finite successor”, I really mean “for every number, there exists some natural number $n$ so that it can be obtained by applying $S$ to $0$ $n$ times” – but in order for this to make sense, you need to have a notion of natural number already. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>In general, the argument I gave just says that we must have copies of the natural numbers where the ordering between them is dense, and has a left endpoint but no right endpoint. When the set is countable, though, <a href="https://en.wikipedia.org/wiki/Cantor%27s_isomorphism_theorem">any dense ordering with a left endpoint but no right endpoint is isomorphic to $\mathbb{Q}^{\geq 0}$</a>. I suppose you might not yet be convinced that these non-standard models can be countable at all, but they can. You can get this by something called <a href="https://en.wikipedia.org/wiki/L%C3%B6wenheim%E2%80%93Skolem_theorem">Downward Löwenheim–Skolem</a> – basically, as long as your language only has countably many symbols in it, you can build a model by only including one element for every existential statement in first-order logic, thus guaranteeing that everything you need to exist exists, but only adding a countable number of them. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Yes, the name of this theorem is the entire reason this post exists. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p>How would you write that predicate? Well, if you’re using Turing machines, you can represent internal states as (number $&lt; 100$ representing the finite control) $+ 100 \cdot $ (number representing a 3-ary encoding of the tape state). I say 3-ary so that you can have a special symbol for the tape head. Then, you can index into the tape by doing division and remainders, which you can express in PA. So, you just express that, for every entry of the tape, either the tape head wasn’t there and it is unchanged, or the tape head was there, and the local transition looks valid given the old state and the entry on the tape (and also the state transition was valid). If you’re feeling uneasy about how this sort of thing would work precisely, it could be a good exersize to try and actually explicitly write out such a formula. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p>Ok, this will actually work for us, but it’s maybe kinda unfortunate that the length of the sequence is related to an upper bound on the size of the elements. To fix this, we can just say “ignore every term in the sequence whose binary representation is all 1s” – now, we can encode short sequences of big numbers by padding with 1s. Again, details are very unimportant, as long as you get the gist. A slightly different (and more standard) way of doing this type of encoding is to use the <a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_%CE%B2_function" title="wikipedia page for Godel's beta function">Chinese remainder theorem</a>. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+      <p>It’s worth unpacking what’s happening here. Why are we doing all this stuff with computationally inseperable sets, as opposed to just saying we can find an element that codes for <em>exactly</em> $A$? Well, we know that $A$ consists of all the values you get by running $P_A$ for some ordinary natural number of steps. But when we encode the property “$P$ prints out $n$ after $m$ steps” in Peano arithmetic, we allow for nonstandard elements to be plugged in as $m$ – it’s maybe not clear what that means in terms of the program, but it does get assigned some truth value by our formula. So, since $e$ is larger than all natural numbers, we know that $S_e$ contains $A$, but it might also contain some other weird stuff that somehow corresponds to “running the program for more than a finite number of steps”. Hence why we talk about inseperable sets – $S_e$ might contain other weird stuff, but we can make sure it definitely never gets anything from $B$. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:10" role="doc-endnote">
+      <p>You might notice that this argument only really shows that there can’t be a labeling that’s a bijection with $\mathbb{N}$. That is, you could imagine that you had some computable functions $+’$ and $\cdot’$ acting on $\mathbb{N}$, such there’s some substructure isomorphic to a nonstandard model of PA, but that the subset of $\mathbb{N}$ corresponding to that substructure isn’t computably enumerable. Then, the argument I presented doesn’t work – you might find a label $L$ such that $L \cdot’ p_n = e$, but where that label doesnt’t actually correspond to an element of the model. I’m not sure whether there’s a way to rule such a structure out, or whether there’s an obvious reason it <em>should</em> exist – I would be very interested if somebody sees the answer here. <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Nonstandard models of Peano Arithmetic and the true meaning of Christmas]]></summary></entry><entry><title type="html">Welcome to Minicrypt</title><link href="http://localhost:4000/jekyll/update/2023/12/12/welcome-to-minicrypt.html" rel="alternate" type="text/html" title="Welcome to Minicrypt" /><published>2023-12-12T22:18:17-05:00</published><updated>2023-12-12T22:18:17-05:00</updated><id>http://localhost:4000/jekyll/update/2023/12/12/welcome-to-minicrypt</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/12/12/welcome-to-minicrypt.html"><![CDATA[<h1 id="the-parable-of-the-underprepared-rock-paper-scissors-player">The Parable of the Underprepared Rock-Paper-Scissors Player</h1>
+
+<p>Last year, the floor I live on in Next House held a rock-paper-scissors competition. I got out in the first round (it turns out the “always do scissors because scissors is the best” strategy I’ve been using for the past ~6 years maybe doesn’t hold up against tournament play), but the person who ended up winning had an interesting strategy: he’d randomly generated a sequence of moves beforehand, and then just memorized and played those. This approach is attractive because it guarantees you’ll win with exactly 50-50 probability – there’s no danger of your opponent somehow figuring out and exploiting patterns in your behaviour (like they could for me)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<p>But there’s a<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> question you might worry about: what if, when you got to the tournament, you realized that it was more rounds than you’d expected, and you don’t have a long enough list of random moves prepared? You could just flip a coin to come up with some new ones – but, oh no, you left your coin at home. You could say “I’ll play according to my memorized moves until they run out, and then switch to my old deterministic strategy after that” – but if your opponents know your old deterministic strategy (e.g. if it’s just to always do scissors), they’ll totally destroy you at that point. You’re in a pretty bad pickle – somehow, you need to <strong>take the 100 random numbers you came with and turn them into 200 random numbers</strong>, without flipping any more coins.</p>
+
+<p>“That sounds impossible!”, you cry in despair. “There’s just not enough entropy – there were only $3^{100}$ possibilities for the random move sequence I prepared, and I need to make it look like I’ve chosen a uniformly random element from a set of size $3^{200}$. No matter what approach I use to stir up this randomness, the distribution I output is necessarily going to be really far from the one I want.”</p>
+
+<p>And of course, you’re completely correct. Assuming your opponents know what strategy you’re gonna use to mess up your random bits, it’s always going to be in principle possible for them to destroy you. Fortunately, though, in the real world you know that <strong>your adversaries are mere mortals</strong>. Even if they in theory have enough information to outplay you, that doesn’t mean that they’ll be able to figure out how to do so. This is the fundamental idea behind all of cryptography: when you can’t make something literally impossible, maybe you can just make sure it requires more computational power than anyone could reasonably have.</p>
+
+<h1 id="what-is-a-prg">What is a PRG?</h1>
+
+<p>After hearing this rock-paper-scissors story, you propose the following definition:</p>
+
+<blockquote>
+  <p><strong>Cryptographic Pseudo-Random Generator (PRG)</strong>: A function $G:\lbrace  0,1\rbrace^n \rightarrow \lbrace 0,1\rbrace^m$ is a PRG if</p>
+  <ul>
+    <li>It’s computable in polynomial time</li>
+    <li>It’s length-extending (i.e. $m &gt; n$)</li>
+    <li>No adversary running in polynomial time can distinguish between $U_m$ and $G(U_n)$ with non-negligible probability, where $U_k$ denotes $k$ uniform random bits.</li>
+  </ul>
+</blockquote>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/whatisprg.png" alt="Illustration of a PRG distinguisher" width="60%" />
+    <figcaption> If an algorithm has different output distributions on $G(U_n)$ vs. real randomness, we say it's a "distinguisher", and $G$ is not a PRG. </figcaption>
+</figure>
+</center>
+
+<p>When you say “no polynomial-time adversary can distinguish between $U_m$ and $G(U_n)$ with non-negligible probability”, you mean “for any polynomial-time algorithm $\mathcal{A}: \lbrace 0,1\rbrace^m \rightarrow \lbrace 0,1\rbrace$, the acceptance probabilities $\Pr\left[\mathcal{A}(U_m) = 1\right]$ and $\Pr\left[\mathcal{A}(G(U_n)) = 1\right]$ are within $O(1/n^c)$ for any $c$”. This means that, except for with very small (i.e. smaller asymptotically than any inverse polynomial) probability, the behaviours of any polynomial-time algorithm are exactly the same on truly random inputs as opposed to the output of the pseudorandom generator. In particular, this would mean that your rock-paper-scissors opponents can’t beat you more than slightly more than half the time, unless they have a ridiculous amount of computational power.</p>
+
+<p>Of course, the actual reason to care about PRGs is not because of rock-paper-scissors. In the next post, I’ll talk a little about how you can use them to get super cool cryptography stuff like stateless encryption and commitment schemes<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. But for this post, I want to answer the question “do these things even exist?”. The answer to that question is “well, for now, it depends on what you’re willing to assume”.</p>
+
+<h1 id="what-is-a-owf">What is a OWF?</h1>
+
+<p>Pretty much everything in cryptography is conditional on $\text{P} \neq \text{NP}$. You need to be able to come up with a question where it’s easy to tell that you’ve got the right answer, but hard for anybody else to figure it out. But in order to get interesting things, you usually need even stronger assumptions. Some types of assumptions that tend to get made:</p>
+<ul>
+  <li>Factoring is hard</li>
+  <li>There are public-key encryption schemes</li>
+  <li>There are collision-resistant hash families</li>
+</ul>
+
+<p>One assumption – stronger than $\text{P} \neq \text{NP}$, but weaker than any of those 3 above assumptions<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> – is the existence of one-way functions:</p>
+
+<blockquote>
+  <p><strong>One-Way Function (OWF)</strong>: A function $F:\lbrace 0,1\rbrace^n \rightarrow \lbrace 0,1\rbrace^m$ is a OWF if</p>
+  <ul>
+    <li>It’s computable in polynomial time.</li>
+    <li>No adversary, given an evaluation $y = F(U_n)$ of $F$ on a random input, can produce an element of the preimage (i.e. an $x$ such that $F(x) = y$) with inverse polynomial probability.</li>
+  </ul>
+</blockquote>
+
+<p>Essentially, this is a function that’s easy to compute in one direction, but hard to compute in the other direction. The reason we specify that it’s hard to compute a preimage, as opposed to saying that it’s hard to compute $x$ given $F(x)$, is that if $F$ wasn’t injective there might be so many preimages that it’s super unlikely to get the right one. The reason we say that it’s hard to invert $F$ of a random input, as opposed to a random element of the image, is that maybe some elements of the image can’t be inverted at all. Modular exponentiation is a good example of something that could plausibly be a one-way function: for a given $p$ and $g$, it’s very easy to compute $g^x \text{ mod } p$ given $x$, but we don’t know how to compute $x$ given $g^x \text{ mod } p$ (this is known as the discrete log problem over $\mathbb{F}_p^\times$).</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/whatisowf.png" alt="Illustration of a OWF" width="60%" />
+    <figcaption> Given an output of the OWF, you shouldn't be able to find any input mapping to the same value. </figcaption>
+</figure>
+</center>
+
+<p>The assumption that one-way functions exist turns out to be equivalent to the existence of a whole world of lovely cryptographic tools – Impagliazzo called this world, where one-way functions exist but not stronger things like public-key encryption, <a href="https://ieeexplore.ieee.org/document/514853" title="Impagliazzo's paper introducing his 5 worlds -- very entertaining read">Minicrypt</a>, since it’s roughly the minimum we need for the existence of nontrivial cryptography. We’re going to show today that the existence of one-way functions is equivalent to the existence of pseudorandom generators.</p>
+
+<h1 id="any-prg-is-necessarily-a-owf">Any PRG is necessarily a OWF.</h1>
+
+<p>First, I claim that any PRG must also be a OWF – this is the easy direction of the equivalence. Suppose you had a PRG $G$ that wasn’t a OWF. Looking at our definitions, this means there has to exist an algorithm that, given $y = G(U_n)$, produces $x$ such that $G(x) = y$, succeeding with probability $1/n^c$ for some $c$. But, since $m &gt; n$, we know that most strings in $\lbrace 0,1\rbrace^m$ don’t have any preimage under $G$ – definitely our algorithm can’t succeed on those. For any string $y$ in the image of $G$, the probability that $G(U_n) = y$ must be at least $2^{m - n} \geq 2$ times as large as the probability that $U_m = y$. So, the algorithm produces a valid preimage of $y$ at least twice as often when $y$ is drawn from $G(U_n)$ as opposed to $U_m$. We can easily check whether the algorithm has successfully produced a preimage by running $G$ on its output and seeing if it matches the input. So, we’ve shown a way to distinguish between $G(U_n)$ and $U_m$, meaning that $G$ can’t in fact have been a PRG.</p>
+
+<h1 id="constructing-prgs-from-owfs">Constructing PRGs from OWFs.</h1>
+
+<p>The other direction of this equivalence is substantially harder. Having seen the previous claim, you might have some hope that somehow any OWF must be a PRG. But this is just not true. For one, a one-way function doesn’t have to be length-extending, and if something isn’t length-extending it’s definitely not a PRG. But even if it is length-extending, its outputs might not look pseudorandom. For example, if you give me your favourite OWF, I can describe a new OWF that’s “run the old function, and then append 20 1s to the end”. Those 1s won’t make it any easier to invert, but will make it pretty easy to tell outputs of your function from true randomness.</p>
+
+<p>However, it does kinda feel like there’s some pseudorandomness buried somwehere in a OWF. We’ve got a function whose outputs look really complicated (in the sense that nobody can reverse-engineer how we computed them), but is actually pretty easy to compute. In order to build a PRG out of this, we’re going to need to somehow turn that complicatedness into randomness, and then spread out the randomness so it looks uniform. The secret to doing both of these things: hashing! It turns out that just multiplying things by random matrices is kinda op. The basic ideas we need are:</p>
+<ul>
+  <li>Next-Bit Unpredictability Lemma (for a string to look random, its enough that you can’t predict any bit from the preceding substring)</li>
+  <li>Goldreich-Levin Theorem (hashing one-way functions with random matrices lets you pull out computationally unpredictable bits)</li>
+  <li>Leftover Hash Lemma (hashing with random matrices makes high-entropy distributions look uniform)</li>
+</ul>
+
+<p>I’ll go through each of these things, and then walk through how to use them to transform a OWF into a PRG. The original version of this story came from a <a href="https://www.csc.kth.se/~johanh/prgfromowf.pdf" title="HILL paper">landmark paper with a lot of beautiful (but kinda messy) probability ideas</a> – there’ve been a <a href="https://www.wisdom.weizmann.ac.il/~oded/X/hill-revisited.pdf" title="HRV paper">number of</a> <a href="https://salil.seas.harvard.edu/files/salil/files/p817vadhan.pdf" title="Vadhan and Zheng">papers</a> since following the same rough approach, but streamlining aspects of the argument. The version of the story I’m going to follow comes from a <a href="https://eprint.iacr.org/2023/1451" title="Pass and Mazor">recent paper by Pass and Mazor</a> that describes it in terms of sets of unpredictable bits as opposed to pseudoentropy.</p>
+
+<h2 id="next-bit-unpredictability">Next-Bit Unpredictability</h2>
+
+<p>First, let’s talk about a slightly different notion of pseudorandomness. What if, instead of saying “no adversary can distinguish between $U_m$ and $G(U_n)$ with non-negligible probability”, I just said “if a poly-time adversary gets the bits of $G(U_n)$ one-at-a-time, they’ll never be able to predict the next bit with probability much more than 1/2”? This seems like a weaker definition (it’s definitely not stronger – if there was an index where the adversary could predict the next bit with probability better than 1/2, they know that when their prediction is correct the string is more likely to be pseudorandom than truly random) but at least for my rock-paper-scissors story it was all I needed.</p>
+
+<p>It turns out this definition is equivalently strong to full indistinguishibility. The proof of this is what’s called a <strong>hybrid argument</strong> (or, in the words of somebody in CSAIL whose name I don’t know, “that fancy cryptography term for the triangle inequality”). Suppose your algorithm prints a 1 with probability 50% when given a $100$-bit truly random string, but with probability 51% when given a $100$-bit pseudorandom string. Now, imagine somebody gave you the first 99 bits of a pseudorandom string, but they replaced the last bit with an actual random bit (i.e. they made a “hybrid” of pseudorandomness and real randomness). Does your algorithm behave differently on this distribution versus real randomness? If not, imagine replacing the last 2 bits with real randomness. Is your algorithm more likely to print 1 when the first 99 bits are pseudorandom as opposed to just the first 98? By triangle inequality, there has to be some index $i$ such that the probability of your algorithm outputting 1 is at least .01% more likely when the first $i$ bits are pseudorandom and the last $100-i$ bits are truly random than when the first $i-1$ bits are pseudorandom and the last $100 - (i-1)$ bits are truly random.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/nextbit.png" alt="Next-bit unpredictability hybirds" width="60%" />
+    <figcaption> Some pair of adjacent hybrids must be far -- this lets you predict the corresponding bit. </figcaption>
+</figure>
+</center>
+
+<p>Now, the fact that you can distinguish between those two hybrids also means you can predict the $i$th bit given the first $(i-1)$ with beter than even odds: for both possible values of the $i$th bit, generate the remaining $100 - i$ uniformly at random yourself, then run the distinguisher to see which of these it’s more likely to output 1 on. You’ll get a 1 more often when you chose the right value for the bit, so you have a predictor. This shows that next-bit unpredictability is an equivalent definition of pseudorandomness to the indistinguishability version.</p>
+
+<h2 id="weaker-forms-of-next-bit-unpredictability">Weaker forms of Next-Bit Unpredictability</h2>
+
+<p>Next-bit unpredictability will be a useful way of thinking about pseudorandomness, because it can be relaxed in meaningful ways. Suppose, instead of requiring that <strong>every</strong> index of the string is unpredictable given the prefix before it, we just require that <strong>many</strong> indices are unpredictable. Now, if I just told you “indices 13, 26, 42, and 57 are always unpredictable”, maybe this is not too meaningfully different from true unpredictability – it’s equivalent to saying that the string restricted to those indices looks pseudorandom. But it could be the case that the indices where the string looks unpredictable <strong>aren’t always the same</strong>. For instance, maybe the distribution is such that when the first bit is 1 the next bit is always 1, but when the first bit is 0 the next bit looks totally random. On this distribution, the second bit is sometimes unpredictable (if the prefix before it was 0), but sometimes predictable (if the prefix before it was 1). We want a definition that captures the ways in which such distributions can be “kinda unpredictable”.</p>
+
+<blockquote>
+  <p><strong>Surprising Indices</strong>: Given a distribution $\mathcal{X}$ on $\lbrace 0,1\rbrace^n$, we say that $\mathcal{X}$ has $k$ “surprising indices” if, for any predictor $\mathcal{A}$, for $x \gets \mathcal{X}$, there are in expectation at least $k$ indices $i$ such that $\Pr_{y \gets \mathcal{X}}[\mathcal{A}(y_1,\dots, y_{i-1}) = y_i \ | \ y_1, \dots, y_{i-1} = x_1, \dots, x_{i-1}] \approx 1/2$.</p>
+</blockquote>
+
+<p>This definition is slightly subtle. Of course, once a string is totally fixed there’s nothing unpredictable about it. Here, we say that an index $i$ is surprising for some fixed string $x$ if, given a random output of $\mathcal{X}$, whenever the first $i-1$ bits agree with $x$ the adversary can’t predict the $i$th bit. In our example above, for instance, we would say the second bit is surprising for $x = 011101$, since just knowing that the first bit is $0$ it’s hard to determine the second bit. A distribution has $k$ surprising indices when, for a random $x \gets \mathcal{X}$, we expect that an adversary seeing the string one-bit-at-a-time will have $k$ moments where they really can’t guess the next bit at all.</p>
+
+<p>When the distribution of <em>which</em> indices are surprising is nicely spread-out, we can define a stronger property:</p>
+
+<blockquote>
+  <p><strong>Spread-Out Surprisingness</strong>: Given a distribution $\mathcal{X}$ on $\lbrace 0,1\rbrace^n$, we say $\mathcal{X}$ has “spread-out surprisingness” $p$ if, for any index $i$, $\Pr_{x\gets\mathcal{X}}[\text{index } i \text{ is surprising for } x] \geq p$.</p>
+</blockquote>
+
+<p>In our construction of a PRG, we’ll first construct a distribution with many surprising indices, then turn that into one with lots of spread-out surprisingness, and then finally turn that into something fully pseudorandom. To get surprising indices from OWFs, we’ll need the <strong>Goldreich-Levin Theorem</strong>.</p>
+
+<h2 id="goldreich-levin-theorem">Goldreich-Levin Theorem</h2>
+
+<p>The definition of a OWF tells us that, given $f(x)$, it’s hard for any algorithm to find something in the preimage. Is it hard to find, say, just the first bit of $x$? Well no, not necessarily – for example, imagine $f(x)$ really just keeps the first bit of $x$ as is, and just applies some crazy function to all the other bits. This might well be one-way because the rest of the bits are hard to figure out, but it’s pretty easy to figure out the first bit of the input.</p>
+
+<p>Well, is there <em>any</em> 1-bit function $g(x)$ that’s hard to compute given $f(x)$? Of course, if $f$ is losing information, it might be kinda trivially hard to compute $g(x)$ – supposing, say, that $f$ doesn’t even look at the first bit of the input, there’s definitely no way to compute the first bit of $x$ from $f(x)$. But if we can find a $g$ that’s hard to predict for <em>computational</em> reasons, we’d be in business – seems like we’re generating some new unpredictablity that wasn’t there before. Such a function is called a “<strong>hardcore predicate</strong>”, and the Goldreich-Levin theorem says that we can modify any one-way function to get one with hardcore predicates.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/glband.png" alt="Illustration of a band called the Hardcore Predicates" width="60%" />
+    <figcaption> I'm not gonna let the MAN figure out the dot product of $x$ with a random bitvector!  </figcaption>
+</figure>
+</center>
+
+<p>The idea is: taking your original function $f(x)$, modify it to be $f’(r,x) = (r,f(x))$. That is, $f’$ now takes an additional $n$ bits of input, which it just outputs unchanged. Goldreich-Levin says that the function $g(r,x) = \langle r, x \rangle$ – i.e. the inner product – is a hardcore predicate for $f’$. In other words, the dot product of $x$ with a random vector $r$ is unpredictable given $f(x)$ and $r$.</p>
+
+<p>Rough proof sketch that this is hardcore: suppose we had an algorithm with good odds of guessing $\langle r , x \rangle$ given $f(x)$ and $r$. Then, there’s a decently large fraction of $x$’s such that we have good odds over $r$ of guessing $\langle r, x \rangle$ for those specific “good” $x$’s – let’s imagine we’re dealing with one of those. We could choose $n$ random values $r_1, \dots, r_n$ ourselves, and run our algorithm to figure out $\langle r_i, x\rangle$ and $\langle r_i \oplus e_i, x\rangle$ for all $i$, where $e_i$ is the $i$th standard basis vector. Since $r_i$ and $r_i \oplus e_i$ are both uniformly distributed on their own, there’s a good chance (if we repeat things for error reduction, then appeal to Chebyshev) that we’ll compute all those dot products correctly, and then will just be able to read off $x$. This would give an algorithm capable of inverting $f$ on a large fraction of $x$’s with good probability, which breaks one-wayness. I was a little careless here, though, because this requires that the probability of getting both $\langle r_i, x\rangle$ <strong>and</strong> $\langle r_i \oplus e_i, x\rangle$ correct is more than $1/2$, but we actually only know that we’re right on each one individually with probability more than $1/2$, so we might have probability close to $1/4$ of guessing both simultaneously correct. The solution to this problem is to choose the $r_i$s, instead of as $n$ independent random strings, to be generated by a small number of random “seeds” (i.e. each of the $r_i$s is the sum over a different subset of our $O(\log n)$ many random seed vectors). This construction still maintains pairwise independence, which is all you actually need for Chebyshev, but now all possible values of the $\langle r_i, x\rangle$ s can be brute force enumerated over, since we can try all values of the dot products with the seeds. (Don’t worry if you didn’t super follow this – I cut a good amount of details. Worth looking up a more verbose proof if you haven’t seen this before. Or don’t bother with the details – they’re not important for this construction.)</p>
+
+<h2 id="leftover-hash-lemma">Leftover Hash Lemma</h2>
+
+<p>The other tool we’ll need is the <strong>Leftover Hash Lemma</strong><sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>. The leftover hash lemma is a statement about randomness extraction: given a distribution that’s not necessarily uniformly random, but does have high entropy, can we turn it into one that’s close to uniform? As long as we’re willing to add in some truly uniform randomness on top<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, this turns out to be possible! As with most things in life<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>, it can be solved with hashing.</p>
+
+<p>We say that a distribution $\mathcal{X}$ has high <strong>min-entropy</strong> (denoted $H_\infty(\mathcal{X})$) when the probability of any element of the range is small. Specifically, if $p_{\max}$ is the probability of the most likely element in $\mathcal{X}$, $H_{\infty}(\mathcal{X}) = - \log p_{\max}$. Note that high min entropy is necessary for extraction – high Shannon entropy is not enough (we could have for instance a distribution with high Shannon entropy that outputs $1$ with 99% probability, but then is uniform over a very large range the other 1% of the time; this is not good enough to extract from).</p>
+
+<p>We say that a family of functions, parameterized by a “key” $k$, is a <strong>2-universal hash family</strong> if, for any two distinct elements $x$ and $y$ of the domain, the probability over $k$ that $h_k(x) = h_k(y)$ is the same as it would be if $h_k$ was a random function (i.e. 1 over the size of the codomain). For the purposes of this post, we’ll only need to think about the case when the hash family consists of multiplication by a random matrix over $\mathbb{F}_2$, in which case it’s not hard to see we have this property.</p>
+
+<p>Now, we can state the Leftover Hash Lemma as follows:</p>
+
+<blockquote>
+  <p><strong>Leftover Hash Lemma</strong>: For any distribution $\mathcal{X}$, and any 2-universal hash family $\lbrace h_k: \lbrace 0,1\rbrace^n \to \lbrace 0,1\rbrace^{m}\rbrace$, if $m \leq H_\infty(\mathcal{X}) - 100 \log(n)$ then the distribution of the pair $(k, h_k(x))$ is statistically close to uniform.</p>
+</blockquote>
+
+<p>To prove this lemma, we first note that $(k, h_k(x))$ has collision probability close to that of uniform randomness, which then implies closeness of the distributions in $\ell_2$ distance, which gives closeness in statistical distance. More details about extraction and the LHL can be found in <a href="https://people.seas.harvard.edu/~salil/pseudorandomness/extractors.pdf">these nice notes by Salil Vadhan</a>.</p>
+
+<h2 id="finding-many-surprising-indices">Finding many surprising indices</h2>
+
+<p>Ok, now that we have this machinery, the construction of PRGs from OWFs will actually not be too difficult. As a warm-up let’s imagine that $f$ is not just a one-way function, it’s actually a one-way <em>permutation</em> (i.e. it’s a bijection $\lbrace 0,1\rbrace^n \to \lbrace 0,1\rbrace^n$). In this case, we can turn $f$ into a PRG just by applying the Goldreich-Levin Theorem – we let $G(r, x) = (r, f(x), \langle r, x \rangle)$. The first $2n$ bits of $G$’s output are totally uniform, and then the last bit is computationally unpredictable from the previous bits, so by the equivalence of next-bit unpredictability and indistinguishability $G(U_{2n}) \approx U_{2n+1}$. This is very nice, but it relied pretty heavily on $f$ being a permutation, and the existence of one-way permutations is not known to be implied by the existence of general one-way functions. It’s gonna take us a little more elbow grease to get PRGs from just OWFs. (We can and will assume, though, that $f$ goes from $\lbrace 0,1\rbrace^n \to \lbrace 0,1\rbrace^n$. This is without loss of generality – if its domain is smaller, pad it with some dummy bits we don’t even look at, and if its codomain is smaller pad it with 1s.)</p>
+
+<p>Well, let’s suppose now that instead of being a one-way permutation, we just know that $f$ is <strong>$r$-regular</strong>, in the sense that every element in the image has between $2^{r-1}$ and $2^{r}$ preimages. The tools we mentioned above give us the following two facts:</p>
+<ol>
+  <li>If we multiply $f(x)$ by a random $(n - r - 100 \log n) \times n$ binary matrix $M_1$, the joint distribution of the matrix and the product looks statistically uniform. This follows directly from the Leftover Hash Lemma: $f$ being $r$-uniform is equivalent to $f(x)$ having min-entropy $n - r$.</li>
+  <li>If we multiply $x$ by a random, $(r + 200 \log n) \times n$ binary matrix $M_2$, the joint distribution of $M_2$ and $M_2x$ looks computationally unpredictable, even given $f(x)$. This is a little less obvious, but does follow from Goldreich-Levin. The idea is: suppose there was some index $i \in [r + 200 \log n]$ such that an efficient adversary had a decent (i.e. inverse polynomially more than $1/2$) shot at predicting the $i$th bit of $M_2 x$ given $M_2$, $f(x)$ and the previous $i-1$ bits of $M_2 x$. Now, we want to use this to break the one-way function – i.e. we’re given $f(x)$ and want to compute something in the preimage. To do so, we choose the first $i-1$ rows of $M_2$ randomly ourselves, then <strong>randomly guess the first $i$ bits of $M_2x$</strong>. The chance that we guess all of them right is only $2^{-i} \geq 2^{- r - 100 \log n} = \frac{1}{\text{poly}(n)} \cdot 2^{-r}$ – but if we did get all of them right, now when we choose the next row $v$ at random we have an (inverse polynomial) advantage in predicting $\langle v, x \rangle$, which Goldreich-Levin says gives us a good (inverse polynomial) chance of determining $x$. So, with probability $\frac{1}{\text{poly}(n)} \cdot 2^{-r}$, we’re able to determine $x$ given $f(x)$. But now, notice that since $f$ is $r$-regular, there’s at least $2^{r-1}$ different values in the preimage of $f(x)$ – since we’ve guaranteed that our algorithm returns each of them with probability $\frac{1}{\text{poly}(n)} 2^{-r}$, this means that our algorithm returns <strong>some</strong> preimage with probability $\frac{1}{\text{poly}(n)}$. Take that, so-called one-way function!</li>
+</ol>
+
+<p>Ok, what is this telling us? Well, consider the function $G: \lbrace 0, 1\rbrace^{n \times n} \times \lbrace 0,1\rbrace^n \to \lbrace 0, 1\rbrace^{n \times n} \times \lbrace 0,1\rbrace^n \times \lbrace 0,1\rbrace^n$, 
+$G(M, x) = (M, Mf(x), Mx).$</p>
+
+<p>If we feed $G$ a random input, I claim that the output is going to have more than $n^2 + n$ surprising indices – we’re making some pseudorandomness! The first $n^2$ indices are definitely surprising, since they’re uniformly random. The next $(n - r - 100 \log n)$ indices are statistically close to uniform, and hence surprising<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup>, by our first point. Then, since seeing $M$ and $Mf(x)$ at most tells you $M$ and $f(x)$, our second point guarantees that the first $(r + 200 \log n)$ indices of $Mx$ are surprising. So, overall we have $n^2 + n + 100 \log n$ surprising indices – more than the amount of randomness we fed in.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/hash1.png" alt="Illustration of the surprising indices" width="60%" />
+    <figcaption> Between Goldreich-Levin and the Leftover Hash Lemma, we get a lot of surprising indices. </figcaption>
+</figure>
+</center>
+
+<p>Well, what if $f$ wasn’t $r$-regular? Turns out this is not a big deal, since we did the same construction no matter what $r$ was. Just imagine breaking up the domain $\lbrace 0,1\rbrace^n$ into $n$ different chunks based on how many preimages their image has – so that $f$ is $1$-regular on the first chunk, $2$-regular on the second chunk, etc. We can forget about all the chunks that represent less than a polynomial fraction of the domain – they essentially never come up. For every chunk that does make up a polynomial fraction of the domain, we must have that $f$ restricted to that chunk is one-way<sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup>. Thus, $f$ restricted to that chunk is a regular OWF, so by the above argument, $G$ has $n^2 + n + 100 \log n$ surprising indices conditioning on its output being in the image of that chunk. Since this is true on every chunk, $f$ has $n^2 +n + 100\log n$ surprising indices in general.</p>
+
+<h2 id="spreading-out-the-surprise">Spreading out the surprise</h2>
+
+<p>Alright, we’re cooking here. We have a function where we can feed in some random bits, and get an output with more surprising indices than the number of bits we fed in. In order to use this to get a PRG, though, it’s not going to be enough to have a large number of surprising indices in expectation – we’d really like for each individual index to be surprising with reasonably good probability. To do this, we’ll just randomly shift things!</p>
+
+<p>Let’s apply our $G$ from above to $n$ different $n$-bit inputs $x_i$. Note that our surprisingness guarantees still hold when if we use the same random matrix $M$ for each of these copies of $G$, so for simplicity let’s do that. Alright, now we’ve got (in addition to our random $M$), a $2n^2$-bit string $(Mf(x_1), Mx_1, Mf(x_2), Mx_2, \dots, Mf(x_n), Mx_n)$. In order to make it so that every index of this string has the same probability of being surprising, we can pick a random $i \in [2n]$, and then <strong>truncate the first $i$ and last $n-i$ bits</strong>, reducing the string to length $2n^2 - 2n$. This shift ensures that, even if some indices of $G’$ are less likely to be surprising than others, in the final construction all indices are equally likely. We now have a function $G’: \lbrace 0,1\rbrace^{n\times n} \times [n] \times \lbrace 0, 1\rbrace^{n \times n} \to \lbrace 0,1\rbrace^{n\times n} \times \lbrace 0,1\rbrace^{2n^2 - n}$, $G’(M, i, (x_1, \dots, x_n)) = (M, (Mf(x_1), Mx_1)[i:], (Mf(x_2), Mx_2), \dots (Mf(x_{n-1}), Mx_{n-1}), (Mf(x_n), Mx_n)[:n-i]).$</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/truncate.png" alt="Chop chop!" width="60%" />
+    <figcaption> No matter how the surprisingness distribution looked within each block, now it's all spread out. </figcaption>
+</figure>
+</center>
+
+<p>We feed in $2n^2 + \log n$ random bits ,and the number of surprising indices is $n^2 + (n-1)(n + 100 \log n) \geq 2n^2 + 80 \log n$, so, we’re still amplifying the surprisingness. But now, it’s mixed together a little more evenly – for any index of the output (except for $M$, which we’ll just append separately because it’s already totally uniform), the probability that index is surprising is $\frac{ (n-1)(n + 100 \log n)}{2n^2 - n} = \frac{1}{2} + \frac{50 \log n}{n}$. Our entropic dough has risen beautifully; it’s time to take it out of the oven, slice it up, and enjoy!</p>
+
+<h2 id="shlopping-the-entropy-together">Shlopping the entropy together</h2>
+
+<p>Alright, you ready for this point in the construction? This is gonna require some kinda crazy stuff, probably unlike anything you’ve ever seen before.</p>
+
+<p>Just kidding. We’re gonna hash with random matrices again :)</p>
+
+<p>The construction will be: compute $G’$ $n^3$ times on different random inputs<sup id="fnref:10" role="doc-noteref"><a href="#fn:10" class="footnote" rel="footnote">10</a></sup>, and arrange the outputs as the rows of an $n^4 \times (2n^2 - n)$ matrix. Now, let $H$ be a random $n^3 \times (n^3/2 + 10 n^2 \log n)$ matrix, which we’ll use to <strong>hash all the columns</strong> of this matrix. That is, we output first $H$ applied to all the first entries of the matrix, then $H$ applied to all the second entries, etc, for a total of $(n^3/2 + 10 n^2 \log n)(2n^2 - n) \geq n^5 + n^4 \log n$ output bits. The total number of bits we fed in (not counting the hash functions, since we’ll just output them verbatim on top of this) was $n^5 + n^3 \log n$. So, we’re length extending!</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/prgsfromowfs/hashcolumns.png" alt="Hashing columns" width="60%" />
+    <figcaption> We output the hashes of each column in order. </figcaption>
+</figure>
+</center>
+
+<p>The question now is: how do we know this output is computationally indistinguishable from uniform? There’s a couple steps in this argument.</p>
+<ol>
+  <li>Recall that indistinguishability is equivalent to next-bit unpredictability at every index. So, it suffices to show that no algorithm can predict the hash of one column given the hashes of all the previous columns.</li>
+  <li>Choose some column of the matrix. For how many rows of the matrix is that column one of the surprising indices? Well, each row is surprising on that column with probability $\frac{1}{2} + \frac{50 \log n}{n}$, so in expectation we’ll have $n^3/2 + 50 n^2 \log n$ of them. But also, since rows are generated indendently, these are independent events – Chernoff bounds tell us that, except for with exponentially small probability, the count will be square-root concentrated around the mean. So, except with exponentially small probability, every column will have at least $n^3/2 + 10 n^2 \log n$ surprising entries.</li>
+  <li>Now, imagine we replaced one of the bits corresponding to a surprising index on that column with an actual uniform random bit. Could an adversary, looking at just that column and the previous ones, tell the difference? Well, no – this is what surprising means! If an adversary could tell the difference, then by setting up the rest of the matrix ourself we could use that adversary to predict the surprising entry on that row<sup id="fnref:11" role="doc-noteref"><a href="#fn:11" class="footnote" rel="footnote">11</a></sup>. Repeating this argument, we can replace every surprising index in the column with actual uniform random bits, and the adversary must have the same probability of being able to predict the hash of the column.</li>
+  <li>But oh, wait, now this column has $n^3/2 + 10 n^2 \log n$ of its entries uniformly random – so, the column has min entropy at least $n^3/2 + 10 n^2 \log n$. By the leftover hash lemma, the hash of the column is statistically close to uniform! I’d like to see an adversary predict <em>that</em>. 😎</li>
+</ol>
+
+<h1 id="for-next-time">For next time</h1>
+<p>Ok, that’s it! We’ve built PRGs from nothing but OWFs. Having PRGs will in turn open up a wonderful world of crypto – from stateless symmetric-key encryption and message authentication to commitment schemes.</p>
+
+<p>Let me know if you liked this post! Are there things you think I should change? You can’t leave comments because idk how to set that up, but you should all press ctrl-shift-i on your keyboards, add an extra little “&lt;div&gt;” at the bottom, type up a response there, and then mail a screenshot to Nathan Sheffield at Cambridge MA. If your comments elicit any kind of emotional response, such as can be expressed by an emoticon, I will draw one and return the letter to you within 14 business days.</p>
+
+<p>Yours truly, forever and always,
+Nathan</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Assuming you don’t have some physical tells that let them see what you’re planning to do. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>I was about to say “natural” here, but had to stop myself because this is like the most contrived thing ever. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>The kinds of parameters crypto people usually talk about PRGs with are not the only parameters you could set. Here, we’re just thinking about PRGs that can fool any polynomial-time algorithm, and that produce at least one more random-looking bit than you put in (which we can then extend to get polynomially more random bits – more on this next time). What complexity theory like, though, is to try and see if you can fool all algorithms with any <em>specific</em> polynomial runtime, but with a random seed smaller than polynomial. That is, suppose for any $c$, you could get an $n^{500 c}$-time PRG with seed length $\log n$ such that no $n^c$-time algorithm can tell the difference. This would be super cool, because then we could learn the average behaviour of the algorithm just by enumerating all possible seeds, and so we’d know that $\text{P} = \text{BPP}$. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>In the sense that any of those 3 assumptions would imply the existence of OWFs, but none of them are known to be equivalent. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>Not to be confused with the <strong>Leftover Hash-Browns Lemma</strong>, which says that it’s a good idea to make extra mashed potatos and then fry the remainder the next morning with breakfast. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>This is necessary – you can’t have a truly deterministic extractor for arbitrary sources of high min-entropy. However, if you restrict to only a specific class of $\mathcal{X}$, it’s sometimes possible to get deterministic extraction. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p>@Alek Westover endorses this message. (Also, you should check out Alek’s blog <a href="https://awestover.github.io/skyspace/" title="epic blog">here</a>!) <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p>Ok, I’m glossing over things a little bit – you might be worried that I only claimed I was $n^{-100}$-close to uniform. Well, just increasing $100$ to be bigger than your favourite constant shows that this is arbitrarily polynomially close to uniform. If you claim any particular inverse polynomial statistical distance, I can find an algorithm with a corresponding inverse polynomial chance of inverting the OWF by our Goldreich-Levin argument. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+      <p>If we have inverse polynomial probability of inverting conditional on the input being in that chunk, we also have inverse polynomial probability of inverting in general. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:10" role="doc-endnote">
+      <p>Those of you who actually use computers may ask “shoot is $n^3$ really necessary here?” To which I respond both (a) No – according to Mazor and Pass I could have said $n^2 / \log^2 n$ or something, but I was just sloppy. (b) Pretty sure nobody actually does this irl anyway. They just take functions that look pretty complicated, see if anyone can break them, and if not say “yep looks pseudorandom”. Or the <a href="https://en.wikipedia.org/wiki/Dual_EC_DRBG" title="oops! don't know how we missed that vulnerability -- terribly sorry, must have overlooked something.">NSA promises you something is definitely totally a PRG</a>, and you believe them because why would those guys lie to you? <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:11" role="doc-endnote">
+      <p>If you’re being careful, you’ll notice that, in order to actually use this to get a predictor, we need the ability to predict which bits are supposed to be surprising, which might not be easy to figure out just by looking at the OWF. But, if we had a non-uniform algorithm (i.e. a circuit as opposed to a Turing machine), we could just hardwire this information about the OWF. So this argument only gives a PRG if we assume the OWF was secure against non-uniform adversaries – it’s possible to get security against uniform adversaries too, but a little more work. <a href="#fnref:11" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Constructing cryptographic pseudorandom generators from one-way functions.]]></summary></entry><entry><title type="html">A Soft October Night</title><link href="http://localhost:4000/jekyll/update/2023/10/08/a-soft-october-night.html" rel="alternate" type="text/html" title="A Soft October Night" /><published>2023-10-08T20:30:17-04:00</published><updated>2023-10-08T20:30:17-04:00</updated><id>http://localhost:4000/jekyll/update/2023/10/08/a-soft-october-night</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/10/08/a-soft-october-night.html"><![CDATA[<p>When I go walk in the evening this time of year, I often find myself thinking about this stanza from “<a href="https://www.poetryfoundation.org/poetrymagazine/poems/44212/the-love-song-of-j-alfred-prufrock" title="link to the poem">The Love Song of J. Alfred Prufrock</a>”:</p>
+
+<blockquote>
+  <p>The yellow fog that rubs its back upon the window-panes, <br /> 
+The yellow smoke that rubs its muzzle on the window-panes, <br /> 
+Licked its tongue into the corners of the evening, <br /> 
+Lingered upon the pools that stand in drains, <br /> 
+Let fall upon its back the soot that falls from chimneys, <br /> 
+Slipped by the terrace, made a sudden leap, <br /> 
+And seeing that it was a soft October night, <br /> 
+Curled once about the house, and fell asleep. <br /></p>
+</blockquote>
+
+<p>Prufrock has long been one of my favourite poems. I used to have it memorized, although I don’t remember it all anymore. There’s something quietly beautiful about it, a mixture of muted, self-conscious regret and wistfulness. It feels very much like getting lost in someone else’s train of thought – something about the way it repeats and interrupts itself makes it read very convincingly like an internal monologue. There’s a certain tenderness about getting to see into somebody’s mind like this – I would describe a first-order approximation of the emotion as “a reminder of the meaningfulness of inconsequential things”. I thought I’d use this post to share a couple of other poems that I think capture this kind of feeling in a similar way.</p>
+
+<h2 id="filling-station"><a href="https://www.poetryfoundation.org/poems/52193/filling-station" title="link to the poem">Filling Station</a></h2>
+
+<p>There’s a number of Elizabeth Bishop poems I could have put in this category, but this is probably my favourite (and not just because of the “Why, oh why, the doily?” line, although it helps). The image of the absent-minded care of someone arranging cans in a family gas station has stuck with me. I don’t think I could more than vaguely pinpoint exactly why this poem works so well, but it conveys to me a very poignant sense of the inherent goodness of existence.</p>
+
+<h2 id="in-praise-of-limestone"><a href="https://allpoetry.com/In-Praise-Of-Limestone" title="link to the poem">In Praise of Limestone</a></h2>
+
+<p>This poem is printed out on my wall. It’s a sequence of musings about karst topography, which I have spent a while sitting here trying to sumarize but really I think you should just read and think your own thoughts about. I really love the poem as a whole – I couldn’t articulate exactly the point it’s making, but I know it makes it well. Separately, these lines (of the “oceanic whisper”) are pretty punchy in their own right:</p>
+
+<blockquote>
+  <p>I am the solitude that asks and promises nothing; <br /> 
+That is how I shall set you free. There is no love; <br /> 
+There are only the various envies, all of them sad.</p>
+</blockquote>
+
+<p>Also, how can you not love a poem based around extended geology metaphor?</p>
+
+<h2 id="lying-in-a-hammock-at-william-duffys-farm-in-pine-island-minnesota"><a href="https://www.poetryfoundation.org/poems/47734/lying-in-a-hammock-at-william-duffys-farm-in-pine-island-minnesota" title="link to the poem">Lying in a Hammock at William Duffy’s Farm in Pine Island, Minnesota</a></h2>
+
+<p>Dang. This one really lulls you into a false sense of security and then hits you. Every moment of being alive is something very precious – I don’t think it’s anywhere near possible to be constantly aware of this fact, but there are definitely times when, for no clear reason, it becomes almost suffocatingly apparent. When I read this poem, I feel like it captures that sort of sense of how both wonderful and transient everything is.</p>
+
+<h2 id="an-arundel-tomb"><a href="https://www.poetryfoundation.org/poems/47594/an-arundel-tomb" title="link to the poem">An Arundel Tomb</a></h2>
+
+<p>The mix of cynicism and sincerity here makes this poem feel very honest. It can’t make up it’s mind whether it’s saying “nothing matters, we all just die” or “there’s something trancendently real and valuable” – you end up with a kinda non-commital, unresolved combination of both.</p>
+
+<h2 id="glasses"><a href="https://open.spotify.com/track/3uKv45soturBZVumfsXoag?si=165edb2ce4244f8c" title="link to the song">Glasses</a></h2>
+
+<p>Ok, this one maybe doesn’t typecheck to exactly the same sort of object as the previous ones, but it definitely has the same vibes. I’m a fan of a lot of Jonathan Coulton’s music, but this song in particular is unreasonably effective against me<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Its lyrics are about aging, routine, and nostalgia, and at this point it’s been one of my favourite songs for long enough that it’s intrinsically tied to my past self enough to evoke all these things in its own right.</p>
+
+<blockquote>
+  <p>So much to say, I forget to start <br /> 
+There goes a day, fading as it passes <br /> 
+Forget the grey, let it fall apart <br /> 
+It’s okay <br /> 
+I like you in glasses</p>
+</blockquote>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Actually though it’s kinda scary how much power this song can exert over my emotional state in the span of 2 minutes 47 seconds. If you’re scheming against me, you should note this as a potential weapon. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A couple of my favourite poems about quiet beauty]]></summary></entry><entry><title type="html">Pick A Card, Any Card</title><link href="http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html" rel="alternate" type="text/html" title="Pick A Card, Any Card" /><published>2023-10-08T09:40:17-04:00</published><updated>2023-10-08T09:40:17-04:00</updated><id>http://localhost:4000/jekyll/update/2023/10/08/pick-a-card</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html"><![CDATA[<p>A little while ago my friend William proposed a game that I thought was cute, and there turned out to be a pretty satisfying answer to the question of which player has a winning strategy. I figured that now that this blog exists, this could be a fun place to write up the story.</p>
+
+<p>I remember the first time someone told me about game theory, they used as a starting example something like the following:</p>
+
+<blockquote>
+  <p>Two players take turns removing stones from a pile of $n$. On your turn you can remove between $1$ and $4$ stones, and you win if you remove the last one. Who wins?</p>
+</blockquote>
+
+<p>The answer is that the first player can win if and only if the starting value of $n$ is not a multiple of 5. When you start your turn and $n$ is a multiple of 5, no matter what number $x$ of stones you pick, your opponent can respond by taking $5-x$ stones, leaving you once again with a multiple of 5 on your next turn. When the pile finally gets down to only 5 stones, you have no way of preventing your opponent from winning.</p>
+
+<p>This game is essentially a variant of <a href="https://en.wikipedia.org/wiki/Nim" title="wiki link">Nim</a> (as I suppose are all impartial games – odds are pretty good that I type up an explanation of <a href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem" title="wiki link">the Sprague-Grundy theorem</a> as a blog post at some point), and is a nice introduction to combinatorial games because it has such a straightforward winning strategy. But William proposed a different version of the game: what if, instead of choosing a number between $1$ and $4$ of stones to remove, the number of allowed stones changed over time? Specifically,</p>
+
+<blockquote>
+  <p>An instance of the game is generated by randomly shuffling a set of cards labeled $1$ through $n$. Both players know the full outcome of the shuffle. On your turn, if the current top card of the deck is $k$, you can choose to remove between $1$ and $k$ cards from the top, and you win if you remove the last one. What’s the probability that this shuffling produces a winning game state for the first player?</p>
+</blockquote>
+
+<p>Here, coming up with the right strategy feels less much less obvious – it seems like depending on what exactly the shuffling looks like, the right decisions to make could be very different. And indeed, I don’t know that there’s a simple characterization of what the optimal strategy is. However, it’s not too hard to characterize what the winning probabilities look like, at least asymptotically in $n$.</p>
+
+<h2 id="player-1-has-a-winning-strategy-with-probability-1---mathcaloleftsqrtfraclog-nnright">Player 1 has a winning strategy with probability $1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$</h2>
+
+<p>Let me show you a situation I claim is really really good for player 1:</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/cards/pick-a-card-1.png" alt="Example game" width="40%" />
+    <figcaption> Grey cards indicate ones player 1 can take on her first turn. </figcaption>
+</figure>
+</center>
+
+<p>In this picture, she can choose to remove up to any of the grey cards. Suppose she chose to remove only the first two.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/cards/pick-a-card-2.png" alt="Example game" width="40%" />
+    <figcaption> Either of the two things player 2 could do in this configuration, player 1 could also have done on her first move. </figcaption>
+</figure>
+</center>
+
+<p>Now, player 2 has very few options on his turn. In particular, the options available to player 2 are a <em>strict subset</em> of those that were available to player 1 on her turn. That means that, if player 2 has some strategy to let him win the game from this position, then actually player 1 could have used that strategy instead. (For example, in this case, if player 2 thought that taking the top 1 card in this position would put him into a winning state, then player 1 could have actually started by taking the top 3 cards instead of 2, and now she’d be winning.) This is called a “strategy stealing argument” – note that it doesn’t actually tell us <em>what</em> the right strategy is, it just shows that there must <em>exist</em> one that makes player 1 win.</p>
+
+<p>By looking for configurations like this, we can give a lower bound on the probability that player 1 has a winning strategy in this game. Consider the probability that both of the following events happen:</p>
+
+<ul>
+  <li>The number on the top card is larger than $2\sqrt{n\log n}$</li>
+  <li>Among the first $\sqrt{n\log n}$ cards, there exists one whose number is less than $\sqrt{n \log n}$</li>
+</ul>
+
+<p>The first of these events occurs with probability $1 - \frac{2\sqrt{n\log n}}{n} = 1 - 2\sqrt{\frac{\log n}{n}}$. For the second event, note that, although the numbers on the first $\sqrt{n \log n}$ cards aren’t <em>actually</em> independent, they’re <em>basically</em> independent – $\sqrt{n \log n}$ is such a small fraction of the deck that we aren’t changing the distribution of cards very much, so we can pretend we were drawing with replacement. Now, the probability of all of the first $\sqrt{n \log n}$ cards having value more than $\sqrt{n \log n}$ is $\left( 1 - \frac{\sqrt{n \log n}}{n} \right)^{\sqrt{n \log n}}$. As $n$ gets large, we can approximate this as $e^{- \log n} = \frac{1}{n}$. So, the probability that both events occur is $\left(1 - 2\sqrt{\frac{\log n}{n}}\right)\left(1 - \frac{1}{n}\right) = 1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$. Whenever both of these events occur, we’ll have the same strategy-stealing setup as in the example: player 1 can force player 2 into a position where his options are a strict subset of what hers were initially. This argument tells us that the chances of player 2 winning the game go to zero as $n$ gets big – and in particular, go to zero almost as fast as $\frac{1}{\sqrt{n}}$. Using the same sort of argument again, we can also show that player 2’s winning probabilities don’t decay much faster than that – $\frac{1}{\sqrt{n}}$ is pretty much the right answer<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h2 id="player-2-has-a-winning-strategy-with-probability-omegaleft-sqrtfrac1n-right">Player 2 has a winning strategy with probability $\Omega\left( \sqrt{\frac{1}{n}} \right)$</h2>
+
+<p>Consider the probability that all of the following events happen:</p>
+
+<ul>
+  <li>The number on the first card is smaller than $\sqrt{n}$</li>
+  <li>The second through $\sqrt{n}$th card all have values at least $3\sqrt{n}$</li>
+  <li>Among the $\sqrt{n}$th through $2\sqrt{n}$th cards, all have value at most $\sqrt{n}$</li>
+</ul>
+
+<p>This sequence of events means that, no matter what player 1 does, player 2 will then be in a position to do a strategy stealing. By a similar argument to above, these events occur with probability roughly $\left( \frac{1}{\sqrt{n}} \right)\left( e^{-1} \right) \left( e^{-1/3} \right) = \Omega\left( \sqrt{\frac{1}{n}} \right)$.</p>
+
+<h2 id="other-questions">Other questions</h2>
+
+<p>This was a quick example of a case where a strategy stealing argument one step away let me characterize the winning probability of a game pretty tightly. If you thought this game sounded interesting, here’s a couple other questions that could be fun to think about:</p>
+
+<ol>
+  <li>How do winning probabilities for this game work if, instead of shuffing cards $1$ through $n$, the card values are dice rolls (i.e. independent uniform values from 1 to 6)<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>? Strategy stealing tells us both players have a constant winning probability, but how do we figure out what that constant is?</li>
+  <li>What about if the players don’t know the whole shuffling – i.e. they can only see the first card, so they’re playing with partial information and trying to maximize winning probability? Intuitively, you’d expect that when you shuffle $1$ through $n$, the right strategy might be to only take one card at a time at the beginning, because the fewer cards that are left the more chance your opponent instawins on the next turn. When the values are from dice rolls, you can write down some recurrences and you’ll start to see patterns.</li>
+  <li>You could also define a variant of this game where, instead of removing cards from a stack, you lay out all the cards in a line. Now, on your turn, you can jump to a card up to as many steps away as the current value, where it then becomes the next player’s turn. You can never revisit an already visited card, and your goal is to never get stuck with no moves available to you. Who wins? None of the strategy stealing stuff works anymore, because now there’s some dependence on history. It seems likely that in the $1$ through $n$ shuffle case you almost never get stuck until the end, but maybe this game is fun for smaller cards? I haven’t thought much about it – let me know if you do!</li>
+</ol>
+
+<center>
+<figure>
+    <img src="/assets/figures/cards/pick-a-card-3.png" alt="Example game" witdh="80%" />
+    <figcaption> Grey cards indicate ones that are available to move to on this turn; solid (think: face-down) cards indicate the already-visited ones. </figcaption>
+</figure>
+</center>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>This $\sqrt{\log n}$ factor is a bit annoying – I suspect you could make it go away if you were a little more careful with things, but I’m just leaving this a rough sketch. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Or iid from some other distribution, say. The reason this approach was so strong here was because the card values were allowed to be really large, so it was likely to be able to pull these shenannigans – when cards have smaller numbers I expect it’ll be a much trickier problem. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A simple strategy stealing argument for a nim-like card game]]></summary></entry><entry><title type="html">Asymptotes in Asymptotics</title><link href="http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html" rel="alternate" type="text/html" title="Asymptotes in Asymptotics" /><published>2023-09-29T21:48:17-04:00</published><updated>2023-09-29T21:48:17-04:00</updated><id>http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/09/29/asymptotes-in-asymptotics.html"><![CDATA[<p>This post is a follow-up to <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html" title="link to my last post">my last post</a>, where I discussed variants of Universal Search and what they say about the existence of optimal algorithms. You may recall that the conclusion at the end of last time was:</p>
+
+<blockquote>
+  <p>If, for every $\epsilon$, there is a provably-correct matrix multiplication algorithm that provably runs in time $\mathcal{O}(n^{2+\epsilon})$, then there is an algorithm running in time $\mathcal{O}(n^{2 + o(1)})$.</p>
+</blockquote>
+
+<p>More generally, for any problem, if there exists a sequence of algorithms provably achieving time bounds approaching $f(n)$, there exists one achieving $f(n)$. I think this is a somewhat satisfying thing to know, but you might still be a little unhappy. Specifically, this stipulation that the bounds be <em>provable</em> in our formal system seems a little slippery. All I wanted was a guarantee that there exists some asymptotically optimal algorithm, but Hutter’s algorithm only gives this restricted to programs we can reason about in ZFC or whatever.</p>
+
+<p>As it turns out, this annoyance isn’t just some technical quirk about our universal search argument, but actually an unavoidable fact. That’s right, if I remove the provability clause this is <strong>no longer true</strong>!</p>
+
+<h2 id="blums-speedup-theorem">Blum’s Speedup Theorem</h2>
+
+<p>Blum’s speedup theorem is a classic argument from the early days of complexity theory. Blum was interested in how to characterize the difficulty of problems – he defined a bunch of axioms for what makes sense as a complexity measure (like time or space usage). However, <a href="https://dl.acm.org/doi/10.1145/321386.321395" title="the paper showing this">he also showed</a> that no matter what complexity measure you use, there exist problems with no well-defined complexity, because <strong>any given algorithm for the problem can be “sped up” to get one performing better</strong>. As a concrete statement, we could say</p>
+
+<blockquote>
+  <p>Blum’s Speedup Theorem: There exists a computational problem such that, for any algorithm solving it, we can find another whose asymptotic runtime is only a square root as large<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+</blockquote>
+
+<p>This is rather unnerving – we can’t talk about the complexity of such a problem as the runtime of the best algorithm for it, because there <strong>is no best algorithm</strong>! The proof of this theorem is a neat diagonalization argument, producing an entirely unnatural (but well-defined) problem.</p>
+
+<p>Once again, consider looking through programs in alphabetical order. The idea is to make it so that alphabetically later programs can always solve the problem asymptotically faster than alphabetically earlier ones. We’ll construct a problem where the $i$th program either gets it wrong, or needs time $2^{2^{n-i}}$ on inputs of length $n$. This problem will be a unary decision problem, meaning that the correct output is either 0 or 1 as a function of the input length. The definition of the problem on an input of length $n$ is given by the following algorithm<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    thwarted programs &lt;- empty list
+    for stage s, ranging from 1 through n:
+        for i ranging from 1 to s:
+            simulate the ith alphabetical program for 2^2^(s-i) steps on a length s input
+        if at least one of these programs halted in the given time, and isn't already in the thwarted list:
+            add the first (alphabetically) such program to the thwarted list
+            if s = n, output the opposite of what that program said
+</code></pre></div></div>
+
+<p>Let’s break down what this is doing. Our goal is for this algorithm to “thwart” (i.e. output something different on some input) any program that runs in asymptotically less than $2^{2^{n-i}}$ time. When this algorithm is deciding what to output on a given length $n$, it simulates the first $n$ programs to see if any of them are finishing too quickly – if so, it finds the first one it hasn’t thwarted yet and chooses a different answer. If, for some $i$, the $i$th program runs asymptotically faster than $2^{2^{n-i}}$, this means that eventually it will always finish too early – after $i$ times finishing too early, it will definitely be thwarted. The upshot is: we’ve described something that the $i$th alphabetically program can’t do in time $2^{2^{n-i}}$.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/universalsearch/blum.png" alt="Graph of which things we thwart" width="40%" />
+    <figcaption> On a given length, we look at all the programs that finished in their allotted time, and thwart the first one we have yet to thwart. </figcaption>
+</figure>
+</center>
+
+<p>But now, I claim that for any $k$, there exists an algorithm for this problem running in time $2^{2^{n-k}}$. If we just wanted <em>some</em> algorithm solving the problem, we could use the one we used to define the problem – looking at the simulations this algorithm does, we find it runs in time $\mathcal{O}(2^{2^n})$. This time bound is dominated by the cost of simulating the shortest program – so, if we wanted a faster algorithm, the idea is to <strong>hard-code the simulation results for the shortest programs</strong>. That is, we run that algorithm from before, but it has a table containing, for all of the first $k$ programs,</p>
+<ul>
+  <li>Whether we ever choose that program as the one to thwart</li>
+  <li>If so, on what input we do so and what value we choose</li>
+</ul>
+
+<p>If we know those values, we never actually need to run the simulations for the first $k$ programs, since the simulation result is only relevant on the one length when we choose that program as the one to thwart. So, hardcording this constant table of values gives an algorithm running in time $\mathcal{O}(2^{2^{n - k}})$.</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/universalsearch/blum-2.png" alt="We don't need to worry about the first ones" width="40%" />
+    <figcaption> We can use a constant-size lookup table to determine on what input lengths we thwart the first $k$ programs, and so don't need to run the simulations. </figcaption>
+</figure>
+</center>
+
+<p>This completes the proof – if we choose any given algorithm for this problem, it will be the $i$th alphabetically for some $i$, and so will need $\Omega(2^{2^{n-i}})$ time. But we can use this lookup table approach to get an algorithm running in time $\mathcal{O}(2^{2^{n-i-1}}) = \mathcal{O}(\sqrt{2^{2^{n-i}}})$. So, this is a problem with no asymptotically optimal algorithm – there’s asymptotes in the asymptotics!</p>
+
+<h2 id="levin-search-with-frievalds-trick">Levin Search with Frievald’s Trick</h2>
+
+<p>This feels at first very contradictory – why doesn’t Hutter search work for that problem? The answer is that, although these faster and faster algorithms exist, we cannot <em>prove</em> that they’re correct when we’ve found them. Determining whether the hardcoded lookup table actually encodes whether or not each of the first $k$ programs is ever thwarted is undecidable – we know that there <strong>exists</strong> a hardcoding that correctly solves the problem, but have no way of ensuring that a <strong>given</strong> hardcoding is correct. Asymptotes in asymptotics can exist, but only when they involve programs whose properties we can’t prove.</p>
+
+<p>Circling back to the question of matrix multiplication, my question is: could that happen here? Does there necessarily exist an optimal matrix multiplication algorithm, or could there be a similar situation where there’s a sequence of better and better algorithms without provable guarantees? I’m not sure if there are general results ruling out this kind of thing<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>, but I know that, at least if you allow randomized algorithms, there <em>does</em> exist an asymptotically optimal matrix multiplication algorithm.</p>
+
+<p>The reason I know this is because, given two matrices and their supposed product, we can verify this fact in $n^2$ time using Frievald’s Trick, a classic randomized algorithm:</p>
+
+<blockquote>
+  <p>Frievald’s Trick: Given three matrices, $A$ $B$ and $C$, we can verify whether $A \cdot B = C$ with bounded error probability by choosing a constant number of random bitvectors and comparing their product with $C$ versus their product with $A \cdot B$. Both of these products can be computed in $n^2$ time (to compute $A \cdot B v$, compute $A(Bv)$)<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>.</p>
+</blockquote>
+
+<p>In order to multiply two matrices, we can now use <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html" title="link to my last post">Levin’s algorithm</a>, using Frievald’s trick as our verification procedure. We can repeat the simulations twice as many times for successive programs, so as to ensure that the error probability of the whole algorithm stays bounded. You can verify that, as long as we make no errors, Levin’s algorithm will still run in the asymptotically optimal runtime.</p>
+
+<p>So, although we know that not every problem has a an optimal algorithm, at least matrix multiplication does. Hopefully you will sleep better at night knowing that, when people say “<em>the</em> matrix multiplication exponent”, they are indeed talking about something well-defined.</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>We could substitute “space” for “time” here, or talk about general complexity measures. We could also use any unbounded increasing function instead of square root. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>This proof is adapted from the one given in Dexter Kozen’s <em>Theory of Computation</em>. I would definitely recommend checking out that textbook – it has nice presentation, and covers a lot of stuff I haven’t seen in other complexity books. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>If you do know of such results, please let me know! <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>There’s also an (in my opinion) even more slick version of this, where if we’re trying to verify a matrix multiplication over some field, we choose an extension field $\mathbb{F}$, and then instead of taking a random vector over that field we choose a random element $r$ and take $[r, r^2, \dots, r^n]$. In that case, the analysis follows from thinking of the matrix product as a polynomial over $\mathbb{F}$ and noting that it can have at most $n$ roots. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Does every problem have an optimal algorithm? (Follow-up to previous post.)]]></summary></entry><entry><title type="html">The Best Algorithm Ever</title><link href="http://localhost:4000/jekyll/update/2023/09/25/the-best-algorithm-ever.html" rel="alternate" type="text/html" title="The Best Algorithm Ever" /><published>2023-09-25T18:08:00-04:00</published><updated>2023-09-25T18:08:00-04:00</updated><id>http://localhost:4000/jekyll/update/2023/09/25/the-best-algorithm-ever</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/09/25/the-best-algorithm-ever.html"><![CDATA[<p>Theoretical computer scientists spend a lot of time thinking about the <em>asymptotically optimal</em> algorithms for various problems. For instance, as of writing this post the asymptotically <a href="https://arxiv.org/abs/2307.07970" title="The paper achieving this runtime">best known algorithm</a> for multiplying two $n \times n$ matrices over a field runs in time $\mathcal{O}(n^{2.371552})$. What this means is that, for some constant $c$, the algorithm always takes fewer than $cn^{2.371552}$ steps to compute the answer on $n \times n$ matrices. The reason we’re not worried about the specific value of $c$ is because, as $n$ gets really big, it stops being the important thing – if we have one algorithm running in time $5 n^2$ and another algorithm running in time $5000000 n$, then as soon as input size gets bigger than $1000000$ the second algorithm becomes better. Of course, when it comes to solving actual problems with actual computers, it may be that you never need to deal with inputs of size more than $1000000$, and so the first algorithm is always better in practice.</p>
+
+<p>This kind of story is true with matrix multiplication – the $c$ in $cn^{2.371552}$ is so large that the input size would have to be orders of magnitude larger than <strong>all the data stored in every computer on earth</strong> before the algorithm became faster than the straightforward $\Theta(n^3)$ algorithm. Even so, I think the fact that there exists an $\mathcal{O}(n^{2.371552})$ time algorithm for this problem really does say something meaningful – after all, even if I would never need to work with them in practice, I can <em>imagine</em> having to multiply ridiculously huge matrices. The fact that this is possible to do with far fewer than $n^3$ steps suggests some kind of inherent structure to the problem that you might otherwise suspect didn’t exist (and indeed seems <a href="https://people.csail.mit.edu/rrw/tria-mmult.pdf" title="Fine-grained complexity: whether or not boolean matrix multiplication has a subcubic algorithm is a major open question">likely not to exist</a> in matrix multiplication over other algebraic structures). Regardless of your philosophical interpretation of asymptotic complexity, the fact remains that if a paper was published tomorrow titled “A Matrix Multiplication Algorithm With Provably Optimal Asymptotic Time Complexity”, it would get a lot of attention.</p>
+
+<p>But what if I told you that, for the vast majority of problems algorithms researchers think about, we actually <em>already know the (asymptotically) best algorithm</em>? This sounds at first like a really incredible claim. Maybe after I explain it will sound less incredible, but I still think it’s an important observation.</p>
+
+<p>For a concrete example, let’s look at the problem of integer factorization:</p>
+
+<blockquote>
+  <p>Integer Factorization Problem: given an $n$-bit integer $x$, return $x$’s list of prime factors.</p>
+</blockquote>
+
+<p>This problem is interesting because it’s something where we can <em>verify</em> a solution efficiently (multiply together all the proposed factors and check if the result equals $x$, then use <a href="https://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf" title="AKS paper">fancy number theory algorithms</a> to efficiently check that all those factors are prime). However, we have no idea if it’s possible to <em>produce</em> a solution efficiently – whether or not this problem is solvable in polynomial time is unknown.</p>
+
+<p>In 1973, Leonid Levin noticed that all problems of this form have <a href="https://www.mathnet.ru/php/archive.phtml?wshow=paper&amp;jrnid=ppi&amp;paperid=914&amp;option_lang=eng" title="Levins original paper">a simple algorithm</a> <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. The basic idea is: the length of the optimal program is some constant independent of $n$, so if we just want to be asymptotically equivalent to it we can <em>try running all programs in increasing order of length</em> and check their outputs. After a constant number of tries, we’ll simulate the optimal algorithm, which will print out the correct factorization and solve the problem.</p>
+
+<p>I’ll walk through this idea carefully in case you haven’t seen this kind of thing before. Suppose we iterated through all strings in alphabetical order. Most of these are nonsense (things like “a3sarth&amp;au%!”, “eiudyot78”, or “0 is not a natural number”), but some of these strings will be valid python (or C, or Haskell, or Turing machine code – substitute what you like here) programs:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    def sillyfunction(x):
+        x = "this is a string of characters that just happens to be a valid python program."
+        return x
+    
+    print (sillyfunction(x) + " if we enumerate over all strings we'll hit it eventually.")
+</code></pre></div></div>
+
+<p>If we start iterating through all strings in alphabetical order and trying to run a python interpreter on them, some of them will return an output – we can then check the output, and if it’s a solution to the factoring problem we’re done! The issue with this approach is that some short program might run for a really long time – perhaps even just loop forever – and so if we just tried simulating programs in order we might never simulate the “right” algorithm. The workaround is: run all possible programs in <em>parallel</em>, allocating exponentially less time to alphabetically later programs. That is:</p>
+
+<blockquote>
+  <p>Levin’s Universal Search: On the $i$th “stage”, simulate up to $2^i$ steps of the first (alphabetically) program, $2^{i - 1}$ steps of the second program, on to $2^0 = 1$ step of the $i$th program. Whenever one of these programs finishes, check it’s output to see if it’s the prime factorization of $x$; stop when you’ve found it.</p>
+</blockquote>
+
+<center>
+<figure>
+    <img src="/assets/figures/universalsearch/levin-1.png" alt="Graph of the amount of time put into each task" />
+    <figcaption>Every subsequent stage, we double the amount of time we've put into running each program that hasn't finished yet, and add an additional task to our list. (Note that many programs will terminate immediately, simply because they're not valid code). </figcaption>
+</figure>
+</center>
+
+<p>This algorithm might seem ridiculous (and I suppose it is), but it’s also kinda nice. Suppose there is some algorithm $A$ that solves the factoring problem in $t(n)$ timesteps (for concreteness, imagine it runs in polynomial time). If we write down the code for a python implementation of $A$, that string will correspond to (say) the $a$th string in alphabetical order. If you look at how long this algorithm takes until it simulates the $a$th string for $t(n)$ timesteps, the answer should be something like $2^{a} \cdot t(n) + a \cdot v(n)$, where $v(n)$ is the amount of time to verify the outputs (in the case of factoring, we can do this with a known small polynomial algorithm – we’ll assume this is a lower order term).</p>
+
+<center>
+<figure>
+    <img src="/assets/figures/universalsearch/levin-2.png" alt="Graph of how much total work we do" width="60%" />
+    <figcaption>By the time we've simulated the optimal algorithm, the amount of wasted time will correspond to a multiplicative factor of roughly $2^{a}$. </figcaption>
+</figure>
+</center>
+
+<p>Notice, though, that $a$ is not a function of $n$ – it’s just a function of the string representation of the python program, which is some constant not depending on $n$! So, if $A$ solves factoring in time polynomial in $n$, then Levin’s algorithm <em>also</em> solves factoring in polynomial time. In fact, assuming the optimal algorithm for solving the problem is slower than the verification procedure we’re using, Levin’s algorithm runs <strong>within a constant factor</strong> of the true optimal runtime. So, although we have no idea how fast it actually runs, we know the asymptotically optimal algorithm!</p>
+
+<p>If you’ve ever tried writing down an algorithm, you probably know that they usually take more than one or two characters to describe. And if your python code is even just a couple lines, you’re going to end up with like $2^{1000}$ alphabetically earlier strings. If you’ve ever tried using a computer, you probably know that $2^{2^{1000}}$ is only very technically a constant. Certainly nobody is ever running this code, not even if you’ve got lots of RAM or a really fancy GPU or whatever. But hey, it’s a constant! And what’s more, it’s clear that this algorithm isn’t just applicable for factoring – it should work for any problem where we have a fast way of checking solutions<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
+
+<p>This is the algorithm that Levin described. At this point you will probably protest, “Is this <em>really</em> the best algorithm ever? Such a big multiplicative constant is frankly ridiculous – and besides, you claimed it could solve basically every problem I could think of, but what if I don’t even know how to check a solution efficiently?”. Typical you, griping about such minor issues when we’ve just solved all of the world’s computational problems. Fortunately, in <a href="http://www.hutter1.net/ai/pfastprg.pdf" title="Hutter's paper">a 2001 paper</a><sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>, Marcus Hutter noted that, with a small asterisk, both of these issues can be resolved! The idea is: in addition to searching over all strings for good algorithms, also simultaneously search over all strings for <em>correctness and time bound proofs for those algorithms</em>! If you specify your favourite formal system, you can have your computer look at strings in order and check whether or not they represent valid proofs of a desired statement in that formal system (verifying that the proofs are valid can be done algorithmically – concretely, imagine typechecking the strings with a proof assistant like Coq or Lean). Given some formal specification of a computational problem (i.e. some formal description of what properties the output should satisfy given an input), Hutter’s algorithm does the following three things in parallel:</p>
+
+<blockquote>
+  <ol>
+    <li>Iterate through all strings in order, and check each one to see if it consists of
+      <ul>
+        <li>code for an algorithm,</li>
+        <li>code for a time-bound function,</li>
+        <li>and a formal proof that the algorithm always solves the desired problem within the specified time bound.
+  If so, add the string to a list $L$.</li>
+      </ul>
+    </li>
+    <li>Iterate through all the elements of $L$ and compute the time-bound functions to get numbers for which one we expect to finish first. This step does the same exponential weighting trick as Levin’s algorithm, spending exponentially more work on computing the finishing time for the earlier elements of $L$ than the later ones</li>
+    <li>Among all the elements of $L$ whose time bounds we have computed numerically, run whichever one we expect to be able to finish first.</li>
+  </ol>
+</blockquote>
+
+<p>Assuming that the best time-bound is time-constructible<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>, this procedure achieves an asymptotic runtime as good as every <em>provably</em> fast and correct algorithm for the problem. In fact, Hutter showed that if you assume some stronger conditions than time-constructibility, and you spend almost all of your computation power on the 3rd of these 3 processes, his algorithm runs in time roughly $4t(n) + c$, where $t(n)$ is the infimum over the time bounds of all provably good algorithms, and $c$ is some constant. Whereas before we had a massive <em>multiplicative</em> constant, now we just have a massive <em>additive</em> constant – once we’ve done the constant work of finding the best algorithm and its proof of correctness, we can just run it.</p>
+
+<p>If you step back a bit and think about what we’ve actually done, it’s maybe not that surprising that this works. You come to me and say “Nathan, I’ve been trying to figure out the optimal algorithm for my problem”, and I respond “Ah, that’s easy, I have the optimal algorithm for every problem! First, come up with the best algorithm and prove it works (this step takes constant time), and then run it on whatever input you’re dealing with”. Sure, of course this works, it’s what you were already trying to do – I’ve just described it as an algorithm. But the fact that you can describe this as an algorithm is a useful insight. To see why, let’s return to the question of matrix multiplication at the beginning of the post. I’ve seen a number of times people express the following conjecture:</p>
+
+<blockquote>
+  <p>For every $\epsilon &gt; 0$, there exists an algorithm for matrix multiplication running in time $\mathcal{O}(n^{2 + \epsilon})$.</p>
+</blockquote>
+
+<p>Looking at this statement, you might be unsure what exactly it entails. Is this the same as saying that there exists a single algorithm running in time $\mathcal{O}(n^{2 + o(1)})$? Or is it possible that there could exist a sequence of algorithms getting progressively closer to that bound, but that every individual matrix multiplication algorithm has runtime $\Omega(n^{2 + c})$? It turns out that, as long as we only care about algorithms for which there exist <em>proofs of correctness and time-constructible runtime bounds</em> (which seems reasonable – breaking this condition is very bizarre), the latter possibility can’t happen, since we know Hutter search asymptotically matches any provably good algorithm<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>. Even though we’d never run Hutter search on an actual computer, knowing that it exists can let us rule out this kind of thing.</p>
+
+<p>That’s all for this post – thanks for reading the first installment of this blog! In the next post, I plan to address this lingering condition about time-constructibility and provable correctness – is it possible that the above statement is no longer true without those qualifiers? Tune in next time to find out!</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>I haven’t been able to find this paper except in Russian, but it’s really short so if you want you can be like me and google translate it one paragraph at a time :/ <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>More formally, when the problem consists of finding an inverse of an efficiently computable function $f$ given $f(x)$, since then we can use our algorithm for $f$ to know when we’ve got the right answer. You might hear “fast way of checking solutions” and think NP, but it’s not immediately clear how this kind of algorithm could figure out that, for instance, a SAT formula was <em>un</em>satisfiable. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Which is not only well-written, but also available in English! <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Meaning that the amount of time it takes to compute a numerical value for the bound is at most equal to the bound itself. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>Ok, one somewhat slippery point that I didn’t mention was that, technically speaking, Hutter search doesn’t <em>provably</em> work. That is, if Hutter search is using some formal system to prove statements about programs, you can’t use that <em>same</em> formal system to show that Hutter search always works, because this would constitute a proof of consistency of your formal system, which is impossible by <a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems#Second_incompleteness_theorem" title="Wiki page">Gödel’s Second Incompleteness Theorem</a>. But this point isn’t really that important – you seem like a smart person; I don’t think you’d ever use inconsistent axioms. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[An asymptotically optimal algorithm for (pretty much) every computational problem]]></summary></entry></feed>

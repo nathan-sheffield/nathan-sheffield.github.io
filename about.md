@@ -11,10 +11,9 @@ I'm Nathan, currently an undergrad studying math and CS at MIT. A non-exhaustive
 - Computational complexity and algorithms
 - Logic and formal methods
 - Extremal graph theory
-- Absurdist literature (and I suppose plenty of other genres too -- I did say this list was non-exhaustive)
+- Literature (especially if it's 20th century and a little weird)
 - Puzzles and puzzlehunts
 - Quizbowl / trivia
 - Bad puns
-- Rock climbing
 
-This website is supposed to serve as a place to store things I've worked on / thoughts I've had. The main target audience is really just my future self, but if you're not me you're also welcome to poke around. 
+If you want to talk to me about any of these things (or contact me for some other reason), feel free to send me an email!

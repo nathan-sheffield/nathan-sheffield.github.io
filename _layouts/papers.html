@@ -1,0 +1,104 @@
+---
+layout: base
+---
+<style>
+    .collapsible {
+      border-radius:15px 15px 15px 15px;
+      background-color: var(--minima-background-color);
+      color: #c89ce2;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      /*font-size: 15px;*/
+    }
+    
+    .active, .collapsible:hover {
+      background-color: #7930a3;
+    }
+    
+    .active{
+      border-radius:15px 15px 0px 0px;
+    }
+    .collapsible-content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #39164d;
+      border-radius:0px 0px 15px 15px;
+    }
+
+    .collapsible:after {
+    content: '\2B9E'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+    }
+
+    .active:after {
+    content: "\2B9F"; /* Unicode character for "minus" sign (-) */
+    }
+
+    </style>
+
+<div class="research">
+    <header class = "post-header">
+    {%- if page.tagline -%}
+      <h1 class="page-heading"> "{{ page.tagline }}" </h1>
+    {%- endif -%}
+    {%- if page.subtitle -%}
+      <p class="page-subtitle"> {{ page.subtitle }}</p>
+    {%- endif -%}
+    <hr class = "header-line">
+    </header>
+
+{% assign papers = site.papers %}
+
+{%- if papers.size > 0 -%}
+    {%- if papers.list_title -%}
+      <h2 class="post-list-heading">{{ papers.list_title }}</h2>
+    {%- endif -%}
+    <ul class="post-list">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {%- for paper in papers -%}
+      <li>
+        <button type="button" class="collapsible post-list-heading">{{ paper.title | escape }}</button>
+        <div class="collapsible-content">
+        <h3>
+          <a class="post-link" href="{{ paper.link | relative_url }}">
+            {{ paper.linktext | escape }}
+          </a>
+        </h3>
+        {%- if paper.notes -%}
+        <span class="post-meta">Notes:</span>
+        {{ paper.notes | markdownify}}
+        {%- endif -%}
+        <span class="post-meta">Motivating Fable:</span>
+          {{ paper.content | markdownify}}
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
+{%- endif -%}
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
