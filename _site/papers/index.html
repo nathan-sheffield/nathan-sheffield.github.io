@@ -75,7 +75,7 @@
     .collapsible-header-flex {
         display: flex;
         justify-content: space-between;
-        align-items: center; /* UPDATED: Vertically centers everything in the header */
+        align-items: center;
         width: 100%;
     }
 
@@ -90,7 +90,6 @@
         margin-top: 8px;
     }
 
-    /* UPDATED: Venue is now a flex container to hold the arrow and text */
     .paper-venue {
         display: flex;
         align-items: center;
@@ -100,29 +99,20 @@
         font-weight: bold;
     }
     
-    /* NEW: Styling for the arrow element itself */
     .dropdown-arrow {
         margin-left: 20px;
-        margin-right: 10px; /* Space between arrow and conference name */
+        margin-right: 10px;
         font-size: 13px;
         color: white;
     }
 
-    /* NEW: Defines the arrow's appearance */
     .dropdown-arrow::before {
-      content: '\2B9E'; /* Unicode for 'plus' sign */
+      content: '\2B9E';
     }
 
-    /* NEW: Changes the arrow when the box is active */
     .active .dropdown-arrow::before {
-      content: "\2B9F"; /* Unicode for 'minus' sign */
+      content: "\2B9F";
     }
-
-    /* REMOVED: The old :after rules are no longer needed */
-    /*
-    .collapsible:after { ... }
-    .active:after { ... }
-    */
 
     /* Main content area that expands */
     .collapsible-content {
@@ -135,26 +125,32 @@
       font-size: 0.9em;
     }
 
-    /* Container for the four action buttons */
+    /* Container for the four action buttons - UPDATED FOR MOBILE */
     .button-container {
         display: flex;
         justify-content: space-around;
         padding: 20px 0;
+        flex-wrap: wrap; /* Allow wrapping on small screens */
+        gap: 8px; /* Add consistent spacing between buttons */
     }
 
-    /* Styling for the action buttons */
+    /* Styling for the action buttons - UPDATED FOR MOBILE */
     .info-button {
         background-color: #7930a3;
         color: white;
         border: none;
         border-radius: 10px;
-        padding: 10px 15px;
+        padding: 8px 12px; /* Reduced padding for mobile */
         cursor: pointer;
-        font-size: 14px;
+        font-size: 13px; /* Slightly smaller font */
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px; /* Reduced gap between icon and text */
         transition: background-color 0.2s;
+        flex: 0 0 auto; /* Don't grow or shrink - size to content */
+        justify-content: center;
+        text-align: center;
+        white-space: nowrap;
     }
 
     .info-button:hover, .info-button.active {
@@ -171,20 +167,95 @@
         padding-top: 20px;
     }
 
-    /* NEW: Control spacing between papers */
     .post-list li {
-        margin-bottom: 10px; /* Adjust this value to control spacing */
+        margin-bottom: 10px;
     }
-    
-    /* Alternative: For even tighter spacing, use this instead */
-    /* .post-list li {
-        margin-bottom: 5px;
-    } */
-    
-    /* Alternative: For no spacing between papers */
-    /* .post-list li {
-        margin-bottom: 0;
-    } */
+
+    /* MOBILE RESPONSIVENESS - NEW SECTION */
+    @media screen and (max-width: 768px) {
+        .collapsible {
+            padding: 8px;
+        }
+
+        .collapsible-header-flex {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .paper-title {
+            padding-right: 0;
+            font-size: 0.95em;
+        }
+
+        .paper-venue {
+            align-self: flex-end;
+            margin-top: -5px;
+        }
+
+        .dropdown-arrow {
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+
+        .button-container {
+            padding: 15px 0;
+            gap: 6px;
+            justify-content: space-evenly; /* Better distribution on mobile */
+        }
+
+        .info-button {
+            padding: 6px 8px;
+            font-size: 12px;
+            gap: 4px;
+            flex: 0 0 auto; /* Keep content-based sizing on mobile too */
+        }
+
+        .collapsible-content {
+            padding: 0 12px;
+        }
+    }
+
+    /* VERY SMALL SCREENS - NEW SECTION */
+    @media screen and (max-width: 480px) {
+        .paper-title {
+            font-size: 0.9em;
+        }
+
+        .paper-authors {
+            font-size: 0.8em;
+        }
+
+        .paper-venue {
+            font-size: 0.8em;
+        }
+
+        .info-button {
+            padding: 5px 6px;
+            font-size: 11px;
+            gap: 3px;
+        }
+
+        /* Stack buttons vertically on very small screens if needed */
+        .button-container.stack-vertical .info-button {
+            flex: 0 0 auto;
+        }
+    }
+
+    /* EXTRA SMALL SCREENS - STACK BUTTONS VERTICALLY */
+    @media screen and (max-width: 360px) {
+        .button-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .info-button {
+            flex: 0 0 auto; /* Size to content even when stacked */
+            width: auto;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+    }
 </style>
 
 <div class="research">
