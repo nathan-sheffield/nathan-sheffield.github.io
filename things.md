@@ -2,17 +2,23 @@
 layout: page
 title: Misc
 tagline: Thou ill-formed offspring of my feeble brain
-subtitle: An assortment of things I've written or recorded. Probably some pretty high variance in quality (in particular, I won't promise that any slides I put here will be totally followable without accompanying presentation).
+subtitle: An assortment of things I've written or recorded over the years. Proceed with caution --- I give you no guarantees on quality.
 permalink: /things/
 ---
 
-# Surveys / Class Projects
+# Class Projects
 
 ### [Power from Random Strings Survey](/assets/things/power_from_kolmogorov.pdf)
-There's a really neat line of work examining what problems can be reduced _resource-efficiently_ to the (resource-unbounded) Kolmogorov random strings; this is a survey of some of the main results / open directions there. Written as the final project for Ryan Williams' complexity theory class.
+There's a really neat line of work examining what problems can be reduced _resource-efficiently_ to the (resource-unbounded) Kolmogorov random strings; this is a survey of some of the main results / open directions there. Written as the final project for Ryan Williams's complexity theory class.
 
 ### [Limits of Preprocessing](/assets/things/preprocessing.pdf)
 This is my final project for boolean functions class; it's an attempt at a more friendly presentation of [this paper](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2020.17), which gives partial progress towards showing that inner product remains hard for $\mathsf{AC}^0$ circuits even after arbitrary preprocessing of both inputs independently.
+
+### [Can SOS Prove Circuit Lower Bounds?](/assets/things/sos-project.pdf)
+This was the final project for my class on the Sum of Squares method --- it's a survey of a couple results relating to the (im)possibility of formalizing circuit lower bounds in SOS.
+
+### [Testing Permutation Pattern Avoidance](/assets/things/sublinear-project.pdf)
+For the final project of sublinear-time algorithms, we gave an exposition of [this paper](https://arxiv.org/abs/2106.04856)'s results on property testing of pattern-avoiding permutations, and made some minor extensions.
 
 ### [Hardness of Art Gallery Variants](/assets/things/art_gallery.pdf)
 The art gallery problem has been shown to be [complete for $\exists \mathbb{R}$](https://dl.acm.org/doi/10.1145/3188745.3188868); here we give an overview of that result, and give some thoughts on hardness of related problems. Final project for computational geometry class.
@@ -23,16 +29,16 @@ This was the final project for my quantum information science class. TLDR: some 
 ### [Canadian Traveler Problem Survey](/assets/things/canada-survey.pdf)
 The reason I was thinking about CTP for that quantum project was because a couple friends and I had earlier written a survey of the (classical) problem for our advanced algorithms class. Most of this is not original research, but should be a reasonably nice introduction to the problem.
 
-### [MIP* = RE poster](/assets/things/mip*-poster.pdf)
-This is a poster I made for my quantum computation class, giving a very rough overview of the breaktrough [MIP* = RE](https://arxiv.org/abs/2001.04383) result in quantum complexity.
+# Other Notes and Slides from Undergrad
 
 ### [Ramsey Theory Notes](/assets/things/ramsey-notes.pdf)
 These are notes from my Ramsey theory class spring 2023 (taught by Lisa Sauermann). They're not especially proofread or anything, but I find myself referring back to them a fair amount, so I put them up on the internet in case they're useful to other people. 
 
-# Slides
-
 ###  [Low-Degree ECC Decoding](/assets/things/random_restrictions.pdf) and [Relative Rank](/assets/things/relative_rank.pdf) slides
 These are some slides for a reading group I met with fall 2023. The first of these explains the result from [this paper](https://arxiv.org/abs/2302.02870) that $\mathsf{NC}^0[\oplus]$ circuits can't decode error-correcting codes with constant success probability. The second discusses the preliminaries on relative rank and Nisan-Wigderson design polynomials for [this paper](https://arxiv.org/abs/2205.00611).
+
+### [MIP* = RE poster](/assets/things/mip*-poster.pdf)
+This is a poster I made for my quantum computation class, giving a very rough overview of the breaktrough [MIP* = RE](https://arxiv.org/abs/2001.04383) result in quantum complexity.
 
 ###  [Intro to Information Theory](/assets/things/GuessWhoEntropy.pdf) slides
 Some slides explaining the basics of information theory (entropy, KL divergence, Shannon/Huffman coding) in terms of a game of _Guess Who?_
@@ -40,14 +46,14 @@ Some slides explaining the basics of information theory (entropy, KL divergence,
 ### [PCP slides](/assets/things/PCP.pdf)
 Here are some slides for a presentation I gave for MIT's directed reading program sophomore year. We define the PCP theorem and walks through Irit Dinur's proof.
 
-### [What You Can't Do With Math](/assets/things/impossibility-class.pdf)
+### [What You Can't Do With Math](/assets/things/impossibility-class.pdf) slides
 This is for a class I taught fall 2021 for high schoolers about a couple of classic impossibility results.
 
 # Music
 
 #### Banach-Tarski
 
-My dad used to sing a version of this song as a "musical ditty for math loving kiddies", so for Christmas last year I put together this full version.
+My dad used to sing a version of this song as a "musical ditty for math loving kiddies", so I put this together for him at Christmas one year.
 <center>
 <video width="60%" height="60%" controls>
 <source src = "/assets/music/banach-tarski.mp4">
@@ -56,7 +62,7 @@ Your browser does not support the video element. Makes you just wanna tear somet
 </center>
 
 #### The Scream
-I recorded this for my jazz class last spring. I wanted to make something based around augmented 7ths, and it sounded so angsty that I decided to put a spoken-word [excerpt from Edvard Munch's diary](https://en.wikipedia.org/wiki/The_Scream#Sources_of_inspiration) over the solo section.
+I recorded this for my jazz class. I wanted to make something based around augmented 7ths, and it sounded so angsty that I decided to put a spoken-word [excerpt from Edvard Munch's diary](https://en.wikipedia.org/wiki/The_Scream#Sources_of_inspiration) over the solo section.
 <audio controls class="audio-embed">
   <source src="/assets/music/scream.wav" type="audio/mpeg">
   Your browser does not support the audio element. Makes you just wanna scream.
@@ -93,7 +99,7 @@ I took a class called "Electronic Music Composition" -- here's an example of the
 </audio>
 
 #### Gåte for Døden
-I made this in high school as part of an elaborate prank on a friend of mine. It's a bit of a long story, but we were learning some Norwegian together, so I made a website for a fake Norwegian indie band and then hid a string of puzzles in a song that eventually led to a rickroll. The puzzle chain isn't followable anymore, but I still think the song is fun (if you can excuse my terrible Norwegian pronunciation). 
+I made this in high school as part of a puzzle. The puzzle chain isn't followable anymore, but I still think the song is fun (if you can excuse my terrible Norwegian pronunciation). 
 
 <center>
 <iframe width="60%" height="30%" src="https://www.youtube.com/embed/2bM_pE0vGnM?si=xabL4OibKMH30Hcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="audio-embed"></iframe>

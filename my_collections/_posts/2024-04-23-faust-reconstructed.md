@@ -6,6 +6,6 @@ categories: jekyll update
 excerpt: "A math-themed retelling of Faust centered around the reconstruction conjecture"
 ---
 
-Ok, another short story! (Sorry for 2 in a row fiction posts -- will return to your regularly scheduled derandomization programming at some point.)
+Ok, another short story! 
 
-[Story PDF here](https://nathan-sheffield.github.io/assets/things/faust.pdf "a link to the story").
+[Story PDF here](/assets/things/faust.pdf "a link to the story").

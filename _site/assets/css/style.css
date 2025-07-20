@@ -312,7 +312,7 @@ a:hover {
  */
 blockquote {
   color: #c89ce2;
-  border-left: 4px solid #742e9d;
+  border-left: 4px solid rgb(116.05859375, 46.10546875, 157.39453125);
   padding-left: 15px;
   font-size: 1.125rem;
   font-style: italic;
@@ -331,7 +331,7 @@ pre,
 code {
   font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
   font-size: 0.9375em;
-  border: 1px solid #742e9d;
+  border: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
   border-radius: 3px;
   background-color: #212121;
 }
@@ -413,20 +413,20 @@ table {
   text-align: left;
   color: #c7b8d3;
   border-collapse: collapse;
-  border: 1px solid #742e9d;
+  border: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
 }
 table tr:nth-child(even) {
-  background-color: #2d2a31;
+  background-color: rgb(45.0563380282, 42.4816901408, 48.9183098592);
 }
 table th, table td {
   padding: 10px 15px;
 }
 table th {
-  background-color: #3c3941;
-  border: 1px solid #58535f;
+  background-color: rgb(60.1408450704, 56.7042253521, 65.2957746479);
+  border: 1px solid rgb(87.7957746479, 82.7788732394, 95.3211267606);
 }
 table td {
-  border: 1px solid #742e9d;
+  border: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
 }
 @media screen and (max-width: 800px) {
   table {
@@ -442,7 +442,7 @@ table td {
  */
 .site-header {
   border-top: 5px solid #c89ce2;
-  border-bottom: 1px solid #742e9d;
+  border-bottom: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
   min-height: 55.95px;
   line-height: 54px;
   position: relative;
@@ -461,7 +461,7 @@ table td {
   }
 }
 .site-title, .site-title:visited {
-  color: #d3b0e8;
+  color: rgb(210.95703125, 175.72265625, 231.77734375);
 }
 
 .site-nav {
@@ -469,7 +469,7 @@ table td {
   top: 9px;
   right: 15px;
   background-color: #232126;
-  border: 1px solid #742e9d;
+  border: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
   border-radius: 5px;
   text-align: right;
 }
@@ -543,7 +543,7 @@ table td {
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid #742e9d;
+  border-top: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
   padding: 9px 0;
 }
 
@@ -707,7 +707,7 @@ table td {
   margin-bottom: 15px;
   margin: auto;
   width: 80%;
-  border-top: 1px solid #d3b0e8;
+  border-top: 1px solid rgb(210.95703125, 175.72265625, 231.77734375);
 }
 
 .social-media-list, .pagination {
@@ -724,10 +724,10 @@ table td {
 .social-media-list li a, .pagination li a {
   display: block;
   padding: 10px 12px;
-  border: 1px solid #742e9d;
+  border: 1px solid rgb(116.05859375, 46.10546875, 157.39453125);
 }
 .social-media-list li a:hover, .pagination li a:hover {
-  border-color: #d3b0e8;
+  border-color: rgb(210.95703125, 175.72265625, 231.77734375);
 }
 
 /**
@@ -747,7 +747,7 @@ table td {
   border: 1px solid transparent;
 }
 .pagination li div.pager-edge {
-  color: #742e9d;
+  color: rgb(116.05859375, 46.10546875, 157.39453125);
   border: 1px dashed;
 }
 

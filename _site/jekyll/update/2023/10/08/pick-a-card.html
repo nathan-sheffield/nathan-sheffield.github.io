@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Pick A Card, Any Card | Nathan Sheffield</title>
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Pick A Card, Any Card" />
 <meta name="author" content="Nathan Sheffield" />
 <meta property="og:locale" content="en_US" />
@@ -20,7 +20,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2023-10-08T09:40:17-04:00","datePublished":"2023-10-08T09:40:17-04:00","description":"A simple strategy stealing argument for a nim-like card game","headline":"Pick A Card, Any Card","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html"},"url":"http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -105,7 +106,7 @@
   <li>Among the first $\sqrt{n\log n}$ cards, there exists one whose number is less than $\sqrt{n \log n}$</li>
 </ul>
 
-<p>The first of these events occurs with probability $1 - \frac{2\sqrt{n\log n}}{n} = 1 - 2\sqrt{\frac{\log n}{n}}$. For the second event, note that, although the numbers on the first $\sqrt{n \log n}$ cards aren’t <em>actually</em> independent, they’re <em>basically</em> independent – $\sqrt{n \log n}$ is such a small fraction of the deck that we aren’t changing the distribution of cards very much, so we can pretend we were drawing with replacement. Now, the probability of all of the first $\sqrt{n \log n}$ cards having value more than $\sqrt{n \log n}$ is $\left( 1 - \frac{\sqrt{n \log n}}{n} \right)^{\sqrt{n \log n}}$. As $n$ gets large, we can approximate this as $e^{- \log n} = \frac{1}{n}$. So, the probability that both events occur is $\left(1 - 2\sqrt{\frac{\log n}{n}}\right)\left(1 - \frac{1}{n}\right) = 1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$. Whenever both of these events occur, we’ll have the same strategy-stealing setup as in the example: player 1 can force player 2 into a position where his options are a strict subset of what hers were initially. This argument tells us that the chances of player 2 winning the game go to zero as $n$ gets big – and in particular, go to zero almost as fast as $\frac{1}{\sqrt{n}}$. Using the same sort of argument again, we can also show that player 2’s winning probabilities don’t decay much faster than that – $\frac{1}{\sqrt{n}}$ is pretty much the right answer<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+<p>The first of these events occurs with probability $1 - \frac{2\sqrt{n\log n}}{n} = 1 - 2\sqrt{\frac{\log n}{n}}$. For the second event, note that, although the numbers on the first $\sqrt{n \log n}$ cards aren’t <em>actually</em> independent, they’re <em>basically</em> independent – $\sqrt{n \log n}$ is such a small fraction of the deck that we aren’t changing the distribution of cards very much, so we can pretend we were drawing with replacement. Now, the probability of all of the first $\sqrt{n \log n}$ cards having value more than $\sqrt{n \log n}$ is $\left( 1 - \frac{\sqrt{n \log n}}{n} \right)^{\sqrt{n \log n}}$. As $n$ gets large, we can approximate this as $e^{- \log n} = \frac{1}{n}$. So, the probability that both events occur is $\left(1 - 2\sqrt{\frac{\log n}{n}}\right)\left(1 - \frac{1}{n}\right) = 1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$. Whenever both of these events occur, we’ll have the same strategy-stealing setup as in the example: player 1 can force player 2 into a position where his options are a strict subset of what hers were initially. This argument tells us that the chances of player 2 winning the game go to zero as $n$ gets big – and in particular, go to zero almost as fast as $\frac{1}{\sqrt{n}}$. Using the same sort of argument again, we can also show that player 2’s winning probabilities don’t decay much faster than that – $\frac{1}{\sqrt{n}}$ is pretty much the right answer<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <h2 id="player-2-has-a-winning-strategy-with-probability-omegaleft-sqrtfrac1n-right">Player 2 has a winning strategy with probability $\Omega\left( \sqrt{\frac{1}{n}} \right)$</h2>
 
@@ -124,7 +125,7 @@
 <p>This was a quick example of a case where a strategy stealing argument one step away let me characterize the winning probability of a game pretty tightly. If you thought this game sounded interesting, here’s a couple other questions that could be fun to think about:</p>
 
 <ol>
-  <li>How do winning probabilities for this game work if, instead of shuffing cards $1$ through $n$, the card values are dice rolls (i.e. independent uniform values from 1 to 6)<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>? Strategy stealing tells us both players have a constant winning probability, but how do we figure out what that constant is?</li>
+  <li>How do winning probabilities for this game work if, instead of shuffing cards $1$ through $n$, the card values are dice rolls (i.e. independent uniform values from 1 to 6)<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>? Strategy stealing tells us both players have a constant winning probability, but how do we figure out what that constant is?</li>
   <li>What about if the players don’t know the whole shuffling – i.e. they can only see the first card, so they’re playing with partial information and trying to maximize winning probability? Intuitively, you’d expect that when you shuffle $1$ through $n$, the right strategy might be to only take one card at a time at the beginning, because the fewer cards that are left the more chance your opponent instawins on the next turn. When the values are from dice rolls, you can write down some recurrences and you’ll start to see patterns.</li>
   <li>You could also define a variant of this game where, instead of removing cards from a stack, you lay out all the cards in a line. Now, on your turn, you can jump to a card up to as many steps away as the current value, where it then becomes the next player’s turn. You can never revisit an already visited card, and your goal is to never get stuck with no moves available to you. Who wins? None of the strategy stealing stuff works anymore, because now there’s some dependence on history. It seems likely that in the $1$ through $n$ shuffle case you almost never get stuck until the end, but maybe this game is fun for smaller cards? I haven’t thought much about it – let me know if you do!</li>
 </ol>
@@ -140,10 +141,10 @@
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>This $\sqrt{\log n}$ factor is a bit annoying – I suspect you could make it go away if you were a little more careful with things, but I’m just leaving this a rough sketch. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>Or iid from some other distribution, say. The reason this approach was so strong here was because the card values were allowed to be really large, so it was likely to be able to pull these shenannigans – when cards have smaller numbers I expect it’ll be a much trickier problem. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>

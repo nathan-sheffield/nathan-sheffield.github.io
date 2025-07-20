@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Research | Nathan Sheffield</title>
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Research" />
 <meta name="author" content="Nathan Sheffield" />
 <meta property="og:locale" content="en_US" />
@@ -19,7 +19,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Nathan Sheffield"},"description":"Whereof one cannot speak, thereof must one blog.","headline":"Research","url":"http://localhost:4000/papers/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -48,180 +49,467 @@
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <style>
+    /* Main Collapsible Button Styling */
     .collapsible {
-      border-radius:15px 15px 15px 15px;
+      border-radius: 15px;
       background-color: var(--minima-background-color);
       color: #c89ce2;
       cursor: pointer;
-      padding: 18px;
+      padding: 10px;
       width: 100%;
       border: none;
       text-align: left;
       outline: none;
-      /*font-size: 15px;*/
+      transition: background-color 0.2s ease-out;
     }
     
     .active, .collapsible:hover {
       background-color: #7930a3;
     }
     
-    .active{
-      border-radius:15px 15px 0px 0px;
+    .active {
+      border-radius: 15px 15px 0px 0px;
     }
+
+    /* Flex container for title and venue */
+    .collapsible-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* UPDATED: Vertically centers everything in the header */
+        width: 100%;
+    }
+
+    .paper-title {
+        font-weight: bold;
+        padding-right: 20px;
+    }
+    
+    .paper-authors {
+        font-size: 0.9em;
+        color: #d1b8e6;
+        margin-top: 8px;
+    }
+
+    /* UPDATED: Venue is now a flex container to hold the arrow and text */
+    .paper-venue {
+        display: flex;
+        align-items: center;
+        color: #d1b8e6;
+        text-align: right;
+        flex-shrink: 0;
+        font-weight: bold;
+    }
+    
+    /* NEW: Styling for the arrow element itself */
+    .dropdown-arrow {
+        margin-left: 20px;
+        margin-right: 10px; /* Space between arrow and conference name */
+        font-size: 13px;
+        color: white;
+    }
+
+    /* NEW: Defines the arrow's appearance */
+    .dropdown-arrow::before {
+      content: '\2B9E'; /* Unicode for 'plus' sign */
+    }
+
+    /* NEW: Changes the arrow when the box is active */
+    .active .dropdown-arrow::before {
+      content: "\2B9F"; /* Unicode for 'minus' sign */
+    }
+
+    /* REMOVED: The old :after rules are no longer needed */
+    /*
+    .collapsible:after { ... }
+    .active:after { ... }
+    */
+
+    /* Main content area that expands */
     .collapsible-content {
       padding: 0 18px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.2s ease-out;
+      transition: max-height 0.4s ease-in-out;
       background-color: #39164d;
-      border-radius:0px 0px 15px 15px;
+      border-radius: 0px 0px 15px 15px;
+      font-size: 0.9em;
     }
 
-    .collapsible:after {
-    content: '\2B9E'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: white;
-    float: right;
-    margin-left: 5px;
+    /* Container for the four action buttons */
+    .button-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
     }
 
-    .active:after {
-    content: "\2B9F"; /* Unicode character for "minus" sign (-) */
+    /* Styling for the action buttons */
+    .info-button {
+        background-color: #7930a3;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background-color 0.2s;
     }
 
-    </style>
+    .info-button:hover, .info-button.active {
+        background-color: #c89ce2;
+        color: #39164d;
+    }
+    
+    /* Panel that shows Abstract, Notes, or Fable */
+    .info-panel {
+        display: none;
+        padding-bottom: 20px;
+        border-top: 1px solid #7930a3;
+        margin-top: -10px;
+        padding-top: 20px;
+    }
+
+    /* NEW: Control spacing between papers */
+    .post-list li {
+        margin-bottom: 10px; /* Adjust this value to control spacing */
+    }
+    
+    /* Alternative: For even tighter spacing, use this instead */
+    /* .post-list li {
+        margin-bottom: 5px;
+    } */
+    
+    /* Alternative: For no spacing between papers */
+    /* .post-list li {
+        margin-bottom: 0;
+    } */
+</style>
 
 <div class="research">
-    <header class = "post-header"><h1 class="page-heading"> "Let me tell you a story..." </h1><p class="page-subtitle"> A list of research papers I've written. I've put here a silly fairy-tale conundrum for each, because although I don't necessarily need everything I work on to have real-world applications, I do at least enjoy it when they have fantasy-world applications :)</p><hr class = "header-line">
+    <header class="post-header"><h1 class="page-heading">"Hast seen the white whale?"</h1><p class="page-subtitle">A list of research papers I've written. I've put here a silly fairy-tale conundrum for each, because while they might not all have real-world applications, I at least want fantasy-world applications :)</p><hr class="header-line">
     </header>
 
-<ul class="post-list"><li>
-        <button type="button" class="collapsible post-list-heading">Catalytic Communication</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="/assets/papers/catalytic-communication.pdf">
-            Draft of the paper
-          </a>
-        </h3><span class="post-meta">Notes:</span>
-        <p>I think this is my favourite paper on this list at the moment. When first defining this model, I just thought it was kinda a cute story, but thinking more about it felt like it gave more intuition about catalytic space than I was expecting. Also, I was just really delighted to find applications of fun graph theory tools where I wasn’t expecting them. This was done with William Wang, mentored by Ted Pyne.</p>
-<span class="post-meta">Motivating Fable:</span>
-          <p>Theo is locked in the depths of the royal dungeons, on suspicion of intentionally sabotaging the king’s dinner party. The guards have been trying to determine whether he and his second-in-command, Cora Larry, have a consistent alibi.</p>
+    <ul class="post-list" style="list-style: none; padding-left: 0;"><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">Graphs with the Same Edge Count in Each Neighbourhood</div><div class="paper-authors">with Zoe Xi</div></div><span class="paper-venue">preprint<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-1"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-1"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-1"><i class="fas fa-dragon"></i> Fable</button><a href="/assets/papers/flip.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-1" class="info-panel">
+                        <p>In a recent paper, Caro, Lauri, Mifsud, Yuster, and Zarb ask which
+    parameters $r$ and $c$ admit the existence of an $r$-regular graph such that
+    the neighborhood of each vertex induces exactly $c$ edges. They
+    show that every $r$ with $c$ satisfying $0\leq c\leq \binom{r}{2}-5r^{3/2}$ is achievable, but no $r$ with $c$ satisfying
+    $\binom{r}{2}-\lfloor\frac{r}{3}\rfloor\leq c\leq \binom{r}{2}-1$
+    is.  We strengthen the bound in their nonexistence result from
+    $\binom{r}{2}-\lfloor\frac{r}{3}\rfloor$ to $\binom{r}{2}-\lfloor\frac{r-2}{2}\rfloor$. Additionally, when the graph
+    is the Cayley graph of an abelian group, we obtain a much more
+    fine-grained characterization of the achievable values of $c$
+    between $\binom{r}{2} - 5r^{3/2}$ and $\binom{r}{2} -
+    \lfloor\frac{r-2}{2}\rfloor$, which we conjecture to be the correct
+    answer for general graphs as well.
+    That result relies on a lemma about approximate subgroups in the “99% regime”, quantifying the extent to which nearly-additively-closed subsets of an abelian group must be close to actual subgroups.
+    Finally, we consider a generalization to graphs with
+    multiple types of edges and partially resolve several open
+    questions of Caro et al. about <em>flip</em> colorings of graphs.</p>
 
-<p>Which they do. At least, Theo thinks they do: they’d agreed on a detailed lie long in advance. However, as a bizarre interrogation technique, a witch has placed a hex of forgetfulness on both suspects, preventing them from forming more than a couple bits worth of new memories. Now, Theo’s concerned the hex may have scrambled some existing memories as a side-effect, possibly making the two stories inconsistent. What he’d love to do is leave some message for Cora in the interrogation room, listing his whole story and asking her to confirm it matches hers — but there doesn’t seem to be anywhere to hide such a message.</p>
+                    </div>
+                    <div id="notes-1" class="info-panel">
+                        <p>Zoe and I started this project together at Duluth. Neither of us are super pro additive combinatorics people, so if you are maybe you’ll be able to see how to make the story work for non-abelian Cayley graphs.</p>
 
-<p>Anywhere, that is, except the Head of the Guard’s chessboard. He left a game partway in progress, and the rank-and-file guards won’t notice if it’s tampered with. The issue, of course, is that when the Head of the Guard returns, if the board isn’t exactly as he left it, he’ll know it was used to pass information.</p>
+                    </div>
+                    <div id="fable-1" class="info-panel">
+                        <p>Unable to find conclusive evidence of Theo’s misdeeds, the king has agreed to set him free — under one condition: he must help the king quell the social unrest that’s broken out among the giant birds of the kingdom’s east cliffs. You see, every year roc society holds a popularity contest, finding the member with the most friends and electing them as the ‘roc star’ of the nest. This year, however, it appears that <strong>every single roc has exactly the same number of friends</strong>. Since the count, the nest has been in a state of ruffled feathers bordering on loon-acy — some suspect the results are due to ill eagle behaviour, while others are desparately trying to find another way to carrion with the contest.<br />
+Faced with this rocky issue, Theo acts precipitously: he declares a new condition to be used to break the ties. Every roc’s friend group may be the same size, he observes, and yet two equal-sized friend groups need not be equally good. If very few of your friends are friends with <em>each other</em>, it’s bound to make social gatherings very awkward. So, at Theo’s suggestion, the birds swiftly enact a new tiebreaker: they will crown the least awkward roc, as judged by the roc whose friend group has the most overall friendship. Theo is still congragulating himself on this auspicious idea when the results get back: <strong>all the rocs are equally rocward</strong>! Staring at the numbers, Theo gawks in disbelief. Must this have been fowl play? Or could it just be an aerie coincidence?</p>
 
-<p>Fortunately, the two conspirators have a plan. When the guards aren’t looking, Cora carefuly shuffles the pieces on the board, making sure to preserve all the information of the original position so that she can reset it in her next session. When Theo is brought in, he looks at the board, and commits to memory a small but crucial fact about the position. At his next interrogation, he glances at the pieces, now returned to their original state, and breaks into a confident smirk.</p>
+                    </div>
+                </div>
+            </li><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">Catalytic Communication</div><div class="paper-authors">with Ted Pyne and William Wang</div></div><span class="paper-venue">ITCS 25<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-2"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-2"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-2"><i class="fas fa-dragon"></i> Fable</button><a href="https://youtu.be/yfuVtEIBYn0" class="info-button" target="_blank"><i class="fas fa-video"></i> Talk</a><a href="/assets/papers/catalytic-communication.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-2" class="info-panel">
+                        <p>The study of space-bounded computation has drawn extensively from ideas and results in the field of communication complexity. Catalytic Computation (Buhrman, Cleve, Koucky, Loff and Speelman, STOC 2013) studies the power of bounded space augmented with a pre-filled hard drive that can be used non-destructively during the computation. Presently, many structural questions in this model remain open. Towards a better understanding of catalytic space, we define a model of <em>catalytic communication complexity</em> and prove new upper and lower bounds.</p>
 
-<p>“I’m ready to talk.”</p>
+<p>In our model, Alice and Bob share a blackboard with a tiny number of free bits, and a larger section with an arbitrary initial configuration. They must jointly compute a function of their inputs, communicating only via the blackboard, and must always reset the blackboard to its initial configuration. We prove several upper and lower bounds:</p>
 
-        </div>
-      </li><li>
-        <button type="button" class="collapsible post-list-heading">New Bounds for Induced Turán Problems</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="/assets/papers/turan.pdf">
-            Draft of the paper
-          </a>
-        </h3><span class="post-meta">Notes:</span>
-        <p>This work was done at the Duluth REU program. I think I believe this conjecture is more likely than not false, but I have no idea how to show it — there’s a couple potential counterexamples noted at the end of the paper, but it seems unlikely that it’s tractable to actually compute extremal numbers for those guys. It’s actually kinda crazy how little we know about extremal numbers in general; maybe I will blog post about this in the future.</p>
-<span class="post-meta">Motivating Fable:</span>
-          <p>Fact 1: The king has asked Theo to send invitations to some of the kingdom’s nobility for a feast at the palace.</p>
+<p>i) We characterize the simplest nontrivial model, that of one bit of free space and three rounds, in terms of $\mathbb{F}_2$ rank. In particular, we give natural problems that are solvable with a minimal-sized blackboard that require near-maximal (randomized) communication complexity, and vice versa.</p>
 
-<p>Fact 2: Theo is not feeling particularly pleased with the king (as a result of being made to fulfill too many such errands), and would like to ensure this feast is a disaster.</p>
+<p>ii) We show that allowing constantly many free bits, as opposed to one, allows an exponential improvement on the size of the blackboard for natural problems. To do so, we connect the problem to existence questions in extremal graph theory.</p>
 
-<p>The issue is, most of the nobles in the land are too polite (read: too afraid of being beheaded) to cause a scene. So it’ll take a careful choice of people to make sure there’s enough beef to make this exciting. Theo Rem sees two main options:</p>
+<p>iii) We give tight connections between our model and standard notions of non-uniform catalytic computation. Using this connection, we show that with an arbitrary constant number of rounds and bits of free space, one can compute all functions in $\mathsf{TC}^0$.</p>
 
-<p>Option 1: Make sure that everyone on one side of the table is bitter enemies with everyone on the other side of the table. This is sure to be enough to incite an all-out-brawl.</p>
+<p>We view this model as a step toward understanding the value of filled space in computation.</p>
 
-<p>Option 2: Failing that, try to recreate <em>exactly</em> the same friend and enemy relationships that faciliated the notorious Food Fight Incident of 1072. In order to make sure that the right sort of alliances form, Theo would not only have to make sure specific pairs of guests are enemies, but also make sure that specific other pairs are <em>not</em> enemies.</p>
+                    </div>
+                    <div id="notes-2" class="info-panel">
+                        <p>I think this is my favourite paper on this list at the moment. When first defining this model, I just thought it was kinda a cute story, but thinking more about it felt like it gave more intuition about catalytic space than I was expecting. Also, I was just really delighted to find applications of fun graph theory tools where I wasn’t expecting them.</p>
 
-<p>The question is, does there exist enough animosity in the kingdom to let Theo construct such a malicious guest list?</p>
+                    </div>
+                    <div id="fable-2" class="info-panel">
+                        <p>Theo is locked in the depths of the royal dungeons, on suspicion of intentionally sabotaging the king’s dinner party. The guards have been trying to determine whether he and his second-in-command, Cora Larry, have a consistent alibi. <br />
+Which they do. At least, Theo thinks they do: they’d agreed on a detailed lie long in advance. However, as a bizarre interrogation technique, a witch has placed a hex of forgetfulness on both suspects, preventing them from forming more than a couple bits worth of new long-term memories. Now, Theo’s concerned the hex may have scrambled some existing memories as a side-effect, possibly making the two stories inconsistent. What he’d love to do is leave some message for Cora in the interrogation room, listing his whole story and asking her to confirm it matches hers — but there doesn’t seem to be anywhere to hide such a message. <br />
+Anywhere, that is, except the Head of the Guard’s chessboard. He left a game partway in progress, and the rank-and-file guards won’t notice if it’s tampered with. The issue, of course, is that when the Head of the Guard returns, if the board isn’t exactly as he left it, he’ll know it was used to pass information. <br />
+Fortunately, the two conspirators have a plan. When the guards aren’t looking, Cora carefuly shuffles the pieces on the board, making sure to preserve all the information of the original position so that she can reset it in her next session. When Theo is brought in, he looks at the board, and commits to memory a small but crucial fact about the position. At his next interrogation, he glances at the pieces, now returned to their original state, and breaks into a confident smirk. <br />
+‘I’m ready to talk.’</p>
 
-        </div>
-      </li><li>
-        <button type="button" class="collapsible post-list-heading">When to Give Up on a Parallel Implementation</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="/assets/papers/scheduling.pdf">
-            Link to the paper
-          </a>
-        </h3><span class="post-meta">Notes:</span>
-        <p>I have no idea if these results are interesting to anyone else, but Alek and I had been trying to figure out the optimal competitive ratios here for like 2 years, so it was really exciting to finally beat 2 (even if we still didn’t <em>quite</em> make it all the way to ϕ). Incidentally, this problem is the reason the site logo is golden ratio.</p>
-<span class="post-meta">Motivating Fable:</span>
-          <p>“Many hands make light work”, goes the old adage. Or maybe it’s “too many cooks spoil the broth”? While Theo Rem has been unusually aware of the fine line between maxims of late, now is probably his maxim minding maximum for this particular pair. The reason: he and his adventuring party have been running boring errands for the king all week, and now, as if they didn’t already have enough work, he’s recieved a royal decree asking them to deep clean the throne chamber.</p>
+                    </div>
+                </div>
+            </li><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">New Bounds for Induced Turán Problems</div></div><span class="paper-venue">preprint<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-3"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-3"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-3"><i class="fas fa-dragon"></i> Fable</button><a href="/assets/papers/induced-turan.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-3" class="info-panel">
+                        <p>In a recent paper, Hunter, Milojevic, Sudakov and Tomon consider the maximum number of edges in an $n$-vertex graph containing no copy of the complete bipartite graph $K_{s,s}$ and no <em>induced</em> copy of a “pattern” graph $H$. 
+    They conjecture that, for $s \geq |V(H)|$, this “induced extremal number” differs by at most a constant factor from the standard extremal number of $H$.
+    Towards this, we give bounds on the induced extremal number in terms of degeneracy, which establish some non-trivial relationship between the induced and standard extremal numbers in general. 
+    We also show that (as in the case of standard extremal numbers) the induced extremal number is dominated by that of the 2-core of a single connected component.
+    Finally, we present some graphs arising from incidence geometry which may serve as counterexamples to the conjecture.</p>
 
-<p>It’s a difficult position to be in. He could assign one of his crew to do the job on their own — but then it would take quite a while. Alternatively, he could ask multiple people to do it, in which case they’d probably step on each other’s toes a little bit and be overall less efficient, but at least they’d get it done quickly.</p>
 
-<p>He’d better decide correctly though, because his crew is already pretty unhappy — if they discover they’d been stuck there for much longer than necessary just because of Theo’s bad decisions, there might be mutiny. Given that he has no clue what, if anything, the capricious monarch will demand of him next, what should Theo do?</p>
+                    </div>
+                    <div id="notes-3" class="info-panel">
+                        <p>This work was done at the Duluth REU program. I think I believe this conjecture is more likely than not false, but I have no idea how to show it — there’s a couple potential counterexamples noted at the end of the paper, but it seems unlikely that it’s tractable to actually compute extremal numbers for those guys. It’s actually kinda crazy how little we know about extremal numbers in general; maybe I will blog post about this in the future.</p>
 
-        </div>
-      </li><li>
-        <button type="button" class="collapsible post-list-heading">Complexity of Multiple-Hamiltonicity in Graphs of Bounded Degree</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="/assets/papers/ham.pdf">
-            Link to the paper
-          </a>
-        </h3><span class="post-meta">Notes:</span>
-        <p>This one came out of a problem suggested in Erik Demaine’s ‘‘Fun with Hardness’’ class, which I worked on with Brian Liu and Alek Westover. I actually initially thought we weren’t going to get tight answers, but then as I wrote it up figured out how to close the gaps — this is notable as my only experience thus far having something end up <em>more</em> clean than expected when I wrote it down :)</p>
-<span class="post-meta">Motivating Fable:</span>
-          <p>“Out of sight, out of mind”, goes the old adage. Or maybe it’s “familiarity breeds contempt”? Never has Theo Rem been so aware of the fine line between these maxims as now, leading the king’s diplomatic party through the burrows of the pig-gnomes.</p>
+                    </div>
+                    <div id="fable-3" class="info-panel">
+                        <p>Fact 1: The king has asked Theo to send invitations to some of the kingdom’s nobility for a feast at the palace.<br />
+Fact 2: Theo is not feeling particularly pleased with the king (as a result of being made to fulfill too many such errands), and would like to ensure this feast is a disaster.<br />
+The issue is, most of the nobles in the land are too polite (read: too afraid of being beheaded) to cause a scene. So it’ll take a careful choice of people to make sure there’s enough beef to make this exciting. Theo Rem sees two main options:<br />
+Option 1: Make sure that everyone on one side of the table is bitter enemies with everyone on the other side of the table. This is sure to be enough to incite an all-out-brawl.<br />
+Option 2: Failing that, try to recreate <em>exactly</em> the same friend and enemy relationships that faciliated the notorious Food Fight Incident of 1072. In order to make sure that the right sort of alliances form, Theo would not only have to make sure specific pairs of guests are enemies, but also make sure that specific other pairs are <em>not</em> enemies.<br />
+The question is, does there exist enough animosity in the kingdom to let Theo construct such a malicious guest list?</p>
 
-<p>In order to set up any kind of lasting relations with a particular gnome clan, one has to pay at least three visits to their village, somewhere in the depths of this twisted network of tunnels. However, the milk of porcine kindness is easily strained should one overstay one’s welcome: trying to travel through the same village more than five times is a sure way to sow ill-feelings. Far from bringing home the bacon, an unwelcome guest is lucky to bring home their own head.</p>
+                    </div>
+                </div>
+            </li><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">When to Give Up on a Parallel Implementation</div><div class="paper-authors">with Alek Westover</div></div><span class="paper-venue">ITCS 25<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-4"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-4"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-4"><i class="fas fa-dragon"></i> Fable</button><a href="https://youtu.be/a0HuR_-aT2s" class="info-button" target="_blank"><i class="fas fa-video"></i> Talk</a><a href="/assets/papers/scheduling.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-4" class="info-panel">
+                        <p>In the Serial Parallel Decision Problem (SPDP), introduced by Kuszmaul and Westover
+[SPAA’24], an algorithm receives a series of tasks online, and must choose for each between a serial implementation and a parallelizable (but less efficient) implementation.
+Kuszmaul and Westover describe three decision models: 
+(1) <strong><em>Instantly-committing</em></strong> schedulers must decide on arrival, irrevocably, which
+implementation of the task to run.
+(2) <strong><em>Eventually-committing</em></strong> schedulers can delay their decision beyond a
+task’s arrival time, but cannot revoke their decision once made. 
+(3) <strong><em>Never-committing</em></strong> schedulers are always free to abandon their progress on the task and
+start over using a different implementation. Kuszmaul and Westover gave a simple instantly-committing scheduler whose total completion time is $3$-competitive with the offline optimal schedule, and proved two lower bounds: no eventually-committing scheduler can have competitive ratio better than $\phi
+\approx 1.618$ in general, and no instantly-committing scheduler can have
+competitive ratio better than $2$ in general. They conjectured that the three decision models should admit different competitive ratios, but left upper bounds below $3$ in any model as an open problem.</p>
 
-<p>Looking at the branching (but not too branching) map of tunnels boared between villages, Theo begins to wallow in despair: even if the route he seeks does exist, is it possible to find it?</p>
+<p>In this paper, we show that the powers of instantly, eventually, and never
+committing schedulers are distinct, at least in the ``massively parallel
+regime’’. The massively parallel regime of the SPDP is the special case
+where the number of available processors is asymptotically larger than the
+number of tasks to process, meaning that the <em>work</em> associated with running
+a task in serial is negligible compared to its <em>runtime</em>.
+In this regime, we show 
+(1) The optimal competitive ratio for instantly-committing schedulers is $2$, 
+(2) The optimal competitive ratio for eventually-committing schedulers lies in
+$[1.618, 1.678]$, 
+(3) The optimal competitive ratio for never-committing schedulers lies in $[1.366, 1.500]$. 
+We additionally show that our instantly-committing scheduler is also $2$-competitive
+outside of the massively parallel regime, giving proof-of-concept that results in the massively parallel regime can be translated to hold with fewer processors.</p>
 
-        </div>
-      </li><li>
-        <button type="button" class="collapsible post-list-heading">A Nearly Quadratic Improvement for Memory Reallocation</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="/assets/papers/allocation.pdf">
-            Link to the paper
-          </a>
-        </h3><span class="post-meta">Notes:</span>
-        <p>I worked on this with Alek Westover; supervised by William Kuszmaul and Martin Farach-Colton. I think it’s a neat problem, and probably believe it should be possible to beat this algorithm (maybe even getting polylog(1/ε)-competitive), so you should think about it. Especially if you’re really good at subset sums or something.</p>
-<span class="post-meta">Motivating Fable:</span>
-          <p>Captain Rem encouraged people to look on the bright side — shouldn’t one be grateful to be so saturated with gold? — but there was still grumbling. The problem was, while the loot their seaward plundering accrued was substantial, the long skinny cargo hold they used to stow said loot was somewhat less so.</p>
+                    </div>
+                    <div id="notes-4" class="info-panel">
+                        <p>I have no idea if these results are interesting to anyone else, but Alek and I had been trying to figure out the optimal competitive ratios here for like 2 years, so it was really exciting to finally beat 2 (even if we still didn’t <em>quite</em> make it all the way to ϕ). Incidentally, this problem is the reason the site logo is golden ratio.</p>
 
-<p>Before the hold was completely full, they always made sure to stop at a port and offload — but even when there was technically enough room, it often took a fair amount of heaving around heavy chests before the crew could find a spot for even a relatively small artifact. If only there was a smarter way to arrange things…</p>
+                    </div>
+                    <div id="fable-4" class="info-panel">
+                        <p>‘Many hands make light work’, goes the old adage. Or maybe it’s ‘too many cooks spoil the broth’? While Theo Rem has been unusually aware of the fine line between maxims of late, now is probably his maxim minding maximum for this particular pair. The reason: he and his adventuring party have been running boring errands for the king all week, and now, as if they didn’t already have enough work, he’s recieved a royal decree asking them to deep clean the throne chamber. <br />
+It’s a difficult position to be in. He could assign one of his crew to do the job on their own — but then it would take quite a while. Alternatively, he could ask multiple people to do it, in which case they’d probably step on each other’s toes a little bit and be overall less efficient, but at least they’d get it done quickly. <br />
+He’d better decide correctly though, because his crew is already pretty unhappy — if they discover they’d been stuck there for much longer than necessary just because of Theo’s bad decisions, there might be mutiny. Given that he has no clue what, if anything, the capricious monarch will demand of him next, what should Theo do?</p>
 
-        </div>
-      </li><li>
-        <button type="button" class="collapsible post-list-heading">Matching Algorithms in the Sparse Stochastic Block Model</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="/assets/papers/sbm-matching-conference.pdf">
-            Link to the paper
-          </a>
-        </h3><span class="post-meta">Notes:</span>
-        <p>This project was done at SPUR (a summer program at MIT) alongside Divya Shyamal, mentored by Anna Brandenburger and Byron Chin. The techniques are very standard, but it was a fun first TCS project.</p>
-<span class="post-meta">Motivating Fable:</span>
-          <p>When he’d set out to recruit an adventuring party, Theo had been imagining a process a little more snappy and Gandalf-esque, not these hours upon hours of interviews. However, it had quickly become apparent that the coarse-grained information in the “Heroism and Questing” personal ads just wouldn’t be enough to pick people.</p>
+                    </div>
+                </div>
+            </li><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">Complexity of Multiple-Hamiltonicity in Graphs of Bounded Degree</div><div class="paper-authors">with Brian Liu and Alek Westover</div></div><span class="paper-venue">preprint<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-5"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-5"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-5"><i class="fas fa-dragon"></i> Fable</button><a href="/assets/papers/ham.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-5" class="info-panel">
+                        <p>We study the following generalization of the Hamiltonian cycle problem:
+Given integers $a,b$ and graph $G$, does there exist a closed walk in $G$ that visits every vertex at least $a$ times and at most $b$ times? Equivalently, does there exist a connected $[2a,2b]$ factor of $2b \cdot G$ with all degrees even? This problem is $\mathsf{NP}$-hard for any constants $1 \leq a \leq b$. However, the graphs produced by known reductions have maximum degree growing linearly in $b$. The case $a = b = 1 $ — i.e. Hamiltonicity — remains $\mathsf{NP}$-hard even in $3$-regular graphs; a natural question is whether this is true for other $a$, $b$.</p>
 
-<p>Take this fellow, for instance. Theo could’ve predicted, based on the “23 M, half-orc, barbarian, passionate about skull-cracking and menacing” description, that he’d likely be a better fit for one of the more… hands-on parts of the team. But it was a total roll of the dice whether he’d end up being a qualified Chief Dragon Slayer — a roll which, upon receiving the response “deathly afraid of serpents, Mr. Rem” to the question of “what’s your biggest weakness”, Theo was disappointed to learn had come up snake-eyes. “You seem like you’d make a great Junior Axe-Wielding Goon,” Theo acceded, “but unfortunately we filled that position last week. I don’t think we’ll be able to make you an offer at this point in time.”</p>
+<p>In this work, we determine which $a, b$ permit polynomial time algorithms and which lead to $\mathsf{NP}$-hardness in graphs with constrained degrees. We give tight characterizations for regular graphs and graphs of bounded max-degree, both directed and undirected.</p>
 
-<p>Theo glanced resignedly at his list of unfilled positions: 14 openings for fighters, 9 for negotiations/logistics, 6 for skullduggery and subterfuge, and 7 for magic experts. How many interviews would it take to fill them all? With the sort of decisions he’d been making thus far, it seemed likely to be quite a few — early in the process, he made the mistake of hiring a competent sorcerer as a dungeon cartographer, not realizing quite how few-and-far-between magic users were, and now no amount of cajoling could convince her to give up her maps. He had to figure out how to avoid making that kind of blunder again…</p>
+                    </div>
+                    <div id="notes-5" class="info-panel">
+                        <p>This one came out of a problem suggested in Erik Demaine’s ‘‘Fun with Hardness’’ class. I actually initially thought we weren’t going to get tight answers, but then as I wrote it up figured out how to close the gaps — this is notable as my only experience thus far having something end up <em>more</em> clean than expected when I wrote it down :)</p>
 
-        </div>
-      </li></ul></div>
+                    </div>
+                    <div id="fable-5" class="info-panel">
+                        <p>‘Out of sight, out of mind’, goes the old adage. Or maybe it’s ‘familiarity breeds contempt’? Never has Theo Rem been so aware of the fine line between these maxims as now, leading the king’s diplomatic party through the burrows of the pig-gnomes.<br />
+In order to set up any kind of lasting relations with a particular gnome clan, one has to pay at least three visits to their village, somewhere in the depths of this twisted network of tunnels. However, the milk of porcine kindness is easily strained should one overstay one’s welcome: trying to travel through the same village more than five times is a sure way to sow ill-feelings. Far from bringing home the bacon, an unwelcome guest is lucky to bring home their own head.<br />
+Looking at the branching (but not too branching) map of tunnels boared between villages, Theo begins to wallow in despair: even if the route he seeks does exist, is it possible to find it?</p>
+
+                    </div>
+                </div>
+            </li><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">A Nearly Quadratic Improvement for Memory Reallocation</div><div class="paper-authors">with Martin Farach-Colton, Bill Kuszmaul, and Alek Westover</div></div><span class="paper-venue">SPAA 24<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-6"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-6"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-6"><i class="fas fa-dragon"></i> Fable</button><a href="/assets/things/allocation-slides.pdf" class="info-button" target="_blank"><i class="fas fa-chalkboard"></i> Slides</a><a href="/assets/papers/allocation.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-6" class="info-panel">
+                        <p>In the Memory (Re)allocation Problem 
+a set of items of various sizes must be dynamically assigned to non-overlapping contiguous chunks of memory. 
+It is guaranteed that the sum of the sizes of all items present at any time is at most a $(1-\varepsilon)$-fraction of the total size of memory (i.e., the load-factor is at most $1-\varepsilon$).
+The allocator receives insert and delete requests online, and can re-arrange existing items to handle the requests.
+The allocator aims to minimize the amortized overhead cost of moving items, i.e., the ratio of the total size of items moved to the size of the inserted/deleted item.</p>
+
+<p>The folklore algorithm for Memory (Re)allocation achieves an overhead cost of $ O (\varepsilon^{-1})$ per update. 
+In recent work Kuszmaul showed that if the items are all smaller than an $\varepsilon^4$-fraction of memory then it is possible to achieve amortized update cost $ O (\log\varepsilon^{-1})$.
+However, Kuszmaul conjectured that for large items the folklore algorithm is optimal.</p>
+
+<p>In this work we disprove Kuszmaul’s conjecture.
+In particular, we give an allocator that achieves amortized update cost $\widetilde{O}(\varepsilon^{-1/2})$, regardless of item sizes. A key idea that we use to beat the folklore algorithm is to have nested levels of “representative” items stored as a suffix of memory, where items in smaller levels are “responsible” for items in the larger levels.</p>
+
+<p>Our second result is the first non-trivial lower bound for the Memory (Re)allocation Problem: we demonstrate a sequence of item inserts and deletes on which any allocator must incur amortized update cost at least $\Omega(\log\varepsilon^{-1})$. 
+Finally, we analyze the Memory (Re)allocation Problem on a stochastic sequence of inserts and deletes. In this setting we construct an allocator with $ O (\log\varepsilon^{-1})$ expected amortized update cost.</p>
+
+                    </div>
+                    <div id="notes-6" class="info-panel">
+                        <p>I think it’s a neat problem, and probably believe it should be possible to beat this algorithm (maybe even getting polylog(1/ε)-competitive), so you should think about it. Especially if you’re really good at subset sums or something.</p>
+
+                    </div>
+                    <div id="fable-6" class="info-panel">
+                        <p>Captain Rem encouraged people to look on the bright side — shouldn’t one be grateful to be so saturated with gold? — but there was still grumbling. The problem was, while the loot their seaward plundering accrued was substantial, the long skinny cargo hold they used to stow said loot was somewhat less so. <br />
+Before the hold was completely full, they always made sure to stop at a port and offload — but even when there was technically enough room, it often took a fair amount of heaving around heavy chests before the crew could find a spot for even a relatively small artifact. If only there was a smarter way to arrange things…</p>
+
+                    </div>
+                </div>
+            </li><li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">Matching Algorithms in the Sparse Stochastic Block Model</div><div class="paper-authors">with Anna Brandenburger, Byron Chin, and Divya Shyamal</div></div><span class="paper-venue">AofA 24<span class="dropdown-arrow"></span>
+                            </span></div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-7"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-7"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-7"><i class="fas fa-dragon"></i> Fable</button><a href="/assets/things/sbm-matching-slides.pdf" class="info-button" target="_blank"><i class="fas fa-chalkboard"></i> Slides</a><a href="/assets/papers/sbm-matching-conference.pdf" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-7" class="info-panel">
+                        <p>The <strong>stochastic block model</strong> (SBM) is a generalization of the Erdos-Renyi model of random graphs that describes the interaction of a finite number of distinct communities. In sparse Erdos-Renyi graphs, it is known that a linear-time algorithm of Karp and Sipser achieves near-optimal matching sizes almost surely asymptotically almost surely, giving a law-of-large numbers for the matching sizes of such graphs in terms of solutions to an ODE. We provide an extension of this analysis, identifying broader ranges of stochastic block model parameters for which the Karp–Sipser algorithm achieves near-optimal matching sizes, but demonstrating that it cannot perform optimally on general SBM instances.</p>
+
+<p>We also consider the problem of constructing a matching <em>online</em>, in which the vertices of one half of a bipartite stochastic block model arrive one-at-a-time, and must be matched as they arrive. We show that the competitive ratio lower bound of 0.837 found by Mastin and Jaillet for the Erdos-Renyi case is tight, and that it can be achieved in the stochastic block model whenever the expected degrees in all communities are equal. We propose several reasonable linear-time algorithms for online matching in the general stochastic block model, but prove that despite very good experimental performance, none of these achieve online asymptotic optimality.</p>
+
+                    </div>
+                    <div id="notes-7" class="info-panel">
+                        <p>This project was done at SPUR (a summer program at MIT). The techniques are very standard, but it was a fun first TCS project.</p>
+
+                    </div>
+                    <div id="fable-7" class="info-panel">
+                        <p>When he’d set out to recruit an adventuring party, Theo had been imagining a process a little more snappy and Gandalf-esque, not these hours upon hours of interviews. However, it had quickly become apparent that the coarse-grained information in the ‘Heroism and Questing’ personal ads just wouldn’t be enough to pick people.<br />
+Take this fellow, for instance. Theo could’ve predicted, based on the ‘23 M, half-orc, barbarian, passionate about skull-cracking and menacing’ description, that he’d likely be a better fit for one of the more… hands-on parts of the team. But it was a total roll of the dice whether he’d end up being a qualified Chief Dragon Slayer — a roll which, upon receiving the response ‘deathly afraid of serpents, Mr. Rem’ to the question of ‘what’s your biggest weakness’, Theo was disappointed to learn had come up snake-eyes. ‘You seem like you’d make a great Junior Axe-Wielding Goon,’ Theo acceded, ‘but unfortunately we filled that position last week. I don’t think we’ll be able to make you an offer at this point in time.’<br />
+Theo glanced resignedly at his list of unfilled positions: 14 openings for fighters, 9 for negotiations/logistics, 6 for skullduggery and subterfuge, and 7 for magic experts. How many interviews would it take to fill them all? With the sort of decisions he’d been making thus far, it seemed likely to be quite a few — early in the process, he made the mistake of hiring a competent sorcerer as a dungeon cartographer, not realizing quite how few-and-far-between magic users were, and now no amount of cajoling could convince her to give up her maps. He had to figure out how to avoid making that kind of blunder again…</p>
+
+                    </div>
+                </div>
+            </li></ul></div>
 
 <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
-      });
-    }
+// THIS SCRIPT DOES NOT NEED TO BE CHANGED
+document.addEventListener('DOMContentLoaded', function() {
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(coll => {
+        coll.addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.querySelectorAll('.info-button').forEach(btn => btn.classList.remove('active'));
+                content.querySelectorAll('.info-panel').forEach(panel => panel.style.display = 'none');
+            } else {
+                const buttonContainer = content.querySelector('.button-container');
+                content.style.maxHeight = buttonContainer.offsetHeight + "px";
+            }
+        });
+    });
+
+    const infoButtons = document.querySelectorAll(".info-button[data-target]");
+    infoButtons.forEach(button => {
+        button.addEventListener("click", function(e) {
+            const targetId = this.getAttribute('data-target');
+            const targetPanel = document.getElementById(targetId);
+            const content = this.closest('.collapsible-content');
+            const allPanels = content.querySelectorAll('.info-panel');
+            const allButtons = content.querySelectorAll('.info-button[data-target]');
+            const buttonContainer = content.querySelector('.button-container');
+
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+                targetPanel.style.display = 'none';
+                content.style.maxHeight = buttonContainer.offsetHeight + "px";
+            } else {
+                allButtons.forEach(btn => btn.classList.remove('active'));
+                allPanels.forEach(panel => panel.style.display = 'none');
+                
+                this.classList.add('active');
+                targetPanel.style.display = 'block';
+                
+                content.style.maxHeight = (buttonContainer.offsetHeight + targetPanel.scrollHeight) + "px";
+            }
+        });
+    });
+});
 </script>
       </div>
     </main><footer class="site-footer h-card">

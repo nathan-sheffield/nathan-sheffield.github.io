@@ -5,20 +5,14 @@
 layout: home
 ---
 
-Hi, welcome to my website! Current contents are:
-<hr class = "header-line">
-
-## [About](/about)
-A quick description of who I am
-<hr class = "header-line">
-
-## [Blog](/blog)
-Mostly exposition of math ideas I think are cool; some other content as well
-<hr class = "header-line">
-
-## [Research](/papers)
-Research papers I've written
-<hr class = "header-line">
-
-## [Misc](/things)
-Other assorted things I've written or recorded
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <link rel="canonical" href="{{ '/about/' | absolute_url }}"/>
+    <meta http-equiv="refresh" content="0; url={{ '/about/' | absolute_url }}" />
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected, <a href="{{ '/about/' | absolute_url }}">click here</a>.</p>
+  </body>
+</html>

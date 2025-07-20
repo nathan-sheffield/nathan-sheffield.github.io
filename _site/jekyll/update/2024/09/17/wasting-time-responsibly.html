@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Wasting Time Responsibly | Nathan Sheffield</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Wasting Time Responsibly" />
+<meta name="author" content="Nathan Sheffield" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A conjecture about finite automata which you, the reader, should solve for me" />
+<meta property="og:description" content="A conjecture about finite automata which you, the reader, should solve for me" />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2024/09/17/wasting-time-responsibly.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2024/09/17/wasting-time-responsibly.html" />
+<meta property="og:site_name" content="Nathan Sheffield" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-17T10:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Wasting Time Responsibly" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2024-09-17T10:00:00-04:00","datePublished":"2024-09-17T10:00:00-04:00","description":"A conjecture about finite automata which you, the reader, should solve for me","headline":"Wasting Time Responsibly","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2024/09/17/wasting-time-responsibly.html"},"url":"http://localhost:4000/jekyll/update/2024/09/17/wasting-time-responsibly.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<link rel="icon" type="image/x-icon" href="/assets/logos/phi-logo.svg"></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Nathan Sheffield</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/" > About  </a><a class="page-link" href="/blog/" > Blog  </a><a class="page-link" href="/papers/" > Research  </a><a class="page-link" href="/things/" > Misc  </a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Wasting Time Responsibly</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-09-17T10:00:00-04:00" itemprop="datePublished">
+        Sep 17, 2024
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="fast-ride-in-a-short-machine-dfas">Fast ride in a short machine (DFAs)</h2>
+
+<p>I’m currently TAing for Mike Sipser’s intro “Theory of Computation” class, and the kids are learning about finite automata. 
+A <a href="https://en.wikipedia.org/wiki/Deterministic_finite_automaton" title="wiki page for DFAs">DFA</a> (“deterministic finite automaton”) is maybe the simplest interesting model of computation<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. 
+The definition is as follows: the machine has some finite set of states $\lbrace 1,\dots, n\rbrace $, and some transition function $\delta:\ \lbrace 1,\dots,n\rbrace  \times \lbrace 0,1\rbrace  \to \lbrace 1,\dots,n\rbrace $.
+It reads the bits of its input one-at-a-time from left to right, at each step updating its state based on its previous state and the current symbol, according to $\delta$.
+An input is accepted if and only if, once its last bit has been read, the machine’s final state belongs to a designated set of “accept” states.</p>
+
+<p>One can show that a set of strings is the language (i.e. set of accepted strings) of some DFA if and only if it is specified by some <a href="https://en.wikipedia.org/wiki/Regular_expression" title="wiki page for regex">regular expression</a>. Since you can write a regular expression for any finite set of strings, this means that any finite language has an associated DFA. However, the DFA required might be rather large. An example of an exercise I might give in recitation is the following:</p>
+
+<blockquote>
+  <p>Problem: Show that, if an $n$-state DFA on alphabet $\lbrace 0,1 \rbrace$ has a language $L$ consisting of finitely many strings, then $\vert L \vert \leq 2^n$.</p>
+</blockquote>
+
+<p>The solution is simple. If $L$ contains any string of length greater than $n$, then, in the course of the DFA reading the string, there must be some state that occurs more than once. But then, if we modify that string by repeating the whole segment in between those two occurences as many times as we want, the poor machine won’t be able to tell the difference — it’ll just keep going around the same old loop a bunch times, until it finally gets out the other end and accepts. This idea is known as the “<a href="https://en.wikipedia.org/wiki/Pumping_lemma_for_regular_languages" title="wiki page for pumping lemma">pumping lemma</a>”. Since one can generate an accepted string of unbounded length this way, this contradicts the assumption that $L$ is finite. So, every string in $L$ must have length at most $n$, and thus there can be at most $2^n$ many of them.</p>
+
+<h2 id="strike-that-reverse-it-2dfas">Strike that. Reverse it. (2DFAs)</h2>
+
+<h2 id="so-much-time-and-so-little-to-do-mathsfbpl">So much time and so little to do. ($\mathsf{BP^*L}$)</h2>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Opinions may vary depending on what you count as a “model of computation”, and what you count as “interesting”. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="/jekyll/update/2024/09/17/wasting-time-responsibly.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+
+        <ul class="contact-list">
+            <li class="p-name">Nathan Sheffield</li>
+            <li><a class="u-email" href="mailto:shefna@mit.edu">shefna@mit.edu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Whereof one cannot speak, thereof must one blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

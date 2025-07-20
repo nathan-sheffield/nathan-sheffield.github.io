@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Lost in Space II | Nathan Sheffield</title>
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Lost in Space II" />
 <meta name="author" content="Nathan Sheffield" />
 <meta property="og:locale" content="en_US" />
@@ -20,7 +20,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2024-02-24T09:00:00-05:00","datePublished":"2024-02-24T09:00:00-05:00","description":"First steps towards destroying BPL (the complexity class, not Boston Public Library, which is lovely and can take as much space as it wants)","headline":"Lost in Space II","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2024/02/24/lost-in-space-ii.html"},"url":"http://localhost:4000/jekyll/update/2024/02/24/lost-in-space-ii.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -58,11 +59,11 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Alright, last time was a good derandomization warm-up. We saw that, for the purposes of tricking width-2 ROBPs (a kind of “non-uniform” version of algorithms with only 1 bit of memory), we could make $\mathcal{O}(\log n)$ bits of true randomness look like $n$ bits. But, if our real goal is to understand <strong>to what extent we can simulate random algorithms deterministically</strong>, this is pretty disappointing – most of the algorithms I care about definitely use more than $1$ bit of memory. So let’s go beyond 1 bit, and ask “if a problem can be solved by a randomized algorithm with $s$ bits of space, how many bits of space do we need to solve the same problem deterministically?”<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+    <p>Alright, last time was a good derandomization warm-up. We saw that, for the purposes of tricking width-2 ROBPs (a kind of “non-uniform” version of algorithms with only 1 bit of memory), we could make $\mathcal{O}(\log n)$ bits of true randomness look like $n$ bits. But, if our real goal is to understand <strong>to what extent we can simulate random algorithms deterministically</strong>, this is pretty disappointing – most of the algorithms I care about definitely use more than $1$ bit of memory. So let’s go beyond 1 bit, and ask “if a problem can be solved by a randomized algorithm with $s$ bits of space, how many bits of space do we need to solve the same problem deterministically?”<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
 <h2 id="savichs-theorem">Savich’s Theorem</h2>
 
-<p>It turns out that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$. The idea is pretty simple and also shows that $\mathsf{NSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$ – if you’re in my target audience, you’ve maybe seen this before. The first thing to note is that, when limited to $s$ space, the algorithm can only run for at most $\mathcal{O}(2^s)$ steps<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. So, if for every $t$ I could answer the question “what’s the probability that the algorithm goes from some memory configuration $C$ to a different configuration $C’$ after $t$ steps”, I would be cooking – set $t = 1000 \cdot 2^s$, $C$ to be the initial configuration, and enumerate over all accepting configurations $C’$ to calculate the overall acceptance probability.</p>
+<p>It turns out that $\mathsf{BPSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$. The idea is pretty simple and also shows that $\mathsf{NSPACE}(s) \subseteq \mathsf{SPACE}(s^2)$ – if you’re in my target audience, you’ve maybe seen this before. The first thing to note is that, when limited to $s$ space, the algorithm can only run for at most $\mathcal{O}(2^s)$ steps<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. So, if for every $t$ I could answer the question “what’s the probability that the algorithm goes from some memory configuration $C$ to a different configuration $C’$ after $t$ steps”, I would be cooking – set $t = 1000 \cdot 2^s$, $C$ to be the initial configuration, and enumerate over all accepting configurations $C’$ to calculate the overall acceptance probability.</p>
 
 <p>Answering this question for $t = 1$ is pretty easy – just look at the transition probabilities for one step of the algorithm. Now, suppose I have a good algorithm to solve it for $t/2$ steps, and wanna figure out $t$. Well, we can enumerate over all possibilities for a memory configuration $C_{mid}$, and for each one multiply the probabilities of going from $C \to C_{mid}$ in $t/2$ steps and going from $C_{mid} \to C’$ in $t/2$ steps – summing over all $C_{mid}$ gives the probability of going $C \to C’$ in $t$ steps.</p>
 <center>
@@ -72,7 +73,7 @@
 </figure>
 </center>
 
-<p>In addition to the space required to run the $t/2$ version of the algorithm, we only need $s$ bits to remember $C_{mid}$. So, by induction, we can solve the whole problem in $\log(2^s) \cdot s = s^2$ space<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
+<p>In addition to the space required to run the $t/2$ version of the algorithm, we only need $s$ bits to remember $C_{mid}$. So, by induction, we can solve the whole problem in $\log(2^s) \cdot s = s^2$ space<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.</p>
 
 <center>
 <figure>
@@ -95,7 +96,7 @@
 
 <p>Actually that’s not really fair, because this is in many ways much stronger – a construction due to Nisan of a PRG with seed length $\mathcal{O}(s \log n)$ fooling any width-$2^s$ ROBP. The basic idea makes a lot of sense: suppose I fed you $n/2$ random bits, and then you asked me for $n/2$ more. Do I need to cook up a whole $n/2$ new bits for you? Nah, since you only remember $s$ bits about the previous stuff I gave you, as long as I mix it up a little there’s no way you’ll remember enough to know the difference when I serve it to you again.</p>
 
-<p>Slightly more formally, there’s the idea of a “seeded extractor”, which I think I touched on a bit in <a href="https://nathan-sheffield.github.io/jekyll/update/2023/12/13/welcome-to-minicrypt.html">this post</a>. The upshot is, given a distribution with min-entropy $k$ (meaning that no specific output occurs with probability more than $2^{-k}$), as long as you also have access to a small amount of true randomness – say, $d &gt; \log(n/\epsilon)$ bits<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> – you can turn it into something $\epsilon$-close to the uniform distribution on about $k + d$ bits. Now, look at the state your branching program is in after you’ve fed it $n/2$ random bits. We can split into two cases:</p>
+<p>Slightly more formally, there’s the idea of a “seeded extractor”, which I think I touched on a bit in <a href="https://nathan-sheffield.github.io/jekyll/update/2023/12/13/welcome-to-minicrypt.html">this post</a>. The upshot is, given a distribution with min-entropy $k$ (meaning that no specific output occurs with probability more than $2^{-k}$), as long as you also have access to a small amount of true randomness – say, $d &gt; \log(n/\epsilon)$ bits<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup> – you can turn it into something $\epsilon$-close to the uniform distribution on about $k + d$ bits. Now, look at the state your branching program is in after you’ve fed it $n/2$ random bits. We can split into two cases:</p>
 
 <ul>
   <li><strong>Rare states</strong>: some states might occur with probability less than $\epsilon / 2^{s}$. Since there’s only $2^s$ possible states, the chance of ending up in a rare state is at most $\epsilon$.</li>
@@ -111,7 +112,7 @@
 </figure>
 </center>
 
-<p>Nisan’s PRG comes from applying this approach recursively: in order to turn some number of random bits into twice as many pseudorandom bits, we only need to put in like $s + \log(1 / \epsilon)$ real random bits, so to generate all $n$ we should only need like $\big(s + \log(1 / \epsilon)\big) \log n$ seed bits<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>. This is what I promised!</p>
+<p>Nisan’s PRG comes from applying this approach recursively: in order to turn some number of random bits into twice as many pseudorandom bits, we only need to put in like $s + \log(1 / \epsilon)$ real random bits, so to generate all $n$ we should only need like $\big(s + \log(1 / \epsilon)\big) \log n$ seed bits<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. This is what I promised!</p>
 
 <p>If you don’t want to worry too much about extractors, you can use Nisan’s original even simpler construction: choose $x \gets U_{s}$, and then choose about $\log n$ many hash functions $h_1, \dots, h_{\log n}$ from a pairwise independent hash family $\mathcal{H}: \lbrace 0,1\rbrace^s \to \lbrace 0,1\rbrace^s$. Output $x$ with all the $2^{\log n}$ different subsets of the hash functions applied to it – i.e.</p>
 
@@ -141,7 +142,7 @@
   <li>$\mathcal{O}(\sqrt{s} \cdot s)$ for the enumeration over $x$ on each of $\sqrt{s}$ nested calls</li>
 </ul>
 
-<p>so we’re feeling pretty happy! The reason this is ok is that, fixing $M$, $M^2$, $M^4$, $\dots$, the friendliness of Nisan’s PRG means that a random choice of $h_1, \dots, h_{\sqrt{s}}$ is likely to be “good” for all of them simultaneously<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, by which I mean that it’ll give a good approximation when we use it to square.</p>
+<p>so we’re feeling pretty happy! The reason this is ok is that, fixing $M$, $M^2$, $M^4$, $\dots$, the friendliness of Nisan’s PRG means that a random choice of $h_1, \dots, h_{\sqrt{s}}$ is likely to be “good” for all of them simultaneously<sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>, by which I mean that it’ll give a good approximation when we use it to square.</p>
 
 <center>
 <figure>
@@ -156,22 +157,22 @@
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>This post is basically just a more hand-wavey transcription of <a href="https://www.avishaytal.org/pseudorandomness">Tal’s lovely lecture notes</a>, so you should check those out if you wanna see this in more detail. Lots of cool stuff there – will probably write at least one more post about it. tbh I don’t know that I’ve really added value to Tal’s explanation, so maybe this post isn’t achieving the goal of this blog too much – but at least writing it forced me to understand. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>Otherwise it’ll repeat a configuration, and so have the potential to loop forever. Note that while you could define $\mathsf{BPSPACE}$ so that it just has to halt eventually with probability 1, but might run forever on measure-0 events, typically you mandate that there’s no way for it to run forever. In particular, if you let have a possibility of looping forever, then it contains $\mathsf{NSPACE}$, since it can keep retrying its guesses until it gets a super unlikely coin flip sequence. But also if you’re slightly more careful with things you can analyze Savich to make it work for this definition. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3" role="doc-endnote">
+    <li id="fn:3">
       <p>If you wanna be careful, I guess you need to think about with what precision you’re keeping track of probabilities. But you should have enough space to be pretty fine. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:4" role="doc-endnote">
+    <li id="fn:4">
       <p>I’m being imprecise with parameters here, as I am for a lot of this post. There’s lots of different interesting constructions of extractors; you can look at some of Tal’s notes linked above for a few examples. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:5" role="doc-endnote">
+    <li id="fn:5">
       <p>To make this argument precise, you need to do some kind of hybrid argument, first replacing the pseudorandom bits with actual random bits, and then applying the argument above to say you can extract to something twice as long. Also, maybe be a little careful about the $\epsilon$ there since your errors are probably adding – plugging in $\epsilon/n$ is a better idea. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:6" role="doc-endnote">
+    <li id="fn:6">
       <p>Slightly thorny issue: we’re not actually going to be calling our squaring procedure on $M^2$, we’re going to be calling it on the <em>approximate</em> version of $M^2$ produced by our first squaring. So, these matrices aren’t just fixed in advance things, they actually do depend to some extent on $h_1, \dots, h_{\sqrt{s}}$. To fix this issue, in the powering procedure Saks and Zhou also enumerate over all slight perturbations of matrix, which drowns out this annoying conditioning effect. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>

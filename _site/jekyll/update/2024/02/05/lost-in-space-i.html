@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Lost in Space I | Nathan Sheffield</title>
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Lost in Space I" />
 <meta name="author" content="Nathan Sheffield" />
 <meta property="og:locale" content="en_US" />
@@ -20,7 +20,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2024-02-05T16:17:17-05:00","datePublished":"2024-02-05T16:17:17-05:00","description":"Looking to get a good grade on parity tests? Try small-bias distributions!","headline":"Lost in Space I","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2024/02/05/lost-in-space-i.html"},"url":"http://localhost:4000/jekyll/update/2024/02/05/lost-in-space-i.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -116,7 +117,7 @@ I’d intended to write a long post talking about a bunch of cool stuff I’ve b
 </figure>
 </center>
 
-<p>Note that this is maybe a little stronger than “algorithm with 1 bit of memory” sounds, since he’s allowed to know what day it is, and have different rules for how to update memory depending on the day<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. By “tricking” these guys, I mean that I want a distribution $\mathcal{X}$ with the property that, for any width-2 branching program, the probability that he finally ends up in the first state when given an output of $\mathcal{X}$ is within $\epsilon$ of the probability when given a truly random $n$-bit string.</p>
+<p>Note that this is maybe a little stronger than “algorithm with 1 bit of memory” sounds, since he’s allowed to know what day it is, and have different rules for how to update memory depending on the day<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. By “tricking” these guys, I mean that I want a distribution $\mathcal{X}$ with the property that, for any width-2 branching program, the probability that he finally ends up in the first state when given an output of $\mathcal{X}$ is within $\epsilon$ of the probability when given a truly random $n$-bit string.</p>
 
 <p>It turns out that small-bias sources do the job. An argument is given in <a href="https://www.cs.princeton.edu/~zdvir/papers/BDVY08.pdf">this paper</a>, which I’ll explain below. It’s easiest to talk about in Fourier basis (which means that it’s also easier to think of bits as being $\lbrace -1, 1\rbrace$ instead of $\lbrace 0, 1\rbrace$ – will do this from now on). Recall that we can express any function $\lbrace -1,1 \rbrace^n \to \lbrace -1, 1 \rbrace$ as $\sum_{S \subseteq [n]} a_S \prod_{i \in S} x_i$, where we call the values of $a_S$ the “Fourier coefficients”.</p>
 
@@ -153,7 +154,7 @@ I’d intended to write a long post talking about a bunch of cool stuff I’ve b
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>Also note that we’re talking about general branching programs here. In the future, we’ll really care mostly about <strong>read-once</strong> branching programs – i.e. branching programs that never revisit the same index of your string twice (and in fact we’ll often just assume the program reads the bits of the string in order). But these arguments work either way, so figured might as well state in generality. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>

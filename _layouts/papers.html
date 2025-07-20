@@ -2,103 +2,250 @@
 layout: base
 ---
 <style>
+    /* Main Collapsible Button Styling */
     .collapsible {
-      border-radius:15px 15px 15px 15px;
+      border-radius: 15px;
       background-color: var(--minima-background-color);
       color: #c89ce2;
       cursor: pointer;
-      padding: 18px;
+      padding: 10px;
       width: 100%;
       border: none;
       text-align: left;
       outline: none;
-      /*font-size: 15px;*/
+      transition: background-color 0.2s ease-out;
     }
     
     .active, .collapsible:hover {
       background-color: #7930a3;
     }
     
-    .active{
-      border-radius:15px 15px 0px 0px;
+    .active {
+      border-radius: 15px 15px 0px 0px;
     }
+
+    /* Flex container for title and venue */
+    .collapsible-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* UPDATED: Vertically centers everything in the header */
+        width: 100%;
+    }
+
+    .paper-title {
+        font-weight: bold;
+        padding-right: 20px;
+    }
+    
+    .paper-authors {
+        font-size: 0.9em;
+        color: #d1b8e6;
+        margin-top: 8px;
+    }
+
+    /* UPDATED: Venue is now a flex container to hold the arrow and text */
+    .paper-venue {
+        display: flex;
+        align-items: center;
+        color: #d1b8e6;
+        text-align: right;
+        flex-shrink: 0;
+        font-weight: bold;
+    }
+    
+    /* NEW: Styling for the arrow element itself */
+    .dropdown-arrow {
+        margin-left: 20px;
+        margin-right: 10px; /* Space between arrow and conference name */
+        font-size: 13px;
+        color: white;
+    }
+
+    /* NEW: Defines the arrow's appearance */
+    .dropdown-arrow::before {
+      content: '\2B9E'; /* Unicode for 'plus' sign */
+    }
+
+    /* NEW: Changes the arrow when the box is active */
+    .active .dropdown-arrow::before {
+      content: "\2B9F"; /* Unicode for 'minus' sign */
+    }
+
+    /* REMOVED: The old :after rules are no longer needed */
+    /*
+    .collapsible:after { ... }
+    .active:after { ... }
+    */
+
+    /* Main content area that expands */
     .collapsible-content {
       padding: 0 18px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.2s ease-out;
+      transition: max-height 0.4s ease-in-out;
       background-color: #39164d;
-      border-radius:0px 0px 15px 15px;
+      border-radius: 0px 0px 15px 15px;
+      font-size: 0.9em;
     }
 
-    .collapsible:after {
-    content: '\2B9E'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: white;
-    float: right;
-    margin-left: 5px;
+    /* Container for the four action buttons */
+    .button-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
     }
 
-    .active:after {
-    content: "\2B9F"; /* Unicode character for "minus" sign (-) */
+    /* Styling for the action buttons */
+    .info-button {
+        background-color: #7930a3;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background-color 0.2s;
     }
 
-    </style>
+    .info-button:hover, .info-button.active {
+        background-color: #c89ce2;
+        color: #39164d;
+    }
+    
+    /* Panel that shows Abstract, Notes, or Fable */
+    .info-panel {
+        display: none;
+        padding-bottom: 20px;
+        border-top: 1px solid #7930a3;
+        margin-top: -10px;
+        padding-top: 20px;
+    }
+
+    /* NEW: Control spacing between papers */
+    .post-list li {
+        margin-bottom: 10px; /* Adjust this value to control spacing */
+    }
+    
+    /* Alternative: For even tighter spacing, use this instead */
+    /* .post-list li {
+        margin-bottom: 5px;
+    } */
+    
+    /* Alternative: For no spacing between papers */
+    /* .post-list li {
+        margin-bottom: 0;
+    } */
+</style>
 
 <div class="research">
-    <header class = "post-header">
-    {%- if page.tagline -%}
-      <h1 class="page-heading"> "{{ page.tagline }}" </h1>
-    {%- endif -%}
-    {%- if page.subtitle -%}
-      <p class="page-subtitle"> {{ page.subtitle }}</p>
-    {%- endif -%}
-    <hr class = "header-line">
+    <header class="post-header">
+        {%- if page.tagline -%}
+        <h1 class="page-heading">"{{ page.tagline }}"</h1>
+        {%- endif -%}
+        {%- if page.subtitle -%}
+        <p class="page-subtitle">{{ page.subtitle }}</p>
+        {%- endif -%}
+        <hr class="header-line">
     </header>
 
-{% assign papers = site.papers %}
+    {% assign papers = site.papers | sort: 'order' | reverse %}
 
-{%- if papers.size > 0 -%}
-    {%- if papers.list_title -%}
-      <h2 class="post-list-heading">{{ papers.list_title }}</h2>
+    {%- if papers.size > 0 -%}
+        <ul class="post-list" style="list-style: none; padding-left: 0;">
+            {%- for paper in papers -%}
+            <li>
+                <button type="button" class="collapsible">
+                    <div class="collapsible-header-flex">
+                        <div> <div class="paper-title">{{ paper.title | escape }}</div>
+                            {%- if paper.authors -%}
+                                <div class="paper-authors">{{ paper.authors | escape }}</div>
+                            {%- endif -%}
+                        </div>
+                        {%- if paper.conference -%}
+                            <span class="paper-venue">
+                                {{- paper.conference | escape -}}
+                                <span class="dropdown-arrow"></span>
+                            </span>
+                        {%- endif -%}
+                         
+                    </div>
+                </button>
+                <div class="collapsible-content">
+                    <div class="button-container">
+                        <button class="info-button" data-target="abstract-{{ forloop.index }}"><i class="fas fa-crow"></i> Abstract</button>
+                        <button class="info-button" data-target="notes-{{ forloop.index }}"><i class="fas fa-feather-alt"></i> Notes</button>
+                        <button class="info-button" data-target="fable-{{ forloop.index }}"><i class="fas fa-dragon"></i> Fable</button>
+                        {%- if paper.slides -%}
+                            <a href="{{ paper.slides }}" class="info-button" target="_blank"><i class="fas fa-chalkboard"></i> Slides</a>
+                        {%- endif -%}
+                        {%- if paper.talk -%}
+                            <a href="{{ paper.talk }}" class="info-button" target="_blank"><i class="fas fa-video"></i> Talk</a>
+                        {%- endif -%}
+                        <a href="{{ paper.link | relative_url }}" class="info-button" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                    </div>
+                    
+                    <div id="abstract-{{ forloop.index }}" class="info-panel">
+                        {{ paper.content | markdownify }}
+                    </div>
+                    <div id="notes-{{ forloop.index }}" class="info-panel">
+                        {{ paper.notes | markdownify }}
+                    </div>
+                    <div id="fable-{{ forloop.index }}" class="info-panel">
+                        {{ paper.fable | markdownify }}
+                    </div>
+                </div>
+            </li>
+            {%- endfor -%}
+        </ul>
     {%- endif -%}
-    <ul class="post-list">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for paper in papers -%}
-      <li>
-        <button type="button" class="collapsible post-list-heading">{{ paper.title | escape }}</button>
-        <div class="collapsible-content">
-        <h3>
-          <a class="post-link" href="{{ paper.link | relative_url }}">
-            {{ paper.linktext | escape }}
-          </a>
-        </h3>
-        {%- if paper.notes -%}
-        <span class="post-meta">Notes:</span>
-        {{ paper.notes | markdownify}}
-        {%- endif -%}
-        <span class="post-meta">Motivating Fable:</span>
-          {{ paper.content | markdownify}}
-        </div>
-      </li>
-      {%- endfor -%}
-    </ul>
-{%- endif -%}
 </div>
 
 <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
-      });
-    }
+// THIS SCRIPT DOES NOT NEED TO BE CHANGED
+document.addEventListener('DOMContentLoaded', function() {
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(coll => {
+        coll.addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.querySelectorAll('.info-button').forEach(btn => btn.classList.remove('active'));
+                content.querySelectorAll('.info-panel').forEach(panel => panel.style.display = 'none');
+            } else {
+                const buttonContainer = content.querySelector('.button-container');
+                content.style.maxHeight = buttonContainer.offsetHeight + "px";
+            }
+        });
+    });
+
+    const infoButtons = document.querySelectorAll(".info-button[data-target]");
+    infoButtons.forEach(button => {
+        button.addEventListener("click", function(e) {
+            const targetId = this.getAttribute('data-target');
+            const targetPanel = document.getElementById(targetId);
+            const content = this.closest('.collapsible-content');
+            const allPanels = content.querySelectorAll('.info-panel');
+            const allButtons = content.querySelectorAll('.info-button[data-target]');
+            const buttonContainer = content.querySelector('.button-container');
+
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+                targetPanel.style.display = 'none';
+                content.style.maxHeight = buttonContainer.offsetHeight + "px";
+            } else {
+                allButtons.forEach(btn => btn.classList.remove('active'));
+                allPanels.forEach(panel => panel.style.display = 'none');
+                
+                this.classList.add('active');
+                targetPanel.style.display = 'block';
+                
+                content.style.maxHeight = (buttonContainer.offsetHeight + targetPanel.scrollHeight) + "px";
+            }
+        });
+    });
+});
 </script>

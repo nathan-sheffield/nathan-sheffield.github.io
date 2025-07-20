@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Welcome to Minicrypt | Nathan Sheffield</title>
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Welcome to Minicrypt" />
 <meta name="author" content="Nathan Sheffield" />
 <meta property="og:locale" content="en_US" />
@@ -20,7 +20,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2023-12-12T22:18:17-05:00","datePublished":"2023-12-12T22:18:17-05:00","description":"Constructing cryptographic pseudorandom generators from one-way functions.","headline":"Welcome to Minicrypt","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2023/12/12/welcome-to-minicrypt.html"},"url":"http://localhost:4000/jekyll/update/2023/12/12/welcome-to-minicrypt.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -60,9 +61,9 @@
   <div class="post-content e-content" itemprop="articleBody">
     <h1 id="the-parable-of-the-underprepared-rock-paper-scissors-player">The Parable of the Underprepared Rock-Paper-Scissors Player</h1>
 
-<p>Last year, the floor I live on in Next House held a rock-paper-scissors competition. I got out in the first round (it turns out the “always do scissors because scissors is the best” strategy I’ve been using for the past ~6 years maybe doesn’t hold up against tournament play), but the person who ended up winning had an interesting strategy: he’d randomly generated a sequence of moves beforehand, and then just memorized and played those. This approach is attractive because it guarantees you’ll win with exactly 50-50 probability – there’s no danger of your opponent somehow figuring out and exploiting patterns in your behaviour (like they could for me)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+<p>Last year, the floor I live on in Next House held a rock-paper-scissors competition. I got out in the first round (it turns out the “always do scissors because scissors is the best” strategy I’ve been using for the past ~6 years maybe doesn’t hold up against tournament play), but the person who ended up winning had an interesting strategy: he’d randomly generated a sequence of moves beforehand, and then just memorized and played those. This approach is attractive because it guarantees you’ll win with exactly 50-50 probability – there’s no danger of your opponent somehow figuring out and exploiting patterns in your behaviour (like they could for me)<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
 
-<p>But there’s a<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> question you might worry about: what if, when you got to the tournament, you realized that it was more rounds than you’d expected, and you don’t have a long enough list of random moves prepared? You could just flip a coin to come up with some new ones – but, oh no, you left your coin at home. You could say “I’ll play according to my memorized moves until they run out, and then switch to my old deterministic strategy after that” – but if your opponents know your old deterministic strategy (e.g. if it’s just to always do scissors), they’ll totally destroy you at that point. You’re in a pretty bad pickle – somehow, you need to <strong>take the 100 random numbers you came with and turn them into 200 random numbers</strong>, without flipping any more coins.</p>
+<p>But there’s a<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> question you might worry about: what if, when you got to the tournament, you realized that it was more rounds than you’d expected, and you don’t have a long enough list of random moves prepared? You could just flip a coin to come up with some new ones – but, oh no, you left your coin at home. You could say “I’ll play according to my memorized moves until they run out, and then switch to my old deterministic strategy after that” – but if your opponents know your old deterministic strategy (e.g. if it’s just to always do scissors), they’ll totally destroy you at that point. You’re in a pretty bad pickle – somehow, you need to <strong>take the 100 random numbers you came with and turn them into 200 random numbers</strong>, without flipping any more coins.</p>
 
 <p>“That sounds impossible!”, you cry in despair. “There’s just not enough entropy – there were only $3^{100}$ possibilities for the random move sequence I prepared, and I need to make it look like I’ve chosen a uniformly random element from a set of size $3^{200}$. No matter what approach I use to stir up this randomness, the distribution I output is necessarily going to be really far from the one I want.”</p>
 
@@ -90,7 +91,7 @@
 
 <p>When you say “no polynomial-time adversary can distinguish between $U_m$ and $G(U_n)$ with non-negligible probability”, you mean “for any polynomial-time algorithm $\mathcal{A}: \lbrace 0,1\rbrace^m \rightarrow \lbrace 0,1\rbrace$, the acceptance probabilities $\Pr\left[\mathcal{A}(U_m) = 1\right]$ and $\Pr\left[\mathcal{A}(G(U_n)) = 1\right]$ are within $O(1/n^c)$ for any $c$”. This means that, except for with very small (i.e. smaller asymptotically than any inverse polynomial) probability, the behaviours of any polynomial-time algorithm are exactly the same on truly random inputs as opposed to the output of the pseudorandom generator. In particular, this would mean that your rock-paper-scissors opponents can’t beat you more than slightly more than half the time, unless they have a ridiculous amount of computational power.</p>
 
-<p>Of course, the actual reason to care about PRGs is not because of rock-paper-scissors. In the next post, I’ll talk a little about how you can use them to get super cool cryptography stuff like stateless encryption and commitment schemes<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. But for this post, I want to answer the question “do these things even exist?”. The answer to that question is “well, for now, it depends on what you’re willing to assume”.</p>
+<p>Of course, the actual reason to care about PRGs is not because of rock-paper-scissors. In the next post, I’ll talk a little about how you can use them to get super cool cryptography stuff like stateless encryption and commitment schemes<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>. But for this post, I want to answer the question “do these things even exist?”. The answer to that question is “well, for now, it depends on what you’re willing to assume”.</p>
 
 <h1 id="what-is-a-owf">What is a OWF?</h1>
 
@@ -101,7 +102,7 @@
   <li>There are collision-resistant hash families</li>
 </ul>
 
-<p>One assumption – stronger than $\text{P} \neq \text{NP}$, but weaker than any of those 3 above assumptions<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> – is the existence of one-way functions:</p>
+<p>One assumption – stronger than $\text{P} \neq \text{NP}$, but weaker than any of those 3 above assumptions<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup> – is the existence of one-way functions:</p>
 
 <blockquote>
   <p><strong>One-Way Function (OWF)</strong>: A function $F:\lbrace 0,1\rbrace^n \rightarrow \lbrace 0,1\rbrace^m$ is a OWF if</p>
@@ -191,7 +192,7 @@
 
 <h2 id="leftover-hash-lemma">Leftover Hash Lemma</h2>
 
-<p>The other tool we’ll need is the <strong>Leftover Hash Lemma</strong><sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>. The leftover hash lemma is a statement about randomness extraction: given a distribution that’s not necessarily uniformly random, but does have high entropy, can we turn it into one that’s close to uniform? As long as we’re willing to add in some truly uniform randomness on top<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, this turns out to be possible! As with most things in life<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>, it can be solved with hashing.</p>
+<p>The other tool we’ll need is the <strong>Leftover Hash Lemma</strong><sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. The leftover hash lemma is a statement about randomness extraction: given a distribution that’s not necessarily uniformly random, but does have high entropy, can we turn it into one that’s close to uniform? As long as we’re willing to add in some truly uniform randomness on top<sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>, this turns out to be possible! As with most things in life<sup id="fnref:7"><a href="#fn:7" class="footnote" rel="footnote" role="doc-noteref">7</a></sup>, it can be solved with hashing.</p>
 
 <p>We say that a distribution $\mathcal{X}$ has high <strong>min-entropy</strong> (denoted $H_\infty(\mathcal{X})$) when the probability of any element of the range is small. Specifically, if $p_{\max}$ is the probability of the most likely element in $\mathcal{X}$, $H_{\infty}(\mathcal{X}) = - \log p_{\max}$. Note that high min entropy is necessary for extraction – high Shannon entropy is not enough (we could have for instance a distribution with high Shannon entropy that outputs $1$ with 99% probability, but then is uniform over a very large range the other 1% of the time; this is not good enough to extract from).</p>
 
@@ -218,7 +219,7 @@
 <p>Ok, what is this telling us? Well, consider the function $G: \lbrace 0, 1\rbrace^{n \times n} \times \lbrace 0,1\rbrace^n \to \lbrace 0, 1\rbrace^{n \times n} \times \lbrace 0,1\rbrace^n \times \lbrace 0,1\rbrace^n$, 
 $G(M, x) = (M, Mf(x), Mx).$</p>
 
-<p>If we feed $G$ a random input, I claim that the output is going to have more than $n^2 + n$ surprising indices – we’re making some pseudorandomness! The first $n^2$ indices are definitely surprising, since they’re uniformly random. The next $(n - r - 100 \log n)$ indices are statistically close to uniform, and hence surprising<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup>, by our first point. Then, since seeing $M$ and $Mf(x)$ at most tells you $M$ and $f(x)$, our second point guarantees that the first $(r + 200 \log n)$ indices of $Mx$ are surprising. So, overall we have $n^2 + n + 100 \log n$ surprising indices – more than the amount of randomness we fed in.</p>
+<p>If we feed $G$ a random input, I claim that the output is going to have more than $n^2 + n$ surprising indices – we’re making some pseudorandomness! The first $n^2$ indices are definitely surprising, since they’re uniformly random. The next $(n - r - 100 \log n)$ indices are statistically close to uniform, and hence surprising<sup id="fnref:8"><a href="#fn:8" class="footnote" rel="footnote" role="doc-noteref">8</a></sup>, by our first point. Then, since seeing $M$ and $Mf(x)$ at most tells you $M$ and $f(x)$, our second point guarantees that the first $(r + 200 \log n)$ indices of $Mx$ are surprising. So, overall we have $n^2 + n + 100 \log n$ surprising indices – more than the amount of randomness we fed in.</p>
 
 <center>
 <figure>
@@ -227,7 +228,7 @@ $G(M, x) = (M, Mf(x), Mx).$</p>
 </figure>
 </center>
 
-<p>Well, what if $f$ wasn’t $r$-regular? Turns out this is not a big deal, since we did the same construction no matter what $r$ was. Just imagine breaking up the domain $\lbrace 0,1\rbrace^n$ into $n$ different chunks based on how many preimages their image has – so that $f$ is $1$-regular on the first chunk, $2$-regular on the second chunk, etc. We can forget about all the chunks that represent less than a polynomial fraction of the domain – they essentially never come up. For every chunk that does make up a polynomial fraction of the domain, we must have that $f$ restricted to that chunk is one-way<sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup>. Thus, $f$ restricted to that chunk is a regular OWF, so by the above argument, $G$ has $n^2 + n + 100 \log n$ surprising indices conditioning on its output being in the image of that chunk. Since this is true on every chunk, $f$ has $n^2 +n + 100\log n$ surprising indices in general.</p>
+<p>Well, what if $f$ wasn’t $r$-regular? Turns out this is not a big deal, since we did the same construction no matter what $r$ was. Just imagine breaking up the domain $\lbrace 0,1\rbrace^n$ into $n$ different chunks based on how many preimages their image has – so that $f$ is $1$-regular on the first chunk, $2$-regular on the second chunk, etc. We can forget about all the chunks that represent less than a polynomial fraction of the domain – they essentially never come up. For every chunk that does make up a polynomial fraction of the domain, we must have that $f$ restricted to that chunk is one-way<sup id="fnref:9"><a href="#fn:9" class="footnote" rel="footnote" role="doc-noteref">9</a></sup>. Thus, $f$ restricted to that chunk is a regular OWF, so by the above argument, $G$ has $n^2 + n + 100 \log n$ surprising indices conditioning on its output being in the image of that chunk. Since this is true on every chunk, $f$ has $n^2 +n + 100\log n$ surprising indices in general.</p>
 
 <h2 id="spreading-out-the-surprise">Spreading out the surprise</h2>
 
@@ -250,7 +251,7 @@ $G(M, x) = (M, Mf(x), Mx).$</p>
 
 <p>Just kidding. We’re gonna hash with random matrices again :)</p>
 
-<p>The construction will be: compute $G’$ $n^3$ times on different random inputs<sup id="fnref:10" role="doc-noteref"><a href="#fn:10" class="footnote" rel="footnote">10</a></sup>, and arrange the outputs as the rows of an $n^4 \times (2n^2 - n)$ matrix. Now, let $H$ be a random $n^3 \times (n^3/2 + 10 n^2 \log n)$ matrix, which we’ll use to <strong>hash all the columns</strong> of this matrix. That is, we output first $H$ applied to all the first entries of the matrix, then $H$ applied to all the second entries, etc, for a total of $(n^3/2 + 10 n^2 \log n)(2n^2 - n) \geq n^5 + n^4 \log n$ output bits. The total number of bits we fed in (not counting the hash functions, since we’ll just output them verbatim on top of this) was $n^5 + n^3 \log n$. So, we’re length extending!</p>
+<p>The construction will be: compute $G’$ $n^3$ times on different random inputs<sup id="fnref:10"><a href="#fn:10" class="footnote" rel="footnote" role="doc-noteref">10</a></sup>, and arrange the outputs as the rows of an $n^4 \times (2n^2 - n)$ matrix. Now, let $H$ be a random $n^3 \times (n^3/2 + 10 n^2 \log n)$ matrix, which we’ll use to <strong>hash all the columns</strong> of this matrix. That is, we output first $H$ applied to all the first entries of the matrix, then $H$ applied to all the second entries, etc, for a total of $(n^3/2 + 10 n^2 \log n)(2n^2 - n) \geq n^5 + n^4 \log n$ output bits. The total number of bits we fed in (not counting the hash functions, since we’ll just output them verbatim on top of this) was $n^5 + n^3 \log n$. So, we’re length extending!</p>
 
 <center>
 <figure>
@@ -263,7 +264,7 @@ $G(M, x) = (M, Mf(x), Mx).$</p>
 <ol>
   <li>Recall that indistinguishability is equivalent to next-bit unpredictability at every index. So, it suffices to show that no algorithm can predict the hash of one column given the hashes of all the previous columns.</li>
   <li>Choose some column of the matrix. For how many rows of the matrix is that column one of the surprising indices? Well, each row is surprising on that column with probability $\frac{1}{2} + \frac{50 \log n}{n}$, so in expectation we’ll have $n^3/2 + 50 n^2 \log n$ of them. But also, since rows are generated indendently, these are independent events – Chernoff bounds tell us that, except for with exponentially small probability, the count will be square-root concentrated around the mean. So, except with exponentially small probability, every column will have at least $n^3/2 + 10 n^2 \log n$ surprising entries.</li>
-  <li>Now, imagine we replaced one of the bits corresponding to a surprising index on that column with an actual uniform random bit. Could an adversary, looking at just that column and the previous ones, tell the difference? Well, no – this is what surprising means! If an adversary could tell the difference, then by setting up the rest of the matrix ourself we could use that adversary to predict the surprising entry on that row<sup id="fnref:11" role="doc-noteref"><a href="#fn:11" class="footnote" rel="footnote">11</a></sup>. Repeating this argument, we can replace every surprising index in the column with actual uniform random bits, and the adversary must have the same probability of being able to predict the hash of the column.</li>
+  <li>Now, imagine we replaced one of the bits corresponding to a surprising index on that column with an actual uniform random bit. Could an adversary, looking at just that column and the previous ones, tell the difference? Well, no – this is what surprising means! If an adversary could tell the difference, then by setting up the rest of the matrix ourself we could use that adversary to predict the surprising entry on that row<sup id="fnref:11"><a href="#fn:11" class="footnote" rel="footnote" role="doc-noteref">11</a></sup>. Repeating this argument, we can replace every surprising index in the column with actual uniform random bits, and the adversary must have the same probability of being able to predict the hash of the column.</li>
   <li>But oh, wait, now this column has $n^3/2 + 10 n^2 \log n$ of its entries uniformly random – so, the column has min entropy at least $n^3/2 + 10 n^2 \log n$. By the leftover hash lemma, the hash of the column is statistically close to uniform! I’d like to see an adversary predict <em>that</em>. 😎</li>
 </ol>
 
@@ -279,37 +280,37 @@ Nathan</p>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>Assuming you don’t have some physical tells that let them see what you’re planning to do. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>I was about to say “natural” here, but had to stop myself because this is like the most contrived thing ever. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:3" role="doc-endnote">
+    <li id="fn:3">
       <p>The kinds of parameters crypto people usually talk about PRGs with are not the only parameters you could set. Here, we’re just thinking about PRGs that can fool any polynomial-time algorithm, and that produce at least one more random-looking bit than you put in (which we can then extend to get polynomially more random bits – more on this next time). What complexity theory like, though, is to try and see if you can fool all algorithms with any <em>specific</em> polynomial runtime, but with a random seed smaller than polynomial. That is, suppose for any $c$, you could get an $n^{500 c}$-time PRG with seed length $\log n$ such that no $n^c$-time algorithm can tell the difference. This would be super cool, because then we could learn the average behaviour of the algorithm just by enumerating all possible seeds, and so we’d know that $\text{P} = \text{BPP}$. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:4" role="doc-endnote">
+    <li id="fn:4">
       <p>In the sense that any of those 3 assumptions would imply the existence of OWFs, but none of them are known to be equivalent. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:5" role="doc-endnote">
+    <li id="fn:5">
       <p>Not to be confused with the <strong>Leftover Hash-Browns Lemma</strong>, which says that it’s a good idea to make extra mashed potatos and then fry the remainder the next morning with breakfast. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:6" role="doc-endnote">
+    <li id="fn:6">
       <p>This is necessary – you can’t have a truly deterministic extractor for arbitrary sources of high min-entropy. However, if you restrict to only a specific class of $\mathcal{X}$, it’s sometimes possible to get deterministic extraction. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:7" role="doc-endnote">
+    <li id="fn:7">
       <p>@Alek Westover endorses this message. (Also, you should check out Alek’s blog <a href="https://awestover.github.io/skyspace/" title="epic blog">here</a>!) <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:8" role="doc-endnote">
+    <li id="fn:8">
       <p>Ok, I’m glossing over things a little bit – you might be worried that I only claimed I was $n^{-100}$-close to uniform. Well, just increasing $100$ to be bigger than your favourite constant shows that this is arbitrarily polynomially close to uniform. If you claim any particular inverse polynomial statistical distance, I can find an algorithm with a corresponding inverse polynomial chance of inverting the OWF by our Goldreich-Levin argument. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:9" role="doc-endnote">
+    <li id="fn:9">
       <p>If we have inverse polynomial probability of inverting conditional on the input being in that chunk, we also have inverse polynomial probability of inverting in general. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:10" role="doc-endnote">
+    <li id="fn:10">
       <p>Those of you who actually use computers may ask “shoot is $n^3$ really necessary here?” To which I respond both (a) No – according to Mazor and Pass I could have said $n^2 / \log^2 n$ or something, but I was just sloppy. (b) Pretty sure nobody actually does this irl anyway. They just take functions that look pretty complicated, see if anyone can break them, and if not say “yep looks pseudorandom”. Or the <a href="https://en.wikipedia.org/wiki/Dual_EC_DRBG" title="oops! don't know how we missed that vulnerability -- terribly sorry, must have overlooked something.">NSA promises you something is definitely totally a PRG</a>, and you believe them because why would those guys lie to you? <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:11" role="doc-endnote">
+    <li id="fn:11">
       <p>If you’re being careful, you’ll notice that, in order to actually use this to get a predictor, we need the ability to predict which bits are supposed to be surprising, which might not be easy to figure out just by looking at the OWF. But, if we had a non-uniform algorithm (i.e. a circuit as opposed to a Turing machine), we could just hardwire this information about the OWF. So this argument only gives a PRG if we assume the OWF was secure against non-uniform adversaries – it’s possible to get security against uniform adversaries too, but a little more work. <a href="#fnref:11" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
