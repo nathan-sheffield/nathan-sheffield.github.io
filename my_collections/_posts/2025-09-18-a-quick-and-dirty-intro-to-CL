@@ -1,15 +1,11 @@
 ---
 layout: post
 title:  "A Quick-and-Dirty Intro to CL"
-date:   2025-09-17 1:00:00 -0400
+date:   2025-09-17 7:00:00 -0400
 categories: jekyll update
 excerpt: "Exposition of Ted and James's new CL reachability algorithm, and an algebra-free take on the BCKLS algorithm for evaluating threshold circuits."
 ---
 
-I've been thinking for a while now about this model of space-bounded complexity called $\mathsf{CL}$ (short for ``catalytic logspace'', because most of the space used for computation is restored unchanged to its initial configuration afterwards, kinda like a catalyst in a chemical reaction). 
-In this post, I've finally sat down and tried to give as quick and easy a sense as I can for what this model is and how you can do things with it. The impetus for writing this was twofold: 
-1) My friends discovered a beautifully simple new CL algorithm for reachability in directed graphs.
-2) I came up with a proof of $\mathsf{TC}^1 \subseteq \mathsf{CL}$ (the foundational result in catalytic computing) that I personally think is easier than the original proof.
-So in this little 4-page intro, I say what $\CL$ is and then present both of those two algorithms. Hopefully this is a nice starting point if you haven't seen any of this stuff before. Here's a link:
+
 
 [Huh, all of the most recent posts have been links to pdfs. Maybe that's just what I do now. RIP my blog's fancy colour scheme ig.](/assets/things/A_quick_and_dirty_intro_to_CL.pdf "a link to the post").
