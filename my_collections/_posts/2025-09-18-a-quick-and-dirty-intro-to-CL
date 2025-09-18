@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A Quick-and-Dirty Intro to CL"
-date:   2025-09-18 7:00:00 -0400
+date:   2025-09-17 1:00:00 -0400
 categories: jekyll update
 excerpt: "Exposition of Ted and James's new CL reachability algorithm, and an algebra-free take on the BCKLS algorithm for evaluating threshold circuits."
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Wasting Time Responsibly"
-date:   2024-09-17 10:00:00 -0400
+date:   2028-09-17 10:00:00 -0400
 categories: jekyll update
 excerpt: "A conjecture about finite automata which you, the reader, should solve for me"
 ---
