@@ -12,7 +12,7 @@ Hi, I'm Nathan, a first-year PhD student in the Theory of Computation group at M
 - **Graph theory**. I've done a bit of pure graph theory (see [these](/assets/papers/induced-turan.pdf) [papers](/assets/papers/flip.pdf)), but am especially happy about cases where tools from graph theory let you say things about computation --- see e.g. [this paper](/assets/papers/catalytic-communication.pdf).
 - **Space-bounded complexity**. [Here's one paper](/assets/papers/catalytic-communication.pdf) I've written in this area, trying to understand the weirdness of [catalytic computing](https://eccc.weizmann.ac.il/report/2023/179/) in a more information-theoretic setting, and [here's another](/assets/papers/inplace.pdf) about the differences between computing something "in-place" versus computing it into a dedicated write-only output.
 - **Average-case complexity and crypto foundations**. Understanding average-case complexity is tricky, but also very fundamental, and it seems like people are doing a lot of really great work. The most related thing I've done is [this paper with some connections to one-way permutations](/assets/papers/inplace.pdf), but would like to do more.
-- **AI safety**. If AI continues to improve, are there ideas from CS theory (e.g. cryptography or complexity theory) that can help mitigate potential dangers? I have yet to have good ideas personally, but this feels worth thinking more about.
+- **AI safety**. If AI continues to improve, are there ideas from CS theory (e.g. cryptography or complexity theory) that can help mitigate potential dangers? It's not clear to what extent we should expect to get helpful theory, but I'm excited about trying.
 
 Some things I like outside of math: 
 

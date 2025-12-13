@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-06T21:00:20-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Nathan Sheffield</title><subtitle>Whereof one cannot speak, thereof must one blog.</subtitle><author><name>Nathan Sheffield</name></author><entry><title type="html">A Quick-and-Dirty Intro to CL</title><link href="http://localhost:4000/jekyll/update/2025/09/18/a-quick-and-dirty-intro-to-CL.html" rel="alternate" type="text/html" title="A Quick-and-Dirty Intro to CL" /><published>2025-09-18T07:00:00-04:00</published><updated>2025-09-18T07:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/09/18/a-quick-and-dirty-intro-to-CL</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/09/18/a-quick-and-dirty-intro-to-CL.html"><![CDATA[<p>I’ve been thinking for a while now about this model of space-bounded complexity called $\mathsf{CL}$ (short for “catalytic logspace”, because most of the space used for computation is restored unchanged to its initial configuration afterwards, kinda like a catalyst in a chemical reaction). 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-13T18:15:31-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Nathan Sheffield</title><subtitle>Whereof one cannot speak, thereof must one blog.</subtitle><author><name>Nathan Sheffield</name></author><entry><title type="html">Pi in the Sky</title><link href="http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky.html" rel="alternate" type="text/html" title="Pi in the Sky" /><published>2025-12-13T03:00:00-05:00</published><updated>2025-12-13T03:00:00-05:00</updated><id>http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky.html"><![CDATA[<p>Here’s a classic algorithms question: if I give you a weighted graph, how fast can you compute the distances between every pair of vertices? This is known as the “all-pairs shortest paths” (APSP) problem. Clearly, if the graph has $n$ vertices, this should take at least $n^2$ time, because you have to output $n^2$ values. But the naive approach would be to e.g. use Dijkstra’s algorithm out of every vertex, which would take about $n^2$ time <em>per vertex</em>, or $n^3$ time overall<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Despite a lot of work, nobody has been able to come up with anything much better than that, leading to the following conjecture:</p>
+
+<blockquote>
+  <p><strong>APSP Hypothesis</strong>: There is no $n^{3-\varepsilon}$-time algorithm for APSP, for any $\varepsilon&gt;0$.</p>
+</blockquote>
+
+<p>Disproving this conjecture would imply not just better algorithms for APSP, but also for a whole host of other problems that have been shown to be “fine-grained equivalent” to APSP. Let me just cut to the chase here in case you’re getting excited and say: no, this post is not about to disprove the APSP hypothesis. I’m about to tell you something way, way sillier.</p>
+
+<p>See, if you’re limited not just by time but by <em>memory</em>, the situation seems much more dire. For instance, if you only have like $\log(n)$ bits of space to work with<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>, people don’t know how to solve the problem <em>at all</em>. But we have known for a while that APSP <em>is</em> solvable in the “catalytic” logspace model, where you also get a bunch of “junk” memory that must be reset at the end. (See <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html" title="link to my last post">my last post</a> for an introduction to this model<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.) So you could ask the question: given that I can at least in principle solve this problem in small space, can I solve it in small space and <em>still get a good runtime</em>?</p>
+
+<p>The existing path for showing CL in APSP would absolutely <em>not</em> give you a good runtime — the exact runtime would depend on the details of how you wrote the argument, but you’d certainly end up with something closer to $n^{30}$ than $n^3$. So I decided at some point to sit down and try to come up with a bespoke $\mathsf{CL}$ algorithm for APSP that was as runtime-optimized as I could manage to make it. I got stuck well before making it down to $n^3$ though, which leads me to introduce the following complexity theoretic conjecture:</p>
+
+<blockquote>
+  <p><strong>Catalytic APSP Hypothesis</strong>: There is no $n^{\log_2(20) + \pi^2/6 - \varepsilon}$-time $\mathsf{CL}$ algorithm for APSP, for any $\varepsilon&gt;0$. (Where $\log_2(20) + \pi^2/6 \approx 5.97$.)</p>
+</blockquote>
+
+<p>Ok, obviously I’m messing with you here. This would be a ridiculous thing to conjecture — why on earth would $\log_2(20) + \pi^2/6$ be a fundamental barrier?? That’s literally the weirdest exponent I’ve ever seen in a runtime. And yet, I did put some elbow grease into this, and was able to get a runtime that small but no smaller. So this number is at least coming from <em>somewhere</em>.</p>
+
+<p>If you want to see the argument, <a href="/assets/things/catalytic-apsp-sketch.pdf" title="pdf explaining the APSP algorithm">here’s a sketch of the algorithm</a>. But the main question I’m interested in asking here is “should you care about this?”<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>. I think from any sort of practical perspective the answer should be “no” — $n^{5.97}$ is better than $n^{30}$, but for sure neither are so good that you’d ever consider using them, even if the assumption that you have lots of “catalytic junk memory” was somehow realistic. What about from a theory perspective? Well, even then it’s not clear — even if you decide you do really care about time-space tradeoffs for APSP, it’s still not like I have any actual evidence that $n^{5.97}$ is the <em>right</em> answer, any more than $n^{30}$ was. This may come as a great shock, but the fact that Nathan doesn’t know how to do something does not always mean that said thing is fundamentally ruled out by the laws of physics. And I don’t expect many (if any) other people to seriously try to improve this<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>.</p>
+
+<p>But the truth is that, at least on some level, I <em>do</em> care about this. Because, even if it’s not the right answer, I’m just pleased that my honest-to-goodness best effort to solve this particular algorithmic problem ended up with the number $\pi$ in the exponent<sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>. Thanks, universe! Stay weird.</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Well, if we assume the edge weights are all numbers between $0$ and $2^{o(n)}$, and we ignore $n^{o(1)}$ terms in the runtime. Of course, if the edge weights are so enormous that it takes us a substantial amount of time just to <em>write them down</em>, then that’s going to blow up the time. So probably you should assume all edge weights are bounded by some polynomial in $n$. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Since the output is way larger than $\log(n)$ bits, here we’d be hoping e.g. to write the output to some <em>write-only</em> memory not counted in those $\log(n)$ bits. In the catalytic version, we could instead hope to add the output on top of some portion of the junk space. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>The fact that APSP is solvable in CL comes from the $\mathsf{TC}^1$ circuit evaluation algorithm described in that post, since APSP is known to be solvable by $\mathsf{TC}^1$ circuits. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Here, let’s say we’re assuming you care about theory/catalytic computing generally, although it’s already far from obvious that you should care about those things. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Although if you, the reader, want to prove me wrong, I would be delighted! If you can get me an $n^{5.96}$ algorithm I hereby promise to bake you cookies :) <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p>Coming from the classic fact that $1^{-2} + 2^{-2} + 3^{-2} + \dots = \frac{\pi^2}{6}$, which is itself a well-established Bizzare Math Thing, but also this is still a pretty bizzare thing to see in your runtime exponent. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A catalytic APSP algorithm with an exceedingly goofy runtime.]]></summary></entry><entry><title type="html">A Quick-and-Dirty Intro to CL</title><link href="http://localhost:4000/jekyll/update/2025/09/18/a-quick-and-dirty-intro-to-CL.html" rel="alternate" type="text/html" title="A Quick-and-Dirty Intro to CL" /><published>2025-09-18T07:00:00-04:00</published><updated>2025-09-18T07:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/09/18/a-quick-and-dirty-intro-to-CL</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/09/18/a-quick-and-dirty-intro-to-CL.html"><![CDATA[<p>I’ve been thinking for a while now about this model of space-bounded complexity called $\mathsf{CL}$ (short for “catalytic logspace”, because most of the space used for computation is restored unchanged to its initial configuration afterwards, kinda like a catalyst in a chemical reaction). 
 In this post, I’ve finally sat down and tried to give as quick and easy a sense as I can for what this model is and how you can do things with it. The impetus for writing this was twofold:</p>
 
 <p>1) My friends discovered a beautifully simple new CL algorithm for reachability in directed graphs.</p>
@@ -748,93 +793,4 @@ I like you in glasses</p>
       <p>Actually though it’s kinda scary how much power this song can exert over my emotional state in the span of 2 minutes 47 seconds. If you’re scheming against me, you should note this as a potential weapon. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A couple of my favourite poems about quiet beauty]]></summary></entry><entry><title type="html">Pick A Card, Any Card</title><link href="http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html" rel="alternate" type="text/html" title="Pick A Card, Any Card" /><published>2023-10-08T09:40:17-04:00</published><updated>2023-10-08T09:40:17-04:00</updated><id>http://localhost:4000/jekyll/update/2023/10/08/pick-a-card</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/10/08/pick-a-card.html"><![CDATA[<p>A little while ago my friend William proposed a game that I thought was cute, and there turned out to be a pretty satisfying answer to the question of which player has a winning strategy. I figured that now that this blog exists, this could be a fun place to write up the story.</p>
-
-<p>I remember the first time someone told me about game theory, they used as a starting example something like the following:</p>
-
-<blockquote>
-  <p>Two players take turns removing stones from a pile of $n$. On your turn you can remove between $1$ and $4$ stones, and you win if you remove the last one. Who wins?</p>
-</blockquote>
-
-<p>The answer is that the first player can win if and only if the starting value of $n$ is not a multiple of 5. When you start your turn and $n$ is a multiple of 5, no matter what number $x$ of stones you pick, your opponent can respond by taking $5-x$ stones, leaving you once again with a multiple of 5 on your next turn. When the pile finally gets down to only 5 stones, you have no way of preventing your opponent from winning.</p>
-
-<p>This game is essentially a variant of <a href="https://en.wikipedia.org/wiki/Nim" title="wiki link">Nim</a> (as I suppose are all impartial games – odds are pretty good that I type up an explanation of <a href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem" title="wiki link">the Sprague-Grundy theorem</a> as a blog post at some point), and is a nice introduction to combinatorial games because it has such a straightforward winning strategy. But William proposed a different version of the game: what if, instead of choosing a number between $1$ and $4$ of stones to remove, the number of allowed stones changed over time? Specifically,</p>
-
-<blockquote>
-  <p>An instance of the game is generated by randomly shuffling a set of cards labeled $1$ through $n$. Both players know the full outcome of the shuffle. On your turn, if the current top card of the deck is $k$, you can choose to remove between $1$ and $k$ cards from the top, and you win if you remove the last one. What’s the probability that this shuffling produces a winning game state for the first player?</p>
-</blockquote>
-
-<p>Here, coming up with the right strategy feels less much less obvious – it seems like depending on what exactly the shuffling looks like, the right decisions to make could be very different. And indeed, I don’t know that there’s a simple characterization of what the optimal strategy is. However, it’s not too hard to characterize what the winning probabilities look like, at least asymptotically in $n$.</p>
-
-<h2 id="player-1-has-a-winning-strategy-with-probability-1---mathcaloleftsqrtfraclog-nnright">Player 1 has a winning strategy with probability $1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$</h2>
-
-<p>Let me show you a situation I claim is really really good for player 1:</p>
-
-<center>
-<figure>
-    <img src="/assets/figures/cards/pick-a-card-1.png" alt="Example game" width="40%" />
-    <figcaption> Grey cards indicate ones player 1 can take on her first turn. </figcaption>
-</figure>
-</center>
-
-<p>In this picture, she can choose to remove up to any of the grey cards. Suppose she chose to remove only the first two.</p>
-
-<center>
-<figure>
-    <img src="/assets/figures/cards/pick-a-card-2.png" alt="Example game" width="40%" />
-    <figcaption> Either of the two things player 2 could do in this configuration, player 1 could also have done on her first move. </figcaption>
-</figure>
-</center>
-
-<p>Now, player 2 has very few options on his turn. In particular, the options available to player 2 are a <em>strict subset</em> of those that were available to player 1 on her turn. That means that, if player 2 has some strategy to let him win the game from this position, then actually player 1 could have used that strategy instead. (For example, in this case, if player 2 thought that taking the top 1 card in this position would put him into a winning state, then player 1 could have actually started by taking the top 3 cards instead of 2, and now she’d be winning.) This is called a “strategy stealing argument” – note that it doesn’t actually tell us <em>what</em> the right strategy is, it just shows that there must <em>exist</em> one that makes player 1 win.</p>
-
-<p>By looking for configurations like this, we can give a lower bound on the probability that player 1 has a winning strategy in this game. Consider the probability that both of the following events happen:</p>
-
-<ul>
-  <li>The number on the top card is larger than $2\sqrt{n\log n}$</li>
-  <li>Among the first $\sqrt{n\log n}$ cards, there exists one whose number is less than $\sqrt{n \log n}$</li>
-</ul>
-
-<p>The first of these events occurs with probability $1 - \frac{2\sqrt{n\log n}}{n} = 1 - 2\sqrt{\frac{\log n}{n}}$. For the second event, note that, although the numbers on the first $\sqrt{n \log n}$ cards aren’t <em>actually</em> independent, they’re <em>basically</em> independent – $\sqrt{n \log n}$ is such a small fraction of the deck that we aren’t changing the distribution of cards very much, so we can pretend we were drawing with replacement. Now, the probability of all of the first $\sqrt{n \log n}$ cards having value more than $\sqrt{n \log n}$ is $\left( 1 - \frac{\sqrt{n \log n}}{n} \right)^{\sqrt{n \log n}}$. As $n$ gets large, we can approximate this as $e^{- \log n} = \frac{1}{n}$. So, the probability that both events occur is $\left(1 - 2\sqrt{\frac{\log n}{n}}\right)\left(1 - \frac{1}{n}\right) = 1 - \mathcal{O}\left(\sqrt{\frac{\log n}{n}}\right)$. Whenever both of these events occur, we’ll have the same strategy-stealing setup as in the example: player 1 can force player 2 into a position where his options are a strict subset of what hers were initially. This argument tells us that the chances of player 2 winning the game go to zero as $n$ gets big – and in particular, go to zero almost as fast as $\frac{1}{\sqrt{n}}$. Using the same sort of argument again, we can also show that player 2’s winning probabilities don’t decay much faster than that – $\frac{1}{\sqrt{n}}$ is pretty much the right answer<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
-
-<h2 id="player-2-has-a-winning-strategy-with-probability-omegaleft-sqrtfrac1n-right">Player 2 has a winning strategy with probability $\Omega\left( \sqrt{\frac{1}{n}} \right)$</h2>
-
-<p>Consider the probability that all of the following events happen:</p>
-
-<ul>
-  <li>The number on the first card is smaller than $\sqrt{n}$</li>
-  <li>The second through $\sqrt{n}$th card all have values at least $3\sqrt{n}$</li>
-  <li>Among the $\sqrt{n}$th through $2\sqrt{n}$th cards, all have value at most $\sqrt{n}$</li>
-</ul>
-
-<p>This sequence of events means that, no matter what player 1 does, player 2 will then be in a position to do a strategy stealing. By a similar argument to above, these events occur with probability roughly $\left( \frac{1}{\sqrt{n}} \right)\left( e^{-1} \right) \left( e^{-1/3} \right) = \Omega\left( \sqrt{\frac{1}{n}} \right)$.</p>
-
-<h2 id="other-questions">Other questions</h2>
-
-<p>This was a quick example of a case where a strategy stealing argument one step away let me characterize the winning probability of a game pretty tightly. If you thought this game sounded interesting, here’s a couple other questions that could be fun to think about:</p>
-
-<ol>
-  <li>How do winning probabilities for this game work if, instead of shuffing cards $1$ through $n$, the card values are dice rolls (i.e. independent uniform values from 1 to 6)<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>? Strategy stealing tells us both players have a constant winning probability, but how do we figure out what that constant is?</li>
-  <li>What about if the players don’t know the whole shuffling – i.e. they can only see the first card, so they’re playing with partial information and trying to maximize winning probability? Intuitively, you’d expect that when you shuffle $1$ through $n$, the right strategy might be to only take one card at a time at the beginning, because the fewer cards that are left the more chance your opponent instawins on the next turn. When the values are from dice rolls, you can write down some recurrences and you’ll start to see patterns.</li>
-  <li>You could also define a variant of this game where, instead of removing cards from a stack, you lay out all the cards in a line. Now, on your turn, you can jump to a card up to as many steps away as the current value, where it then becomes the next player’s turn. You can never revisit an already visited card, and your goal is to never get stuck with no moves available to you. Who wins? None of the strategy stealing stuff works anymore, because now there’s some dependence on history. It seems likely that in the $1$ through $n$ shuffle case you almost never get stuck until the end, but maybe this game is fun for smaller cards? I haven’t thought much about it – let me know if you do!</li>
-</ol>
-
-<center>
-<figure>
-    <img src="/assets/figures/cards/pick-a-card-3.png" alt="Example game" witdh="80%" />
-    <figcaption> Grey cards indicate ones that are available to move to on this turn; solid (think: face-down) cards indicate the already-visited ones. </figcaption>
-</figure>
-</center>
-
-<hr class="header-line" />
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>This $\sqrt{\log n}$ factor is a bit annoying – I suspect you could make it go away if you were a little more careful with things, but I’m just leaving this a rough sketch. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>Or iid from some other distribution, say. The reason this approach was so strong here was because the card values were allowed to be really large, so it was likely to be able to pull these shenannigans – when cards have smaller numbers I expect it’ll be a much trickier problem. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A simple strategy stealing argument for a nim-like card game]]></summary></entry></feed>
+</div>]]></content><author><name>Nathan Sheffield</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[A couple of my favourite poems about quiet beauty]]></summary></entry></feed>

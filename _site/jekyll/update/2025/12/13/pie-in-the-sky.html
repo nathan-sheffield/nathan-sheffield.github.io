@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Pi in the Sky | Nathan Sheffield</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Pi in the Sky" />
+<meta name="author" content="Nathan Sheffield" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A catalytic APSP algorithm with an exceedingly goofy runtime." />
+<meta property="og:description" content="A catalytic APSP algorithm with an exceedingly goofy runtime." />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky.html" />
+<meta property="og:site_name" content="Nathan Sheffield" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-13T03:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Pi in the Sky" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nathan Sheffield"},"dateModified":"2025-12-13T03:00:00-05:00","datePublished":"2025-12-13T03:00:00-05:00","description":"A catalytic APSP algorithm with an exceedingly goofy runtime.","headline":"Pi in the Sky","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky.html"},"url":"http://localhost:4000/jekyll/update/2025/12/13/pie-in-the-sky.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Nathan Sheffield" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<link rel="icon" type="image/x-icon" href="/assets/logos/phi-logo.svg"></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Nathan Sheffield</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/" > About  </a><a class="page-link" href="/blog/" > Blog  </a><a class="page-link" href="/papers/" > Research  </a><a class="page-link" href="/things/" > Misc  </a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Pi in the Sky</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2025-12-13T03:00:00-05:00" itemprop="datePublished">
+        Dec 13, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Here’s a classic algorithms question: if I give you a weighted graph, how fast can you compute the distances between every pair of vertices? This is known as the “all-pairs shortest paths” (APSP) problem. Clearly, if the graph has $n$ vertices, this should take at least $n^2$ time, because you have to output $n^2$ values. But the naive approach would be to e.g. use Dijkstra’s algorithm out of every vertex, which would take about $n^2$ time <em>per vertex</em>, or $n^3$ time overall<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Despite a lot of work, nobody has been able to come up with anything much better than that, leading to the following conjecture:</p>
+
+<blockquote>
+  <p><strong>APSP Hypothesis</strong>: There is no $n^{3-\varepsilon}$-time algorithm for APSP, for any $\varepsilon&gt;0$.</p>
+</blockquote>
+
+<p>Disproving this conjecture would imply not just better algorithms for APSP, but also for a whole host of other problems that have been shown to be “fine-grained equivalent” to APSP. Let me just cut to the chase here in case you’re getting excited and say: no, this post is not about to disprove the APSP hypothesis. I’m about to tell you something way, way sillier.</p>
+
+<p>See, if you’re limited not just by time but by <em>memory</em>, the situation seems much more dire. For instance, if you only have like $\log(n)$ bits of space to work with<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>, people don’t know how to solve the problem <em>at all</em>. But we have known for a while that APSP <em>is</em> solvable in the “catalytic” logspace model, where you also get a bunch of “junk” memory that must be reset at the end. (See <a href="https://nathan-sheffield.github.io/jekyll/update/2023/09/25/the-best-algorithm-ever.html" title="link to my last post">my last post</a> for an introduction to this model<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.) So you could ask the question: given that I can at least in principle solve this problem in small space, can I solve it in small space and <em>still get a good runtime</em>?</p>
+
+<p>The existing path for showing CL in APSP would absolutely <em>not</em> give you a good runtime — the exact runtime would depend on the details of how you wrote the argument, but you’d certainly end up with something closer to $n^{30}$ than $n^3$. So I decided at some point to sit down and try to come up with a bespoke $\mathsf{CL}$ algorithm for APSP that was as runtime-optimized as I could manage to make it. I got stuck well before making it down to $n^3$ though, which leads me to introduce the following complexity theoretic conjecture:</p>
+
+<blockquote>
+  <p><strong>Catalytic APSP Hypothesis</strong>: There is no $n^{\log_2(20) + \pi^2/6 - \varepsilon}$-time $\mathsf{CL}$ algorithm for APSP, for any $\varepsilon&gt;0$. (Where $\log_2(20) + \pi^2/6 \approx 5.97$.)</p>
+</blockquote>
+
+<p>Ok, obviously I’m messing with you here. This would be a ridiculous thing to conjecture — why on earth would $\log_2(20) + \pi^2/6$ be a fundamental barrier?? That’s literally the weirdest exponent I’ve ever seen in a runtime. And yet, I did put some elbow grease into this, and was able to get a runtime that small but no smaller. So this number is at least coming from <em>somewhere</em>.</p>
+
+<p>If you want to see the argument, <a href="/assets/things/catalytic-apsp-sketch.pdf" title="pdf explaining the APSP algorithm">here’s a sketch of the algorithm</a>. But the main question I’m interested in asking here is “should you care about this?”<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>. I think from any sort of practical perspective the answer should be “no” — $n^{5.97}$ is better than $n^{30}$, but for sure neither are so good that you’d ever consider using them, even if the assumption that you have lots of “catalytic junk memory” was somehow realistic. What about from a theory perspective? Well, even then it’s not clear — even if you decide you do really care about time-space tradeoffs for APSP, it’s still not like I have any actual evidence that $n^{5.97}$ is the <em>right</em> answer, any more than $n^{30}$ was. This may come as a great shock, but the fact that Nathan doesn’t know how to do something does not always mean that said thing is fundamentally ruled out by the laws of physics. And I don’t expect many (if any) other people to seriously try to improve this<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>.</p>
+
+<p>But the truth is that, at least on some level, I <em>do</em> care about this. Because, even if it’s not the right answer, I’m just pleased that my honest-to-goodness best effort to solve this particular algorithmic problem ended up with the number $\pi$ in the exponent<sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>. Thanks, universe! Stay weird.</p>
+
+<hr class="header-line" />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Well, if we assume the edge weights are all numbers between $0$ and $2^{o(n)}$, and we ignore $n^{o(1)}$ terms in the runtime. Of course, if the edge weights are so enormous that it takes us a substantial amount of time just to <em>write them down</em>, then that’s going to blow up the time. So probably you should assume all edge weights are bounded by some polynomial in $n$. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Since the output is way larger than $\log(n)$ bits, here we’d be hoping e.g. to write the output to some <em>write-only</em> memory not counted in those $\log(n)$ bits. In the catalytic version, we could instead hope to add the output on top of some portion of the junk space. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>The fact that APSP is solvable in CL comes from the $\mathsf{TC}^1$ circuit evaluation algorithm described in that post, since APSP is known to be solvable by $\mathsf{TC}^1$ circuits. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Here, let’s say we’re assuming you care about theory/catalytic computing generally, although it’s already far from obvious that you should care about those things. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Although if you, the reader, want to prove me wrong, I would be delighted! If you can get me an $n^{5.96}$ algorithm I hereby promise to bake you cookies :) <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p>Coming from the classic fact that $1^{-2} + 2^{-2} + 3^{-2} + \dots = \frac{\pi^2}{6}$, which is itself a well-established Bizzare Math Thing, but also this is still a pretty bizzare thing to see in your runtime exponent. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="/jekyll/update/2025/12/13/pie-in-the-sky.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+
+        <ul class="contact-list">
+            <li class="p-name">Nathan Sheffield</li>
+            <li><a class="u-email" href="mailto:shefna@mit.edu">shefna@mit.edu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Whereof one cannot speak, thereof must one blog.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
