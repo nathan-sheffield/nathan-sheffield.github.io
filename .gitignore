@@ -1,0 +1,24 @@
+# Secret content - NEVER commit these
+_secrets/
+secrets_manifest.yml
+
+# Build artifacts
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata/
+
+# Dependencies
+node_modules/
+
+# Ruby bundle config
+.bundle/
+
+# Ruby vendor bundle
+vendor/
+
+# OS files
+.DS_Store
+
+# Claude stuff
+message-for-claude.md

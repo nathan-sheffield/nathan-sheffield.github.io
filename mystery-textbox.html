@@ -1,0 +1,321 @@
+---
+layout: page
+title: Textbox
+tagline: "What is man? A miserable little pile of secrets"
+subtitle: An empty textbox. Curious! 
+permalink: /mystery-textbox/
+---
+
+<style>
+  .mystery-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em auto;
+    max-width: 500px;
+  }
+  .mystery-form input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1em;
+    border: 2px solid #555;
+    border-radius: 6px;
+    background: #2a2730;
+    color: #c7b8d3;
+    font-family: monospace;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .mystery-form input[type="text"]:focus {
+    outline: none;
+    border-color: #7c4dff;
+  }
+  .mystery-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .mystery-buttons button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: 2px solid #7c4dff;
+    border-radius: 6px;
+    background: #7c4dff;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .mystery-buttons button:hover {
+    background: #651fff;
+  }
+  .mystery-buttons .send-btn {
+    border-color: #555;
+    background: transparent;
+    color: #888;
+  }
+  .mystery-buttons .send-btn:hover {
+    border-color: #bb86fc;
+    background: transparent;
+    color: #bb86fc;
+  }
+  #mystery-status {
+    margin: 1em auto;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: none;
+    max-width: 500px;
+    text-align: center;
+  }
+  #mystery-status.success {
+    display: block;
+    background: #1a1a2e;
+    border: 1px solid #7c4dff;
+    color: #bb86fc;
+  }
+  #mystery-status.error {
+    display: block;
+    background: #1a1a1a;
+    border: 1px solid #555;
+    color: #888;
+  }
+  #mystery-status.info {
+    display: block;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    color: #aaa;
+  }
+  .unlocked-list {
+    margin-top: 2em;
+  }
+  .unlocked-list h3 {
+    margin-bottom: 0.5em;
+  }
+  .unlocked-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+  }
+  .unlocked-item a {
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .unlocked-item a:hover {
+    text-decoration: underline;
+  }
+  .unlocked-item .item-meta {
+    font-size: 0.85em;
+    color: #888;
+  }
+  #stored-passwords {
+    margin-top: 2em;
+    font-size: 0.9em;
+    color: #888;
+  }
+  #stored-passwords button {
+    background: none;
+    border: 1px solid #555;
+    color: #888;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-left: 4px;
+  }
+  #stored-passwords button:hover {
+    color: #f44336;
+    border-color: #f44336;
+  }
+</style>
+
+<div class="mystery-form">
+  <input type="text" id="mystery-password" placeholder="Have you any secrets to offer me?" autocomplete="off"
+         onkeydown="if(event.key==='Enter')document.getElementById('mystery-submit').click()">
+  <div class="mystery-buttons">
+    <button id="mystery-submit" onclick="handleSubmit()">Check</button>
+  </div>
+</div>
+
+<iframe name="send-target" style="display:none;"></iframe>
+<div id="mystery-status"></div>
+<div id="unlocked-content"></div>
+<div id="stored-passwords"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="/assets/js/decrypt.js"></script>
+<script>
+  const statusEl = document.getElementById("mystery-status");
+  const contentEl = document.getElementById("unlocked-content");
+  const storedEl = document.getElementById("stored-passwords");
+
+  function setStatus(msg, cls) {
+    statusEl.dataset.animating = "false";
+    statusEl.textContent = msg;
+    statusEl.className = cls;
+  }
+
+  async function handleSubmit() {
+    const input = document.getElementById("mystery-password");
+    const password = input.value.trim();
+    if (!password) return;
+
+    setStatus("Considering", "info");
+    statusEl.dataset.animating = "true";
+    let dots = 0;
+    const dotInterval = setInterval(() => {
+      if (statusEl.dataset.animating !== "true") { clearInterval(dotInterval); return; }
+      dots = (dots + 1) % 4;
+      statusEl.textContent = "Considering" + ".".repeat(dots);
+    }, 400);
+
+    try {
+      const result = await SecretContent.submitPassword(password);
+      if (result.success) {
+        // Check if any newly unlocked entry is a dialogue response
+        const dialogue = result.entries.find(e => e.metadata.dialogue_response);
+        if (dialogue) {
+          const style = dialogue.metadata.dialogue_style || "error";
+          const resp = dialogue.metadata.dialogue_response;
+          if (style === "success") {
+            setStatus(`${resp} [Unlocked ${result.entries.length} item(s).]`, "success");
+          } else {
+            setStatus(resp, style);
+          }
+        } else {
+          setStatus(`Oh, a most sumptuous secret! Perhaps I can offer you something in return... [Unlocked ${result.entries.length} item(s).]`, "success");
+        }
+        input.value = "";
+        await refreshUnlocked();
+        await SecretContent.refreshNav();
+        await checkSendFeature();
+      } else {
+        setStatus("No no, that simply will not do.", "error");
+      }
+    } catch (err) {
+      setStatus("Error: " + err.message, "error");
+    }
+  }
+
+  async function refreshUnlocked() {
+    try {
+      const { unlockedEntries, passwords } = await SecretContent.unlockAll();
+
+      if (unlockedEntries.length === 0) {
+        contentEl.innerHTML = "";
+        storedEl.innerHTML = "";
+        return;
+      }
+
+      // Split into grouped entries and standalone pages
+      const grouped = {};
+      const standalone = [];
+      unlockedEntries.forEach(e => {
+        if (e.metadata.groupHash) {
+          if (!grouped[e.metadata.groupHash]) grouped[e.metadata.groupHash] = [];
+          grouped[e.metadata.groupHash].push(e);
+        } else if (e.metadata.nav_title) {
+          standalone.push(e);
+        }
+      });
+
+      let html = '<div class="unlocked-list">';
+      html += `<h3>Unlocked Content</h3>`;
+
+      // Check for send-button feature
+      const sendFeature = unlockedEntries.find(e => e.metadata.feature === "send-button");
+      if (sendFeature) {
+        const href = "/secret/#file=" + sendFeature.fileIndex + "&key=" + sendFeature.fileKey;
+        html += `<div class="unlocked-item">`;
+        html += `<a href="${href}">Bug Nathan</a>`;
+        html += `<br><span class="item-meta">${sendFeature.metadata.excerpt || "Send anonymous messages to Nathan from the textbox."}</span>`;
+        html += `</div>`;
+      }
+
+      // Check for viewable dialogue rewards (e.g. the award)
+      const rewards = unlockedEntries.filter(e => e.metadata.feature === "dialogue" && e.metadata.excerpt);
+      for (const entry of rewards) {
+        const href = "/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey;
+        html += `<div class="unlocked-item">`;
+        html += `<a href="${href}">${entry.metadata.title}</a>`;
+        html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
+        html += `</div>`;
+      }
+
+      for (const [hash, entries] of Object.entries(grouped)) {
+        const groupName = entries[0].metadata.group || "???";
+        const label = groupName.charAt(0).toUpperCase() + groupName.slice(1);
+        const count = entries.length;
+        html += `<div class="unlocked-item">`;
+        html += `<a href="/g/#${hash}">${label}</a>`;
+        html += ` <span class="item-meta">${count} section${count > 1 ? "s" : ""} unlocked</span>`;
+        // Use excerpt from the hub entry if available
+        const hub = entries.find(e => e.metadata.is_hub);
+        if (hub && hub.metadata.excerpt) {
+          html += `<br><span class="item-meta">${hub.metadata.excerpt}</span>`;
+        }
+        html += `</div>`;
+      }
+
+      for (const entry of standalone) {
+        html += `<div class="unlocked-item">`;
+        const href = entry.metadata.permalink || ("/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey);
+        html += `<a href="${href}">${entry.metadata.nav_title || entry.metadata.title}</a>`;
+        if (entry.metadata.excerpt) {
+          html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
+        }
+        html += `</div>`;
+      }
+
+      html += "</div>";
+      contentEl.innerHTML = html;
+
+      // Show stored passwords with remove buttons
+      let pwHtml = `<p>Known secrets: ${passwords.length}`;
+      pwHtml += ` <button onclick="forgetAll()">forget all</button></p>`;
+      storedEl.innerHTML = pwHtml;
+
+    } catch (err) {
+      console.error("Error refreshing unlocked content:", err);
+    }
+  }
+
+  function forgetAll() {
+    SecretContent.clearPasswords();
+    contentEl.innerHTML = "";
+    storedEl.innerHTML = "";
+    setStatus("All secrets forgotten.", "info");
+  }
+
+  // --- "Bug Nathan" feature (fully dynamic) ---
+  async function checkSendFeature() {
+    try {
+      const { unlockedEntries } = await SecretContent.unlockAll();
+      const feature = unlockedEntries.find(e => e.metadata.feature === "send-button");
+      const buttons = document.querySelector(".mystery-buttons");
+      if (feature && buttons && !buttons.querySelector(".send-btn")) {
+        const btn = document.createElement("button");
+        btn.className = "send-btn";
+        btn.textContent = feature.metadata.title || "Send";
+        btn.addEventListener("click", () => {
+          const input = document.getElementById("mystery-password");
+          const message = input.value.trim();
+          if (!message) return;
+          setStatus("Sending...", "info");
+          try {
+            const formData = new FormData();
+            formData.append(feature.metadata.form_entry_id, message);
+            navigator.sendBeacon(feature.metadata.form_endpoint, formData);
+            setStatus("Sent!", "success");
+            input.value = "";
+          } catch (err) {
+            setStatus("Failed to send: " + err.message, "error");
+          }
+        });
+        buttons.appendChild(btn);
+      }
+    } catch {}
+  }
+
+  // On page load, show any already-unlocked content
+  refreshUnlocked();
+  checkSendFeature();
+</script>

@@ -10,7 +10,9 @@ layout: base
   {%- if page.subtitle -%}
     <p class="page-subtitle"> {{ page.subtitle }}</p>
   {%- endif -%}
+  {%- if page.tagline or page.subtitle -%}
   <hr class = "header-line">
+  {%- endif -%}
   </header>
 
   <div class="post-content">

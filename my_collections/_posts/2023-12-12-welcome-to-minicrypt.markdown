@@ -211,8 +211,6 @@ The question now is: how do we know this output is computationally indistinguish
 # For next time
 Ok, that's it! We've built PRGs from nothing but OWFs. Having PRGs will in turn open up a wonderful world of crypto -- from stateless symmetric-key encryption and message authentication to commitment schemes.
 
-Let me know if you liked this post! Are there things you think I should change? You can't leave comments because idk how to set that up, but you should all press ctrl-shift-i on your keyboards, add an extra little "<div>" at the bottom, type up a response there, and then mail a screenshot to Nathan Sheffield at Cambridge MA. If your comments elicit any kind of emotional response, such as can be expressed by an emoticon, I will draw one and return the letter to you within 14 business days.
-
 Yours truly, forever and always,
 Nathan
 

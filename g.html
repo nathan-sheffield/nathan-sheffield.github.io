@@ -1,0 +1,224 @@
+---
+layout: page
+permalink: /g/
+---
+
+<style>
+  #group-locked {
+    text-align: center;
+    margin: 3em 0;
+    color: #888;
+  }
+  #group-loading {
+    color: #888;
+    font-style: italic;
+  }
+  .hub-intro {
+    margin-bottom: 2em;
+    line-height: 1.7;
+  }
+  .puzzle-list {
+    list-style: none;
+    padding: 0;
+  }
+  .puzzle-list li {
+    margin-bottom: 0.5em;
+  }
+  .puzzle-link {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #bb86fc;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .puzzle-link:hover {
+    border-color: #7c4dff;
+    background: rgba(124, 77, 255, 0.08);
+  }
+  .puzzle-link .puzzle-title {
+    font-weight: bold;
+  }
+  .puzzle-link .puzzle-excerpt {
+    color: #888;
+    font-size: 0.85em;
+  }
+  .puzzle-locked {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #555;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .puzzle-locked .puzzle-title {
+    font-weight: bold;
+  }
+</style>
+
+<div id="group-loading">Loading...</div>
+<div id="group-locked" style="display:none">
+  <p>This page requires a password.</p>
+  <p><a href="/mystery-textbox/">Go to the Textbox</a></p>
+</div>
+<div id="group-content"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="/assets/js/decrypt.js"></script>
+<script>
+  // Allow raw HTML to pass through marked
+  const renderer = new marked.Renderer();
+  renderer.html = function(token) {
+    return typeof token === 'string' ? token : (token.raw || token.text || '');
+  };
+  marked.use({ renderer: renderer });
+
+  let groupHash = window.location.hash.substring(1);
+
+  async function loadGroup() {
+    const loadingEl = document.getElementById("group-loading");
+    const lockedEl = document.getElementById("group-locked");
+    const contentEl = document.getElementById("group-content");
+
+    if (!groupHash) {
+      loadingEl.style.display = "none";
+      lockedEl.style.display = "block";
+      return;
+    }
+
+    try {
+      const { unlockedEntries } = await SecretContent.unlockAll();
+
+      const groupEntries = unlockedEntries
+        .filter(e => e.metadata.groupHash === groupHash)
+        .sort((a, b) => (a.metadata.order || 999) - (b.metadata.order || 999));
+
+      loadingEl.style.display = "none";
+
+      if (groupEntries.length === 0) {
+        lockedEl.style.display = "block";
+        return;
+      }
+
+      // Find the hub entry for intro text and group name
+      const hub = groupEntries.find(e => e.metadata.is_hub);
+      const items = groupEntries.filter(e => e !== hub);
+
+      // Set page header from hub metadata (matching the page layout format)
+      const header = document.querySelector(".post-header");
+      if (hub) {
+        if (hub.metadata.group) {
+          const name = hub.metadata.group.charAt(0).toUpperCase() + hub.metadata.group.slice(1);
+          document.title = name + " | " + document.title;
+        }
+        let headerHtml = "";
+        if (hub.metadata.tagline) {
+          headerHtml += `<h1 class="page-heading"> "${hub.metadata.tagline}" </h1>`;
+        }
+        if (hub.metadata.subtitle) {
+          headerHtml += `<p class="page-subtitle">${hub.metadata.subtitle}</p>`;
+        }
+        if (hub.metadata.tagline || hub.metadata.subtitle) {
+          headerHtml += `<hr class="header-line">`;
+        }
+        if (header) header.innerHTML = headerHtml;
+      }
+
+      const listStyle = (hub && hub.metadata.list_style) || "puzzle";
+
+      let html = "";
+
+      // Render hub body if available
+      if (hub) {
+        const introMd = await SecretContent.decryptFile(hub.fileIndex, hub.fileKey);
+        const introHtml = marked.parse(introMd).trim();
+        if (introHtml) {
+          html += '<div class="hub-intro">' + introHtml + '</div>';
+        }
+      }
+
+      if (listStyle === "blog") {
+        // Blog style: matches the normal blog's post-list formatting
+        items.sort((a, b) => (b.metadata.date || "").localeCompare(a.metadata.date || ""));
+        html += '<ul class="post-list">';
+        for (const entry of items) {
+          const url = `/secret/#file=${entry.fileIndex}&key=${entry.fileKey}`;
+          html += `<li>`;
+          if (entry.metadata.date) {
+            const d = new Date(entry.metadata.date);
+            const formatted = isNaN(d) ? entry.metadata.date :
+              d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+            html += `<span class="post-meta">${formatted}</span>`;
+          }
+          html += `<h3><a class="post-link" href="${url}">${entry.metadata.title}</a></h3>`;
+          if (entry.metadata.excerpt) {
+            html += `<div class="post-excerpt">${entry.metadata.excerpt}</div>`;
+          }
+          html += `</li>`;
+        }
+        html += '</ul>';
+      } else {
+        // Puzzle style: ordered slots with locked placeholders
+        const maxOrder = Math.max(...groupEntries.map(e => e.metadata.order || 0));
+        const slots = [];
+        for (let i = 1; i <= maxOrder; i++) {
+          const entry = items.find(e => e.metadata.order === i);
+          slots.push(entry || { locked: true, order: i });
+        }
+        if (slots.length > 0) {
+          html += '<ul class="puzzle-list">';
+          for (const slot of slots) {
+            if (slot.locked) {
+              html += `<li><div class="puzzle-locked">`;
+              html += `<span class="puzzle-title">???</span>`;
+              html += ` <span class="puzzle-excerpt">— locked</span>`;
+              html += `</div></li>`;
+            } else {
+              const url = `/secret/#file=${slot.fileIndex}&key=${slot.fileKey}`;
+              html += `<li><a class="puzzle-link" href="${url}">`;
+              html += `<span class="puzzle-title">${slot.metadata.title}</span>`;
+              if (slot.metadata.excerpt) {
+                html += ` <span class="puzzle-excerpt">— ${slot.metadata.excerpt}</span>`;
+              }
+              html += `</a></li>`;
+            }
+          }
+          html += '</ul>';
+        }
+      }
+
+      contentEl.innerHTML = html;
+
+      // Execute any script tags from hub content
+      contentEl.querySelectorAll("script").forEach(oldScript => {
+        const newScript = document.createElement("script");
+        if (oldScript.src) newScript.src = oldScript.src;
+        else newScript.textContent = oldScript.textContent;
+        oldScript.replaceWith(newScript);
+      });
+
+      if (window.MathJax && MathJax.Hub) {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, contentEl]);
+      }
+
+    } catch (err) {
+      document.getElementById("group-loading").style.display = "none";
+      document.getElementById("group-locked").style.display = "block";
+      console.error(err);
+    }
+  }
+
+  loadGroup();
+
+  window.addEventListener("hashchange", () => {
+    groupHash = window.location.hash.substring(1);
+    document.getElementById("group-loading").style.display = "block";
+    document.getElementById("group-locked").style.display = "none";
+    document.getElementById("group-content").innerHTML = "";
+    loadGroup();
+  });
+</script>

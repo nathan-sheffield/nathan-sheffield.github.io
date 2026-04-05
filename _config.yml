@@ -35,13 +35,10 @@ collections_dir: my_collections
 collections:
   - papers
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - script/
+  - secrets_manifest.yml.example
+  - message-for-claude.md
+  - node_modules/
+  - vendor/
+  - "*.code-workspace"

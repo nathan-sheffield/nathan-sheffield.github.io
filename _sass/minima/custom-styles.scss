@@ -1,2 +1,35 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+// Card-style post list items (used by both normal and secret blog)
+.post-list > li {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  transition: border-color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: #7c4dff;
+    background: rgba(124, 77, 255, 0.08);
+  }
+}
+
+.post-list > li h3 {
+  margin-top: 0;
+}
+
+.post-link {
+  @include relative-font-size(1.25);
+}
+
+.post-meta {
+  font-size: 0.85em;
+}
+
+// Excerpt text shown below titles
+.post-excerpt {
+  color: $brand-color;
+  font-size: 0.9em;
+  margin-top: 0.2em;
+}

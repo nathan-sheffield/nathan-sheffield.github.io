@@ -1,0 +1,22 @@
+#!/bin/bash
+# Pre-commit hook: prevents committing secret plaintext files.
+# Install: cp script/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+
+FORBIDDEN_PATTERNS=(
+  "_secrets/"
+  "secrets_manifest.yml"
+)
+
+STAGED_FILES=$(git diff --cached --name-only)
+
+for pattern in "${FORBIDDEN_PATTERNS[@]}"; do
+  MATCHES=$(echo "$STAGED_FILES" | grep "^${pattern}" || true)
+  if [ -n "$MATCHES" ]; then
+    echo "ERROR: Refusing to commit secret files:"
+    echo "$MATCHES"
+    echo ""
+    echo "These files contain plaintext secrets and must never be pushed."
+    echo "Remove them from staging with: git reset HEAD <file>"
+    exit 1
+  fi
+done
