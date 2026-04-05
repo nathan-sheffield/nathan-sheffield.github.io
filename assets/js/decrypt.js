@@ -55,7 +55,7 @@ const SecretContent = (() => {
     return decryptAesGcm(key, ivHex, ciphertextHex);
   }
 
-  // --- Session cache (survives navigation, cleared on browser close) ---
+  // --- Persistent cache (survives tab close / browser restart) ---
   // Cache is versioned by manifest content so re-encrypting invalidates stale data.
   const CACHE_VERSION_KEY = "secret-cache-version";
   const ENVELOPE_CACHE_KEY = "secret-envelope-cache";
@@ -68,34 +68,34 @@ const SecretContent = (() => {
     try {
       const manifest = await getManifest();
       const version = manifest.numFiles + ":" + manifest.numEnvelopes;
-      const stored = sessionStorage.getItem(CACHE_VERSION_KEY);
+      const stored = localStorage.getItem(CACHE_VERSION_KEY);
       if (stored !== version) {
-        sessionStorage.removeItem(ENVELOPE_CACHE_KEY);
-        sessionStorage.removeItem(FILE_CACHE_KEY);
-        sessionStorage.setItem(CACHE_VERSION_KEY, version);
+        localStorage.removeItem(ENVELOPE_CACHE_KEY);
+        localStorage.removeItem(FILE_CACHE_KEY);
+        localStorage.setItem(CACHE_VERSION_KEY, version);
       }
     } catch {}
   }
 
   function getEnvelopeCache() {
-    try { return JSON.parse(sessionStorage.getItem(ENVELOPE_CACHE_KEY)) || {}; } catch { return {}; }
+    try { return JSON.parse(localStorage.getItem(ENVELOPE_CACHE_KEY)) || {}; } catch { return {}; }
   }
 
   function setEnvelopeCache(cache) {
-    sessionStorage.setItem(ENVELOPE_CACHE_KEY, JSON.stringify(cache));
+    localStorage.setItem(ENVELOPE_CACHE_KEY, JSON.stringify(cache));
   }
 
   function getFileCache() {
-    try { return JSON.parse(sessionStorage.getItem(FILE_CACHE_KEY)) || {}; } catch { return {}; }
+    try { return JSON.parse(localStorage.getItem(FILE_CACHE_KEY)) || {}; } catch { return {}; }
   }
 
   function setFileCache(cache) {
-    sessionStorage.setItem(FILE_CACHE_KEY, JSON.stringify(cache));
+    localStorage.setItem(FILE_CACHE_KEY, JSON.stringify(cache));
   }
 
   function clearSessionCache() {
-    sessionStorage.removeItem(ENVELOPE_CACHE_KEY);
-    sessionStorage.removeItem(FILE_CACHE_KEY);
+    localStorage.removeItem(ENVELOPE_CACHE_KEY);
+    localStorage.removeItem(FILE_CACHE_KEY);
   }
 
   // --- Password storage ---
@@ -138,42 +138,45 @@ const SecretContent = (() => {
   }
 
   /**
-   * Try a password against all envelopes. Returns an array of
+   * Try a password against all envelopes. Derives the key once (using the
+   * global salt from the manifest) then tries fast AES-GCM decryption against
+   * each envelope. Returns an array of
    * {envelopeIndex, entries: [{fileIndex, fileKey, metadata}]} for each
    * envelope that the password successfully decrypts.
    */
   async function tryPassword(password) {
     await checkCacheVersion();
-    // Check session cache first
     const cache = getEnvelopeCache();
-    if (cache[password]) {
+    if (cache.hasOwnProperty(password)) {
       return cache[password];
     }
 
     const manifest = await getManifest();
-    const results = [];
 
+    // One PBKDF2 derivation using the global salt
+    const key = await deriveKey(password, manifest.salt);
+
+    // Try all envelopes in parallel (AES-GCM is near-instant)
+    const attempts = [];
     for (let i = 0; i < manifest.numEnvelopes; i++) {
-      try {
-        const resp = await fetch(`/encrypted/envelopes/${i}.env`);
-        if (!resp.ok) continue;
-        const envelope = await resp.json();
-
-        const key = await deriveKey(password, envelope.salt);
-        const decrypted = await decryptAesGcm(key, envelope.iv, envelope.ciphertext);
-        const entries = JSON.parse(decrypted);
-
-        results.push({ envelopeIndex: i, entries });
-      } catch {
-        // Wrong password for this envelope — expected, continue
-      }
+      attempts.push((async () => {
+        try {
+          const resp = await fetch(`/encrypted/envelopes/${i}.env`);
+          if (!resp.ok) return null;
+          const envelope = await resp.json();
+          const decrypted = await decryptAesGcm(key, envelope.iv, envelope.ciphertext);
+          return { envelopeIndex: i, entries: JSON.parse(decrypted) };
+        } catch {
+          return null;
+        }
+      })());
     }
 
-    // Cache results (even empty — avoids re-deriving for known-bad passwords)
-    if (results.length > 0) {
-      cache[password] = results;
-      setEnvelopeCache(cache);
-    }
+    const results = (await Promise.all(attempts)).filter(r => r !== null);
+
+    // Cache results (including empty — avoids re-deriving for known-bad passwords)
+    cache[password] = results;
+    setEnvelopeCache(cache);
 
     return results;
   }
@@ -202,16 +205,18 @@ const SecretContent = (() => {
    */
   async function unlockAll() {
     const passwords = getStoredPasswords();
+
+    // Try all passwords in parallel
+    const allResults = await Promise.all(passwords.map(p => tryPassword(p).then(r => ({ password: p, results: r }))));
+
     const allEntries = [];
     const validPasswords = [];
 
-    for (const password of passwords) {
-      const results = await tryPassword(password);
+    for (const { password, results } of allResults) {
       if (results.length > 0) {
         validPasswords.push(password);
         for (const r of results) {
           for (const entry of r.entries) {
-            // Deduplicate by fileIndex
             if (!allEntries.find(e => e.fileIndex === entry.fileIndex)) {
               allEntries.push(entry);
             }

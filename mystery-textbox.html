@@ -205,15 +205,18 @@ permalink: /mystery-textbox/
         return;
       }
 
-      // Split into grouped entries and standalone pages
+      // Split into grouped entries, standalone pages, and other
       const grouped = {};
       const standalone = [];
+      const other = [];
       unlockedEntries.forEach(e => {
         if (e.metadata.groupHash) {
           if (!grouped[e.metadata.groupHash]) grouped[e.metadata.groupHash] = [];
           grouped[e.metadata.groupHash].push(e);
         } else if (e.metadata.nav_title) {
           standalone.push(e);
+        } else if (!e.metadata.feature) {
+          other.push(e);
         }
       });
 
@@ -259,6 +262,16 @@ permalink: /mystery-textbox/
         html += `<div class="unlocked-item">`;
         const href = entry.metadata.permalink || ("/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey);
         html += `<a href="${href}">${entry.metadata.nav_title || entry.metadata.title}</a>`;
+        if (entry.metadata.excerpt) {
+          html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
+        }
+        html += `</div>`;
+      }
+
+      for (const entry of other) {
+        html += `<div class="unlocked-item">`;
+        const href = entry.metadata.permalink || ("/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey);
+        html += `<a href="${href}">${entry.metadata.title}</a>`;
         if (entry.metadata.excerpt) {
           html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
         }

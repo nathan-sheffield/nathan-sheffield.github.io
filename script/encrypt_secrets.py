@@ -163,8 +163,9 @@ def main():
 
         print(f"  Encrypted: {filename} -> files/{i}.enc")
 
-    # Create key envelopes — one per password
+    # Create key envelopes — one per password, all sharing a single global salt
     envelope_manifest = []
+    global_salt = secrets.token_bytes(32)
 
     for j, entry in enumerate(manifest["passwords"]):
         password = normalize_password(entry["password"])
@@ -180,14 +181,12 @@ def main():
                 "metadata": file_metadata[filename],
             })
 
-        # Encrypt the envelope under the password
-        salt = secrets.token_bytes(32)
-        derived_key = derive_key(password, salt)
+        # Encrypt the envelope under the password (using shared global salt)
+        derived_key = derive_key(password, global_salt)
         payload = json.dumps(envelope_data).encode("utf-8")
         encrypted_envelope = encrypt_aes_gcm(derived_key, payload)
 
         envelope_out = {
-            "salt": salt.hex(),
             "iv": encrypted_envelope["iv"],
             "ciphertext": encrypted_envelope["ciphertext"],
         }
@@ -205,6 +204,7 @@ def main():
         "numEnvelopes": len(manifest["passwords"]),
         "envelopes": envelope_manifest,
         "pbkdf2Iterations": PBKDF2_ITERATIONS,
+        "salt": global_salt.hex(),
     }
     manifest_path = os.path.join(OUTPUT_DIR, "manifest.json")
     with open(manifest_path, "w") as f:

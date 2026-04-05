@@ -63,5 +63,6 @@
       "index": 19
     }
   ],
-  "pbkdf2Iterations": 600000
+  "pbkdf2Iterations": 600000,
+  "salt": "cfc24d14ce80e5c6ddea7c83649d3409b907bd3d15ef8d6421ff9c07da822b51"
 }
