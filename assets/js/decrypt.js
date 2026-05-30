@@ -61,39 +61,60 @@ const SecretContent = (() => {
   const ENVELOPE_CACHE_KEY = "secret-envelope-cache";
   const FILE_CACHE_KEY = "secret-file-cache";
 
-  let _cacheVersionChecked = false;
-  async function checkCacheVersion() {
-    if (_cacheVersionChecked) return;
-    _cacheVersionChecked = true;
-    try {
-      const manifest = await getManifest();
-      const version = manifest.numFiles + ":" + manifest.numEnvelopes;
-      const stored = localStorage.getItem(CACHE_VERSION_KEY);
-      if (stored !== version) {
-        localStorage.removeItem(ENVELOPE_CACHE_KEY);
-        localStorage.removeItem(FILE_CACHE_KEY);
-        localStorage.setItem(CACHE_VERSION_KEY, version);
-      }
-    } catch {}
+  // In-memory copies so parallel callers share one object and don't clobber
+  // each other's writes via read-modify-write on localStorage.
+  let _envelopeCache = null;
+  let _fileCache = null;
+
+  let _cacheVersionPromise = null;
+  function checkCacheVersion() {
+    if (_cacheVersionPromise) return _cacheVersionPromise;
+    _cacheVersionPromise = (async () => {
+      try {
+        const manifest = await getManifest();
+        const version = manifest.numFiles + ":" + manifest.numEnvelopes + ":" + manifest.salt;
+        const stored = localStorage.getItem(CACHE_VERSION_KEY);
+        if (stored !== version) {
+          localStorage.removeItem(ENVELOPE_CACHE_KEY);
+          localStorage.removeItem(FILE_CACHE_KEY);
+          _envelopeCache = {};
+          _fileCache = {};
+          localStorage.setItem(CACHE_VERSION_KEY, version);
+        }
+      } catch {}
+    })();
+    return _cacheVersionPromise;
   }
 
   function getEnvelopeCache() {
-    try { return JSON.parse(localStorage.getItem(ENVELOPE_CACHE_KEY)) || {}; } catch { return {}; }
+    if (_envelopeCache === null) {
+      try { _envelopeCache = JSON.parse(localStorage.getItem(ENVELOPE_CACHE_KEY)) || {}; }
+      catch { _envelopeCache = {}; }
+    }
+    return _envelopeCache;
   }
 
   function setEnvelopeCache(cache) {
-    localStorage.setItem(ENVELOPE_CACHE_KEY, JSON.stringify(cache));
+    _envelopeCache = cache;
+    try { localStorage.setItem(ENVELOPE_CACHE_KEY, JSON.stringify(cache)); } catch {}
   }
 
   function getFileCache() {
-    try { return JSON.parse(localStorage.getItem(FILE_CACHE_KEY)) || {}; } catch { return {}; }
+    if (_fileCache === null) {
+      try { _fileCache = JSON.parse(localStorage.getItem(FILE_CACHE_KEY)) || {}; }
+      catch { _fileCache = {}; }
+    }
+    return _fileCache;
   }
 
   function setFileCache(cache) {
-    localStorage.setItem(FILE_CACHE_KEY, JSON.stringify(cache));
+    _fileCache = cache;
+    try { localStorage.setItem(FILE_CACHE_KEY, JSON.stringify(cache)); } catch {}
   }
 
   function clearSessionCache() {
+    _envelopeCache = {};
+    _fileCache = {};
     localStorage.removeItem(ENVELOPE_CACHE_KEY);
     localStorage.removeItem(FILE_CACHE_KEY);
   }
@@ -262,17 +283,40 @@ const SecretContent = (() => {
         groups[e.metadata.groupHash] = {
           name: e.metadata.group,
           navOrder: e.metadata.nav_order || 999,
+          navAfter: e.metadata.nav_after || "",
         };
       }
     });
+    const findStaticLink = (text) => {
+      const links = trigger.querySelectorAll("a.page-link:not(.secret-nav-link)");
+      for (const l of links) if (l.textContent.trim() === text) return l;
+      return null;
+    };
+    const makeLogoImg = () => {
+      const img = document.createElement("img");
+      img.src = "/assets/logos/phi-logo.svg";
+      img.style.width = "auto";
+      img.style.height = "20px";
+      return img;
+    };
+    const setLinkLabel = (link, text, active) => {
+      if (active) {
+        link.style.fontWeight = "bold";
+        link.append(" ", makeLogoImg(), " " + text + " ", makeLogoImg(), " ");
+      } else {
+        link.textContent = text;
+      }
+    };
     Object.entries(groups).sort((a, b) => a[1].navOrder - b[1].navOrder).forEach(([hash, info]) => {
       const link = document.createElement("a");
       link.className = "page-link secret-nav-link";
       link.href = "/g/#" + hash;
-      link.textContent = info.name.charAt(0).toUpperCase() + info.name.slice(1);
+      const active = window.location.pathname === "/g/" && window.location.hash === "#" + hash;
+      setLinkLabel(link, info.name, active);
       link.style.color = "#bb86fc";
-      if (window.location.pathname === "/g/" && window.location.hash === "#" + hash) link.style.fontWeight = "bold";
-      trigger.appendChild(link);
+      const anchor = info.navAfter ? findStaticLink(info.navAfter) : null;
+      if (anchor) anchor.after(link);
+      else trigger.appendChild(link);
     });
 
     // Add standalone page links
@@ -282,11 +326,65 @@ const SecretContent = (() => {
         const link = document.createElement("a");
         link.className = "page-link secret-nav-link";
         link.href = entry.metadata.permalink || ("/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey);
-        link.textContent = entry.metadata.nav_title;
+        const active = entry.metadata.permalink && window.location.pathname === entry.metadata.permalink;
+        setLinkLabel(link, entry.metadata.nav_title, active);
         link.style.color = "#bb86fc";
-        if (entry.metadata.permalink && window.location.pathname === entry.metadata.permalink) link.style.fontWeight = "bold";
         trigger.appendChild(link);
       });
+  }
+
+  /**
+   * Returns a marked extension that renders kramdown-style footnotes
+   * ([^id] references and [^id]: definitions). The public Jekyll site gets
+   * these from kramdown; client-rendered secret content needs this since
+   * stock marked has no footnote support.
+   */
+  function footnoteExtension() {
+    let defs = {};
+    let order = [];
+    return {
+      hooks: {
+        preprocess(md) { defs = {}; order = []; return md; },
+        postprocess(html) {
+          if (!order.length) return html;
+          let out = html + '<hr class="footnotes-sep"><section class="footnotes"><ol>';
+          order.forEach(id => {
+            const inner = marked.parseInline(defs[id] || "");
+            out += `<li id="fn-${id}" class="footnote-item">${inner} <a href="#fnref-${id}" class="footnote-backref">↩</a></li>`;
+          });
+          return out + "</ol></section>";
+        },
+      },
+      extensions: [
+        {
+          name: "footnoteDef",
+          level: "block",
+          start(src) { const m = /^\[\^[^\]\n]+\]:/m.exec(src); return m ? m.index : undefined; },
+          tokenizer(src) {
+            const m = /^\[\^([^\]\n]+)\]:[ \t]*([^\n]*)\n?/.exec(src);
+            if (m) {
+              defs[m[1]] = m[2].trim();
+              return { type: "footnoteDef", raw: m[0] };
+            }
+          },
+          renderer() { return ""; },
+        },
+        {
+          name: "footnoteRef",
+          level: "inline",
+          start(src) { const i = src.indexOf("[^"); return i < 0 ? undefined : i; },
+          tokenizer(src) {
+            const m = /^\[\^([^\]\n]+)\]/.exec(src);
+            if (m) return { type: "footnoteRef", raw: m[0], id: m[1] };
+          },
+          renderer(token) {
+            if (order.indexOf(token.id) === -1) order.push(token.id);
+            const n = order.indexOf(token.id) + 1;
+            return `<sup class="footnote-ref" id="fnref-${token.id}"><a href="#fn-${token.id}">[${n}]</a></sup>`;
+          },
+        },
+      ],
+    };
   }
 
   // --- Public API ---
@@ -302,5 +400,6 @@ const SecretContent = (() => {
     getManifest,
     refreshNav,
     normalizePassword,
+    footnoteExtension,
   };
 })();

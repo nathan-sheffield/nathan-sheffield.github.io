@@ -1,21 +1,25 @@
 ---
 title:  "The Structure of In-Place Space-Bounded Computation"
-link: "/assets/papers/inplace.pdf"
+link: "/assets/papers/inplaceFL.pdf"
 linktext: "Link to the paper"
 order: 9
 conference: "preprint"
 authors: "with James Cook, Surendra Ghentiyala, Ian Mertz, and Ted Pyne"
-notes: "Ooh I could tell you lots of stories about the history of these results (like finding an awkward bug in the oracle construction after posting to ECCC and needing to fix oops). But maybe the note I'll leave here is just the question: can we do in-place matrix-vector multiplication without catalytic space? Seems totally plausible that there might be a way to do this. e.g. maybe you could imagine somehow using parts of the input as catalytic space? Or doing something totally different from our current approach. idk I think it's a good problem."
+notes: "Ooh I could tell you lots of stories about the history of these results. But maybe the note I'll leave here is just the question: can we do in-place matrix-vector multiplication without catalytic space? Seems totally plausible that there might be a way to do this. e.g. maybe you could imagine somehow using parts of the input as catalytic space? Or doing something totally different from our current approach. idk I think it's a good problem."
 fable: "
 Now that the dance contest is actually happening, Theo's role as head judge is supposed to be super easy.
 He doesn't even have to do any actual judging --- his two subordinate judges each decide on scores for a contestant, and all Theo has to do is multiply them together and reveal that as the final result.
-But he wasn't prepared for the level of precision his two sub-judges would offer: 
-\"I think this performance was barely deserving of a 1.2151225152118519213811451849311420251295225251521185185149147208919\" the first whispered to him. And then, moments later \"In my opinion, this was a solid 9.72151919221201511691452051212141208114208519531852023151849191147512615154\".
+But he wasn't prepared for the level of precision<sup>†</sup> his two sub-judges would offer: 
+\"I think this performance was barely deserving of an 0.06858983291019139356835295528989654831042633533615527684038529468441\" the first whispered to him. And then, moments later \"In my opinion, this was a solid 1.6184614599566349621108484500249495664751846906007595752276484121610\".
 Jotting these numbers down on his scorecard, Theo realizes with alarm that he's almost completely filled all the available space.
 But he's going to have to hold this card up to reveal the result!
 He can erase these numbers and write their product instead --- except that he didn't think to bring any scratch paper, so he doesn't have anywhere else to record them while he works out the multiplication.
 Is there any fancy way to calculate that lets him erase parts of the numbers as he goes and free up space for their product?
+\n
+\n
+† **Weirdly precise --- why, if one didn't know any better, one might be forgiven for assuming they were trying to encode some hidden message or something...**
 "
+
 ---
 
 In the standard model of computing multi-output functions in logspace ($\mathsf{FL}$), we are given a read-only tape holding $x$ and a logarithmic length worktape, and must print $f(x)$ to a dedicated write-only tape. However, there has been extensive work (both in theory and in practice) on in-place algorithms for natural problems, where one must transform $x$ into $f(x)$ in-place on a single read-write tape with only $O(\log n)$ additional workspace. We say $f\in \mathsf{inplaceFL}$ if $f$ can be computed in this model.

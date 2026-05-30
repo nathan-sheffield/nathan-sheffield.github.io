@@ -157,6 +157,7 @@ def main():
             "form_entry_id": metadata.get("form_entry_id", ""),
             "nav_title": metadata.get("nav_title", ""),
             "nav_order": metadata.get("nav_order", 999),
+            "nav_after": metadata.get("nav_after", ""),
             "dialogue_response": metadata.get("dialogue_response", ""),
             "dialogue_style": metadata.get("dialogue_style", ""),
         }

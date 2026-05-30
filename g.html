@@ -46,6 +46,26 @@ permalink: /g/
     color: #888;
     font-size: 0.85em;
   }
+  .post-list li {
+    text-align: right;
+  }
+  .footnote-ref a {
+    text-decoration: none;
+    color: #bb86fc;
+  }
+  .footnotes-sep {
+    margin-top: 2.5em;
+    border: none;
+    border-top: 1px solid #333;
+  }
+  .footnotes {
+    font-size: 0.88em;
+    color: #aaa;
+  }
+  .footnote-backref {
+    text-decoration: none;
+    margin-left: 4px;
+  }
   .puzzle-locked {
     display: inline-block;
     padding: 8px 16px;
@@ -76,6 +96,7 @@ permalink: /g/
     return typeof token === 'string' ? token : (token.raw || token.text || '');
   };
   marked.use({ renderer: renderer });
+  marked.use(SecretContent.footnoteExtension());
 
   let groupHash = window.location.hash.substring(1);
 

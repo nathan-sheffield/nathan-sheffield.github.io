@@ -106,6 +106,54 @@ permalink: /mystery-textbox/
     font-size: 0.85em;
     color: #888;
   }
+  .unlocked-item.letter-item {
+    position: relative;
+    padding: 12px 14px 12px 52px;
+    margin: 8px 0;
+    background: linear-gradient(135deg, rgba(187,134,252,0.04) 0%, rgba(124,77,255,0.08) 100%);
+    border: 1px solid #3a2f4a;
+    border-left: 3px solid #7c4dff;
+    border-radius: 4px;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .unlocked-item.letter-item::before {
+    content: "✉";
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    font-size: 1.6em;
+    color: #bb86fc;
+    opacity: 0.85;
+    line-height: 1;
+  }
+  .unlocked-item.letter-item a {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 1.05em;
+  }
+  .unlocked-item.letter-item .letter-date {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 1px 7px;
+    font-size: 0.72em;
+    color: #aaa;
+    border: 1px dashed #6a5a80;
+    border-radius: 2px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    vertical-align: 2px;
+  }
+  .unlocked-item.letter-item .item-meta {
+    font-style: italic;
+    color: #998aa8;
+  }
+  .unlocked-item.new-unlock {
+    animation: new-unlock-bg 2.5s ease-out forwards;
+  }
+  @keyframes new-unlock-bg {
+    0%, 40% { background: rgba(187,134,252,0.14); }
+    100% { background: transparent; }
+  }
   #stored-passwords {
     margin-top: 2em;
     font-size: 0.9em;
@@ -128,7 +176,7 @@ permalink: /mystery-textbox/
 </style>
 
 <div class="mystery-form">
-  <input type="text" id="mystery-password" placeholder="Have you any secrets to offer me?" autocomplete="off"
+  <input type="text" id="mystery-password" placeholder="" autocomplete="off"
          onkeydown="if(event.key==='Enter')document.getElementById('mystery-submit').click()">
   <div class="mystery-buttons">
     <button id="mystery-submit" onclick="handleSubmit()">Check</button>
@@ -173,18 +221,13 @@ permalink: /mystery-textbox/
         // Check if any newly unlocked entry is a dialogue response
         const dialogue = result.entries.find(e => e.metadata.dialogue_response);
         if (dialogue) {
-          const style = dialogue.metadata.dialogue_style || "error";
-          const resp = dialogue.metadata.dialogue_response;
-          if (style === "success") {
-            setStatus(`${resp} [Unlocked ${result.entries.length} item(s).]`, "success");
-          } else {
-            setStatus(resp, style);
-          }
+          setStatus(dialogue.metadata.dialogue_response, dialogue.metadata.dialogue_style || "error");
         } else {
-          setStatus(`Oh, a most sumptuous secret! Perhaps I can offer you something in return... [Unlocked ${result.entries.length} item(s).]`, "success");
+          setStatus("Oh, a most sumptuous secret! Perhaps I can offer you something in return...", "success");
         }
         input.value = "";
-        await refreshUnlocked();
+        const newIds = new Set(result.entries.map(e => e.fileIndex));
+        await refreshUnlocked(newIds);
         await SecretContent.refreshNav();
         await checkSendFeature();
       } else {
@@ -195,9 +238,10 @@ permalink: /mystery-textbox/
     }
   }
 
-  async function refreshUnlocked() {
+  async function refreshUnlocked(newIds = new Set()) {
     try {
       const { unlockedEntries, passwords } = await SecretContent.unlockAll();
+      const newCls = (id) => newIds.has(id) ? " new-unlock" : "";
 
       if (unlockedEntries.length === 0) {
         contentEl.innerHTML = "";
@@ -221,14 +265,14 @@ permalink: /mystery-textbox/
       });
 
       let html = '<div class="unlocked-list">';
-      html += `<h3>Unlocked Content</h3>`;
+      html += `<h3>Secrets</h3>`;
 
       // Check for send-button feature
       const sendFeature = unlockedEntries.find(e => e.metadata.feature === "send-button");
       if (sendFeature) {
         const href = "/secret/#file=" + sendFeature.fileIndex + "&key=" + sendFeature.fileKey;
-        html += `<div class="unlocked-item">`;
-        html += `<a href="${href}">Bug Nathan</a>`;
+        html += `<div class="unlocked-item${newCls(sendFeature.fileIndex)}">`;
+        html += `<a href="${href}">Troll-free call</a>`;
         html += `<br><span class="item-meta">${sendFeature.metadata.excerpt || "Send anonymous messages to Nathan from the textbox."}</span>`;
         html += `</div>`;
       }
@@ -237,53 +281,53 @@ permalink: /mystery-textbox/
       const rewards = unlockedEntries.filter(e => e.metadata.feature === "dialogue" && e.metadata.excerpt);
       for (const entry of rewards) {
         const href = "/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey;
-        html += `<div class="unlocked-item">`;
+        html += `<div class="unlocked-item${newCls(entry.fileIndex)}">`;
         html += `<a href="${href}">${entry.metadata.title}</a>`;
         html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
         html += `</div>`;
       }
 
       for (const [hash, entries] of Object.entries(grouped)) {
-        const groupName = entries[0].metadata.group || "???";
-        const label = groupName.charAt(0).toUpperCase() + groupName.slice(1);
-        const count = entries.length;
-        html += `<div class="unlocked-item">`;
-        html += `<a href="/g/#${hash}">${label}</a>`;
-        html += ` <span class="item-meta">${count} section${count > 1 ? "s" : ""} unlocked</span>`;
-        // Use excerpt from the hub entry if available
+        const label = entries[0].metadata.group || "???";
+        const groupHasNew = entries.some(e => newIds.has(e.fileIndex));
         const hub = entries.find(e => e.metadata.is_hub);
+        html += `<div class="unlocked-item${groupHasNew ? " new-unlock" : ""}">`;
+        html += `<a href="/g/#${hash}">${label}</a>`;
         if (hub && hub.metadata.excerpt) {
           html += `<br><span class="item-meta">${hub.metadata.excerpt}</span>`;
         }
         html += `</div>`;
       }
 
-      for (const entry of standalone) {
-        html += `<div class="unlocked-item">`;
+      const renderEntry = (entry, displayTitle) => {
         const href = entry.metadata.permalink || ("/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey);
-        html += `<a href="${href}">${entry.metadata.nav_title || entry.metadata.title}</a>`;
-        if (entry.metadata.excerpt) {
-          html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
+        const isLetter = entry.metadata.category === "letter";
+        const cls = isLetter ? "unlocked-item letter-item" : "unlocked-item";
+        let out = `<div class="${cls}${newCls(entry.fileIndex)}">`;
+        out += `<a href="${href}">${displayTitle}</a>`;
+        if (isLetter && entry.metadata.date) {
+          out += ` <span class="letter-date">${entry.metadata.date}</span>`;
         }
-        html += `</div>`;
+        if (entry.metadata.excerpt) {
+          out += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
+        }
+        out += `</div>`;
+        return out;
+      };
+
+      for (const entry of standalone) {
+        html += renderEntry(entry, entry.metadata.nav_title || entry.metadata.title);
       }
 
       for (const entry of other) {
-        html += `<div class="unlocked-item">`;
-        const href = entry.metadata.permalink || ("/secret/#file=" + entry.fileIndex + "&key=" + entry.fileKey);
-        html += `<a href="${href}">${entry.metadata.title}</a>`;
-        if (entry.metadata.excerpt) {
-          html += `<br><span class="item-meta">${entry.metadata.excerpt}</span>`;
-        }
-        html += `</div>`;
+        html += renderEntry(entry, entry.metadata.title);
       }
 
       html += "</div>";
       contentEl.innerHTML = html;
 
       // Show stored passwords with remove buttons
-      let pwHtml = `<p>Known secrets: ${passwords.length}`;
-      pwHtml += ` <button onclick="forgetAll()">forget all</button></p>`;
+      let pwHtml = `<p><button onclick="forgetAll()">forget all secrets</button></p>`;
       storedEl.innerHTML = pwHtml;
 
     } catch (err) {
