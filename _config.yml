@@ -37,6 +37,7 @@ collections:
 # Exclude from processing.
 exclude:
   - script/
+  - secrets_manifest.yml
   - secrets_manifest.yml.example
   - message-for-claude.md
   - node_modules/
