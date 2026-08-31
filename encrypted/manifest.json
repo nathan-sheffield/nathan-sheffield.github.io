@@ -67,5 +67,5 @@
     }
   ],
   "pbkdf2Iterations": 600000,
-  "salt": "adc7f0b203860bfce30dc24222d94ff42b56891dd1f6b6c1eab14890d3b1105e"
+  "salt": "e0973fd7b9bcae605f2b3486df2e11822819ae8cc1ea2252ffb3cf7e1cf131ae"
 }
