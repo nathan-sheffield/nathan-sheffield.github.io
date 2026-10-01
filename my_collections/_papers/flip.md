@@ -3,9 +3,9 @@ title:  "Graphs with the Same Edge Count in Each Neighbourhood"
 link: "/assets/papers/flip.pdf"
 linktext: "Link to the paper"
 order: 7
-conference: "preprint"
+conference: ""
 authors: "with Zoe Xi"
-notes: "Zoe and I started this project together at Duluth. Neither of us are super pro additive combinatorics people, so if you are maybe you'll be able to see how to make the story work for non-abelian Cayley graphs. Ekene Ezeunala has had some ideas, but we're not quite there yet. I expect there's a simple story."
+notes: "Zoe and I started this project together at Duluth. Neither of us are super pro additive combinatorics people, so if you are maybe you'll be able to see how to make the story work for non-abelian Cayley graphs. I expect there's a simple story."
 fable: "Unable to find conclusive evidence of Theo's misdeeds, the king has agreed to set him free --- under one condition: he must help the king quell the social unrest that's broken out among the giant birds of the kingdom's east cliffs. You see, every year roc society holds a popularity contest, finding the member with the most friends and electing them as the 'roc star' of the nest. This year, however, it appears that **every single roc has exactly the same number of friends**. 
 Since the count, the nest has been in a state of ruffled feathers bordering on loon-acy --- some suspect the results are due to ill eagle behaviour, while others are desparately trying to find another way to carrion with the contest.\\
 

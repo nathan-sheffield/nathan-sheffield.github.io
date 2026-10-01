@@ -4,7 +4,7 @@ link: "/assets/papers/ham.pdf"
 linktext: "Link to the paper"
 order: 3
 authors: "with Brian Liu and Alek Westover" 
-conference: "preprint"
+conference: ""
 notes: "This one came out of a problem suggested in Erik Demaine's ''Fun with Hardness'' class. I actually initially thought we weren't going to get tight answers, but then as I wrote it up figured out how to close the gaps --- this is notable as my only experience thus far having something end up _more_ clean than expected when I wrote it down :)"
 fable: "'Out of sight, out of mind', goes the old adage. Or maybe it's 'familiarity breeds contempt'? Never has Theo Rem been so aware of the fine line between these maxims as now, leading the king's diplomatic party through the burrows of the pig-gnomes.\\
 

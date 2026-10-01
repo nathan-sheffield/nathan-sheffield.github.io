@@ -3,7 +3,7 @@ title:  "The Structure of In-Place Space-Bounded Computation"
 link: "/assets/papers/inplaceFL.pdf"
 linktext: "Link to the paper"
 order: 9
-conference: "preprint"
+conference: ""
 authors: "with James Cook, Surendra Ghentiyala, Ian Mertz, and Ted Pyne"
 notes: "Ooh I could tell you lots of stories about the history of these results. But maybe the note I'll leave here is just the question: can we do in-place matrix-vector multiplication without catalytic space? Seems totally plausible that there might be a way to do this. e.g. maybe you could imagine somehow using parts of the input as catalytic space? Or doing something totally different from our current approach. idk I think it's a good problem."
 fable: "

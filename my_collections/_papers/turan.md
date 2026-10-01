@@ -3,7 +3,7 @@ title:  "New Bounds for Induced Turán Problems"
 link: "/assets/papers/induced-turan.pdf"
 linktext: "Link to the paper"
 order: 5
-conference: "preprint"
+conference: ""
 notes: "This work was done at the Duluth REU program. I think I believe this conjecture is more likely than not false, but I have no idea how to show it --- there's a couple potential counterexamples noted at the end of the paper, but it seems unlikely that it's tractable to actually compute extremal numbers for those guys. It's actually kinda crazy how little we know about extremal numbers in general; maybe I will blog post about this in the future."
 fable: "Fact 1: The king has asked Theo to send invitations to some of the kingdom's nobility for a feast at the palace.\\
 

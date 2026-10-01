@@ -3,7 +3,7 @@ title:  "The Limits of Black-Box Reductions for All-Pairs Detection"
 link: "/assets/papers/allpairs.pdf"
 linktext: "Link to the paper"
 order: 8
-conference: "preprint"
+conference: "SODA 27"
 authors: "with Virginia Vassilevska Williams and Zoe Xi"
 notes: "This was a fun project, but in retrospect I maybe ended up spending much more time on some gross quantitative details (most of which didn't even end up making it into this version) than I did thinking about the simple philosophy stuff that ended up being imo the most important message here. So it goes."
 fable: "Now that he's footloose and fancy-free, Theo has decided that there's no better way to get back into the groove high society than by judging the upcoming royal dance contest. (After resolving that last incident he's got to keep strutting his stuff as an expert contest judge, right?) But things seem already to have gotten off on the wrong foot, even though he's just trying to come up with the list of competitors. 
